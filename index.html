@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -81,53 +81,26 @@
             margin-top: 18px;
             margin-bottom: 10px;
             font-weight: bold;
+            background: linear-gradient(90deg, #e0ffe7 0%, #f5f5f5 100%);
+            border-left: 7px solid #0ee031;
+            padding: 12px 18px 10px 18px;
+            border-radius: 0 18px 18px 0;
+            box-shadow: 0 2px 10px rgba(14, 224, 49, 0.07);
+            display: inline-block;
         }
 
-        li a {
-            color: #1e88e5;
-            text-decoration: none;
-        }
-
-        li a:hover {
-            text-decoration: underline;
-        }
-
-        .social-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 18px;
-            margin: 18px 0 28px 0;
-        }
-
-        .social-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 52px;
-            height: 52px;
-            border-radius: 50%;
-            background: #fff;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.10);
-            transition: transform 0.15s, box-shadow 0.15s;
-            font-size: 1.2em;
-            text-decoration: none;
-        }
-
-        .social-btn:hover {
-            transform: scale(1.08);
-            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.18);
-        }
-
-        .social-btn.facebook svg {
-            color: #1877f2;
-        }
-
-        .social-btn.instagram svg {
-            color: #E4405F;
-        }
-
-        .social-btn.tiktok svg {
-            color: #000;
+        h4 {
+            background: linear-gradient(90deg, #e0ffe7 0%, #f5f5f5 100%);
+            border-left: 7px solid #0ee031;
+            padding: 12px 18px 10px 18px;
+            border-radius: 0 18px 18px 0;
+            box-shadow: 0 2px 10px rgba(14, 224, 49, 0.07);
+            display: inline-block;
+            color: #246b2e;
+            font-size: 1.5em;
+            margin-top: 18px;
+            margin-bottom: 10px;
+            font-weight: bold;
         }
 
         @media (max-width: 600px) {
@@ -279,6 +252,24 @@
 
             h5 {
                 font-size: 1.25em;
+                padding: 7px 6px 7px 8px;
+                margin-top: 12px;
+                margin-bottom: 8px;
+                border-radius: 0 8px 8px 0;
+                border-left-width: 5px;
+                box-shadow: 0 1px 5px rgba(14, 224, 49, 0.07);
+                display: block;
+            }
+
+            h4 {
+                font-size: 1.25em;
+                padding: 7px 6px 7px 8px;
+                margin-top: 12px;
+                margin-bottom: 8px;
+                border-radius: 0 8px 8px 0;
+                border-left-width: 5px;
+                box-shadow: 0 1px 5px rgba(14, 224, 49, 0.07);
+                display: block;
             }
         }
 
@@ -312,6 +303,62 @@
 
             .separador-actividades span {
                 font-size: 1.1em;
+            }
+        }
+
+        .cuadro-dorado.redes {
+            width: 80%;
+            max-width: 700px;
+            margin: 28px auto 28px auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 24px 10px;
+            background-color: #0ee031;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(78, 84, 200, 0.10);
+        }
+
+        .cuadro-dorado.redes .social-buttons {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .cuadro-dorado.redes .social-btn {
+            width: 100px;
+            height: 100px;
+            font-size: 2.7em;
+        }
+
+        .cuadro-dorado.redes .social-btn svg {
+            width: 64px;
+            height: 64px;
+        }
+
+        @media (max-width: 600px) {
+            .cuadro-dorado.redes {
+                width: 100%;
+                max-width: 100vw;
+                padding: 12px 2px;
+                border-radius: 8px;
+            }
+
+            .cuadro-dorado.redes .social-buttons {
+                gap: 16px;
+            }
+
+            .cuadro-dorado.redes .social-btn {
+                width: 64px;
+                height: 64px;
+                font-size: 1.7em;
+            }
+
+            .cuadro-dorado.redes .social-btn svg {
+                width: 40px;
+                height: 40px;
             }
         }
     </style>
@@ -432,10 +479,6 @@
     </div>
 
 
-    <div class="cuadro-dorado"
-        style="width:90%;max-width:700px;margin:32px auto 24px auto;padding:32px 10px;justify-content:center;align-items:center;display:flex;">
-    </div>
-
     <h5>¿Cómo puedes ayudar?</h5>
     <p>Si deseas unirte a la Plataforma Departamental de Prevención de Embarazos en Adolescentes y Jóvenes del Beni,
         puedes ponerte en contacto con nosotros a través de nuestras redes sociales o nuestro sitio web.</p>
@@ -455,35 +498,20 @@
     <p>Siguenos en nuestras diferentes redes sociales para mantenerte informado acerca de las diferentes actividades
         que realizamos para luchar contra esta problematica social:</p>
 
-    <div class="cuadro-dorado"
+    <div class="cuadro-dorado redes"
         style="width:90%;max-width:700px;margin:24px auto 24px auto;display:flex;justify-content:center;align-items:center;">
         <div class="social-buttons" style="justify-content:center;width:100%;">
             <a href="https://www.facebook.com/profile.php?id=61552371105965&mibextid=ZbWKwL" class="social-btn facebook"
                 target="_blank" title="Facebook">
-                <svg viewBox="0 0 32 32" width="28" height="28" fill="currentColor">
-                    <circle cx="16" cy="16" r="16" fill="#1877f2" />
-                    <path
-                        d="M22.675 16.089h-3.197v10.911h-4.2V16.089h-2.1v-3.622h2.1v-2.356c0-2.07 1.23-3.211 3.116-3.211.902 0 1.845.162 1.845.162v2.029h-1.04c-1.025 0-1.345.637-1.345 1.29v1.086h2.287l-.366 3.622z"
-                        fill="#fff" />
-                </svg>
+                <img src="img/facebook.jpeg" alt="Facebook" style="width:64px;height:64px;object-fit:contain;" />
             </a>
             <a href="https://www.instagram.com/pdpeaj_beni?igsh=bTJxcTA2YWljcXFj" class="social-btn instagram"
                 target="_blank" title="Instagram">
-                <svg viewBox="0 0 32 32" width="28" height="28" fill="currentColor">
-                    <circle cx="16" cy="16" r="16" fill="#E4405F" />
-                    <path
-                        d="M16 10.8a5.2 5.2 0 1 0 0 10.4 5.2 5.2 0 0 0 0-10.4zm0 8.6a3.4 3.4 0 1 1 0-6.8 3.4 3.4 0 0 1 0 6.8zm6.4-8.7a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0zm3.4 1.2c-.1-2.1-.6-3.9-2.1-5.4-1.5-1.5-3.3-2-5.4-2.1-2.1-.1-8.4-.1-10.5 0-2.1.1-3.9.6-5.4 2.1-1.5 1.5-2 3.3-2.1 5.4-.1 2.1-.1 8.4 0 10.5.1 2.1.6 3.9 2.1 5.4 1.5 1.5 3.3 2 5.4 2.1 2.1.1 8.4.1 10.5 0 2.1-.1 3.9-.6 5.4-2.1 1.5-1.5 2-3.3 2.1-5.4.1-2.1.1-8.4 0-10.5zm-2.2 12.7c-.4 1-1.1 1.7-2.1 2.1-1.5.6-5.1.5-6.1.5s-4.6.1-6.1-.5c-1-.4-1.7-1.1-2.1-2.1-.6-1.5-.5-5.1-.5-6.1s-.1-4.6.5-6.1c.4-1 1.1-1.7 2.1-2.1 1.5-.6 5.1-.5 6.1-.5s4.6-.1 6.1.5c1 .4 1.7 1.1 2.1 2.1.6 1.5.5 5.1.5 6.1s.1 4.6-.5 6.1z"
-                        fill="#fff" />
-                </svg>
+                <img src="img/instagram.jpg" alt="Instagram" style="width:64px;height:64px;object-fit:contain;" />
             </a>
             <a href="https://www.tiktok.com/@pl.dptal.beni?_r=1&_d=dgiagblm5bm3hd&sec_uid=MS4wLjABAAAAZdTgxw7TZwEqWx3KqQ1Sodz-Nl71YGcbHWpO52mb2X5Hdh6-SAh9C8Zs-qRU1REP&share_author_id=7444698045256565815&sharer_language=es&source=h5_m&u_code=db831d8a2jk4a7&timestamp=1747515529&user_id=6801283179456119813&sec_user_id=MS4wLjABAAAAxcaST7xaQBgL-wuI9lI_yhuepvKbOU_K3oEBgkByVudlDsYkgIvMpXXbbTltqxyD&utm_source=copy&utm_campaign=client_share&utm_medium=android&share_iid=7505198472946206469&share_link_id=2f1249f4-f25a-4e74-bca8-99a491ed450f&share_app_id=1233&ugbiz_name=ACCOUNT&ug_btm=b7360%2Cb5836&social_share_type=5&enable_checksum=1"
                 class="social-btn tiktok" target="_blank" title="TikTok">
-                <svg viewBox="0 0 32 32" width="28" height="28" fill="currentColor">
-                    <circle cx="16" cy="16" r="16" fill="#000" />
-                    <path
-                        d="M22.7 13.2c-1.2 0-2.2-.4-3-1.1v6.1c0 2.2-1.8 4-4 4s-4-1.8-4-4 1.8-4 4-4c.2 0 .4 0 .6.1v2.1c-.2-.1-.4-.1-.6-.1-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2v-9.1h2c.1 1.1.9 2 2 2v2z"
-                        fill="#fff" />
-                </svg>
+                <img src="img/tik tok.jpeg" alt="TikTok" style="width:64px;height:64px;object-fit:contain;" />
             </a>
         </div>
     </div>
