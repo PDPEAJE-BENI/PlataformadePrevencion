@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDPEAJ-BENI</title>
+    <style>
+        body {
+            background: #f5f5f5;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0 24px 0 24px;
+        }
+
+        .logo {
+            display: block;
+            margin: 32px auto 24px auto;
+            max-width: 350px;
+            width: 90vw;
+            height: auto;
+            border-radius: 18px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.13);
+            transition: transform 0.2s;
+        }
+
+        .logo:hover {
+            transform: scale(1.03);
+        }
+
+        img {
+            max-width: 95vw;
+            height: auto;
+            border-radius: 14px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.10);
+            margin: 18px auto;
+            display: block;
+        }
+
+        h1 {
+            text-align: center;
+            color: #f5099a;
+            margin-top: 32px;
+        }
+
+        h2,
+        h3,
+        h4,
+        h5 {
+            color: #246b2e;
+            font-size: 1.35em;
+            font-weight: bold;
+        }
+
+        h2 {
+            background: linear-gradient(90deg, #e0ffe7 0%, #f5f5f5 100%);
+            border-left: 7px solid #0ee031;
+            padding: 12px 18px 10px 18px;
+            margin-top: 38px;
+            margin-bottom: 18px;
+            border-radius: 0 18px 18px 0;
+            box-shadow: 0 2px 10px rgba(14, 224, 49, 0.07);
+            display: inline-block;
+        }
+
+        h2:first-of-type {
+            margin-top: 28px;
+        }
+
+        h4,
+        h3 {
+            color: #246b2e;
+            font-size: 1.5em;
+            margin-top: 18px;
+            margin-bottom: 10px;
+        }
+
+        h5 {
+            color: #246b2e;
+            font-size: 2em;
+            margin-top: 18px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        li a {
+            color: #1e88e5;
+            text-decoration: none;
+        }
+
+        li a:hover {
+            text-decoration: underline;
+        }
+
+        .social-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 18px;
+            margin: 18px 0 28px 0;
+        }
+
+        .social-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.10);
+            transition: transform 0.15s, box-shadow 0.15s;
+            font-size: 1.2em;
+            text-decoration: none;
+        }
+
+        .social-btn:hover {
+            transform: scale(1.08);
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.18);
+        }
+
+        .social-btn.facebook svg {
+            color: #1877f2;
+        }
+
+        .social-btn.instagram svg {
+            color: #E4405F;
+        }
+
+        .social-btn.tiktok svg {
+            color: #000;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 0 4px 0 4px;
+            }
+
+            h1 {
+                font-size: 1.1em;
+                margin-top: 12px;
+            }
+
+            h2,
+            h3,
+            h4,
+            h5 {
+                font-size: 1.13em;
+                font-weight: bold;
+                margin-top: 10px;
+                margin-bottom: 6px;
+            }
+
+            h2 {
+                font-size: 1.13em;
+                padding: 7px 6px 7px 8px;
+                margin-top: 18px;
+                margin-bottom: 10px;
+                border-radius: 0 8px 8px 0;
+                border-left-width: 5px;
+                box-shadow: 0 1px 5px rgba(14, 224, 49, 0.07);
+                display: block;
+            }
+
+            h4,
+            h3 {
+                color: #246b2e;
+                font-size: 1.5em;
+                margin-top: 28px;
+                margin-bottom: 20px;
+            }
+
+            h5 {
+                color: rgb(19, 70, 12);
+                font-size: 2.5em;
+                margin-top: 18px;
+                margin-bottom: 10px;
+            }
+
+            .logo {
+                max-width: 99vw;
+                margin: 10px auto 10px auto;
+                border-radius: 10px;
+            }
+
+            img {
+                max-width: 99vw;
+                border-radius: 8px;
+                margin: 8px auto;
+            }
+
+            p,
+            li {
+                font-size: 0.98em;
+            }
+
+            p {
+                margin-bottom: 10px;
+            }
+
+            .social-buttons {
+                gap: 7px;
+                margin: 10px 0 14px 0;
+            }
+
+            .social-btn {
+                width: 38px;
+                height: 38px;
+                font-size: 0.95em;
+            }
+
+            .cuadro-dorado {
+                width: 100%;
+                max-width: 100vw;
+                margin: 0 0 14px 0;
+                padding: 8px 4px;
+                border-radius: 6px;
+            }
+
+            .cuadro-dorado h4,
+            .cuadro-dorado h5 {
+                font-size: 1em;
+                margin: 0 0 4px 0;
+            }
+
+            .separador-actividades {
+                max-width: 99vw;
+                padding: 8px 0;
+                margin: 14px auto 10px auto;
+                border-radius: 8px;
+            }
+
+            .separador-actividades span {
+                font-size: 1em;
+            }
+        }
+
+        .separador-ancho {
+            width: 60%;
+            max-width: 60vw;
+            height: 60px;
+            margin: 40px 0 30px 0;
+            background-color: rgb(0, 74, 171);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding-left: 40px;
+            box-shadow: 0 2px 8px rgba(78, 84, 200, 0.10);
+        }
+
+        .separador-ancho span {
+            color: #ff0077fd;
+            font-size: 1.2em;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .cuadro-dorado {
+            width: 60%;
+            max-width: 500px;
+            margin: 0 0 20px 0;
+            background-color: #0ee031;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 14px 18px;
+            box-shadow: 0 2px 8px rgba(78, 84, 200, 0.10);
+        }
+
+        @media (max-width: 600px) {
+            .cuadro-dorado {
+                width: 100%;
+                max-width: 100vw;
+                margin: 0 0 14px 0;
+                padding: 8px 4px;
+                border-radius: 6px;
+            }
+
+            h5 {
+                font-size: 1.25em;
+            }
+        }
+
+        .separador-actividades {
+            width: 100%;
+            max-width: 700px;
+            margin: 40px auto 36px auto;
+            background: #0ee031;
+            border-radius: 14px;
+            box-shadow: 0 2px 12px rgba(0, 74, 171, 0.10);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 18px 0;
+        }
+
+        .separador-actividades span {
+            color: #fff;
+            font-size: 1.7em;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.10);
+        }
+
+        @media (max-width: 700px) {
+            .separador-actividades {
+                max-width: 98vw;
+                padding: 12px 0;
+                margin: 24px auto 18px auto;
+            }
+
+            .separador-actividades span {
+                font-size: 1.1em;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1>Plataforma Departamental de Prevención de Embarazos en Adolescentes y Jóvenes del Beni</h1>
+    <img src="https://i.imgur.com/raUmKOR.jpeg" alt="PDPEAJ-BENI" class="logo">
+
+    <h2>¿Qué es la Plaforma Departamentalde Prevención de Embarazoa en Adolescentes y Jóvenes del Beni?</h2>
+    <p>La Plataforma Departamental de Prevención de Embarazos en Adolescentes y Jóvenes del Beni es una organización
+        juvenil que tiene el proposito de reducir la tasa de embarazos adolescentes en el departamento del Beni,
+        Bolivia.</p>
+    <p>A través de la educación, la sensibilización y el conocimiento acerca de los servicios de salud, la plataforma
+        trabaja para empoderar a los jóvenes y brindarles las herramientas necesarias para tomar decisiones informadas
+        sobre su salud sexual y reproductiva.</p>
+
+    <h2>¿Quiénes somos?</h2>
+    <p>La Plataforma Departamental de Prevención de Embarazos en Adolescentes y Jóvenes del Beni está conformada por un
+        grupo de jóvenes comprometidos con la salud sexual y reproductiva. Nuestro equipo está formado por profesionales
+        de la salud, educadores y voluntarios que trabajan juntos para lograr un cambio positivo en la vida de los
+        adolescentes y jóvenes del Beni.</p>
+
+    <h2>¿Qué hacemos?</h2>
+    <p>La Plataforma Departamental de Prevención de Embarazos en Adolescentes y Jóvenes del Beni trabaja en la promoción
+        de la salud sexual y reproductiva, la prevención de embarazos no deseados y la reducción de la violencia de
+        género. A través de talleres, charlas y actividades comunitarias, buscamos empoderar a los jóvenes para que
+        tomen decisiones informadas sobre su salud.</p>
+
+    <h2>Nuestra misión</h2>
+    <p>La PDPEAJ-Beni tiene como misión colaborar en la reducción del embarazo adolescente en el departamento del Beni,
+        promoviendo el ejercicio de los derechos sexuales y reproductivos de adolescentes y jóvenes a través de acciones
+        de prevención, educación y sensibilización.</p>
+
+    <h2>Nuestra visión</h2>
+    <p>La PDPEAJ-Beni tiene como visión ser una plataforma reconocida en todo el departamento por su impacto en la
+        promoción de la salud sexual y reproductiva y la prevención del embarazo en adolescentes y jóvenes, promoviendo
+        el acceso a servicios de salud de calidad, empoderando a la juventud para que tome decisiones informadas sobre
+        su salud, y consolidando una estructura juvenil que fortalezca la atención integral para este grupo poblacional.
+    </p>
+
+    <h2>¿Por qué es importante la prevención de embarazos en adolescentes y jóvenes?</h2>
+    <p>La prevención de embarazos en adolescentes y jóvenes es fundamental para garantizar el bienestar y la salud de
+        las futuras generaciones. Los embarazos no deseados pueden tener un impacto negativo en la vida de los jóvenes,
+        afectando su educación, salud y oportunidades laborales. Además, la prevención de embarazos en adolescentes y
+        jóvenes contribuye a la reducción de la pobreza y la desigualdad de género.</p>
+
+    <h2>¿A quiénes nos dirigimos?</h2>
+    <p>La Plataforma Departamental de Prevención de Embarazos en Adolescentes y Jóvenes del Beni se dirige a todos los
+        adolescentes y jóvenes del departamento del Beni. Nuestro objetivo es llegar a todos los jóvenes,
+        independientemente de su situación socioeconómica, para brindarles información y recursos sobre salud sexual y
+        reproductiva.</p>
+
+    <h2>¿Cómo se conforma la PDPEAJ-BENI?</h2>
+    <p>La PDPEAJ-BENI se conforma por una mesa directiva y sus respectivos delegados (los delegados son aquellos
+        miembros que no tienen un cargo específico, pero que participan activamente en las
+        actividades de la plataforma.)</p>
+    <p>La mesa directiva está conformada por:</p>
+
+    <li><strong>Presidente</li>
+    <li>Vicepresidente</li>
+    <li>Secretarío/a de Actas</li>
+    <li>Secretarío/a de Alianzas</li>
+    <li>Secretaría/o de Comunicación</li>
+    <li>Vocal</li>
+    <li>Vocal</li>
+    <li>Vocal</strong></li>
+
+    <div class="separador-actividades">
+        <span>ACTIVIDADES</span>
+    </div>
+    <div style="text-align:center;">
+        <h3><strong>Feria De Concientizacion Para La Prevención De Embarazos Adolescentes</strong></h3>
+        <img src="img/feria.jpeg" alt="Feria de Concientizacion" class="logo">
+        <img src="img/feria 2.jpeg" alt="Feria de Concientizacion" class="logo">
+        <li style="max-width:700px;margin:0 auto;">Se llevó a cabo la "1ra Feria de Concientización para la Prevención
+            de Embarazos en Adolescentes", un importante evento que reunió a diversas instituciones comprometidas con
+            esta causa, entre ellas SEDEGES Beni, la ONG Save the Children, la Unidad de Juventudes, la Delegación
+            Defensorial Departamental Beni, el Centro AIDA y la DNNA del municipio de Trinidad, entre otras. La feria
+            contó con la participación activa de distintas Unidades Educativas de la ciudad de Trinidad, lo que permitió
+            generar espacios de reflexión, información y sensibilización en torno a la prevención del embarazo
+            adolescente.</li>
+
+        <h3><strong>Reestructuración</strong></h3>
+        <img src="img/estructura.jpeg" alt="Reestructuracion" class="logo">
+        <li style="max-width:700px;margin:0 auto;">Se llevó acabo la reestructuracion de la PDPEAJ-BENI en la cual la
+            nueva mesa directiva y los delegados se comprometieron a dar lo mejor para cumplir con los objetivos de la
+            gestión.</li>
+
+        <h3><strong>Plataforma Nacional</strong></h3>
+        <img src="img/nacional.jpeg" alt="Plataforma Nacional" class="logo">
+        <img src="img/nacional 2.jpeg" alt="Plataforma Nacional" class="logo">
+        <li style="max-width:700px;margin:0 auto;">Durante esta actividad, todas las plataformas de cada departamento
+            asistieron para crear la Plataforma Nacional de Prevención de Embarazos en Adolescentes y Jóvenes, en donde
+            cada plataforma tendria un miembro en la mesa directiva de la Plataforma Nacional.</li>
+
+        <h3><strong>Corso Preventivo</strong></h3>
+        <img src="img/carnaval.jpeg" alt="Corso Preventivo" class="logo">
+        <img src="img/carnaval 2.jpeg" alt="Corso Preventivo" class="logo">
+        <li style="max-width:700px;margin:0 auto;">Durante los días del corso trinitario 2025, la PDPEAJ-BENI, llevó
+            acabo una actividad preventiva, donde se repartió métodos anticonceptivosa los diferentes jóvenes que se
+            encontraban en el cambodromo. Además de enseñarles acerca de como deben de cuidarse para prevenir ETS
+            (Enfermedades de Transimisón Sexual.)</li>
+
+        <h3><strong>Ciclo webinar</strong></h3>
+        <img src="img/ciclo webinar.jpeg" alt="Ciclo Webinar" class="logo">
+        <li style="max-width:700px;margin:0 auto;">Durante este ciclo Webinar que se realizó a nivel nacional en
+            conjunto con la Plataforma de La Paz y la Plataforma de Potosí. Donde se habló acerca de las relaciones de
+            pareja, de como son y como es que esta relaciones funcionan.</li>
+
+        <h3><strong>Presentación Oficial</strong></h3>
+        <img src="img/presentacion.jpeg" alt="Presentacion Oficial" class="logo">
+        <img src="img/presentacion 2.jpeg" alt="Presentacion Oficial" class="logo">
+        <li style="max-width:700px;margin:0 auto;">Se presentó de manera ofical a los nuevos delegados que en conjunto
+            con la mesa directiva, cumplirán con el plan de trabajo de la gestión 2025 y diversas actividades que se
+            presenten durante todo el año.</li>
+    </div>
+
+
+    <div class="cuadro-dorado"
+        style="width:90%;max-width:700px;margin:32px auto 24px auto;padding:32px 10px;justify-content:center;align-items:center;display:flex;">
+    </div>
+
+    <h5>¿Cómo puedes ayudar?</h5>
+    <p>Si deseas unirte a la Plataforma Departamental de Prevención de Embarazos en Adolescentes y Jóvenes del Beni,
+        puedes ponerte en contacto con nosotros a través de nuestras redes sociales o nuestro sitio web.</p>
+    <p>También puedes ayudarnos a difundir nuestra misión y visión compartiendo nuestra información con tus amigos y
+        familiares. Cuantas más personas conozcan nuestra plataforma, más impacto podremos tener en la prevención de
+        embarazos en adolescentes y jóvenes.</p>
+    <p>Los adolescentes y jóvenes que quieran apoyar y ser participes de esta organización deben contar con los 18 años
+        cumplidos y hasta un máximo de 23 años</p>
+
+    <h4>¿Cómo puedes contactarnos?</h4>
+    <p>Si deseas obtener más información sobre la Plataforma Departamental de Prevención de Embarazos en
+        Adolescentes y
+        Jóvenes del Beni, puedes ponerte en contacto con nosotros a través de nuestras redes sociales o nuestro
+        sitio
+        web. También puedes enviarnos un correo electrónico a:</p>
+    <p>plataformadeprevencionbeni@gmail.com</p>
+    <p>Siguenos en nuestras diferentes redes sociales para mantenerte informado acerca de las diferentes actividades
+        que realizamos para luchar contra esta problematica social:</p>
+
+    <div class="cuadro-dorado"
+        style="width:90%;max-width:700px;margin:24px auto 24px auto;display:flex;justify-content:center;align-items:center;">
+        <div class="social-buttons" style="justify-content:center;width:100%;">
+            <a href="https://www.facebook.com/profile.php?id=61552371105965&mibextid=ZbWKwL" class="social-btn facebook"
+                target="_blank" title="Facebook">
+                <svg viewBox="0 0 32 32" width="28" height="28" fill="currentColor">
+                    <circle cx="16" cy="16" r="16" fill="#1877f2" />
+                    <path
+                        d="M22.675 16.089h-3.197v10.911h-4.2V16.089h-2.1v-3.622h2.1v-2.356c0-2.07 1.23-3.211 3.116-3.211.902 0 1.845.162 1.845.162v2.029h-1.04c-1.025 0-1.345.637-1.345 1.29v1.086h2.287l-.366 3.622z"
+                        fill="#fff" />
+                </svg>
+            </a>
+            <a href="https://www.instagram.com/pdpeaj_beni?igsh=bTJxcTA2YWljcXFj" class="social-btn instagram"
+                target="_blank" title="Instagram">
+                <svg viewBox="0 0 32 32" width="28" height="28" fill="currentColor">
+                    <circle cx="16" cy="16" r="16" fill="#E4405F" />
+                    <path
+                        d="M16 10.8a5.2 5.2 0 1 0 0 10.4 5.2 5.2 0 0 0 0-10.4zm0 8.6a3.4 3.4 0 1 1 0-6.8 3.4 3.4 0 0 1 0 6.8zm6.4-8.7a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0zm3.4 1.2c-.1-2.1-.6-3.9-2.1-5.4-1.5-1.5-3.3-2-5.4-2.1-2.1-.1-8.4-.1-10.5 0-2.1.1-3.9.6-5.4 2.1-1.5 1.5-2 3.3-2.1 5.4-.1 2.1-.1 8.4 0 10.5.1 2.1.6 3.9 2.1 5.4 1.5 1.5 3.3 2 5.4 2.1 2.1.1 8.4.1 10.5 0 2.1-.1 3.9-.6 5.4-2.1 1.5-1.5 2-3.3 2.1-5.4.1-2.1.1-8.4 0-10.5zm-2.2 12.7c-.4 1-1.1 1.7-2.1 2.1-1.5.6-5.1.5-6.1.5s-4.6.1-6.1-.5c-1-.4-1.7-1.1-2.1-2.1-.6-1.5-.5-5.1-.5-6.1s-.1-4.6.5-6.1c.4-1 1.1-1.7 2.1-2.1 1.5-.6 5.1-.5 6.1-.5s4.6-.1 6.1.5c1 .4 1.7 1.1 2.1 2.1.6 1.5.5 5.1.5 6.1s.1 4.6-.5 6.1z"
+                        fill="#fff" />
+                </svg>
+            </a>
+            <a href="https://www.tiktok.com/@pl.dptal.beni?_r=1&_d=dgiagblm5bm3hd&sec_uid=MS4wLjABAAAAZdTgxw7TZwEqWx3KqQ1Sodz-Nl71YGcbHWpO52mb2X5Hdh6-SAh9C8Zs-qRU1REP&share_author_id=7444698045256565815&sharer_language=es&source=h5_m&u_code=db831d8a2jk4a7&timestamp=1747515529&user_id=6801283179456119813&sec_user_id=MS4wLjABAAAAxcaST7xaQBgL-wuI9lI_yhuepvKbOU_K3oEBgkByVudlDsYkgIvMpXXbbTltqxyD&utm_source=copy&utm_campaign=client_share&utm_medium=android&share_iid=7505198472946206469&share_link_id=2f1249f4-f25a-4e74-bca8-99a491ed450f&share_app_id=1233&ugbiz_name=ACCOUNT&ug_btm=b7360%2Cb5836&social_share_type=5&enable_checksum=1"
+                class="social-btn tiktok" target="_blank" title="TikTok">
+                <svg viewBox="0 0 32 32" width="28" height="28" fill="currentColor">
+                    <circle cx="16" cy="16" r="16" fill="#000" />
+                    <path
+                        d="M22.7 13.2c-1.2 0-2.2-.4-3-1.1v6.1c0 2.2-1.8 4-4 4s-4-1.8-4-4 1.8-4 4-4c.2 0 .4 0 .6.1v2.1c-.2-.1-.4-.1-.6-.1-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2v-9.1h2c.1 1.1.9 2 2 2v2z"
+                        fill="#fff" />
+                </svg>
+            </a>
+        </div>
+    </div>
+
+</body>
+
+</html>
