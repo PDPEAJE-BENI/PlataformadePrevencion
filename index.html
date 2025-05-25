@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDPEAJ-BENI</title>
+    <style>
+        body {
+            background: #f5f5f5;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0 24px 0 24px;
+        }
+
+        .logo {
+            display: block;
+            margin: 32px auto 24px auto;
+            max-width: 350px;
+            width: 90vw;
+            height: auto;
+            border-radius: 18px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.13);
+            transition: transform 0.2s;
+        }
+
+        .logo:hover {
+            transform: scale(1.03);
+        }
+
+        img {
+            max-width: 95vw;
+            height: auto;
+            border-radius: 14px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.10);
+            margin: 18px auto;
+            display: block;
+        }
+
+        h1 {
+            text-align: center;
+            color: #f5099a;
+            margin-top: 32px;
+        }
+
+        h2,
+        h3,
+        h4,
+        h5 {
+            color: #246b2e;
+            font-size: 1.35em;
+            font-weight: bold;
+        }
+
+        h2 {
+            background: linear-gradient(90deg, #e0ffe7 0%, #f5f5f5 100%);
+            border-left: 7px solid #0ee031;
+            padding: 12px 18px 10px 18px;
+            margin-top: 38px;
+            margin-bottom: 18px;
+            border-radius: 0 18px 18px 0;
+            box-shadow: 0 2px 10px rgba(14, 224, 49, 0.07);
+            display: inline-block;
+            text-align: left;
+            margin-left: 2vw;
+            margin-right: 2vw;
+        }
+
+        h2:first-of-type {
+            margin-top: 28px;
+        }
+
+        h4,
+        h3 {
+            color: #246b2e;
+            font-size: 1.5em;
+            margin-top: 18px;
+            margin-bottom: 10px;
+        }
+
+        h5 {
+            color: #246b2e;
+            font-size: 2em;
+            margin-top: 18px;
+            margin-bottom: 10px;
+            font-weight: bold;
+            background: linear-gradient(90deg, #e0ffe7 0%, #f5f5f5 100%);
+            border-left: 7px solid #0ee031;
+            padding: 12px 18px 10px 18px;
+            border-radius: 0 18px 18px 0;
+            box-shadow: 0 2px 10px rgba(14, 224, 49, 0.07);
+            display: inline-block;
+        }
+
+        h4 {
+            background: linear-gradient(90deg, #e0ffe7 0%, #f5f5f5 100%);
+            border-left: 7px solid #0ee031;
+            padding: 12px 18px 10px 18px;
+            border-radius: 0 18px 18px 0;
+            box-shadow: 0 2px 10px rgba(14, 224, 49, 0.07);
+            display: inline-block;
+            color: #246b2e;
+            font-size: 1.5em;
+            margin-top: 18px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 0 2vw 0 2vw;
+            }
+
+            h1 {
+                font-size: 1.1em;
+                margin-top: 12px;
+                text-align: center;
+            }
+
+            h2,
+            h3,
+            h4,
+            h5 {
+                font-size: 1.13em;
+                font-weight: bold;
+                margin-top: 10px;
+                margin-bottom: 6px;
+                text-align: center;
+                display: block;
+            }
+
+            h2,
+            h4,
+            h5 {
+                padding: 7px 6px 7px 8px;
+                border-radius: 0 8px 8px 0;
+                border-left-width: 5px;
+                box-shadow: 0 1px 5px rgba(14, 224, 49, 0.07);
+            }
+
+            .logo,
+            img {
+                max-width: 99vw !important;
+                width: 100% !important;
+                margin: 10px auto 10px auto !important;
+                border-radius: 10px !important;
+                display: block !important;
+            }
+
+            p {
+                font-size: 1em;
+                text-align: center;
+                margin: 0 auto 10px auto;
+                max-width: 99vw;
+            }
+
+            .separador-actividades {
+                max-width: 99vw;
+                padding: 8px 0;
+                margin: 14px auto 10px auto;
+                border-radius: 8px;
+                text-align: center;
+            }
+
+            .cuadro-dorado,
+            .cuadro-dorado.redes {
+                width: 100% !important;
+                max-width: 100vw !important;
+                margin: 0 auto 14px auto !important;
+                padding: 8px 4px !important;
+                border-radius: 6px !important;
+                text-align: center !important;
+            }
+
+            .social-buttons {
+                flex-direction: column !important;
+                gap: 10px !important;
+                align-items: stretch !important;
+                width: 100% !important;
+                max-width: 99vw !important;
+                margin: 0 0 10px 0 !important;
+                justify-content: center !important;
+            }
+
+            .social-buttons a {
+                width: 100% !important;
+                min-width: 0 !important;
+                justify-content: center !important;
+                font-size: 1em !important;
+                padding: 10px 0 !important;
+                margin-top: 0 !important;
+                text-align: center !important;
+            }
+
+            .social-buttons a p {
+                margin: 10px;
+                text-align: center;
+                width: 80%;
+                flex: 1 1 auto;
+            }
+        }
+
+        .separador-ancho {
+            width: 60%;
+            max-width: 60vw;
+            height: 60px;
+            margin: 40px 0 30px 0;
+            background-color: rgb(0, 74, 171);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding-left: 40px;
+            box-shadow: 0 2px 8px rgba(78, 84, 200, 0.10);
+        }
+
+        .separador-ancho span {
+            color: #ff0077fd;
+            font-size: 1.2em;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .cuadro-dorado {
+            width: 60%;
+            max-width: 500px;
+            margin: 0 0 20px 0;
+            background-color: #0ee031;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 14px 18px;
+            box-shadow: 0 2px 8px rgba(78, 84, 200, 0.10);
+        }
+
+        @media (max-width: 600px) {
+            .cuadro-dorado {
+                width: 100%;
+                max-width: 100vw;
+                margin: 0 0 14px 0;
+                padding: 8px 4px;
+                border-radius: 6px;
+            }
+
+            h5 {
+                font-size: 1.25em;
+                padding: 7px 6px 7px 8px;
+                margin-top: 12px;
+                margin-bottom: 8px;
+                border-radius: 0 8px 8px 0;
+                border-left-width: 5px;
+                box-shadow: 0 1px 5px rgba(14, 224, 49, 0.07);
+                display: block;
+            }
+
+            h4 {
+                font-size: 1.25em;
+                padding: 7px 6px 7px 8px;
+                margin-top: 12px;
+                margin-bottom: 8px;
+                border-radius: 0 8px 8px 0;
+                border-left-width: 5px;
+                box-shadow: 0 1px 5px rgba(14, 224, 49, 0.07);
+                display: block;
+            }
+        }
+
+        .separador-actividades {
+            width: 100%;
+            max-width: 700px;
+            margin: 40px auto 36px auto;
+            background: #0ee031;
+            border-radius: 14px;
+            box-shadow: 0 2px 12px rgba(0, 74, 171, 0.10);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 18px 0;
+        }
+
+        .separador-actividades span {
+            color: #fff;
+            font-size: 1.7em;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.10);
+        }
+
+        @media (max-width: 700px) {
+            .separador-actividades {
+                max-width: 98vw;
+                padding: 12px 0;
+                margin: 24px auto 18px auto;
+            }
+
+            .separador-actividades span {
+                font-size: 1.1em;
+            }
+        }
+
+        .cuadro-dorado.redes {
+            width: 80%;
+            max-width: 700px;
+            margin: 28px auto 28px auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 24px 10px;
+            background-color: #0ee031;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(78, 84, 200, 0.10);
+        }
+
+        .cuadro-dorado.redes .social-buttons {
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 44px;
+            padding-left: 12px;
+        }
+
+        .cuadro-dorado.redes .social-btn {
+            width: 100px;
+            height: 100px;
+            font-size: 2.7em;
+        }
+
+        .cuadro-dorado.redes .social-btn svg {
+            width: 64px;
+            height: 64px;
+        }
+
+        @media (max-width: 600px) {
+            .cuadro-dorado.redes {
+                width: 100%;
+                max-width: 100vw;
+                padding: 12px 2px;
+                border-radius: 8px;
+            }
+
+            .cuadro-dorado.redes .social-buttons {
+                gap: 16px;
+            }
+
+            .cuadro-dorado.redes .social-btn {
+                width: 64px;
+                height: 64px;
+                font-size: 1.7em;
+            }
+
+            .cuadro-dorado.redes .social-btn svg {
+                width: 40px;
+                height: 40px;
+            }
+        }
+
+        .boton-instagram {
+            display: inline-flex;
+            align-items: center;
+            background: linear-gradient(90deg, #fdc468 0%, #df4996 100%);
+            color: #fff;
+            font-weight: bold;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 28px 10px 18px;
+            text-decoration: none;
+            margin-top: 12px;
+            box-shadow: 0 2px 8px rgba(78, 84, 200, 0.10);
+            transition: background 0.2s, transform 0.2s;
+            gap: 10px;
+            cursor: pointer;
+        }
+
+        .boton-instagram:hover {
+            background: linear-gradient(90deg, #df4996 0%, #fdc468 100%);
+            transform: scale(1.04);
+            color: #fff;
+        }
+
+        .boton-facebook {
+            display: inline-flex;
+            align-items: center;
+            background: linear-gradient(90deg, #1877f2 0%, #4e8cff 100%);
+            color: #fff;
+            font-weight: bold;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 28px 10px 18px;
+            text-decoration: none;
+            margin-top: 12px;
+            box-shadow: 0 2px 8px rgba(78, 84, 200, 0.10);
+            transition: background 0.2s, transform 0.2s;
+            gap: 10px;
+            cursor: pointer;
+        }
+
+        .boton-facebook:hover {
+            background: linear-gradient(90deg, #4e8cff 0%, #1877f2 100%);
+            transform: scale(1.04);
+            color: #fff;
+        }
+
+        .boton-tiktok {
+            display: inline-flex;
+            align-items: center;
+            background: linear-gradient(90deg, #000000 0%, #ff0050 100%);
+            color: #fff;
+            font-weight: bold;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 28px 10px 18px;
+            text-decoration: none;
+            margin-top: 12px;
+            box-shadow: 0 2px 8px rgba(78, 84, 200, 0.10);
+            transition: background 0.2s, transform 0.2s;
+            gap: 10px;
+            cursor: pointer;
+        }
+
+        .boton-tiktok:hover {
+            background: linear-gradient(90deg, #ff0050 0%, #000000 100%);
+            transform: scale(1.04);
+            color: #fff;
+        }
+
+        .boton-facebook img,
+        .boton-instagram img,
+        .boton-tiktok img {
+            width: 28px;
+            height: 28px;
+            margin-right: 12px;
+            object-fit: contain;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        @media (max-width: 600px) {
+            .social-buttons {
+                flex-direction: column !important;
+                gap: 18px !important;
+                align-items: stretch !important;
+                width: 100% !important;
+                max-width: 99vw !important;
+                margin: 0 0 10px 0 !important;
+                justify-content: flex-start !important;
+                padding-left: 0 !important;
+            }
+
+            .social-buttons a {
+                width: 100% !important;
+                min-width: 0 !important;
+                justify-content: flex-start !important;
+                font-size: 1em !important;
+                padding: 10px 0 10px 18px !important;
+                margin-top: 0 !important;
+                text-align: left !important;
+                border-radius: 10px !important;
+                display: flex !important;
+                align-items: center !important;
+            }
+
+            .boton-facebook,
+            .boton-instagram,
+            .boton-tiktok {
+                width: 100% !important;
+                min-width: 0 !important;
+                justify-content: flex-start !important;
+                font-size: 1em !important;
+                padding: 10px 0 10px 18px !important;
+                margin-top: 0 !important;
+                text-align: left !important;
+                border-radius: 10px !important;
+                display: flex !important;
+                align-items: center !important;
+            }
+
+            .social-buttons img,
+            .boton-facebook img,
+            .boton-instagram img,
+            .boton-tiktok img {
+                width: 20px !important;
+                height: 20px !important;
+                margin-left: 10px !important;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounce {
+            0% {
+                transform: scale(1);
+            }
+
+            30% {
+                transform: scale(1.12);
+            }
+
+            50% {
+                transform: scale(0.96);
+            }
+
+            70% {
+                transform: scale(1.04);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .social-buttons a {
+            opacity: 0;
+            animation: fadeInUp 0.7s ease forwards;
+        }
+
+        .social-buttons a:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .social-buttons a:nth-child(2) {
+            animation-delay: 0.25s;
+        }
+
+        .social-buttons a:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        .social-buttons a:hover {
+            animation: bounce 0.5s;
+        }
+
+        /* Animación de fade-in para imágenes */
+        /* Elimina la versión anterior para evitar conflictos */
+        .fade-in-img,
+        .fade-in-img.visible {
+            all: unset;
+        }
+
+        .ciclo-webinar-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 18px;
+            width: 100%;
+        }
+
+        .ciclo-webinar-section img {
+            max-width: 350px;
+            width: 95vw;
+            margin: 0 auto;
+        }
+
+        .ciclo-webinar-text {
+            max-width: 700px;
+            margin: 0 auto 10px auto;
+            text-align: justify;
+            font-size: 1.05em;
+            background: #fff;
+            border-radius: 10px;
+            padding: 10px 14px;
+            box-shadow: 0 1px 6px rgba(0, 0, 0, 0.07);
+        }
+
+        .presentacion-oficial-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 18px;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+
+        .presentacion-oficial-section img {
+            max-width: 320px;
+            width: 95vw;
+            margin: 0 auto;
+        }
+
+        .presentacion-oficial-text {
+            max-width: 700px;
+            margin: 0 auto 18px auto;
+            text-align: justify;
+            font-size: 1.05em;
+            background: #fff;
+            border-radius: 10px;
+            padding: 10px 14px;
+            box-shadow: 0 1px 6px rgba(0, 0, 0, 0.07);
+        }
+
+        .actividad-img {
+            max-width: 350px;
+            width: 95vw;
+            margin: 0 auto 10px auto;
+            display: block;
+            border-radius: 14px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.10);
+        }
+
+        @media (max-width: 600px) {
+            .actividad-img {
+                max-width: 99vw !important;
+                width: 100% !important;
+                border-radius: 10px !important;
+                margin: 10px auto 10px auto !important;
+            }
+        }
+
+        h3 {
+            text-align: center;
+        }
+
+        p {
+            text-align: left;
+            margin-left: 2vw;
+            margin-right: 2vw;
+        }
+
+        @media (max-width: 600px) {
+
+            h2,
+            p {
+                text-align: left !important;
+                margin-left: 2vw !important;
+                margin-right: 2vw !important;
+            }
+        }
+
+        .social-icon {
+            background: none !important;
+            border: none !important;
+            box-shadow: none !important;
+            padding: 0 !important;
+            margin-top: 0 !important;
+            border-radius: 0 !important;
+            min-width: unset !important;
+            width: auto !important;
+            height: auto !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            gap: 0 !important;
+        }
+
+        .social-buttons a p {
+            display: none !important;
+        }
+
+        .social-buttons img {
+            width: 44px !important;
+            height: 44px !important;
+            margin: 0 !important;
+            border-radius: 0 !important;
+            box-shadow: none !important;
+        }
+
+        .margen {
+            background-color: #ffffff;
+            border: 1px solid #ff0092;
+            box-shadow: #ff0090f1;
+            padding: 25px;
+            margin: 10px;
+            border-radius: 10px;
+        }
+
+        .cuadro {
+            background-color: #ffffff;
+            border: 1px solid #246a2e;
+            box-shadow: #3da34d;
+            padding: 25px;
+            margin: 10px;
+            border-radius: 10px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="margen">
+        <h1>Plataforma Departamental de Prevención de Embarazos en Adolescentes y Jóvenes del Beni</h1>
+        <img src="https://i.imgur.com/raUmKOR.jpeg" alt="PDPEAJ-BENI" class="logo">
+    </div>
+    <div class="margen">
+        <div class="cuadro">
+            <h2>¿Qué es la Plaforma Departamentalde Prevención de Embarazoa en Adolescentes y Jóvenes del
+                Beni?</h2>
+            <p>La Plataforma Departamental de Prevención de Embarazos en Adolescentes y Jóvenes del Beni es una
+                organización
+                juvenil que tiene el proposito de reducir la tasa de embarazos adolescentes en el departamento del Beni,
+                Bolivia.</p>
+            <p>A través de la educación, la sensibilización y el conocimiento acerca de los servicios de salud, la
+                plataforma
+                trabaja para empoderar a los jóvenes y brindarles las herramientas necesarias para tomar decisiones
+                informadas
+                sobre su salud sexual y reproductiva.</p>
+        </div>
+        <div class="cuadro">
+            <h2>¿Quiénes somos?</h2>
+            <p>La Plataforma Departamental de Prevención de Embarazos en Adolescentes y Jóvenes del Beni está conformada
+                por
+                un
+                grupo de jóvenes comprometidos con la salud sexual y reproductiva. Nuestro equipo está formado por
+                profesionales
+                de la salud, educadores y voluntarios que trabajan juntos para lograr un cambio positivo en la vida de
+                los
+                adolescentes y jóvenes del Beni.</p>
+        </div>
+        <div class="cuadro">
+            <h2>¿Qué hacemos?</h2>
+            <p>La Plataforma Departamental de Prevención de Embarazos en Adolescentes y Jóvenes del Beni trabaja en la
+                promoción
+                de la salud sexual y reproductiva, la prevención de embarazos no deseados y la reducción de la violencia
+                de
+                género. A través de talleres, charlas y actividades comunitarias, buscamos empoderar a los jóvenes para
+                que
+                tomen decisiones informadas sobre su salud.</p>
+        </div>
+        <div class="cuadro">
+            <h2>Nuestra misión</h2>
+            <p>La PDPEAJ-Beni tiene como misión colaborar en la reducción del embarazo adolescente en el departamento
+                del
+                Beni,
+                promoviendo el ejercicio de los derechos sexuales y reproductivos de adolescentes y jóvenes a través de
+                acciones
+                de prevención, educación y sensibilización.</p>
+        </div>
+        <div class="cuadro">
+            <h2>Nuestra visión</h2>
+            <p>La PDPEAJ-Beni tiene como visión ser una plataforma reconocida en todo el departamento por su impacto en
+                la
+                promoción de la salud sexual y reproductiva y la prevención del embarazo en adolescentes y jóvenes,
+                promoviendo
+                el acceso a servicios de salud de calidad, empoderando a la juventud para que tome decisiones informadas
+                sobre
+                su salud, y consolidando una estructura juvenil que fortalezca la atención integral para este grupo
+                poblacional.
+            </p>
+        </div>
+        <div class="cuadro">
+            <h2>¿Por qué es importante la prevención de embarazos en adolescentes y jóvenes?</h2>
+            <p>La prevención de embarazos en adolescentes y jóvenes es fundamental para garantizar el bienestar y la
+                salud
+                de
+                las futuras generaciones. Los embarazos no deseados pueden tener un impacto negativo en la vida de los
+                jóvenes,
+                afectando su educación, salud y oportunidades laborales. Además, la prevención de embarazos en
+                adolescentes
+                y
+                jóvenes contribuye a la reducción de la pobreza y la desigualdad de género.</p>
+        </div>
+        <div class="cuadro">
+            <h2>¿A quiénes nos dirigimos?</h2>
+            <p>La Plataforma Departamental de Prevención de Embarazos en Adolescentes y Jóvenes del Beni se dirige a
+                todos
+                los
+                adolescentes y jóvenes del departamento del Beni. Nuestro objetivo es llegar a todos los jóvenes,
+                independientemente de su situación socioeconómica, para brindarles información y recursos sobre salud
+                sexual
+                y
+                reproductiva.</p>
+        </div>
+
+        <div class="cuadro">
+            <h2>¿Cómo se conforma la PDPEAJ-BENI?</h2>
+            <p>La PDPEAJ-BENI se conforma por una mesa directiva y sus respectivos delegados (los delegados son aquellos
+                miembros que no tienen un cargo específico, pero que participan activamente en las
+                actividades de la plataforma.)</p>
+            <p>La mesa directiva está conformada por:</p>
+            <li><strong>Presidente</li>
+            <li>Vicepresidente</li>
+            <li>Secretarío/a de Actas</li>
+            <li>Secretarío/a de Alianzas</li>
+            <li>Secretaría/o de Comunicación</li>
+            <li>Vocal</li>
+            <li>Vocal</li>
+            <li>Vocal</strong></li>
+        </div>
+    </div>
+    <div class="margen">
+        <div class="separador-actividades">
+            <span>ACTIVIDADES</span>
+        </div>
+        <div class="cuadro">
+            <div style="text-align:center;">
+                <h3><strong>Feria De Concientizacion Para La Prevención De Embarazos Adolescentes</strong></h3>
+                <img src="img/feria.jpeg" alt="Feria de Concientizacion" class="actividad-img logo fade-in-img">
+                <img src="img/feria 2.jpeg" alt="Feria de Concientizacion" class="actividad-img logo fade-in-img">
+
+                <li class="presentacion-oficial-text">Se llevó a cabo la "1ra Feria de Concientización para la
+                    Prevención de
+                    Embarazos en Adolescentes", un importante evento que reunió a diversas instituciones comprometidas
+                    con
+                    esta
+                    causa, entre ellas SEDEGES Beni, la ONG Save the Children, la Unidad de Juventudes, la Delegación
+                    Defensorial Departamental Beni, el Centro AIDA y la DNNA del municipio de Trinidad, entre otras. La
+                    feria
+                    contó con la participación activa de distintas Unidades Educativas de la ciudad de Trinidad, lo que
+                    permitió
+                    generar espacios de reflexión, información y sensibilización en torno a la prevención del embarazo
+                    adolescente.</li>
+            </div>
+        </div>
+        <div class="cuadro">
+            <div style="text-align:center;">
+                <h3><strong>Reestructuración</strong></h3>
+                <img src="img/estructura.jpeg" alt="Reestructuracion" class="actividad-img logo fade-in-img">
+
+                <li class="presentacion-oficial-text">Se llevó acabo la reestructuracion de la PDPEAJ-BENI en la cual la
+                    nueva
+                    mesa directiva y los delegados se comprometieron a dar lo mejor para cumplir con los objetivos de la
+                    gestión.</li>
+            </div>
+        </div>
+
+        <div class="cuadro">
+            <div style="text-align:center;">
+                <h3><strong>Plataforma Nacional</strong></h3>
+                <img src="img/nacional.jpeg" alt="Plataforma Nacional" class="actividad-img logo fade-in-img">
+                <img src="img/nacional 2.jpeg" alt="Plataforma Nacional" class="actividad-img logo fade-in-img">
+
+                <li class="presentacion-oficial-text">Durante esta actividad, todas las plataformas de cada departamento
+                    asistieron para crear la Plataforma Nacional de Prevención de Embarazos en Adolescentes y Jóvenes,
+                    en
+                    donde
+                    cada plataforma tendria un miembro en la mesa directiva de la Plataforma Nacional.</li>
+            </div>
+        </div>
+
+        <div class="cuadro">
+            <div style="text-align:center;">
+                <h3><strong>Corso Preventivo</strong></h3>
+                <img src="img/carnaval.jpeg" alt="Corso Preventivo" class="actividad-img logo fade-in-img">
+                <img src="img/carnaval 2.jpeg" alt="Corso Preventivo" class="actividad-img logo fade-in-img">
+
+                <li class="presentacion-oficial-text">Durante los días del corso trinitario 2025, la PDPEAJ-BENI, llevó
+                    acabo
+                    una actividad preventiva, donde se repartió métodos anticonceptivosa los diferentes jóvenes que se
+                    encontraban en el cambodromo. Además de enseñarles acerca de como deben de cuidarse para prevenir
+                    ETS
+                    (Enfermedades de Transimisón Sexual.)</li>
+            </div>
+        </div>
+
+        <div class="cuadro">
+            <div style="text-align:center;">
+                <h3><strong>Ciclo webinar</strong></h3>
+                <div class="ciclo-webinar-section">
+                    <img src="img/ciclo webinar.jpeg" alt="Ciclo Webinar" class="logo fade-in-img" />
+                    <li class="presentacion-oficial-text">Durante este ciclo Webinar que se realizó a nivel nacional en
+                        conjunto
+                        con la Plataforma de La Paz y la Plataforma de Potosí. Donde se habló acerca de las relaciones
+                        de
+                        pareja, de como son y como es que esta relaciones funcionan.</li>
+                </div>
+            </div>
+        </div>
+
+        <div class="cuadro">
+            <div style="text-align:center;">
+                <h3><strong>Presentación Oficial</strong></h3>
+                <div class="presentacion-oficial-section">
+                    <img src="img/presentacion.jpeg" alt="Presentacion Oficial" class="logo fade-in-img" />
+                    <img src="img/presentacion 2.jpeg" alt="Presentacion Oficial" class="logo fade-in-img" />
+                </div>
+                <li class="presentacion-oficial-text">Se presentó de manera oficial a los nuevos delegados que en
+                    conjunto
+                    con
+                    la mesa directiva, cumplirán con el plan de trabajo de la gestión 2025 y diversas actividades
+                    que se
+                    presenten durante todo el año.</li>
+            </div>
+        </div>
+    </div>
+
+    <div class="margen">
+        <div class="cuadro">
+            <h5>¿Cómo puedes ayudar?</h5>
+            <p>Si deseas unirte a la Plataforma Departamental de Prevención de Embarazos en Adolescentes y Jóvenes
+                del Beni,
+                puedes ponerte en contacto con nosotros a través de nuestras redes sociales o nuestro sitio web.</p>
+            <p>También puedes ayudarnos a difundir nuestra misión y visión compartiendo nuestra información con tus
+                amigos y
+                familiares. Cuantas más personas conozcan nuestra plataforma, más impacto podremos tener en la
+                prevención de
+                embarazos en adolescentes y jóvenes.</p>
+            <p>Los adolescentes y jóvenes que quieran apoyar y ser participes de esta organización deben contar con
+                los 18
+                años
+                cumplidos y hasta un máximo de 23 años</p>
+        </div>
+
+        <div class="cuadro">
+            <h4>¿Cómo puedes contactarnos?</h4>
+            <p>Si deseas obtener más información sobre la Plataforma Departamental de Prevención de Embarazos en
+                Adolescentes y
+                Jóvenes del Beni, puedes ponerte en contacto con nosotros a través de nuestras redes sociales o
+                nuestro
+                sitio
+                web. También puedes enviarnos un correo electrónico a:</p>
+            <p>plataformadeprevencionbeni@gmail.com</p>
+            <p>Siguenos en nuestras diferentes redes sociales para mantenerte informado acerca de las diferentes
+                actividades
+                que realizamos para luchar contra esta problematica social:</p>
+
+
+            <div class="social-buttons"
+                style="display: flex; justify-content: center; align-items: center; width: 100%; gap: 20px;">
+                <a href="https://www.facebook.com/profile.php?id=61552371105965&mibextid=ZbWKwL" class="social-icon"
+                    target="_blank" title="Facebook">
+                    <img src="img/facebook.jpeg" alt="Facebook" />
+                </a>
+                <a href="https://www.instagram.com/pdpeaj_beni?igsh=bTJxcTA2YWljcXFj" class="social-icon"
+                    target="_blank" title="Instagram">
+                    <img src="img/instagram.jpg" alt="Instagram" />
+                </a>
+                <a href="https://www.tiktok.com/@pl.dptal.beni?_r=1&_d=dgiagblm5bm3hd&sec_uid=MS4wLjABAAAAZdTgxw7TZwEqWx3KqQ1Sodz-Nl71YGcbHWpO52mb2X5Hdh6-SAh9C8Zs-qRU1REP&share_author_id=7444698045256565815&sharer_language=es&source=h5_m&u_code=db831d8a2jk4a7&timestamp=1747515529&user_id=6801283179456119813&sec_user_id=MS4wLjABAAAAxcaST7xaQBgL-wuI9lI_yhuepvKbOU_K3oEBgkByVudlDsYkgIvMpXXbbTltqxyD&utm_source=copy&utm_campaign=client_share&utm_medium=android&share_iid=7505198472946206469&share_link_id=2f1249f4-f25a-4e74-bca8-99a491ed450f&share_app_id=1233&ugbiz_name=ACCOUNT&ug_btm=b7360%2Cb5836&social_share_type=5&enable_checksum=1"
+                    class="social-icon" target="_blank" title="TikTok">
+                    <img src="img/tik tok.jpeg" alt="TikTok" />
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+
+    <script src="animaciones-redes.js"></script>
+    <script>
+        // Animación de fade-in rápida para imágenes y videos usando solo JavaScript
+        (function () {
+            const FADE_CLASS = 'fade-in-img-js';
+            const VISIBLE_CLASS = 'visible-js';
+            // Crea el CSS dinámicamente
+            const style = document.createElement('style');
+            style.innerHTML = `
+            .${FADE_CLASS} {
+                opacity: 0;
+                transform: translateY(30px);
+                transition: opacity 0.35s cubic-bezier(0.23,1,0.32,1), transform 0.35s cubic-bezier(0.23,1,0.32,1);
+            }
+            .${FADE_CLASS}.${VISIBLE_CLASS} {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        `;
+            document.head.appendChild(style);
+            // Aplica la clase a todas las imágenes y videos
+            const elements = document.querySelectorAll('img, video');
+            elements.forEach(el => el.classList.add(FADE_CLASS));
+            function fadeInOnScrollJS() {
+                const triggerBottom = window.innerHeight * 0.97;
+                elements.forEach(el => {
+                    const rect = el.getBoundingClientRect();
+                    if (rect.top < triggerBottom) {
+                        el.classList.add(VISIBLE_CLASS);
+                    } else {
+                        el.classList.remove(VISIBLE_CLASS);
+                    }
+                });
+            }
+            window.addEventListener('scroll', fadeInOnScrollJS);
+            window.addEventListener('resize', fadeInOnScrollJS);
+            window.addEventListener('DOMContentLoaded', fadeInOnScrollJS);
+        })();
+    </script>
+</body>
+
+
+</html>
