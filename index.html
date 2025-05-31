@@ -785,35 +785,45 @@
         }
 
         .email-contacto {
-            text-align: center;
-            margin-top: 20px;
-            padding: 0 10px;
-            /* Agrega espacio lateral en móvil */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px auto;
+            padding: 0 16px;
+            max-width: 100%;
             box-sizing: border-box;
         }
 
         .email-contacto a {
-            display: inline-block;
-            padding: 10px 16px;
+            display: block;
+            width: 100%;
+            max-width: 320px;
+            /* Controla el tamaño del botón */
+            padding: 12px 20px;
             font-size: 1em;
             font-weight: 500;
+            text-align: center;
             color: #ffffff;
             background-color: #ff0090f1;
-            border-radius: 10px;
+            border-radius: 12px;
             text-decoration: none;
             box-shadow: 0 4px 12px #ff0090c4;
             transition: background-color 0.3s, transform 0.2s;
-            max-width: 100%;
             word-wrap: break-word;
+            box-sizing: border-box;
         }
 
-        /* Estilo responsive para celulares */
+        .email-contacto a:hover {
+            background-color: #d1007a;
+            transform: scale(1.03);
+        }
+
+        /* Estilo responsivo para celulares */
         @media (max-width: 480px) {
             .email-contacto a {
-                font-size: 0.9em;
-                padding: 10px 12px;
-                display: block;
-                width: 100%;
+                font-size: 0.95em;
+                padding: 10px 16px;
+                border-radius: 10px;
             }
         }
     </style>
@@ -1047,6 +1057,7 @@
                     plataformadeprevencionbeni@gmail.com
                 </a>
             </div>
+            <br>
             <p>Siguenos en nuestras diferentes redes sociales para mantenerte informado acerca de las diferentes
                 actividades
                 que realizamos para luchar contra esta problematica social:</p>
