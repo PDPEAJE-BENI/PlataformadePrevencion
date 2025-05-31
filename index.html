@@ -787,11 +787,14 @@
         .email-contacto {
             text-align: center;
             margin-top: 20px;
+            padding: 0 10px;
+            /* Agrega espacio lateral en móvil */
+            box-sizing: border-box;
         }
 
         .email-contacto a {
             display: inline-block;
-            padding: 12px 20px;
+            padding: 10px 16px;
             font-size: 1em;
             font-weight: 500;
             color: #ffffff;
@@ -800,11 +803,18 @@
             text-decoration: none;
             box-shadow: 0 4px 12px #ff0090c4;
             transition: background-color 0.3s, transform 0.2s;
+            max-width: 100%;
+            word-wrap: break-word;
         }
 
-        .email-contacto a:hover {
-            background-color: #00357d;
-            transform: scale(1.03);
+        /* Estilo responsive para celulares */
+        @media (max-width: 480px) {
+            .email-contacto a {
+                font-size: 0.9em;
+                padding: 10px 12px;
+                display: block;
+                width: 100%;
+            }
         }
     </style>
 
@@ -1034,7 +1044,7 @@
                 web. También puedes enviarnos un correo electrónico a:</p>
             <div class="email-contacto">
                 <a href="mailto:plataformadeprevencionbeni@gmail.com">
-                    📧 plataformadeprevencionbeni@gmail.com
+                    plataformadeprevencionbeni@gmail.com
                 </a>
             </div>
             <p>Siguenos en nuestras diferentes redes sociales para mantenerte informado acerca de las diferentes
