@@ -720,7 +720,16 @@ p {
         width: 32px !important;
         height: 32px !important;
     }
+
+    .email-contacto a {
+        padding: 10px 8px;
+        font-size: 0.9em;
+        width: 95%;
+        display: block;
+        margin: 0 auto;
+    }
 }
+
 
 .margen {
     background-color: #ffffff;
@@ -781,11 +790,14 @@ p {
 .email-contacto {
     text-align: center;
     margin-top: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 10px; /* Añade padding lateral */
 }
 
 .email-contacto a {
     display: inline-block;
-    padding: 12px 20px;
+    padding: 12px 10px;
     font-size: 1em;
     font-weight: 500;
     color: #ffffff;
@@ -794,6 +806,11 @@ p {
     text-decoration: none;
     box-shadow: 0 4px 12px #ff0090c4;
     transition: background-color 0.3s, transform 0.2s;
+    max-width: 100%;
+    word-break: break-all;
+    overflow-wrap: break-word;
+    white-space: normal;
+    box-sizing: border-box;
 }
 
 .email-contacto a:hover {
