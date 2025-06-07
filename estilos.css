@@ -945,19 +945,32 @@ footer {
     }
 
     .menu-boton {
+        background-color: #2F80ED !important;
+        color: #ffffff !important;
         padding: 6px 10px !important;
         font-size: 0.95em !important;
     }
 
     .menu-contenido {
+        background: #F4F6FA !important;
+        border: 2px solid #D0D7E2 !important;
         min-width: 120px !important;
         padding: 7px 4px !important;
         border-radius: 10px !important;
+        box-shadow: 0 4px 12px rgba(47, 128, 237, 0.15) !important;
     }
 
     .menu-title {
+        background: #2F80ED !important;
+        color: #ffffff !important;
+        border: 2px solid #D0D7E2 !important;
         font-size: 0.95em !important;
         padding: 6px 6px !important;
         border-radius: 5px !important;
+    }
+
+    .menu-title:hover {
+        background: #1c66ce !important;
+        color: #ffffff !important;
     }
 }
