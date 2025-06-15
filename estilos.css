@@ -260,19 +260,30 @@ h4 {
     }
 
     .social-buttons {
-        gap: 20px !important;
+        flex-direction: row !important;
+        /* Fuerza disposición horizontal */
+        justify-content: center !important;
+        /* Centra los botones */
+        gap: 10px !important;
+        /* Reduce espacio entre botones */
+        flex-wrap: wrap !important;
+        /* Permite ajuste en pantallas pequeñas */
         margin: 15px auto !important;
-        padding: 10px 0 !important;
+        /* Margen reducido */
     }
 
     .social-buttons a {
-        width: 30px !important;
-        height: 30px !important;
+        width: 50px !important;
+        /* Botones más compactos */
+        height: 50px !important;
+        margin: 0 !important;
+        /* Elimina márgenes adicionales */
     }
 
     .social-buttons img {
-        width: 20px !important;
-        height: 20px !important;
+        width: 30px !important;
+        /* Iconos más pequeños */
+        height: 30px !important;
     }
 }
 
