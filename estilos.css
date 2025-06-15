@@ -166,32 +166,7 @@ h4 {
         text-align: center !important;
     }
 
-    .social-buttons {
-        flex-direction: column !important;
-        gap: 10px !important;
-        align-items: stretch !important;
-        width: 100% !important;
-        max-width: 99vw !important;
-        margin: 0 0 10px 0 !important;
-        justify-content: center !important;
-    }
 
-    .social-buttons a {
-        width: 100% !important;
-        min-width: 0 !important;
-        justify-content: center !important;
-        font-size: 1em !important;
-        padding: 10px 0 !important;
-        margin-top: 0 !important;
-        text-align: center !important;
-    }
-
-    .social-buttons a p {
-        margin: 10px;
-        text-align: center;
-        width: 80%;
-        flex: 1 1 auto;
-    }
 }
 
 .separador-ancho {
@@ -259,30 +234,19 @@ h4 {
         display: block;
     }
 
-    .social-buttons {
-        flex-direction: row !important;
-        /* Fuerza disposición horizontal */
-        justify-content: center !important;
-        /* Centra los botones */
-        gap: 10px !important;
-        /* Reduce espacio entre botones */
-        flex-wrap: wrap !important;
-        /* Permite ajuste en pantallas pequeñas */
-        margin: 15px auto !important;
-        /* Margen reducido */
-    }
 
+}
+
+@media (max-width: 400px) {
+
+    /* Pantallas muy pequeñas */
     .social-buttons a {
         width: 50px !important;
-        /* Botones más compactos */
         height: 50px !important;
-        margin: 0 !important;
-        /* Elimina márgenes adicionales */
     }
 
     .social-buttons img {
         width: 30px !important;
-        /* Iconos más pequeños */
         height: 30px !important;
     }
 }
@@ -390,14 +354,14 @@ h4 {
     text-decoration: none;
     margin-top: 12px;
     box-shadow: 0 2px 8px rgba(78, 84, 200, 0.10);
-
+    transition: background 0.2s, transform 0.2s;
     gap: 10px;
     cursor: pointer;
 }
 
 .boton-instagram:hover {
     background: linear-gradient(90deg, #df4996 0%, #fdc468 100%);
-
+    transform: scale(1.04);
     color: #fff;
 }
 
@@ -414,14 +378,14 @@ h4 {
     text-decoration: none;
     margin-top: 12px;
     box-shadow: 0 2px 8px rgba(78, 84, 200, 0.10);
-
+    transition: background 0.2s, transform 0.2s;
     gap: 10px;
     cursor: pointer;
 }
 
 .boton-facebook:hover {
     background: linear-gradient(90deg, #4e8cff 0%, #1877f2 100%);
-
+    transform: scale(1.04);
     color: #fff;
 }
 
@@ -438,13 +402,14 @@ h4 {
     text-decoration: none;
     margin-top: 12px;
     box-shadow: 0 2px 8px rgba(78, 84, 200, 0.10);
+    transition: background 0.2s, transform 0.2s;
     gap: 10px;
     cursor: pointer;
 }
 
 .boton-tiktok:hover {
     background: linear-gradient(90deg, #ff0050 0%, #000000 100%);
-
+    transform: scale(1.04);
     color: #fff;
 }
 
@@ -460,29 +425,7 @@ h4 {
 }
 
 @media (max-width: 600px) {
-    .social-buttons {
-        flex-direction: column !important;
-        gap: 18px !important;
-        align-items: stretch !important;
-        width: 100% !important;
-        max-width: 99vw !important;
-        margin: 0 0 10px 0 !important;
-        justify-content: flex-start !important;
-        padding-left: 0 !important;
-    }
 
-    .social-buttons a {
-        width: 100% !important;
-        min-width: 0 !important;
-        justify-content: flex-start !important;
-        font-size: 1em !important;
-        padding: 10px 0 10px 18px !important;
-        margin-top: 0 !important;
-        text-align: left !important;
-        border-radius: 10px !important;
-        display: flex !important;
-        align-items: center !important;
-    }
 
     .boton-facebook,
     .boton-instagram,
@@ -691,20 +634,6 @@ p {
 }
 
 @media (max-width: 600px) {
-    .social-buttons {
-        gap: 30px !important;
-        margin: 20px auto !important;
-    }
-
-    .social-buttons a {
-        width: 80px !important;
-        height: 80px !important;
-    }
-
-    .social-buttons img {
-        width: 50px !important;
-        height: 50px !important;
-    }
 
 
     .email-contacto a {
@@ -821,6 +750,64 @@ footer {
         padding: 18px 0 10px 0;
     }
 }
+
+@media (max-width: 600px) {
+    @media (max-width: 600px) {
+        .social-buttons {
+            flex-direction: column !important;
+            gap: 18px !important;
+            align-items: stretch !important;
+            width: 100% !important;
+            max-width: 99vw !important;
+            margin: 0 0 10px 0 !important;
+            justify-content: flex-start !important;
+            padding-left: 0 !important;
+        }
+
+        .social-buttons a {
+            width: 100% !important;
+            min-width: 0 !important;
+            justify-content: flex-start !important;
+            font-size: 1em !important;
+            padding: 10px 0 10px 18px !important;
+            margin-top: 0 !important;
+            text-align: left !important;
+            border-radius: 10px !important;
+            display: flex !important;
+            align-items: center !important;
+        }
+
+        .boton-facebook,
+        .boton-instagram,
+        .boton-tiktok {
+            width: 100% !important;
+            min-width: 0 !important;
+            justify-content: flex-start !important;
+            font-size: 1em !important;
+            padding: 10px 0 10px 18px !important;
+            margin-top: 0 !important;
+            text-align: left !important;
+            border-radius: 10px !important;
+            display: flex !important;
+            align-items: center !important;
+        }
+
+        .social-buttons img,
+        .boton-facebook img,
+        .boton-instagram img,
+        .boton-tiktok img {
+            width: 20px !important;
+            height: 20px !important;
+            margin-left: 10px !important;
+        }
+    }
+
+    .social-buttons a:hover {
+        transform: scale(1.1) !important;
+        background: linear-gradient(135deg, #0ee031 0%, #f5099a 100%) !important;
+    }
+}
+
 
 .menu-desplegable {
     position: fixed;
