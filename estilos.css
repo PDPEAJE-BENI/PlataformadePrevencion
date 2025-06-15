@@ -142,7 +142,7 @@ h4 {
     }
 
     p {
-        font-size: 1.2em;
+        font-size: 1em;
         text-align: center;
         margin: 0 auto 10px auto;
         max-width: 99vw;
@@ -166,7 +166,32 @@ h4 {
         text-align: center !important;
     }
 
+    .social-buttons {
+        flex-direction: column !important;
+        gap: 10px !important;
+        align-items: stretch !important;
+        width: 100% !important;
+        max-width: 99vw !important;
+        margin: 0 0 10px 0 !important;
+        justify-content: center !important;
+    }
 
+    .social-buttons a {
+        width: 100% !important;
+        min-width: 0 !important;
+        justify-content: center !important;
+        font-size: 1em !important;
+        padding: 10px 0 !important;
+        margin-top: 0 !important;
+        text-align: center !important;
+    }
+
+    .social-buttons a p {
+        margin: 10px;
+        text-align: center;
+        width: 80%;
+        flex: 1 1 auto;
+    }
 }
 
 .separador-ancho {
@@ -232,22 +257,6 @@ h4 {
         border-left-width: 5px;
         box-shadow: 0 1px 5px rgba(14, 224, 49, 0.07);
         display: block;
-    }
-
-
-}
-
-@media (max-width: 400px) {
-
-    /* Pantallas muy pequeñas */
-    .social-buttons a {
-        width: 50px !important;
-        height: 50px !important;
-    }
-
-    .social-buttons img {
-        width: 30px !important;
-        height: 30px !important;
     }
 }
 
@@ -425,7 +434,29 @@ h4 {
 }
 
 @media (max-width: 600px) {
+    .social-buttons {
+        flex-direction: column !important;
+        gap: 18px !important;
+        align-items: stretch !important;
+        width: 100% !important;
+        max-width: 99vw !important;
+        margin: 0 0 10px 0 !important;
+        justify-content: flex-start !important;
+        padding-left: 0 !important;
+    }
 
+    .social-buttons a {
+        width: 100% !important;
+        min-width: 0 !important;
+        justify-content: flex-start !important;
+        font-size: 1em !important;
+        padding: 10px 0 10px 18px !important;
+        margin-top: 0 !important;
+        text-align: left !important;
+        border-radius: 10px !important;
+        display: flex !important;
+        align-items: center !important;
+    }
 
     .boton-facebook,
     .boton-instagram,
@@ -452,6 +483,67 @@ h4 {
     }
 }
 
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounce {
+    0% {
+        transform: scale(1);
+    }
+
+    30% {
+        transform: scale(1.12);
+    }
+
+    50% {
+        transform: scale(0.96);
+    }
+
+    70% {
+        transform: scale(1.04);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.social-buttons a {
+    opacity: 0;
+    animation: fadeInUp 0.7s ease forwards;
+}
+
+.social-buttons a:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.social-buttons a:nth-child(2) {
+    animation-delay: 0.25s;
+}
+
+.social-buttons a:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+.social-buttons a:hover {
+    animation: bounce 0.5s;
+}
+
+/* Animación de fade-in para imágenes */
+/* Elimina la versión anterior para evitar conflictos */
+.fade-in-img,
+.fade-in-img.visible {
+    all: unset;
+}
 
 .ciclo-webinar-section {
     display: flex;
@@ -501,7 +593,6 @@ h4 {
     text-align: justify;
     font-size: 1.05em;
     background: #fff;
-    border: 1px solid #ff0092;
     border-radius: 10px;
     padding: 10px 14px;
     box-shadow: 0 1px 6px rgba(0, 0, 0, 0.07);
@@ -594,47 +685,67 @@ p {
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
-    gap: 40px !important;
+    gap: 36px !important;
     width: 100% !important;
     max-width: 99vw !important;
-    margin: 30px auto !important;
-    padding: 20px 0 !important;
+    margin: 18px auto 10px auto !important;
+    padding: 0 !important;
 }
 
 .social-buttons a {
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    width: 100px !important;
-    height: 100px !important;
+    width: 72px !important;
+    height: 72px !important;
     background: linear-gradient(135deg, #f5f5f5 0%, #e0ffe7 100%);
     border-radius: 50%;
-    box-shadow: 0 4px 16px rgba(14, 224, 49, 0.15), 0 2px 10px rgba(0, 0, 0, 0.1);
-    border: 3px solid #0ee031;
+    box-shadow: 0 2px 8px rgba(14, 224, 49, 0.10), 0 1.5px 6px rgba(0, 0, 0, 0.07);
+    transition: box-shadow 0.2s, transform 0.2s, background 0.2s;
+    border: 2.5px solid #0ee031;
     position: relative;
-    transition: all 0.3s ease;
 }
 
 .social-buttons a:hover {
     background: linear-gradient(135deg, #0ee031 0%, #f5099a 100%);
     box-shadow: 0 4px 16px rgba(245, 9, 154, 0.13), 0 2px 10px rgba(14, 224, 49, 0.13);
-
+    transform: scale(1.08);
     border-color: #f5099a;
 }
 
 .social-buttons img {
-    width: 60px !important;
-    height: 60px !important;
+    width: 44px !important;
+    height: 44px !important;
     margin: 0 !important;
     border-radius: 50% !important;
     box-shadow: none !important;
     background: none !important;
     object-fit: cover;
-    transition: transform 0.3s ease;
+    transition: filter 0.2s;
+}
+
+.social-buttons a:hover img {
+    filter: brightness(1.15) saturate(1.2);
 }
 
 @media (max-width: 600px) {
+    .social-buttons {
+        flex-direction: row !important;
+        gap: 22px !important;
+        justify-content: center !important;
+        align-items: center !important;
+        margin: 10px auto !important;
+    }
 
+    .social-buttons a {
+        width: 54px !important;
+        height: 54px !important;
+    }
+
+    .social-buttons img {
+        width: 60px !important;
+        height: 60px !important;
+    }
 
     .email-contacto a {
         padding: 10px 8px;
@@ -649,6 +760,7 @@ p {
 .margen {
     background-color: #ffffff;
     border: 1px solid #ff0092;
+    box-shadow: 0 2px 8px #ff0090f1;
     padding: 25px;
     margin: 10px auto;
     border-radius: 10px;
@@ -659,6 +771,7 @@ p {
 .cuadro {
     background-color: #ffffff;
     border: 1px solid #246a2e;
+    box-shadow: 0 2px 8px #3da34d;
     padding: 25px 30px;
     margin: 18px auto;
     border-radius: 12px;
@@ -751,64 +864,6 @@ footer {
     }
 }
 
-@media (max-width: 600px) {
-    @media (max-width: 600px) {
-        .social-buttons {
-            flex-direction: column !important;
-            gap: 18px !important;
-            align-items: stretch !important;
-            width: 100% !important;
-            max-width: 99vw !important;
-            margin: 0 0 10px 0 !important;
-            justify-content: flex-start !important;
-            padding-left: 0 !important;
-        }
-
-        .social-buttons a {
-            width: 100% !important;
-            min-width: 0 !important;
-            justify-content: flex-start !important;
-            font-size: 1em !important;
-            padding: 10px 0 10px 18px !important;
-            margin-top: 0 !important;
-            text-align: left !important;
-            border-radius: 10px !important;
-            display: flex !important;
-            align-items: center !important;
-        }
-
-        .boton-facebook,
-        .boton-instagram,
-        .boton-tiktok {
-            width: 100% !important;
-            min-width: 0 !important;
-            justify-content: flex-start !important;
-            font-size: 1em !important;
-            padding: 10px 0 10px 18px !important;
-            margin-top: 0 !important;
-            text-align: left !important;
-            border-radius: 10px !important;
-            display: flex !important;
-            align-items: center !important;
-        }
-
-        .social-buttons img,
-        .boton-facebook img,
-        .boton-instagram img,
-        .boton-tiktok img {
-            width: 20px !important;
-            height: 20px !important;
-            margin-left: 10px !important;
-        }
-    }
-
-    .social-buttons a:hover {
-        transform: scale(1.1) !important;
-        background: linear-gradient(135deg, #0ee031 0%, #f5099a 100%) !important;
-    }
-}
-
-
 .menu-desplegable {
     position: fixed;
     top: 12px;
@@ -899,169 +954,19 @@ footer {
     }
 
     .menu-boton {
-        padding: 8px 16px !important;
-        /* Aumentamos el padding (antes 6px 10px) */
-        font-size: 1.1em !important;
-        /* Tamaño de fuente un poco mayor (antes 0.95em) */
+        padding: 6px 10px !important;
+        font-size: 0.95em !important;
     }
 
     .menu-contenido {
-        min-width: 140px !important;
-        /* Ancho mínimo mayor (antes 120px) */
-        padding: 10px 6px !important;
-        /* Padding un poco mayor (antes 7px 4px) */
+        min-width: 120px !important;
+        padding: 7px 4px !important;
+        border-radius: 10px !important;
     }
 
     .menu-title {
-        font-size: 1.05em !important;
-        /* Tamaño de fuente mayor (antes 0.95em) */
-        padding: 8px 10px !important;
-        /* Padding mayor (antes 6px 6px) */
-    }
-
-    .menu-title:hover {
-        background: #1c66ce !important;
-        color: #ffffff !important;
-    }
-}
-
-.social-buttons a img {
-    transition: transform 0.3s ease;
-}
-
-.social-buttons a:hover,
-.social-buttons a:focus,
-.social-buttons a.active {
-    transform: scale(1.1);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-.social-buttons a img {
-    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.social-buttons a:hover img,
-.social-buttons a:focus img,
-.social-buttons a.active img {
-    transform: scale(1.1);
-}
-
-.social-buttons a:hover {
-    transform: scale(1.1);
-    box-shadow: 0 6px 20px rgba(245, 9, 154, 0.2);
-}
-
-.social-buttons a:hover img {
-    transform: scale(1.1);
-}
-
-/* Animación de entrada para imágenes de actividades */
-/* Animación mejorada para imágenes de actividades */
-.actividad-img {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
-        transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-    will-change: opacity, transform;
-    backface-visibility: hidden;
-    /* Mantiene el espacio reservado */
-    display: block;
-    width: 100%;
-    height: auto;
-    min-height: 200px;
-    background: linear-gradient(135deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-    background-size: 200% 200%;
-}
-
-.actividad-img.visible {
-    opacity: 1;
-    transform: translateY(0);
-    background: transparent;
-}
-
-/* Efecto de carga para el placeholder */
-@keyframes placeholderShimmer {
-    0% {
-        background-position: 200% 0;
-    }
-
-    100% {
-        background-position: -200% 0;
-    }
-}
-
-.actividad-img:not(.visible) {
-    animation: placeholderShimmer 2s infinite linear;
-}
-
-/* Ajustes para móvil */
-@media (max-width: 600px) {
-    .actividad-img {
-        transform: translateY(15px);
-        transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-            transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        min-height: 150px;
-    }
-}
-
-.contacto-telefonos {
-    margin: 25px auto;
-    max-width: 700px;
-    padding: 20px;
-    background-color: #ffffff;
-    border: 1px solid #ff0077;
-    border-radius: 12px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-}
-
-.contacto-telefonos h4 {
-    color: #246b2e;
-    margin-bottom: 15px;
-    text-align: center;
-    font-size: 1.3em;
-}
-
-.lista-telefonos {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    align-items: center;
-}
-
-.telefono-link {
-    display: inline-flex;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: #ffffff;
-    border-radius: 8px;
-    text-decoration: none;
-    color: #246b2e;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-    border: 1px solid #e0e0e0;
-}
-
-.telefono-link:hover {
-    background-color: #0ee031;
-    color: white;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(14, 224, 49, 0.2);
-}
-
-.icono-telefono {
-    margin-right: 10px;
-    font-size: 1.2em;
-}
-
-@media (max-width: 600px) {
-    .contacto-telefonos {
-        padding: 15px;
-        margin: 20px 10px;
-    }
-
-    .telefono-link {
-        padding: 8px 15px;
-        font-size: 0.95em;
+        font-size: 0.95em !important;
+        padding: 6px 6px !important;
+        border-radius: 5px !important;
     }
 }
