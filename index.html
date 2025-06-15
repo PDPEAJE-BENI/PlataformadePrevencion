@@ -6,18 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PDPEAJ-BENI</title>
 
-    <link rel="stylesheet" href="estilos.css?v=1.0">
+    <link rel="stylesheet" href="estilos.css">
 
 </head>
 
 <body>
-    <div class="margen">
-        <h1>Plataforma Departamental de Prevención de Embarazos en Adolescentes y Jóvenes del Beni</h1>
-        <img src="img/PDPEAJ.png" alt="PDPEAJ-BENI" class="logo">
-    </div>
+    <header>
+        <div class="margen">
+            <h1>Plataforma Departamental de Prevención de Embarazos en Adolescentes y Jóvenes del Beni</h1>
+            <img src="img/PDPEAJ.png" alt="PDPEAJ-BENI" class="logo">
+        </div>
+    </header>
+
     <div class="seccion1" id="inicio">
         <div class="menu-desplegable">
-            <button class="menu-boton" id="menu-boton" onclick="toggleMenu()">☰ Menú</button>
+            <button class="menu-boton" id="menu-boton" onclick="toggleMenu()">...</button>
             <div class="menu-contenido" id="menu-contenido">
                 <a href="#inicio" class="menu-link" onclick="cerrarMenu(); scrollToSection('inicio'); return false;">
                     <div class="menu-title">Inicio</div>
@@ -252,7 +255,7 @@
             <div style="text-align:center;">
                 <h3><strong>Ciclo webinar</strong></h3>
                 <div class="ciclo-webinar-section">
-                    <img src="img/ciclo webinar.jpeg" alt="Ciclo Webinar" class="logo fade-in-img" />
+                    <img src="img/ciclo webinar.jpeg" alt="Ciclo Webinar" class="actividad-img logo fade-in-img" />
                     <li class="presentacion-oficial-text">Durante este ciclo Webinar que se realizó a nivel nacional en
                         conjunto
                         con la Plataforma de La Paz y la Plataforma de Potosí. Donde se habló acerca de las relaciones
@@ -266,8 +269,10 @@
             <div style="text-align:center;">
                 <h3><strong>Presentación Oficial</strong></h3>
                 <div class="presentacion-oficial-section">
-                    <img src="img/presentacion.jpeg" alt="Presentacion Oficial" class="logo fade-in-img" />
-                    <img src="img/presentacion 2.jpeg" alt="Presentacion Oficial" class="logo fade-in-img" />
+                    <img src="img/presentacion.jpeg" alt="Presentacion Oficial"
+                        class="actividad-img logo fade-in-img" />
+                    <img src="img/presentacion 2.jpeg" alt="Presentacion Oficial"
+                        class="actividad-img logo fade-in-img" />
                 </div>
                 <li class="presentacion-oficial-text">Se presentó de manera oficial a los nuevos delegados que en
                     conjunto
@@ -281,8 +286,10 @@
             <div style="text-align:center;">
                 <h3><strong>Cómite Departamental de la Juventud</strong></h3>
                 <div class="comite-departamental-section">
-                    <img src="img/comite.jpeg" alt="Comite Departamental de la Juventud" class="logo fade-in-img" />
-                    <img src="img/grupo.jpeg" alt="Comite Departamental de la Juventud" class="logo fade-in-img" />
+                    <img src="img/comite.jpeg" alt="Comite Departamental de la Juventud"
+                        class="actividad-img logo fade-in-img" />
+                    <img src="img/grupo.jpeg" alt="Comite Departamental de la Juventud"
+                        class="actividad-img logo fade-in-img" />
                     <li class="presentacion-oficial-text">La PDPEAJ-BENI, fue participé de "CONSTRUYENDO PROPUESTAS POR
                         NUESTROS DERECHOS", donde hubieron diferentes propuestas y proyectos de leyes para contribuir al
                         desarrollo y potenciar la participación activa de los jóvenes en la politica. Donde más adelante
@@ -304,10 +311,11 @@
                 familiares. Cuantas más personas conozcan nuestra plataforma, más impacto podremos tener en la
                 prevención de
                 embarazos en adolescentes y jóvenes.</p>
-            <p>Los adolescentes y jóvenes que quieran apoyar y ser participes de esta organización juvenil deben contar con
+            <p>Los adolescentes y jóvenes que quieran apoyar y ser participes de esta organización juvenil deben contar
+                con
                 los 18
                 años
-                cumplidos y hasta un máximo de 23 años</p>
+                cumplidos y hasta un máximo de 23 años para poder ser uno de los miembros de la P.D.P.E.A.J.-Beni</p>
         </div>
 
         <div id="Redes Sociales" class="anchor-offset"></div>
@@ -350,52 +358,64 @@
 
         </div>
     </div>
+
+
     <footer>
         <div style="color:#0ee031; font-size:1.05em; font-weight:bold;">
             &copy; PDPEAJ-BENI
         </div>
     </footer>
-
-
-    <script src="animaciones-redes.js"></script>
+    <!-- Al final del body, antes del cierre </body> -->
     <script>
-        // Animación de fade-in rápida para imágenes y videos usando solo JavaScript
-        (function () {
-            const FADE_CLASS = 'fade-in-img-js';
-            const VISIBLE_CLASS = 'visible-js';
-            // Crea el CSS dinámicamente
-            const style = document.createElement('style');
-            style.innerHTML = `
-            .${FADE_CLASS} {
-                opacity: 0;
-                transform: translateY(30px);
-                transition: opacity 0.35s cubic-bezier(0.23,1,0.32,1), transform 0.35s cubic-bezier(0.23,1,0.32,1);
+        // Tu código JavaScript aquí
+        document.addEventListener('DOMContentLoaded', function () {
+            const socialLinks = document.querySelectorAll('.social-buttons a');
+
+            socialLinks.forEach(link => {
+                link.addEventListener('mouseenter', function () {
+                    this.querySelector('img').style.transform = 'scale(1.15)';
+                });
+                link.addEventListener('mouseleave', function () {
+                    this.querySelector('img').style.transform = 'scale(1)';
+                });
+            });
+        });
+    </script>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const activityImages = document.querySelectorAll('.actividad-img');
+
+            // Función que comprueba si un elemento está en el viewport
+            function isInViewport(element) {
+                const rect = element.getBoundingClientRect();
+                return (
+                    rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.2 &&
+                    rect.bottom >= 0
+                );
             }
-            .${FADE_CLASS}.${VISIBLE_CLASS} {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        `;
-            document.head.appendChild(style);
-            // Aplica la clase a todas las imágenes y videos
-            const elements = document.querySelectorAll('img, video');
-            elements.forEach(el => el.classList.add(FADE_CLASS));
-            function fadeInOnScrollJS() {
-                const triggerBottom = window.innerHeight * 0.97;
-                elements.forEach(el => {
-                    const rect = el.getBoundingClientRect();
-                    if (rect.top < triggerBottom) {
-                        el.classList.add(VISIBLE_CLASS);
-                    } else {
-                        el.classList.remove(VISIBLE_CLASS);
+
+            // Función para mostrar imágenes cuando están visibles
+            function checkImages() {
+                activityImages.forEach(img => {
+                    if (isInViewport(img) && !img.classList.contains('visible')) {
+                        img.classList.add('visible');
                     }
                 });
             }
-            window.addEventListener('scroll', fadeInOnScrollJS);
-            window.addEventListener('resize', fadeInOnScrollJS);
-            window.addEventListener('DOMContentLoaded', fadeInOnScrollJS);
-        })();
+
+            // Comprobar al cargar la página
+            checkImages();
+
+            // Comprobar al hacer scroll
+            window.addEventListener('scroll', checkImages);
+
+            // También comprobar al redimensionar la ventana
+            window.addEventListener('resize', checkImages);
+        });
     </script>
+
 </body>
 
 </html>
