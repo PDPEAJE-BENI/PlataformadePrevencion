@@ -258,6 +258,22 @@ h4 {
         box-shadow: 0 1px 5px rgba(14, 224, 49, 0.07);
         display: block;
     }
+
+    .social-buttons {
+        gap: 20px !important;
+        margin: 15px auto !important;
+        padding: 10px 0 !important;
+    }
+
+    .social-buttons a {
+        width: 60px !important;
+        height: 60px !important;
+    }
+
+    .social-buttons img {
+        width: 40px !important;
+        height: 40px !important;
+    }
 }
 
 .separador-actividades {
