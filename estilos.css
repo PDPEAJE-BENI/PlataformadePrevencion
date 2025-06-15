@@ -912,28 +912,24 @@ footer {
     }
 
     .menu-boton {
-        background-color: #2F80ED !important;
-        color: #ffffff !important;
-        padding: 6px 10px !important;
-        font-size: 0.95em !important;
+        padding: 8px 16px !important;
+        /* Aumentamos el padding (antes 6px 10px) */
+        font-size: 1.1em !important;
+        /* Tamaño de fuente un poco mayor (antes 0.95em) */
     }
 
     .menu-contenido {
-        background: #F4F6FA !important;
-        border: 2px solid #D0D7E2 !important;
-        min-width: 120px !important;
-        padding: 7px 4px !important;
-        border-radius: 10px !important;
-        box-shadow: 0 4px 12px rgba(47, 128, 237, 0.15) !important;
+        min-width: 140px !important;
+        /* Ancho mínimo mayor (antes 120px) */
+        padding: 10px 6px !important;
+        /* Padding un poco mayor (antes 7px 4px) */
     }
 
     .menu-title {
-        background: #2F80ED !important;
-        color: #ffffff !important;
-        border: 2px solid #D0D7E2 !important;
-        font-size: 0.95em !important;
-        padding: 6px 6px !important;
-        border-radius: 5px !important;
+        font-size: 1.05em !important;
+        /* Tamaño de fuente mayor (antes 0.95em) */
+        padding: 8px 10px !important;
+        /* Padding mayor (antes 6px 6px) */
     }
 
     .menu-title:hover {
