@@ -497,7 +497,7 @@ p {
 .presentacion-oficial-text {
     max-width: 700px;
     margin: 0 auto 18px auto;
-    text-align: justify;
+    text-align: left;
     font-size: 1.25em;
     background: #fff;
     border: 1px solid #f5099a;
@@ -508,7 +508,14 @@ p {
 
 @media (max-width: 600px) {
     .presentacion-oficial-text {
-        font-size: 0.9em;
+        max-width: 95vw;
+        margin: 10px auto;
+        font-size: 1.05em;
+        padding: 10px 10px;
+        border-radius: 8px;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+        text-align: left;
+        /* o 'justify', si prefieres mantenerlo */
     }
 }
 
