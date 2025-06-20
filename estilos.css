@@ -508,7 +508,7 @@ p {
 
 @media (max-width: 600px) {
     .presentacion-oficial-text {
-        font-size: 1em !important;
+        font-size: 0.9em;
     }
 }
 
