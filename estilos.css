@@ -931,3 +931,33 @@ footer {
         font-size: 0.95em;
     }
 }
+
+@media (max-width: 600px) {
+    .lista-directiva {
+        margin-left: 5vw !important;
+        margin-right: 5vw !important;
+        font-size: 1.1em !important;
+        padding-left: 16px !important;
+    }
+
+    .lista-directiva li {
+        margin-bottom: 8px !important;
+        line-height: 1.5em !important;
+        text-align: left !important;
+    }
+}
+
+    .lista-directiva {
+        margin-left: 30px;
+        margin-right: auto;
+        font-size: 1.32em;
+        padding-left: 18px;
+    }
+
+    .lista-directiva li {
+        margin-bottom: 10px;
+        line-height: 1.6em;
+        text-align: left;
+    }
+
+
