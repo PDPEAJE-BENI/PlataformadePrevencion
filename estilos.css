@@ -141,6 +141,16 @@ p {
         box-shadow: 0 1px 5px rgba(14, 224, 49, 0.07);
     }
 
+    h2,
+    h4,
+    h5 {
+        margin-left: auto !important;
+        margin-right: auto !important;
+        display: block !important;
+        width: fit-content !important;
+    }
+
+
     .logo,
     img {
         max-width: 99vw !important;
@@ -215,6 +225,30 @@ p {
     font-weight: bold;
     letter-spacing: 2px;
 }
+
+@media (max-width: 600px) {
+    p {
+        text-align: justify !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        width: 95% !important;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .margen,
+    .cuadro,
+    .presentacion-oficial-text,
+    .coomite-departamental-text {
+        margin-left: 2vw;
+        margin-right: auto !important;
+        width: 95% !important;
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+    }
+}
+
 
 
 @media (max-width: 600px) {
