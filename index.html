@@ -177,9 +177,10 @@
             <ul class="lista-directiva">
                 <li class="cargo" data-cargo="presidente">Presidente</li>
                 <li class="cargo" data-cargo="vicepresidente">Vicepresidente</li>
-                <li class="cargo" data-cargo="actas">Secretario/a de Actas</li>
-                <li class="cargo" data-cargo="alianzas">Secretario/a de Alianzas</li>
-                <li class="cargo" data-cargo="comunicacion">Secretaria/o de Comunicación</li>
+                <li class="cargo" data-cargo="actas">Secretario de Actas</li>
+                <li class="cargo" data-cargo="alianzas">Secretario de Alianzas</li>
+                <li class="cargo" data-cargo="comunicacion">Secretaria de Comunicación</li>
+                <li class="cargo" data-cargo="comunicacion">Secretario de Comunicación</li>
                 <li class="cargo" data-cargo="vocal1">Vocal</li>
                 <li class="cargo" data-cargo="vocal2">Vocal</li>
             </ul>
@@ -439,87 +440,92 @@
         });
     </script>
 
-       <script>
-    const infoCargos = {
-        presidente: {
-            nombre: "Johan Paul Algarañaz Vasquez",
-            img: "img/presidente.jpg",
-            desc: "Presidente de la PDPEAJ-BENI ..."
-        },
-        vicepresidente: {
-            nombre: "Ariana Quiroz Ortiz",
-            img: "img/vicepresidenta.jpg",
-            desc: "Vicepresidenta ..."
-        },
-        actas: {
-            nombre: "Carlos Yver Justiniano Mariscal",
-            img: "img/actas.jpg",
-            desc: "Secretario de Actas, encargado de la documentación de la plataforma y miembro muy activo en actividades clave."
-        },
-        alianzas: {
-            nombre: "José Mateo Javivi Javivi",
-            img: "img/relaciones.jpg",
-            desc: "Secretaria de Alianzas, responsable de coordinar colaboraciones con otras instituciones."
-        },
-        comunicacion: {
-            nombre: "Mariana Justiniano Guayacuma",
-            img: "img/comunicaciones.jpg",
-            desc: "Secretario de Comunicación, encargado de la difusión y redes sociales."
-        },
-        vocal1: {
-            nombre: "Luis Fernando Sosa Cuellar",
-            img: "img/vocal1.jpg",
-            desc: "Vocal ..."
-        },
-        vocal2: {
-            nombre: "Cristel Camila Guitiérrez Arias",
-            img: "img/vocal2.jpg",
-            desc: "Vocal ..."
-        },
-    };
-    
-    // Mostrar modal al hacer click en un cargo
-    document.querySelectorAll('.cargo').forEach(item => {
-        item.addEventListener('click', function () {
-            const cargo = this.getAttribute('data-cargo');
-            const info = infoCargos[cargo];
-            if (info) {
-                const img = document.getElementById('modal-cargo-img');
-                img.src = info.img;
-                img.alt = "Foto de " + info.nombre;
-                img.onerror = function () {
-                    this.src = 'img/default-user.jpg'; // Imagen por defecto si no existe la foto
-                };
-                document.getElementById('modal-cargo-nombre').textContent = info.nombre;
-                document.getElementById('modal-cargo-desc').textContent = info.desc;
-                document.getElementById('modal-cargo').style.display = 'flex';
-                document.body.style.overflow = 'hidden'; // Evita scroll de fondo
-            }
+    <script>
+        const infoCargos = {
+            presidente: {
+                nombre: "Johan Paul Algarañaz Vasquez",
+                img: "img/presidente.jpg",
+                desc: "Presidente de la PDPEAJ-BENI ..."
+            },
+            vicepresidente: {
+                nombre: "Ariana Quiroz Ortiz",
+                img: "img/vicepresidenta.jpg",
+                desc: "Vicepresidenta ..."
+            },
+            actas: {
+                nombre: "Carlos Yver Justiniano Mariscal",
+                img: "img/actas.jpg",
+                desc: "Secretario de Actas, encargado de la documentación de la plataforma y miembro muy activo en actividades clave."
+            },
+            alianzas: {
+                nombre: "José Mateo Javivi Javivi",
+                img: "img/relaciones.jpg",
+                desc: "Secretaria de Alianzas, responsable de coordinar colaboraciones con otras instituciones."
+            },
+            comunicacion: {
+                nombre: "Mariana Justiniano Guayacuma",
+                img: "img/comunicaciones.jpg",
+                desc: "Secretaria de Comunicación, encargado de la difusión y redes sociales."
+            },
+            comunicacion: {
+                nombre: "Christian Mobo Maileva",
+                img: "img/comunicacion.jpg",
+                desc: "Secretario de Comunicación, encargado de la difusión y redes sociales."
+            },
+            vocal1: {
+                nombre: "Luis Fernando Sosa Cuellar",
+                img: "img/vocal1.jpg",
+                desc: "Vocal ..."
+            },
+            vocal2: {
+                nombre: "Cristel Camila Guitiérrez Arias",
+                img: "img/vocal2.jpg",
+                desc: "Vocal ..."
+            },
+        };
+
+        // Mostrar modal al hacer click en un cargo
+        document.querySelectorAll('.cargo').forEach(item => {
+            item.addEventListener('click', function () {
+                const cargo = this.getAttribute('data-cargo');
+                const info = infoCargos[cargo];
+                if (info) {
+                    const img = document.getElementById('modal-cargo-img');
+                    img.src = info.img;
+                    img.alt = "Foto de " + info.nombre;
+                    img.onerror = function () {
+                        this.src = 'img/default-user.jpg'; // Imagen por defecto si no existe la foto
+                    };
+                    document.getElementById('modal-cargo-nombre').textContent = info.nombre;
+                    document.getElementById('modal-cargo-desc').textContent = info.desc;
+                    document.getElementById('modal-cargo').style.display = 'flex';
+                    document.body.style.overflow = 'hidden'; // Evita scroll de fondo
+                }
+            });
         });
-    });
-    
-    // Cerrar modal con la X
-    document.getElementById('cerrar-modal').onclick = function () {
-        document.getElementById('modal-cargo').style.display = 'none';
-        document.body.style.overflow = '';
-    };
-    
-    // Cerrar modal al hacer click fuera del contenido
-    window.onclick = function (event) {
-        const modal = document.getElementById('modal-cargo');
-        if (event.target === modal) {
-            modal.style.display = 'none';
-            document.body.style.overflow = '';
-        }
-    };
-    
-    // Cerrar modal con la tecla ESC
-    document.addEventListener('keydown', function (e) {
-        if (e.key === "Escape") {
+
+        // Cerrar modal con la X
+        document.getElementById('cerrar-modal').onclick = function () {
             document.getElementById('modal-cargo').style.display = 'none';
             document.body.style.overflow = '';
-        }
-    });
+        };
+
+        // Cerrar modal al hacer click fuera del contenido
+        window.onclick = function (event) {
+            const modal = document.getElementById('modal-cargo');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = '';
+            }
+        };
+
+        // Cerrar modal con la tecla ESC
+        document.addEventListener('keydown', function (e) {
+            if (e.key === "Escape") {
+                document.getElementById('modal-cargo').style.display = 'none';
+                document.body.style.overflow = '';
+            }
+        });
     </script>
 
 
