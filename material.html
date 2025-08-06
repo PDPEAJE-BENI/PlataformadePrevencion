@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Material Descargable | PDPEAJ-BENI</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+    <header>
+        <div class="margen">
+            <h1>Material Descargable</h1>
+            <img src="img/logo.png" alt="Logo PDPEAJ-BENI" class="logo">
+        </div>
+        <div class="menu-desplegable">
+            <button class="menu-boton" id="menu-boton" onclick="toggleMenu()">...</button>
+            <div class="menu-contenido" id="menu-contenido">
+                <a href="index.html" class="menu-link">
+                    <div class="menu-title">Inicio</div>
+                </a>
+
+                <a href="material.html" class="menu-link">
+                    <div class="menu-title">Material</div>
+                </a>
+            </div>
+        </div>
+
+    </header>
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById('menu-contenido');
+            if (window.innerWidth <= 600) {
+                if (menu.style.display === 'block') {
+                    menu.style.display = 'none';
+                } else {
+                    menu.style.display = 'block';
+                }
+            }
+        }
+        function cerrarMenu() {
+            var menu = document.getElementById('menu-contenido');
+            if (window.innerWidth <= 600) {
+                menu.style.display = 'none';
+            }
+        }
+        document.addEventListener('click', function (e) {
+            var menu = document.getElementById('menu-contenido');
+            var boton = document.getElementById('menu-boton');
+            if (window.innerWidth <= 600 && menu && boton) {
+                if (!menu.contains(e.target) && !boton.contains(e.target)) {
+                    menu.style.display = 'none';
+                }
+            }
+        });
+        window.addEventListener('resize', function () {
+            var menu = document.getElementById('menu-contenido');
+            if (window.innerWidth > 600) {
+                menu.style.display = '';
+            } else {
+                menu.style.display = 'none';
+            }
+        });
+        window.addEventListener('scroll', function () {
+            var menu = document.getElementById('menu-contenido');
+            if (window.innerWidth <= 600 && menu) {
+                menu.style.display = 'none';
+            }
+        });
+    </script>
+    <main>
+        <div class="margen">
+            <div class="cuadro">
+                <h2>Contenidos digitales para descargar</h2>
+                <ul class="material-lista">
+                    <li>
+                        <a href="videos/Cartilla-EIS-en-el-CE-coordinadora.pdf" download>
+                            <img class="pdf-thumb" src="videos/Cartilla-EIS-en-el-CE-coordinadora_001.png"
+                                alt="Cartilla EIS">
+                            Cartilla EIS
+                        </a>
+                    </li>
+                    <li>
+                        <a href="videos/Educacion_Sexual_Integral.pdf" download>
+                            <img class="pdf-thumb" src="videos/Educacion_Sexual_Integral_001.png"
+                                alt="Educación Sexual Integral">
+                            Educación Sexual Integral
+                        </a>
+                    </li>
+                    <li>
+                        <a href="videos/educacion-integral-Rosa-revisado-version-11-feb-1.pdf" download>
+                            <img class="pdf-thumb"
+                                src="videos/educacion-integral-Rosa-revisado-version-11-feb-1_001.png"
+                                alt="Educación Integral Rosa">
+                            Educación Integral Rosa
+                        </a>
+                    </li>
+                    <li>
+                        <a href="videos/dgss_acon_n_46_cartilla_salud_sexual.pdf" download>
+                            <img class="pdf-thumb" src="videos/dgss_acon_n_46_cartilla_salud_sexual_001.png"
+                                alt="Cartilla Salud Sexual">
+                            Cartilla Salud Sexual
+                        </a>
+                    </li>
+                    <li>
+                        <a href="videos/Cuadriptico-Derechos-Sexuales-y-Derechos-Reproductivos-en-nuestras-vidas.pdf"
+                            download>
+                            <img class="pdf-thumb"
+                                src="videos/Cuadriptico-Derechos-Sexuales-y-Derechos-Reproductivos-en-nuestras-vidas_001.png"
+                                alt="Cuadríptico Derechos Sexuales y Reproductivos">
+                            Cuadríptico Derechos Sexuales y Reproductivos
+                        </a>
+                    </li>
+                    <li>
+                        <a href="videos/BoletínDSDRVAj-comprimido_513.pdf" download>
+                            <img class="pdf-thumb" src="videos/BoletínDSDRVAj-comprimido_513_001.png"
+                                alt="Boletín DSDRVAj">
+                            Boletín DSDRVAj
+                        </a>
+                    </li>
+                    <li>
+                        <a href="videos/ADOLESCENTES-Y-JOVENES-QUE-INCIDEN.pdf" download>
+                            <img class="pdf-thumb" src="videos/ADOLESCENTES-Y-JOVENES-QUE-INCIDEN_001.png"
+                                alt="Adolescentes y Jóvenes que Inciden">
+                            Adolescentes y Jóvenes que Inciden
+                        </a>
+                    </li>
+                    <li>
+                        <a href="videos/Orientación tecnica.pdf" download>
+                            <img class="pdf-thumb" src="videos/Orientación tecnica_001.png" alt="Orientación Técnica">
+                            Orientación Técnica
+                        </a>
+                    </li>
+                    <li>
+                        <a href="videos/Orientaciones técnicas.pdf" download>
+                            <img class="pdf-thumb" src="videos/Orientaciones técnicas_001.png"
+                                alt="Orientaciones Técnicas">
+                            Orientaciones Técnicas
+                        </a>
+                    </li>
+                    <li>
+                        <a href="videos/informe-defensorial-sueños-interrumpidos.pdf" download>
+                            <img class="pdf-thumb" src="videos/informe-defensorial-sueños-interrumpidos_001.png"
+                                alt="Cartilla EIS">
+                            Informe Defensorial: Sueños Interrumpidos
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="aclaracion-material">
+                <strong>Nota aclaratoria:</strong> La Plataforma Departamental de Prevención de Embarazos en Adolescentes y Jóvenes del Beni <b>no es propietaria</b> de los materiales compartidos en esta sección. Estos recursos se difunden únicamente con fines informativos y educativos para mantener a los jóvenes y adolescentes informados y empoderados.
+            </div>
+            <div class="cuadro">
+                <div class="drive-box">
+                    <h3>¿Problemas para descargar?</h3>
+                    <p class="drive-desc">Si tienes inconvenientes con la descarga directa, accede a todos los
+                        materiales en nuestra carpeta de <b>Google Drive <span class="drive-svg-icon"
+                                style="vertical-align:middle;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 48 48">
+                                    <polygon fill="#ffd600" points="20.4,8.7 27.6,8.7 44.1,37.1 36.9,37.1" />
+                                    <polygon fill="#00c3f2" points="7.2,37.1 14.4,37.1 24,20.1 16.8,20.1" />
+                                    <polygon fill="#3dd54a" points="33.6,41.3 14.4,41.3 7.2,37.1 36.9,37.1" />
+                                    <polygon fill="#304ffe" points="27.6,8.7 44.1,37.1 36.9,37.1 20.4,8.7" />
+                                </svg>
+                            </span></b>:</p>
+                    <a href="https://drive.google.com/drive/folders/1TnFadjDvUMf0TWBvX2QN7dlLjAySSWiQ?usp=sharing"
+                        target="_blank" class="drive-link">📁 Ver carpeta completa en Drive</a>
+                </div>
+            </div>
+    
+
+    </main>
+    <footer>
+        <div style="color:#ffffff; font-size:1.5em; font-weight:bold;">
+            &copy; PDPEAJ-BENI
+        </div>
+    </footer>
+</body>
+
+</html>
