@@ -1,3 +1,41 @@
+/* Optimización móvil para formulario y juegos */
+@media (max-width: 600px) {
+    .form-contacto {
+        width: 100% !important;
+        padding: 0 2vw !important;
+        box-sizing: border-box;
+    }
+    .form-contacto label {
+        font-size: 1em !important;
+    }
+    .form-contacto input,
+    .form-contacto textarea {
+        width: 100% !important;
+        font-size: 1em !important;
+        margin-bottom: 12px !important;
+    }
+    .form-contacto button {
+        width: 100% !important;
+        font-size: 1.1em !important;
+        padding: 10px 0 !important;
+    }
+    .cuadro {
+        padding: 12px 4vw !important;
+        margin: 10px 0 !important;
+    }
+    iframe {
+        width: 98vw !important;
+        min-width: 0 !important;
+        height: 340px !important;
+        border-radius: 8px !important;
+    }
+    h4, h5 {
+        font-size: 1.1em !important;
+    }
+    p {
+        font-size: 1em !important;
+    }
+}
 .material-margen {
     max-width: 900px;
     width: 100%;
