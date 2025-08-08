@@ -1348,3 +1348,40 @@ footer {
         padding-right: 10px;
     }
 }
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #121212;
+    color: #fff;
+  }
+  .margen, .cuadro {
+    background: #1e1e1e;
+    border-color: #0ee031;
+  }
+}
+
+.form-contacto {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form-contacto input, 
+.form-contacto textarea {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.form-contacto button {
+    background-color: #2E8B57;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.form-contacto button:hover {
+    background-color: #246B44;
+}

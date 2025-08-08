@@ -200,27 +200,19 @@
                     actividades de la plataforma.)</p>
                 <p>La mesa directiva está conformada por:</p>
                 <ul class="lista-directiva">
-                    <li class="cargo" data-cargo="presidente"><b>Presidente</b></li>
-                    <li class="cargo" data-cargo="vicepresidente"><b>Vicepresidenta</b></li>
-                    <li class="cargo" data-cargo="vicepresidentesegundo"><b>Vicepresidente 2do</b></li>
-                    <li class="cargo" data-cargo="delegado"><b>Delegado a la Nacional</b></li>
-                    <li class="cargo" data-cargo="actas"><b>Secretario de Actas</b></li>
-                    <li class="cargo" data-cargo="alianzas"><b>Secretario de Alianzas</b></li>
-                    <li class="cargo" data-cargo="comunicaciones"><b>Secretaria de Comunicación</b></li>
-                    <li class="cargo" data-cargo="comunicacion"><b>Secretario de Comunicación</b></li>
-                    <li class="cargo" data-cargo="vocal1"><b>Vocal</b></li>
-                    <li class="cargo" data-cargo="vocal2"><b>Vocal</b></li>
+                    <li><b>Presidente</b></li>
+                    <li><b>Vicepresidenta</b></li>
+                    <li><b>Vicepresidente 2do</b></li>
+                    <li><b>Delegado a la Nacional</b></li>
+                    <li><b>Secretario de Actas</b></li>
+                    <li><b>Secretario de Alianzas</b></li>
+                    <li><b>Secretaria de Comunicación</b></li>
+                    <li><b>Secretario de Comunicación</b></li>
+                    <li><b>Vocal</b></li>
+                    <li><b>Vocal</b></li>
                 </ul>
 
                 <!-- Ventana modal para la información -->
-                <div id="modal-cargo" class="modal-cargo">
-                    <div class="modal-cargo-contenido">
-                        <span class="modal-cargo-cerrar" id="cerrar-modal">&times;</span>
-                        <img id="modal-cargo-img" src="" alt="Foto del cargo">
-                        <h3 id="modal-cargo-nombre"></h3>
-                        <p id="modal-cargo-desc"></p>
-                    </div>
-                </div>
 
             </div>
         </div>
@@ -409,6 +401,37 @@
                     <br>
                 </div>
             </div>
+            <div class="cuadro">
+                <h4>Envíanos un mensaje</h4>
+                <form action="https://formspree.io/f/mpwlojzb" method="POST" class="form-contacto">
+                    <label>Nombre:</label>
+                    <input type="text" name="nombre" required>
+
+                    <label>Correo electrónico:</label>
+                    <input type="email" name="email" required>
+
+                    <label>Mensaje:</label>
+                    <textarea name="mensaje" rows="5" required></textarea>
+
+                    <button type="submit">Enviar</button>
+                </form>
+            </div>
+
+            <div class="cuadro">
+                <h4>Juegos</h4>
+                <p>Quieres medir tus conocimientos sobre la prevención de embarazos en adolescentes y jóvenes? Participa
+                    en
+                    nuestro
+                    juego interactivo y descubre cuánto sabes sobre este importante tema. ¡Diviértete mientras aprendes!
+                </p>
+                <iframe
+                    src="https://docs.google.com/forms/d/e/1FAIpQLSfhEjoQS_cqorR7b8StoyG_DZUjd0inzZK0HGM05qTl5gA8Pw/viewform?usp=sharing&ouid=115417771645858268690"
+                    width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0">
+                    Cargando…
+                </iframe>
+            </div>
+
+
 
             <div id="Redes Sociales" class="anchor-offset"></div>
 
@@ -496,101 +519,18 @@
             });
         </script>
 
+        <script src="https://unpkg.com/scrollreveal"></script>
         <script>
-            const infoCargos = {
-                presidente: {
-                    nombre: "Johan Paul Algarañaz Vasquez",
-                    img: "img/presidente.jpg",
-                },
-                vicepresidente: {
-                    nombre: "Ariana Quiroz Ortiz",
-                    img: "img/vicepresidenta.jpg",
-
-                },
-                vicepresidentesegundo: {
-                    nombre: "Johnny Suárez Justiniano",
-                    img: "img/vicepresidente2do.jpg",
-                },
-                actas: {
-                    nombre: "Carlos Yver Justiniano Mariscal",
-                    img: "img/actas.jpeg",
-
-                },
-                alianzas: {
-                    nombre: "José Mateo Javivi Javivi",
-                    img: "img/relaciones.jpg",
-
-                },
-                comunicaciones: {
-                    nombre: "Mariana Justiniano Guayacuma",
-                    img: "img/comunicaciones.jpg",
-
-                },
-                comunicacion: {
-                    nombre: "Christian Mobo Maileva",
-                    img: "img/comunicacion.jpg",
-
-                },
-                vocal1: {
-                    nombre: "Luis Fernando Sosa Cuellar",
-                    img: "img/vocal1.jpg",
-
-                },
-                vocal2: {
-                    nombre: "Cristel Camila Guitiérrez Arias",
-                    img: "img/vocal2.jpg",
-
-                },
-                delegado: {
-                    nombre: "Mauricio Marañon Vargas",
-                    img: "img/delegado.jpg",
-
-                }
-            };
-
-            // Mostrar modal al hacer click en un cargo
-            document.querySelectorAll('.cargo').forEach(item => {
-                item.addEventListener('click', function () {
-                    const cargo = this.getAttribute('data-cargo');
-                    const info = infoCargos[cargo];
-                    if (info) {
-                        const img = document.getElementById('modal-cargo-img');
-                        img.src = info.img;
-                        img.alt = "Foto de " + info.nombre;
-                        img.onerror = function () {
-                            this.src = 'img/default-user.jpg'; // Imagen por defecto si no existe la foto
-                        };
-                        document.getElementById('modal-cargo-nombre').textContent = info.nombre;
-                        document.getElementById('modal-cargo-desc').textContent = info.desc;
-                        document.getElementById('modal-cargo').style.display = 'flex';
-                        document.body.style.overflow = 'hidden'; // Evita scroll de fondo
-                    }
-                });
-            });
-
-            // Cerrar modal con la X
-            document.getElementById('cerrar-modal').onclick = function () {
-                document.getElementById('modal-cargo').style.display = 'none';
-                document.body.style.overflow = '';
-            };
-
-            // Cerrar modal al hacer click fuera del contenido
-            window.onclick = function (event) {
-                const modal = document.getElementById('modal-cargo');
-                if (event.target === modal) {
-                    modal.style.display = 'none';
-                    document.body.style.overflow = '';
-                }
-            };
-
-            // Cerrar modal con la tecla ESC
-            document.addEventListener('keydown', function (e) {
-                if (e.key === "Escape") {
-                    document.getElementById('modal-cargo').style.display = 'none';
-                    document.body.style.overflow = '';
-                }
+            ScrollReveal().reveal('.cuadro, .margen, .actividad-img, .presentacion-oficial-text', {
+                delay: 150,
+                distance: '40px',
+                origin: 'bottom',
+                opacity: 0,
+                duration: 800,
+                easing: 'ease-in-out'
             });
         </script>
+
 
 
 </body>
