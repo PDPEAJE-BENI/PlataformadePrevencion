@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividades PDPEAJ-BENI</title>
+    <link rel="stylesheet" href="estilos.css">
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-WPNLRRK3');</script>
+    <!-- End Google Tag Manager -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-74F9S56FR9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-74F9S56FR9');
+    </script>
+    <script>
+// Define dataLayer and the gtag function.
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+// IMPORTANT - DO NOT COPY/PASTE WITHOUT MODIFYING REGION LIST
+//Set default consent for specific regions according to your requirements
+gtag('consent', 'default', {
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied',
+  'analytics_storage': 'denied',
+    'regions':['ES','BO','FR','DE','IT','PT','GB','US','CA','MX','BR','AR','CL','CO','PE']
+});
+// Set default consent for all other regions according to your requirements
+gtag('consent', 'default', {
+  'ad_storage': 'granted',
+  'ad_user_data': 'granted',
+  'ad_personalization': 'granted',
+  'analytics_storage': 'granted'
+});
+</script>
+<script id="CookieConsent" src="https://policy.app.cookieinformation.com/uc.js"
+    data-culture="ES" data-gcm-version="2.0" type="text/javascript"></script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WPNLRRK3"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+    <header>
+        <div class="margen">
+            <h1>Actividades de la Plataforma</h1>
+           
+        </div>
+    </header>
+    <div class="menu-desplegable">
+        <button class="menu-boton" id="menu-boton" onclick="toggleMenu()">...</button>
+        <div class="menu-contenido" id="menu-contenido">
+            <a href="index.html" class="menu-link menu-inicio"><div class="menu-title">Inicio</div></a>
+            <a href="actividades.html" class="menu-link menu-actividades"><div class="menu-title">Más Actividades</div></a>
+            <a href="directiva.html" class="menu-link menu-directiva"><div class="menu-title">Directiva</div></a>
+            <a href="contacto.html" class="menu-link menu-contacto"><div class="menu-title">Contacto y Comunicación</div></a>
+            <a href="material.html" class="menu-link menu-material"><div class="menu-title">Material</div></a>
+        </div>
+    </div>
+    <div class="margen">
+        <div class="cuadro">
+            <h2>Más actividades</h2>
+            <p>Aquí encontrarás información sobre las actividades adicionales realizadas por la plataforma PDPEAJ-BENI.</p>
+            <!-- Puedes agregar más bloques de actividades aquí -->
+        </div>
+    </div>
+    <footer>
+        <div style="color:#ffffff; font-size:1.2em; font-weight:bold;">&copy; PDPEAJ-BENI</div>
+    </footer>
+    <script>
+        // Alterna el menú en móvil
+        function toggleMenu() {
+            var menu = document.getElementById('menu-contenido');
+            if (window.innerWidth <= 600) {
+                if (menu.style.display === 'block') {
+                    menu.style.display = 'none';
+                } else {
+                    menu.style.display = 'block';
+                }
+            }
+        }
+        // Cierra el menú al seleccionar una opción en móvil
+        function cerrarMenu() {
+            var menu = document.getElementById('menu-contenido');
+            if (window.innerWidth <= 600) {
+                menu.style.display = 'none';
+            }
+        }
+        // Cerrar menú al hacer click fuera (solo móvil)
+        document.addEventListener('click', function (e) {
+            var menu = document.getElementById('menu-contenido');
+            var boton = document.getElementById('menu-boton');
+            if (window.innerWidth <= 600 && menu && boton) {
+                if (!menu.contains(e.target) && !boton.contains(e.target)) {
+                    menu.style.display = 'none';
+                }
+            }
+        });
+        // Asegura que el menú se oculte al cambiar el tamaño de la ventana
+        window.addEventListener('resize', function () {
+            var menu = document.getElementById('menu-contenido');
+            if (window.innerWidth > 600) {
+                menu.style.display = '';
+            } else {
+                menu.style.display = 'none';
+            }
+        });
+        // Corrige el cierre del menú al hacer scroll
+        window.addEventListener('scroll', function () {
+            var menu = document.getElementById('menu-contenido');
+            if (window.innerWidth <= 600 && menu) {
+                menu.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

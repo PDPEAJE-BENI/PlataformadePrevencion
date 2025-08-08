@@ -9,6 +9,14 @@
     <link rel="stylesheet" href="estilos.css">
 
     <!-- Estilos móviles movidos a estilos.css -->
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-WPNLRRK3');</script>
+    <!-- End Google Tag Manager -->
 </head>
         <!-- Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-74F9S56FR9"></script>
@@ -21,6 +29,11 @@
 </head>
 
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WPNLRRK3"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
     <header>
         <div class="margen">
             <h1>Plataforma Departamental de Prevención de Embarazos en Adolescentes y Jóvenes del Beni</h1>
@@ -32,22 +45,31 @@
         <div class="menu-desplegable">
             <button class="menu-boton" id="menu-boton" onclick="toggleMenu()">...</button>
             <div class="menu-contenido" id="menu-contenido">
+          
                 <a href="#inicio" class="menu-link" onclick="cerrarMenu(); scrollToSection('inicio'); return false;">
                     <div class="menu-title">Inicio</div>
+                </a>
+                <a href="actividades.html" class="menu-link menu-actividades">
+                    <div class="menu-title">Más Actividades</div>
+                </a>
+                      <a href="directiva.html" class="menu-link menu-directiva">
+                    <div class="menu-title">Directiva</div>
                 </a>
                 <a href="#Actividades" class="menu-link"
                     onclick="cerrarMenu(); scrollToSection('Actividades'); return false;">
                     <div class="menu-title">Actividades</div>
                 </a>
+                <a href="contacto.html" class="menu-link menu-contacto">
+                    <div class="menu-title">Contacto y Comunicación</div>
+                </a>
                 <a href="#Redes Sociales" class="menu-link"
                     onclick="cerrarMenu(); scrollToSection('Redes Sociales'); return false;">
                     <div class="menu-title">Redes Sociales</div>
                 </a>
-                <a href="#contacto" class="menu-link"
-                    onclick="cerrarMenu(); scrollToSection('contacto'); return false;">
-                    <div class="menu-title">Contacto</div>
+                    <a href="juegos.html" class="menu-link menu-juegos">
+                    <div class="menu-title">Juegos</div>
                 </a>
-                <a href="material.html" class="menu-link">
+                    <a href="material.html" class="menu-link menu-material">
                     <div class="menu-title">Material</div>
                 </a>
             </div>
@@ -411,38 +433,6 @@
                     <br>
                 </div>
             </div>
-            <div class="cuadro">
-                <h4>Envíanos un mensaje</h4>
-                <form action="https://formspree.io/f/mpwlojzb" method="POST" class="form-contacto">
-                    <label>Nombre:</label>
-                    <input type="text" name="nombre" required>
-
-                    <label>Correo electrónico:</label>
-                    <input type="email" name="email" required>
-
-                    <label>Mensaje:</label>
-                    <textarea name="mensaje" rows="5" required></textarea>
-
-                    <button type="submit">Enviar</button>
-                </form>
-            </div>
-
-            <div class="cuadro">
-                <h4>Juegos</h4>
-                <p>Quieres medir tus conocimientos sobre la prevención de embarazos en adolescentes y jóvenes? Participa
-                    en
-                    nuestro
-                    juego interactivo y descubre cuánto sabes sobre este importante tema. ¡Diviértete mientras aprendes!
-                </p>
-                <div class="iframe-centro">
-                    <iframe
-                        src="https://docs.google.com/forms/d/e/1FAIpQLSfhEjoQS_cqorR7b8StoyG_DZUjd0inzZK0HGM05qTl5gA8Pw/viewform?usp=sharing&ouid=115417771645858268690"
-                        width="600" height="800" frameborder="0" marginheight="0" marginwidth="0">
-                        Cargando…  
-                  </ifra>
-                </divme>
-            </div>
-
 
 
             <div id="Redes Sociales" class="anchor-offset"></div>
@@ -543,8 +533,29 @@
             });
         </script>
 
-
-
-</body>
+        <script>
+// Define dataLayer and the gtag function.
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+// IMPORTANT - DO NOT COPY/PASTE WITHOUT MODIFYING REGION LIST
+//Set default consent for specific regions according to your requirements
+gtag('consent', 'default', {
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied',
+  'analytics_storage': 'denied',
+    'regions':['ES','BO','FR','DE','IT','PT','GB','US','CA','MX','BR','AR','CL','CO','PE']
+});
+// Set default consent for all other regions according to your requirements
+gtag('consent', 'default', {
+  'ad_storage': 'granted',
+  'ad_user_data': 'granted',
+  'ad_personalization': 'granted',
+  'analytics_storage': 'granted'
+});
+</script>
+<script id="CookieConsent" src="https://policy.app.cookieinformation.com/uc.js"
+    data-culture="ES" data-gcm-version="2.0" type="text/javascript"></script>
+    </body>
 
 </html>
