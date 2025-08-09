@@ -1,30 +1,31 @@
 /* Video de feria en actividades */
 .actividad-video {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 18px 0 10px 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 18px 0 10px 0;
 }
 
 .video-feria {
-  width: 100%;
-  max-width: 540px;
-  border-radius: 16px;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.13);
-  background: #f5f5f5;
-  outline: none;
+    width: 100%;
+    max-width: 540px;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.13);
+    background: #f5f5f5;
+    outline: none;
 }
 
 @media (max-width: 700px) {
-  .video-feria {
-    max-width: 99vw;
-    border-radius: 10px;
-    margin: 0 auto;
-  }
-  .actividad-video {
-    margin: 12px 0 8px 0;
-  }
+    .video-feria {
+        max-width: 99vw;
+        border-radius: 10px;
+        margin: 0 auto;
+    }
+
+    .actividad-video {
+        margin: 12px 0 8px 0;
+    }
 }
 
 /* CSS único para la página de la directiva */
@@ -246,7 +247,7 @@
     border-radius: 12px;
     max-width: 700px;
     width: 100%;
-   
+
     text-align: justify;
 }
 
@@ -435,7 +436,7 @@
         text-align: center;
     }
 
-   
+
 
     .material-nombre {
         margin-left: 0 !important;
@@ -625,9 +626,9 @@ p {
     .logo,
     img {
         max-width: 99vw !important;
-     
+
         margin: 10px auto 10px auto !important;
-       
+
         display: block !important;
     }
 
@@ -1350,7 +1351,7 @@ footer {
     backdrop-filter: blur(2px);
     animation: menuFadeIn 0.4s;
     box-shadow: 0 4px 12px rgba(14, 224, 49, 0.15);
-    
+
 }
 
 
@@ -1629,4 +1630,174 @@ footer {
 
 .form-contacto button:hover {
     background-color: #246B44;
+}
+
+.dragdrop-lista {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.drag-item {
+    background: #e0e0f8;
+    border: 1px solid #888;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: grab;
+    margin-bottom: 5px;
+}
+
+.drop-area {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.drop-zone {
+    background: #f8f8f8;
+    border: 2px dashed #aaa;
+    min-height: 40px;
+    padding: 8px 12px;
+    border-radius: 6px;
+    margin-bottom: 5px;
+}
+
+.drop-zone.filled {
+    background: #d0ffd0;
+    border-color: #4caf50;
+}
+
+.crucigrama {
+    border-collapse: collapse;
+    margin: 12px 0;
+}
+
+.crucigrama td {
+    width: 36px;
+    height: 36px;
+    border: 1px solid #aaa;
+    text-align: center;
+    background: #fff;
+}
+
+.crucigrama input {
+    width: 32px;
+    height: 32px;
+    text-align: center;
+    font-size: 1.2em;
+    border: none;
+    background: #f0f0ff;
+    border-radius: 4px;
+}
+
+.crucigrama-pistas {
+    margin-top: 10px;
+    font-size: 1em;
+}
+
+.cr-cell {
+    position: relative;
+}
+
+.cr-num {
+    position: absolute;
+    top: 1px;
+    left: 2px;
+    font-size: 0.85em;
+    color: #4a148c;
+    font-weight: bold;
+}
+
+.cr-id {
+    position: absolute;
+    bottom: 1px;
+    right: 2px;
+    font-size: 0.65em;
+    color: #888;
+}
+
+.drag-item-puberta {
+    background: #e3f2fd;
+    border: 1px solid #1976d2;
+    border-radius: 6px;
+    padding: 8px 14px;
+    cursor: grab;
+    font-size: 1em;
+    font-weight: 500;
+    color: #1976d2;
+    box-shadow: 1px 2px 4px #bbb2;
+}
+
+.drop-zone-puberta {
+    min-height: 48px;
+    background: #f5f5f5;
+    border: 1.5px dashed #bdbdbd;
+    border-radius: 6px;
+    padding: 8px 10px;
+    margin-bottom: 2px;
+    font-size: 0.98em;
+    color: #333;
+    display: flex;
+    align-items: center;
+}
+
+.drop-zone-puberta.filled {
+    background: #d0ffd0;
+    border-color: #43a047;
+}
+
+.drop-zone-puberta.incorrect {
+    background: #ffd0d0;
+    border-color: #e53935;
+}
+
+.secuencia-condon-lista li {
+    background: #e3f2fd;
+    border: 1px solid #1976d2;
+    border-radius: 6px;
+    padding: 10px 16px 10px 10px;
+    margin-bottom: 8px;
+    font-size: 1em;
+    font-weight: 500;
+    color: #1976d2;
+    box-shadow: 1px 2px 4px #bbb2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: background 0.2s;
+}
+
+.secuencia-condon-lista li.correcto {
+    background: #d0ffd0;
+    border-color: #43a047;
+    color: #388e3c;
+}
+
+.secuencia-condon-lista li.incorrecto {
+    background: #ffd0d0;
+    border-color: #e53935;
+    color: #b71c1c;
+}
+
+.secuencia-condon-btns {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-left: 10px;
+}
+
+.secuencia-condon-btns button {
+    background: #1976d2;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    padding: 2px 7px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.secuencia-condon-btns button:active {
+    background: #0d47a1;
 }
