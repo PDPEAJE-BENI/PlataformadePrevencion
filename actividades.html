@@ -90,55 +90,190 @@
             <!-- Puedes agregar más bloques de actividades aquí -->
         </div>
     </div>
-    <footer>
-        <div style="color:#ffffff; font-size:1.2em; font-weight:bold;">&copy; PDPEAJ-BENI</div>
-    </footer>
-    <script>
-        // Alterna el menú en móvil
-        function toggleMenu() {
-            var menu = document.getElementById('menu-contenido');
-            if (window.innerWidth <= 600) {
-                if (menu.style.display === 'block') {
-                    menu.style.display = 'none';
-                } else {
-                    menu.style.display = 'block';
-                }
-            }
-        }
-        // Cierra el menú al seleccionar una opción en móvil
-        function cerrarMenu() {
-            var menu = document.getElementById('menu-contenido');
-            if (window.innerWidth <= 600) {
-                menu.style.display = 'none';
-            }
-        }
-        // Cerrar menú al hacer click fuera (solo móvil)
-        document.addEventListener('click', function (e) {
-            var menu = document.getElementById('menu-contenido');
-            var boton = document.getElementById('menu-boton');
-            if (window.innerWidth <= 600 && menu && boton) {
-                if (!menu.contains(e.target) && !boton.contains(e.target)) {
-                    menu.style.display = 'none';
-                }
-            }
-        });
-        // Asegura que el menú se oculte al cambiar el tamaño de la ventana
-        window.addEventListener('resize', function () {
-            var menu = document.getElementById('menu-contenido');
-            if (window.innerWidth > 600) {
-                menu.style.display = '';
-            } else {
-                menu.style.display = 'none';
-            }
-        });
-        // Corrige el cierre del menú al hacer scroll
-        window.addEventListener('scroll', function () {
-            var menu = document.getElementById('menu-contenido');
-            if (window.innerWidth <= 600 && menu) {
-                menu.style.display = 'none';
-            }
-        });
-    </script>
+
+    <div class="margen">
+        <div class="cuadro">
+            <div class="actividades-grid">
+                <div class="cuadro actividad">
+                    <h3>Feria de Concientización</h3>
+                    <img src="img/feria.jpeg" alt="Feria de Concientización" class="actividad-img">
+                    <p>La 1ra Feria de Concientización reunió instituciones y jóvenes para reflexionar y aprender sobre
+                        la prevención de embarazos adolescentes, promoviendo el cuidado y la responsabilidad desde la
+                        juventud.</p>
+                </div>
+                <div class="cuadro actividad">
+                    <h3>Reestructuración PDPEAJ-BENI</h3>
+                    <img src="img/estructura.jpeg" alt="Reestructuración" class="actividad-img">
+                    <p>La nueva mesa directiva y delegados asumieron el compromiso de fortalecer el trabajo en beneficio
+                        de la juventud, impulsando cambios positivos con energía renovada.</p>
+                </div>
+                <div class="cuadro actividad">
+                    <h3>Plataforma Nacional</h3>
+                    <img src="img/nacional.jpeg" alt="Plataforma Nacional" class="actividad-img">
+                    <img src="img/nacional 2.jpeg" alt="Plataforma Nacional" class="actividad-img">
+                    <p>La PDPEAJ-BENI se unió a las plataformas de otros departamentos para crear la Plataforma
+                        Nacional, demostrando unidad y compromiso en la lucha por un futuro más informado y saludable.
+                    </p>
+                </div>
+                <div class="cuadro actividad">
+                    <h3>Corso Preventivo</h3>
+                    <img src="img/carnaval.jpeg" alt="Corso Preventivo" class="actividad-img">
+                    <img src="img/carnaval 2.jpeg" alt="Corso Preventivo" class="actividad-img">
+                    <p>Durante el Corso Trinitario, se repartieron métodos anticonceptivos y se brindó información sobre
+                        prevención de ETS, demostrando que la diversión puede ir de la mano con la responsabilidad.</p>
+                </div>
+                <div class="cuadro actividad">
+                    <h3>Ciclo Webinar</h3>
+                    <img src="img/ciclo webinar.jpeg" alt="Ciclo Webinar" class="actividad-img">
+                    <p>En alianza con plataformas de La Paz y Potosí, se realizaron webinars sobre relaciones de pareja,
+                        comunicación y vínculos sanos, promoviendo el bienestar emocional de los jóvenes.</p>
+                </div>
+                <div class="cuadro actividad">
+                    <h3>Presentación Oficial</h3>
+                    <img src="img/presentacion.jpeg" alt="Presentación Oficial" class="actividad-img">
+                    <img src="img/presentacion 2.jpeg" alt="Presentación Oficial" class="actividad-img">
+                    <p>Se presentó oficialmente a los nuevos delegados y directiva, quienes liderarán el plan de trabajo
+                        y actividades durante la gestión, fomentando la participación y el aprendizaje.</p>
+                </div>
+                <div class="cuadro actividad">
+                    <h3>Consejo Departamental de la Juventud</h3>
+                    <img src="img/comite.jpeg" alt="Comité Departamental" class="actividad-img">
+                    <img src="img/grupo.jpeg" alt="Comité Departamental" class="actividad-img">
+                    <p>Participación activa en el evento "Construyendo Propuestas por Nuestros Derechos", donde se
+                        presentaron iniciativas juveniles para fortalecer la prevención y el liderazgo.</p>
+                </div>
+
+
+                <div class="cuadro actividad">
+                    <h3>Taller "Alza Tu Voz"</h3>
+                    <img src="img/voz.jpg" alt="Alza tu voz" class="actividad-img">
+                    <img src="img/voz2.jpg" alt="Alza tu voz" class="actividad-img">
+                    <p>Este taller implementado por UNICEF y SIESAR, tuvo como objetivo hacer conocer las necesidades
+                        que tenian los jóvenes al acceder a un centro AIDAJ. La Plataforma siendo parte de este taller,
+                        expreso las necesidades que tienen los jóvenes y la de los mismos integrantes de la plataforma
+                        para acceder a un centro AIDAJ y como es que se puede mejorar este acceso.</p>
+                </div>
+                <div class="cuadro actividad">
+                    <h3>Bolsa de Empleo juvenil 2025</h3>
+                    <img src="img/taller.jpg" alt="Bolsa de Empleo" class="actividad-img">
+                    <img src="img/taller2.jpg" alt="Bolsa de Empleo" class="actividad-img">
+                    <p>La PDPEAJ-BENI participo en los tallleres de Bolsa de Empleo Juvenil 2025, donde se brindaron
+                        herramientas y recursos para mejorar la empleabilidad de los jóvenes en el mercado laboral.
+                        Estos talleres fueron una oportunidad para que los jóvenes adquirieran habilidades prácticas y
+                        conocimientos sobre cómo buscar empleo, preparar un currículum vitae efectivo y enfrentar
+                        entrevistas de trabajo con confianza. La participación de la plataforma en estos talleres
+                        demuestra su compromiso con el desarrollo integral de los jóvenes, no solo en términos de
+                        prevención de embarazos adolescentes, sino también en su crecimiento personal y profesional.
+                        Al empoderar a los jóvenes con estas habilidades, la PDPEAJ-BENI contribuye a su autonomía y
+                        capacidad para tomar decisiones informadas sobre su futuro laboral y personal.
+                        Ademas de que no solo se abarco el tema de empleabilidad, sino que tambien se toco el tema de
+                        salud sexual y reproductiva, derechos sexuales y derechos reproductivos, lo cual es un tema de
+                        gran importancia para la plataforma.</p>
+                    </p>
+                </div>
+                <div class="cuadro actividad">
+                    <h3>taller “Juventudes con Voz y Poder”</h3>
+                    <img src="img/mujer.jpg" alt="Coomujer" class="actividad-img">
+                    <img src="img/mujer2.jpg" alt="Coomujer" class="actividad-img">
+                    <img src="img/mujer3.jpg" alt="Coomujer" class="actividad-img">
+                    <p>Durante este taller que fue desarrollado por la organización Coomujer, se abordaron temas
+                        fundamentales como derechos sexuales y derechos
+                        reproductivos y la igualdad de género. La participación de la PDPEAJ-BENI en este taller
+                        refleja su compromiso con la promoción de una sexualidad responsable y el empoderamiento de los
+                        jóvenes para que puedan tomar decisiones informadas sobre su salud sexual y reproductiva.
+                        Además, el enfoque en la igualdad de género es crucial para desafiar los estereotipos y roles de
+                        género que a menudo limitan las oportunidades y el desarrollo de los jóvenes. Al participar en
+                        este taller, la plataforma no solo fortalece sus conocimientos y habilidades en estos temas,
+                        sino que también contribuye a crear una comunidad más consciente y comprometida con la salud y
+                        el bienestar de sus miembros.</p>
+                </div>
+                <div class="cuadro actividad">
+                    <h3>Proyecto de Ley de Prevención de Embarazo adolescente y
+                        Joven</h3>
+                    <img src="img/ley1.jpg" alt="Propuesta de Ley" class="actividad-img">
+                    <img src="img/ley2.jpg" alt="Propuesta de Ley" class="actividad-img">
+                    <p>En este espacio de dialogo que se desarrollo en el salón del SEDEGES, la plataforma en conjunto
+                        con diferentes instituciones y organizaciones de la sociedad civil, se expresó la alarmante
+                        cantidad de embarazos en adolescentes que el departamento del Beni tiene, y como es que se puede
+                        trabajar en conjunto para reducir esta cifra.
+                        Es por ello que se propuso el <b>Proyecto de Ley de Prevención de Embarazo adolescente y
+                            Joven</b>, donde se recogieron los insumos y de dialogo acerca de las politicas públicas
+                        para llevar a cabo este proyecto de ley.
+                        La propuesta de ley tiene como objetivo principal establecer políticas y estrategias claras para
+                        abordar la problemática de los embarazos en adolescentes, promoviendo la educación sexual
+                        integral, el acceso a métodos anticonceptivos y el fortalecimiento de los servicios de salud
+                        sexual y reproductiva.
+                        La participación activa de la PDPEAJ-BENI en este espacio de dialogo demuestra su compromiso
+                        activo que tiene para que los adolescentes y jóvenes de todo el departamento del Beni tengan
+                        acceso a una educación sexual integral y a servicios de salud adecuados, contribuyendo así a la
+                        reducción de embarazos no deseados y al empoderamiento de los jóvenes en la toma de decisiones
+                        informadas sobre su salud y bienestar.</p>
+                </div>
+                <div class="cuadro actividad">
+                    <h3>Feria en conmemoración al día Mundial de la Trata y Trafico de personas</h3>
+                    <img src="img/trata.jpg" alt="Coomujer" class="actividad-img">
+                    <img src="img/trata2.jpg" alt="Coomujer" class="actividad-img">
+                    <img src="img/trata3.jpg" alt="Coomujer" class="actividad-img">
+                    <p>En esta feria que se desarrollo en la plaza principal de la ciudad de La Santisima Trinidad, se
+                        abordaron
+                        temas de gran importancia como la trata y trafico de personas, donde se brindó información
+                        acerca de como prevenir este tipo de situaciones y como es que se puede ayudar a las personas
+                        que han sido victimas de trata y trafico de personas.
+                        Ademas de contar con el apoyo de La Dirección Departamental de Juventudes y SEDEGES para elobrar
+                        nuestro stand y contar con el material informativo necesario para que los jóvenes y la población
+                        en general puedan conocer más acerca de este tema tan importante. Abarcando tambien las
+                        tematicas que la plataforma maneja y hablando acerca de La Ley Departamental de Juventudes N°75.
+                    </p>
+                </div>
+                <footer>
+                    <div style="color:#ffffff; font-size:1.2em; font-weight:bold;">&copy; PDPEAJ-BENI</div>
+                </footer>
+                <script>
+                    // Alterna el menú en móvil
+                    function toggleMenu() {
+                        var menu = document.getElementById('menu-contenido');
+                        if (window.innerWidth <= 600) {
+                            if (menu.style.display === 'block') {
+                                menu.style.display = 'none';
+                            } else {
+                                menu.style.display = 'block';
+                            }
+                        }
+                    }
+                    // Cierra el menú al seleccionar una opción en móvil
+                    function cerrarMenu() {
+                        var menu = document.getElementById('menu-contenido');
+                        if (window.innerWidth <= 600) {
+                            menu.style.display = 'none';
+                        }
+                    }
+                    // Cerrar menú al hacer click fuera (solo móvil)
+                    document.addEventListener('click', function (e) {
+                        var menu = document.getElementById('menu-contenido');
+                        var boton = document.getElementById('menu-boton');
+                        if (window.innerWidth <= 600 && menu && boton) {
+                            if (!menu.contains(e.target) && !boton.contains(e.target)) {
+                                menu.style.display = 'none';
+                            }
+                        }
+                    });
+                    // Asegura que el menú se oculte al cambiar el tamaño de la ventana
+                    window.addEventListener('resize', function () {
+                        var menu = document.getElementById('menu-contenido');
+                        if (window.innerWidth > 600) {
+                            menu.style.display = '';
+                        } else {
+                            menu.style.display = 'none';
+                        }
+                    });
+                    // Corrige el cierre del menú al hacer scroll
+                    window.addEventListener('scroll', function () {
+                        var menu = document.getElementById('menu-contenido');
+                        if (window.innerWidth <= 600 && menu) {
+                            menu.style.display = 'none';
+                        }
+                    });
+                </script>
 </body>
 
 </html>

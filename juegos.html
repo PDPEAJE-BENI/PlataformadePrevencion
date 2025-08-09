@@ -183,16 +183,25 @@
                         q5: 'a',
                         q6: 'a'
                     };
+                    var explicaciones = {
+                        q1: 'La edad recomendada es cuando se tiene información y madurez, no una edad fija.',
+                        q2: 'El preservativo es el método más efectivo para prevenir embarazos y ETS.',
+                        q3: 'Los profesionales de salud son quienes mejor pueden orientar sobre salud sexual.',
+                        q4: 'Diabetes no es una enfermedad de transmisión sexual, a diferencia de VIH/SIDA y sífilis.',
+                        q5: 'La educación sexual ayuda a prevenir el embarazo adolescente.',
+                        q6: 'El uso principal del preservativo es prevenir embarazos y ETS.'
+                    };
                     var score = 0;
                     var form = document.getElementById('quiz-form');
-                    if (form.q1.value === respuestas.q1) score++;
-                    if (form.q2.value === respuestas.q2) score++;
-                    if (form.q3.value === respuestas.q3) score++;
-                    if (form.q4.value === respuestas.q4) score++;
-                    if (form.q5.value === respuestas.q5) score++;
-                    if (form.q6.value === respuestas.q6) score++;
-                    var resultado = document.getElementById('quiz-resultado');
-                    resultado.innerHTML = 'Tu puntaje: ' + score + ' de 6.';
+                    var resultado = '<b>Resultados:</b><ul>';
+                    for (var i = 1; i <= 6; i++) {
+                        var q = 'q' + i;
+                        var correcta = form[q].value === respuestas[q];
+                        if (correcta) score++;
+                        resultado += '<li>' + (correcta ? '✔️' : '❌') + ' <b>Pregunta ' + i + ':</b> ' + explicaciones[q] + '</li>';
+                    }
+                    resultado += '</ul><b>Tu puntaje: ' + score + ' de 6.</b>';
+                    document.getElementById('quiz-resultado').innerHTML = resultado;
                 }
             </script>
         </div>
@@ -236,14 +245,23 @@
                     vf3: 'falso',
                     vf4: 'verdadero'
                 };
+                var explicaciones = {
+                    vf1: 'El preservativo previene embarazos y también enfermedades de transmisión sexual.',
+                    vf2: 'La educación sexual es clave para prevenir enfermedades de transmisión sexual.',
+                    vf3: 'La prevención de embarazos es responsabilidad de todos, no solo de las mujeres.',
+                    vf4: 'Hablar de salud sexual es importante para todos los jóvenes.'
+                };
                 var score = 0;
                 var form = document.getElementById('vf-form');
-                if (form.vf1.value === respuestas.vf1) score++;
-                if (form.vf2.value === respuestas.vf2) score++;
-                if (form.vf3.value === respuestas.vf3) score++;
-                if (form.vf4.value === respuestas.vf4) score++;
-                var resultado = document.getElementById('vf-resultado');
-                resultado.innerHTML = 'Tu puntaje: ' + score + ' de 4.';
+                var resultado = '<b>Resultados:</b><ul>';
+                for (var i = 1; i <= 4; i++) {
+                    var q = 'vf' + i;
+                    var correcta = form[q].value === respuestas[q];
+                    if (correcta) score++;
+                    resultado += '<li>' + (correcta ? '✔️' : '❌') + ' <b>Pregunta ' + i + ':</b> ' + explicaciones[q] + '</li>';
+                }
+                resultado += '</ul><b>Tu puntaje: ' + score + ' de 4.</b>';
+                document.getElementById('vf-resultado').innerHTML = resultado;
             }
         </script>
         <div class="cuadro">
@@ -283,13 +301,22 @@
                     q2: 'a',
                     q3: 'b'
                 };
+                var explicaciones = {
+                    q1: 'DSDR significa Derechos Sexuales y Derechos Reproductivos.',
+                    q2: 'Decidir cuándo tener hijos es un derecho reproductivo fundamental.',
+                    q3: 'Todos tienen derecho a recibir educación sexual, incluidos adolescentes y jóvenes.'
+                };
                 var score = 0;
                 var form = document.getElementById('quiz-dsdr-form');
-                if (form.q1.value === respuestas.q1) score++;
-                if (form.q2.value === respuestas.q2) score++;
-                if (form.q3.value === respuestas.q3) score++;
-                var resultado = document.getElementById('quiz-dsdr-resultado');
-                resultado.innerHTML = 'Tu puntaje: ' + score + ' de 3.';
+                var resultado = '<b>Resultados:</b><ul>';
+                for (var i = 1; i <= 3; i++) {
+                    var q = 'q' + i;
+                    var correcta = form[q].value === respuestas[q];
+                    if (correcta) score++;
+                    resultado += '<li>' + (correcta ? '✔️' : '❌') + ' <b>Pregunta ' + i + ':</b> ' + explicaciones[q] + '</li>';
+                }
+                resultado += '</ul><b>Tu puntaje: ' + score + ' de 3.</b>';
+                document.getElementById('quiz-dsdr-resultado').innerHTML = resultado;
             }
         </script>
 
@@ -335,14 +362,23 @@
                     vf3: 'verdadero',
                     vf4: 'verdadero'
                 };
+                var explicaciones = {
+                    vf1: 'El método AIDAJ es una estrategia para la prevención de embarazos adolescentes.',
+                    vf2: 'Algunos métodos anticonceptivos, como el preservativo, también previenen enfermedades de transmisión sexual.',
+                    vf3: 'El preservativo protege contra embarazos y enfermedades de transmisión sexual (ETS).',
+                    vf4: 'Todos los adolescentes tienen derecho a recibir información sobre métodos anticonceptivos.'
+                };
                 var score = 0;
                 var form = document.getElementById('vf-metodos-form');
-                if (form.vf1.value === respuestas.vf1) score++;
-                if (form.vf2.value === respuestas.vf2) score++;
-                if (form.vf3.value === respuestas.vf3) score++;
-                if (form.vf4.value === respuestas.vf4) score++;
-                var resultado = document.getElementById('vf-metodos-resultado');
-                resultado.innerHTML = 'Tu puntaje: ' + score + ' de 4.';
+                var resultado = '<b>Resultados:</b><ul>';
+                for (var i = 1; i <= 4; i++) {
+                    var q = 'vf' + i;
+                    var correcta = form[q].value === respuestas[q];
+                    if (correcta) score++;
+                    resultado += '<li>' + (correcta ? '✔️' : '❌') + ' <b>Pregunta ' + i + ':</b> ' + explicaciones[q] + '</li>';
+                }
+                resultado += '</ul><b>Tu puntaje: ' + score + ' de 4.</b>';
+                document.getElementById('vf-metodos-resultado').innerHTML = resultado;
             }
         </script>
 
