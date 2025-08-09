@@ -1,3 +1,32 @@
+/* Video de feria en actividades */
+.actividad-video {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 18px 0 10px 0;
+}
+
+.video-feria {
+  width: 100%;
+  max-width: 540px;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.13);
+  background: #f5f5f5;
+  outline: none;
+}
+
+@media (max-width: 700px) {
+  .video-feria {
+    max-width: 99vw;
+    border-radius: 10px;
+    margin: 0 auto;
+  }
+  .actividad-video {
+    margin: 12px 0 8px 0;
+  }
+}
+
 /* CSS único para la página de la directiva */
 .directiva-grid {
     display: grid;
