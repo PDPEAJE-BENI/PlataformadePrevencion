@@ -41,7 +41,7 @@
         <div class="menu-desplegable">
             <button class="menu-boton" id="menu-boton" onclick="toggleMenu()">...</button>
             <div class="menu-contenido" id="menu-contenido">
-                <a href="index.html" class="menu-link">
+                <a href="index.html" class="menu-link menu-inicio">
                     <div class="menu-title">Inicio</div>
                 </a>
                 <a href="actividades.html" class="menu-link menu-actividades">
@@ -53,279 +53,390 @@
                 <a href="contacto.html" class="menu-link menu-contacto">
                     <div class="menu-title">Contacto y Comunicación</div>
                 </a>
-                <a href="#Redes Sociales" class="menu-link"
-                    onclick="cerrarMenu(); scrollToSection('Redes Sociales'); return false;">
-                    <div class="menu-title">Redes Sociales</div>
-                </a>
-                <a href="material.html" class="menu-link">
+                <a href="material.html" class="menu-link menu-material">
                     <div class="menu-title">Material</div>
                 </a>
                 <a href="juegos.html" class="menu-link menu-juegos">
-                    <div class="menu-title">Zona de Juegos</div>
+                    <div class="menu-title">Juegos</div>
+                </a>
+
+                <script>
+                    // Alterna el menú en móvil
+                    function toggleMenu() {
+                        var menu = document.getElementById('menu-contenido');
+                        if (window.innerWidth <= 600) {
+                            if (menu.style.display === 'block') {
+                                menu.style.display = 'none';
+                            } else {
+                                menu.style.display = 'block';
+                            }
+                        }
+                    }
+                    function cerrarMenu() {
+                        var menu = document.getElementById('menu-contenido');
+                        if (window.innerWidth <= 600) {
+                            menu.style.display = 'none';
+                        }
+                    }
+                    document.addEventListener('click', function (e) {
+                        var menu = document.getElementById('menu-contenido');
+                        var boton = document.getElementById('menu-boton');
+                        if (window.innerWidth <= 600 && menu && boton) {
+                            if (!menu.contains(e.target) && !boton.contains(e.target)) {
+                                menu.style.display = 'none';
+                            }
+                        }
+                    });
+                    window.addEventListener('resize', function () {
+                        var menu = document.getElementById('menu-contenido');
+                        if (window.innerWidth > 600) {
+                            menu.style.display = '';
+                        } else {
+                            menu.style.display = 'none';
+                        }
+                    });
+                    window.addEventListener('scroll', function () {
+                        var menu = document.getElementById('menu-contenido');
+                        if (window.innerWidth <= 600 && menu) {
+                            menu.style.display = 'none';
+                        }
+                    });
+                    function scrollToSection(id) {
+                        var el = document.getElementById(id);
+                        if (el) {
+                            el.scrollIntoView({ behavior: 'smooth' });
+                        }
+                    }
+                </script>
+
+            </div>
+        </div>
+    </div>
+    <div class="margen">
+        <div class="cuadro">
+            <h2>Zona de Juegos Interactivos</h2>
+            <p>Bienvenido a la zona especial de juegos, quizzes y actividades interactivas. Aquí
+                podrás aprender y
+                divertirte mientras refuerzas tus conocimientos sobre salud sexual, prevención y
+                derechos juveniles.
+            </p>
+        </div>
+
+        <div class="cuadro">
+            <!-- Ejemplo de juego tipo quiz -->
+            <div class="cuadro">
+                <h3>Quiz: ¿Cuánto sabes sobre prevención?</h3>
+                <form id="quiz-form">
+                    <div>
+                        <label>1. ¿Cuál es la edad recomendada para iniciar la vida sexual
+                            responsable?</label><br>
+                        <input type="radio" name="q1" value="a"> a) 12 años<br>
+                        <input type="radio" name="q1" value="b"> b) 15 años<br>
+                        <input type="radio" name="q1" value="c"> c) Cuando se tiene información y
+                        madurez<br>
+                    </div>
+                    <div>
+                        <label>2. ¿Qué método es más efectivo para prevenir embarazos y
+                            ETS?</label><br>
+                        <input type="radio" name="q2" value="a"> a) Anticonceptivos orales<br>
+                        <input type="radio" name="q2" value="b"> b) Preservativo<br>
+                        <input type="radio" name="q2" value="c"> c) Ninguno<br>
+                    </div>
+                    <div>
+                        <label>3. ¿A quién puedes acudir si tienes dudas sobre salud
+                            sexual?</label><br>
+                        <input type="radio" name="q3" value="a"> a) Amigos<br>
+                        <input type="radio" name="q3" value="b"> b) Profesionales de salud<br>
+                        <input type="radio" name="q3" value="c"> c) Internet<br>
+                    </div>
+                    <div>
+                        <label>4. ¿Cuál de los siguientes NO es una enfermedad de transmisión
+                            sexual?</label><br>
+                        <input type="radio" name="q4" value="a"> a) VIH/SIDA<br>
+                        <input type="radio" name="q4" value="b"> b) Diabetes<br>
+                        <input type="radio" name="q4" value="c"> c) Sífilis<br>
+                    </div>
+                    <div>
+                        <label>5. ¿Qué acción ayuda a prevenir el embarazo adolescente?</label><br>
+                        <input type="radio" name="q5" value="a"> a) Educación sexual<br>
+                        <input type="radio" name="q5" value="b"> b) Falta de información<br>
+                        <input type="radio" name="q5" value="c"> c) Ignorar el tema<br>
+                    </div>
+                    <div>
+                        <label>6. ¿Cuál es el uso principal del preservativo?</label><br>
+                        <input type="radio" name="q6" value="a"> a) Prevenir embarazos y ETS<br>
+                        <input type="radio" name="q6" value="b"> b) Decoración<br>
+                        <input type="radio" name="q6" value="c"> c) Juguete<br>
+                    </div>
+                    <br>
+                    <button type="button" onclick="calificarQuiz()">Enviar respuestas</button>
+                </form>
+                <div id="quiz-resultado"></div>
+            </div>
+            <script>
+                function calificarQuiz() {
+                    var respuestas = {
+                        q1: 'c',
+                        q2: 'b',
+                        q3: 'b',
+                        q4: 'b',
+                        q5: 'a',
+                        q6: 'a'
+                    };
+                    var score = 0;
+                    var form = document.getElementById('quiz-form');
+                    if (form.q1.value === respuestas.q1) score++;
+                    if (form.q2.value === respuestas.q2) score++;
+                    if (form.q3.value === respuestas.q3) score++;
+                    if (form.q4.value === respuestas.q4) score++;
+                    if (form.q5.value === respuestas.q5) score++;
+                    if (form.q6.value === respuestas.q6) score++;
+                    var resultado = document.getElementById('quiz-resultado');
+                    resultado.innerHTML = 'Tu puntaje: ' + score + ' de 6.';
+                }
+            </script>
+        </div>
+        <div class="cuadro">
+            <h4>Juego 2: Verdadero o Falso</h4>
+            <p>Responde si las siguientes afirmaciones son verdaderas o falsas.</p>
+            <form id="vf-form">
+                <div>
+                    <label>1. El preservativo solo previene embarazos.</label><br>
+                    <input type="radio" name="vf1" value="verdadero"> Verdadero<br>
+                    <input type="radio" name="vf1" value="falso"> Falso<br>
+                </div>
+                <div>
+                    <label>2. La educación sexual ayuda a prevenir enfermedades de transmisión
+                        sexual.</label><br>
+                    <input type="radio" name="vf2" value="verdadero"> Verdadero<br>
+                    <input type="radio" name="vf2" value="falso"> Falso<br>
+                </div>
+                <div>
+                    <label>3. Solo las mujeres deben preocuparse por la prevención de
+                        embarazos.</label><br>
+                    <input type="radio" name="vf3" value="verdadero"> Verdadero<br>
+                    <input type="radio" name="vf3" value="falso"> Falso<br>
+                </div>
+                <div>
+                    <label>4. Hablar de salud sexual es importante para todos los
+                        jóvenes.</label><br>
+                    <input type="radio" name="vf4" value="verdadero"> Verdadero<br>
+                    <input type="radio" name="vf4" value="falso"> Falso<br>
+                </div>
+                <br>
+                <button type="button" onclick="calificarVF()">Enviar respuestas</button>
+            </form>
+            <div id="vf-resultado"></div>
+        </div>
+        <script>
+            function calificarVF() {
+                var respuestas = {
+                    vf1: 'falso',
+                    vf2: 'verdadero',
+                    vf3: 'falso',
+                    vf4: 'verdadero'
+                };
+                var score = 0;
+                var form = document.getElementById('vf-form');
+                if (form.vf1.value === respuestas.vf1) score++;
+                if (form.vf2.value === respuestas.vf2) score++;
+                if (form.vf3.value === respuestas.vf3) score++;
+                if (form.vf4.value === respuestas.vf4) score++;
+                var resultado = document.getElementById('vf-resultado');
+                resultado.innerHTML = 'Tu puntaje: ' + score + ' de 4.';
+            }
+        </script>
+        <div class="cuadro">
+            <h3>Quiz: Derechos Sexuales y Derechos Reproductivos (DSDR)</h3>
+            <form id="quiz-dsdr-form">
+                <div>
+                    <label>1. ¿Qué significa DSDR?</label><br>
+                    <input type="radio" name="q1" value="a"> a) Derechos Sociales y de Desarrollo
+                    Rural<br>
+                    <input type="radio" name="q1" value="b"> b) Derechos Sexuales y Derechos
+                    Reproductivos<br>
+                    <input type="radio" name="q1" value="c"> c) Derechos de Salud y Desarrollo
+                    Regional<br>
+                </div>
+                <div>
+                    <label>2. ¿Cuál es un derecho reproductivo?</label><br>
+                    <input type="radio" name="q2" value="a"> a) Decidir cuándo tener hijos<br>
+                    <input type="radio" name="q2" value="b"> b) Elegir la música en la radio<br>
+                    <input type="radio" name="q2" value="c"> c) Viajar sin pasaporte<br>
+                </div>
+                <div>
+                    <label>3. ¿Quiénes tienen derecho a recibir educación sexual?</label><br>
+                    <input type="radio" name="q3" value="a"> a) Solo adultos<br>
+                    <input type="radio" name="q3" value="b"> b) Todos, adolescentes y jóvenes
+                    incluidos<br>
+                    <input type="radio" name="q3" value="c"> c) Solo profesionales de salud<br>
+                </div>
+                <br>
+                <button type="button" onclick="calificarDSDRQuiz()">Enviar respuestas</button>
+            </form>
+            <div id="quiz-dsdr-resultado"></div>
+        </div>
+        <script>
+            function calificarDSDRQuiz() {
+                var respuestas = {
+                    q1: 'b',
+                    q2: 'a',
+                    q3: 'b'
+                };
+                var score = 0;
+                var form = document.getElementById('quiz-dsdr-form');
+                if (form.q1.value === respuestas.q1) score++;
+                if (form.q2.value === respuestas.q2) score++;
+                if (form.q3.value === respuestas.q3) score++;
+                var resultado = document.getElementById('quiz-dsdr-resultado');
+                resultado.innerHTML = 'Tu puntaje: ' + score + ' de 3.';
+            }
+        </script>
+
+        <div class="cuadro">
+            <h4>Juego 4: Verdadero o Falso - Métodos Anticonceptivos y AIDAJ</h4>
+            <p>Responde si las siguientes afirmaciones son verdaderas o falsas.</p>
+            <form id="vf-metodos-form">
+                <div>
+                    <label>1. El método AIDAJ es una estrategia para la prevención de embarazos
+                        adolescentes.</label><br>
+                    <input type="radio" name="vf1" value="verdadero"> Verdadero<br>
+                    <input type="radio" name="vf1" value="falso"> Falso<br>
+                </div>
+                <div>
+                    <label>2. Los métodos anticonceptivos solo previenen embarazos, no enfermedades de
+                        transmisión sexual.</label><br>
+                    <input type="radio" name="vf2" value="verdadero"> Verdadero<br>
+                    <input type="radio" name="vf2" value="falso"> Falso<br>
+                </div>
+                <div>
+                    <label>3. El preservativo es un método anticonceptivo y también protege contra
+                        ETS.</label><br>
+                    <input type="radio" name="vf3" value="verdadero"> Verdadero<br>
+                    <input type="radio" name="vf3" value="falso"> Falso<br>
+                </div>
+                <div>
+                    <label>4. Todos los adolescentes tienen derecho a recibir información sobre métodos
+                        anticonceptivos.</label><br>
+                    <input type="radio" name="vf4" value="verdadero"> Verdadero<br>
+                    <input type="radio" name="vf4" value="falso"> Falso<br>
+                </div>
+                <br>
+                <button type="button" onclick="calificarVFMetodos()">Enviar respuestas</button>
+            </form>
+            <div id="vf-metodos-resultado"></div>
+        </div>
+
+        <script>
+            function calificarVFMetodos() {
+                var respuestas = {
+                    vf1: 'verdadero',
+                    vf2: 'falso',
+                    vf3: 'verdadero',
+                    vf4: 'verdadero'
+                };
+                var score = 0;
+                var form = document.getElementById('vf-metodos-form');
+                if (form.vf1.value === respuestas.vf1) score++;
+                if (form.vf2.value === respuestas.vf2) score++;
+                if (form.vf3.value === respuestas.vf3) score++;
+                if (form.vf4.value === respuestas.vf4) score++;
+                var resultado = document.getElementById('vf-metodos-resultado');
+                resultado.innerHTML = 'Tu puntaje: ' + score + ' de 4.';
+            }
+        </script>
+
+
+        <div class="cuadro">
+            <h4>Juegos</h4>
+            <p>Quieres medir tus conocimientos sobre la prevención de embarazos en adolescentes y jóvenes?
+                Participa
+                en
+                nuestro
+                juego interactivo y descubre cuánto sabes sobre este importante tema. ¡Diviértete mientras
+                aprendes!
+            </p>
+            <div class="iframe-centro">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfhEjoQS_cqorR7b8StoyG_DZUjd0inzZK0HGM05qTl5gA8Pw/viewform?usp=sharing&ouid=115417771645858268690"
+                    target="_blank" class="drive-link"
+                    style="font-size:1.2em; display:inline-block; margin:18px auto; text-align:center;">
+                    👉 Haz clic aquí para jugar el Quiz Interactivo
                 </a>
             </div>
         </div>
-        <script>
-            // Alterna el menú en móvil
-            function toggleMenu() {
-                var menu = document.getElementById('menu-contenido');
-                if (window.innerWidth <= 600) {
-                    if (menu.style.display === 'block') {
-                        menu.style.display = 'none';
-                    } else {
-                        menu.style.display = 'block';
-                    }
-                }
-            }
-            function cerrarMenu() {
-                var menu = document.getElementById('menu-contenido');
-                if (window.innerWidth <= 600) {
-                    menu.style.display = 'none';
-                }
-            }
-            document.addEventListener('click', function (e) {
-                var menu = document.getElementById('menu-contenido');
-                var boton = document.getElementById('menu-boton');
-                if (window.innerWidth <= 600 && menu && boton) {
-                    if (!menu.contains(e.target) && !boton.contains(e.target)) {
-                        menu.style.display = 'none';
-                    }
-                }
-            });
-            window.addEventListener('resize', function () {
-                var menu = document.getElementById('menu-contenido');
-                if (window.innerWidth > 600) {
-                    menu.style.display = '';
-                } else {
-                    menu.style.display = 'none';
-                }
-            });
-            window.addEventListener('scroll', function () {
-                var menu = document.getElementById('menu-contenido');
-                if (window.innerWidth <= 600 && menu) {
-                    menu.style.display = 'none';
-                }
-            });
-            function scrollToSection(id) {
-                var el = document.getElementById(id);
-                if (el) {
-                    el.scrollIntoView({ behavior: 'smooth' });
-                }
-            }
-        </script>
-        <div class="margen">
-            <div class="cuadro">
-                <h2>Zona de Juegos Interactivos</h2>
-                <p>Bienvenido a la zona especial de juegos, quizzes y actividades interactivas. Aquí podrás aprender y
-                    divertirte mientras refuerzas tus conocimientos sobre salud sexual, prevención y derechos juveniles.
-                </p>
-            </div>
-
-            <div class="cuadro">
-                <!-- Ejemplo de juego tipo quiz -->
-                <div class="cuadro">
-                    <h3>Quiz: ¿Cuánto sabes sobre prevención?</h3>
-                    <form id="quiz-form">
-                        <div>
-                            <label>1. ¿Cuál es la edad recomendada para iniciar la vida sexual responsable?</label><br>
-                            <input type="radio" name="q1" value="a"> a) 12 años<br>
-                            <input type="radio" name="q1" value="b"> b) 15 años<br>
-                            <input type="radio" name="q1" value="c"> c) Cuando se tiene información y madurez<br>
-                        </div>
-                        <div>
-                            <label>2. ¿Qué método es más efectivo para prevenir embarazos y ETS?</label><br>
-                            <input type="radio" name="q2" value="a"> a) Anticonceptivos orales<br>
-                            <input type="radio" name="q2" value="b"> b) Preservativo<br>
-                            <input type="radio" name="q2" value="c"> c) Ninguno<br>
-                        </div>
-                        <div>
-                            <label>3. ¿A quién puedes acudir si tienes dudas sobre salud sexual?</label><br>
-                            <input type="radio" name="q3" value="a"> a) Amigos<br>
-                            <input type="radio" name="q3" value="b"> b) Profesionales de salud<br>
-                            <input type="radio" name="q3" value="c"> c) Internet<br>
-                        </div>
-                        <div>
-                            <label>4. ¿Cuál de los siguientes NO es una enfermedad de transmisión sexual?</label><br>
-                            <input type="radio" name="q4" value="a"> a) VIH/SIDA<br>
-                            <input type="radio" name="q4" value="b"> b) Diabetes<br>
-                            <input type="radio" name="q4" value="c"> c) Sífilis<br>
-                        </div>
-                        <div>
-                            <label>5. ¿Qué acción ayuda a prevenir el embarazo adolescente?</label><br>
-                            <input type="radio" name="q5" value="a"> a) Educación sexual<br>
-                            <input type="radio" name="q5" value="b"> b) Falta de información<br>
-                            <input type="radio" name="q5" value="c"> c) Ignorar el tema<br>
-                        </div>
-                        <div>
-                            <label>6. ¿Cuál es el uso principal del preservativo?</label><br>
-                            <input type="radio" name="q6" value="a"> a) Prevenir embarazos y ETS<br>
-                            <input type="radio" name="q6" value="b"> b) Decoración<br>
-                            <input type="radio" name="q6" value="c"> c) Juguete<br>
-                        </div>
-                        <button type="button" onclick="calificarQuiz()">Enviar respuestas</button>
-                    </form>
-                    <div id="quiz-resultado"></div>
-                </div>
-                <script>
-                    function calificarQuiz() {
-                        var respuestas = {
-                            q1: 'c',
-                            q2: 'b',
-                            q3: 'b',
-                            q4: 'b',
-                            q5: 'a',
-                            q6: 'a'
-                        };
-                        var score = 0;
-                        var form = document.getElementById('quiz-form');
-                        if (form.q1.value === respuestas.q1) score++;
-                        if (form.q2.value === respuestas.q2) score++;
-                        if (form.q3.value === respuestas.q3) score++;
-                        if (form.q4.value === respuestas.q4) score++;
-                        if (form.q5.value === respuestas.q5) score++;
-                        if (form.q6.value === respuestas.q6) score++;
-                        var resultado = document.getElementById('quiz-resultado');
-                        resultado.innerHTML = 'Tu puntaje: ' + score + ' de 6.';
-                    }
-                </script>
-            </div>
-            <div class="cuadro">
-                <h4>Juego 2: Verdadero o Falso</h4>
-                <p>Responde si las siguientes afirmaciones son verdaderas o falsas.</p>
-                <form id="vf-form">
-                    <div>
-                        <label>1. El preservativo solo previene embarazos.</label><br>
-                        <input type="radio" name="vf1" value="verdadero"> Verdadero<br>
-                        <input type="radio" name="vf1" value="falso"> Falso<br>
-                    </div>
-                    <div>
-                        <label>2. La educación sexual ayuda a prevenir enfermedades de transmisión
-                            sexual.</label><br>
-                        <input type="radio" name="vf2" value="verdadero"> Verdadero<br>
-                        <input type="radio" name="vf2" value="falso"> Falso<br>
-                    </div>
-                    <div>
-                        <label>3. Solo las mujeres deben preocuparse por la prevención de embarazos.</label><br>
-                        <input type="radio" name="vf3" value="verdadero"> Verdadero<br>
-                        <input type="radio" name="vf3" value="falso"> Falso<br>
-                    </div>
-                    <div>
-                        <label>4. Hablar de salud sexual es importante para todos los jóvenes.</label><br>
-                        <input type="radio" name="vf4" value="verdadero"> Verdadero<br>
-                        <input type="radio" name="vf4" value="falso"> Falso<br>
-                    </div>
-                    <button type="button" onclick="calificarVF()">Enviar respuestas</button>
-                </form>
-                <div id="vf-resultado"></div>
-            </div>
-            <script>
-                function calificarVF() {
-                    var respuestas = {
-                        vf1: 'falso',
-                        vf2: 'verdadero',
-                        vf3: 'falso',
-                        vf4: 'verdadero'
-                    };
-                    var score = 0;
-                    var form = document.getElementById('vf-form');
-                    if (form.vf1.value === respuestas.vf1) score++;
-                    if (form.vf2.value === respuestas.vf2) score++;
-                    if (form.vf3.value === respuestas.vf3) score++;
-                    if (form.vf4.value === respuestas.vf4) score++;
-                    var resultado = document.getElementById('vf-resultado');
-                    resultado.innerHTML = 'Tu puntaje: ' + score + ' de 4.';
-                }
-            </script>
-
-            <div class="cuadro">
-                <h4>Juegos</h4>
-                <p>Quieres medir tus conocimientos sobre la prevención de embarazos en adolescentes y jóvenes?
-                    Participa
-                    en
-                    nuestro
-                    juego interactivo y descubre cuánto sabes sobre este importante tema. ¡Diviértete mientras
-                    aprendes!
-                </p>
-                <div class="iframe-centro">
-                    <iframe
-                        src="https://docs.google.com/forms/d/e/1FAIpQLSfhEjoQS_cqorR7b8StoyG_DZUjd0inzZK0HGM05qTl5gA8Pw/viewform?usp=sharing&ouid=115417771645858268690"
-                        width="600" height="800" frameborder="0" marginheight="0" marginwidth="0">
-                        Cargando…
-                        </ifra>
-                </div>
-            </div>
+    </div>
 
 
-            <script>
-                ScrollReveal().reveal('.cuadro, .margen, .actividad-img, .presentacion-oficial-text', {
-                    delay: 150,
-                    distance: '40px',
-                    origin: 'bottom',
-                    opacity: 0,
-                    duration: 800,
-                    easing: 'ease-in-out'
-                });
-            </script>
-            <script>
-                // Define dataLayer and the gtag function.
-                window.dataLayer = window.dataLayer || [];
-                function gtag() { dataLayer.push(arguments); }
-                // IMPORTANT - DO NOT COPY/PASTE WITHOUT MODIFYING REGION LIST
-                //Set default consent for specific regions according to your requirements
-                gtag('consent', 'default', {
-                    'ad_storage': 'denied',
-                    'ad_user_data': 'denied',
-                    'ad_personalization': 'denied',
-                    'analytics_storage': 'denied',
-                    'regions': ['ES', 'BO', 'FR', 'DE', 'IT', 'PT', 'GB', 'US', 'CA', 'MX', 'BR', 'AR', 'CL', 'CO', 'PE']
-                });
-                // Set default consent for all other regions according to your requirements
-                gtag('consent', 'default', {
-                    'ad_storage': 'granted',
-                    'ad_user_data': 'granted',
-                    'ad_personalization': 'granted',
-                    'analytics_storage': 'granted'
-                });
-            </script>
-            <script id="CookieConsent" src="https://policy.app.cookieinformation.com/uc.js" data-culture="ES"
-                data-gcm-version="2.0" type="text/javascript"></script>
-            <script>
-                ScrollReveal().reveal('.cuadro, .margen, .actividad-img, .presentacion-oficial-text', {
-                    delay: 150,
-                    distance: '40px',
-                    origin: 'bottom',
-                    opacity: 0,
-                    duration: 800,
-                    easing: 'ease-in-out'
-                });
-            </script>
-        </div>
+    <script>
+        ScrollReveal().reveal('.cuadro, .margen, .actividad-img, .presentacion-oficial-text', {
+            delay: 150,
+            distance: '40px',
+            origin: 'bottom',
+            opacity: 0,
+            duration: 800,
+            easing: 'ease-in-out'
+        });
+    </script>
+    <script>
+        // Define dataLayer and the gtag function.
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        // IMPORTANT - DO NOT COPY/PASTE WITHOUT MODIFYING REGION LIST
+        //Set default consent for specific regions according to your requirements
+        gtag('consent', 'default', {
+            'ad_storage': 'denied',
+            'ad_user_data': 'denied',
+            'ad_personalization': 'denied',
+            'analytics_storage': 'denied',
+            'regions': ['ES', 'BO', 'FR', 'DE', 'IT', 'PT', 'GB', 'US', 'CA', 'MX', 'BR', 'AR', 'CL', 'CO', 'PE']
+        });
+        // Set default consent for all other regions according to your requirements
+        gtag('consent', 'default', {
+            'ad_storage': 'granted',
+            'ad_user_data': 'granted',
+            'ad_personalization': 'granted',
+            'analytics_storage': 'granted'
+        });
+    </script>
+    <script id="CookieConsent" src="https://policy.app.cookieinformation.com/uc.js" data-culture="ES"
+        data-gcm-version="2.0" type="text/javascript"></script>
+    <script>
+        ScrollReveal().reveal('.cuadro, .margen, .actividad-img, .presentacion-oficial-text', {
+            delay: 150,
+            distance: '40px',
+            origin: 'bottom',
+            opacity: 0,
+            duration: 800,
+            easing: 'ease-in-out'
+        });
+    </script>
+    </div>
 
-        <div class="margen">
-            <div id="Redes Sociales" class="anchor-offset"></div>
-            <div class="cuadro">
-                <h4>Redes sociales</h4>
-                <p>Siguenos en nuestras diferentes redes sociales para mantenerte informado acerca de las
-                    diferentes actividades que realizamos:</p>
-                <div class="social-buttons">
-                    <a href="https://www.facebook.com/profile.php?id=61552371105965&mibextid=ZbWKwL" class="social-icon"
-                        target="_blank" title="Facebook">
-                        <img src="img/facebook.jpeg" alt="Facebook" />
-                    </a>
-                    <a href="https://www.instagram.com/pdpeaj_beni?igsh=bTJxcTA2YWljcXFj" class="social-icon"
-                        target="_blank" title="Instagram">
-                        <img src="img/instagram.jpg" alt="Instagram" />
-                    </a>
-                    <a href="https://www.tiktok.com/@pl.dptal.beni?_r=1&_d=dgiagblm5bm3hd&sec_uid=MS4wLjABAAAAZdTgxw7TZwEqWx3KqQ1Sodz-Nl71YGcbHWpO52mb2X5Hdh6-SAh9C8Zs-qRU1REP&share_author_id=7444698045256565815&sharer_language=es&source=h5_m&u_code=db831d8a2jk4a7&timestamp=1747515529&user_id=6801283179456119813&sec_user_id=MS4wLjABAAAAxcaST7xaQBgL-wuI9lI_yhuepvKbOU_K3oEBgkByVudlDsYkgIvMpXXbbTltqxyD&utm_source=copy&utm_campaign=client_share&utm_medium=android&share_iid=7505198472946206469&share_link_id=2f1249f4-f25a-4e74-bca8-99a491ed450f&share_app_id=1233&ugbiz_name=ACCOUNT&ug_btm=b7360%2Cb5836&social_share_type=5&enable_checksum=1"
-                        class="social-icon" target="_blank" title="TikTok">
-                        <img src="img/tik tok.jpeg" alt="TikTok" />
-                    </a>
-                </div>
+    <div class="margen">
+        <div id="Redes Sociales" class="anchor-offset"></div>
+        <div class="cuadro">
+            <h4>Redes sociales</h4>
+            <p>Siguenos en nuestras diferentes redes sociales para mantenerte informado acerca de las
+                diferentes actividades que realizamos:</p>
+            <div class="social-buttons">
+                <a href="https://www.facebook.com/profile.php?id=61552371105965&mibextid=ZbWKwL" class="social-icon"
+                    target="_blank" title="Facebook">
+                    <img src="img/facebook.jpeg" alt="Facebook" />
+                </a>
+                <a href="https://www.instagram.com/pdpeaj_beni?igsh=bTJxcTA2YWljcXFj" class="social-icon"
+                    target="_blank" title="Instagram">
+                    <img src="img/instagram.jpg" alt="Instagram" />
+                </a>
+                <a href="https://www.tiktok.com/@pl.dptal.beni?_r=1&_d=dgiagblm5bm3hd&sec_uid=MS4wLjABAAAAZdTgxw7TZwEqWx3KqQ1Sodz-Nl71YGcbHWpO52mb2X5Hdh6-SAh9C8Zs-qRU1REP&share_author_id=7444698045256565815&sharer_language=es&source=h5_m&u_code=db831d8a2jk4a7&timestamp=1747515529&user_id=6801283179456119813&sec_user_id=MS4wLjABAAAAxcaST7xaQBgL-wuI9lI_yhuepvKbOU_K3oEBgkByVudlDsYkgIvMpXXbbTltqxyD&utm_source=copy&utm_campaign=client_share&utm_medium=android&share_iid=7505198472946206469&share_link_id=2f1249f4-f25a-4e74-bca8-99a491ed450f&share_app_id=1233&ugbiz_name=ACCOUNT&ug_btm=b7360%2Cb5836&social_share_type=5&enable_checksum=1"
+                    class="social-icon" target="_blank" title="TikTok">
+                    <img src="img/tik tok.jpeg" alt="TikTok" />
+                </a>
             </div>
         </div>
-        <footer>
-            <div style="color:#ffffff; font-size:1.5em; font-weight:bold;">&copy; PDPEAJ-BENI</div>
-        </footer>
+    </div>
+    <footer>
+        <div style="color:#ffffff; font-size:1.5em; font-weight:bold;">&copy; PDPEAJ-BENI</div>
+    </footer>
 </body>
 
 </html>
