@@ -43,8 +43,9 @@
             <a href="actividades.html" class="menu-link menu-actividades"><div class="menu-title">Más Actividades</div></a>
             <a href="directiva.html" class="menu-link menu-directiva"><div class="menu-title">Directiva</div></a>
             <a href="contacto.html" class="menu-link menu-contacto"><div class="menu-title">Contacto y Comunicación</div></a>
-            <a href="material.html" class="menu-link menu-material"><div class="menu-title">Material</div></a>
-            <a href="juegos.html" class="menu-link menu-juegos"><div class="menu-title">Juegos</div></a>
+                <a href="historia_interactiva.html" class="menu-link menu-historia"><div class="menu-title">Historia Interactiva</div></a>
+                <a href="material.html" class="menu-link menu-material"><div class="menu-title">Material</div></a>
+                <a href="juegos.html" class="menu-link menu-juegos"><div class="menu-title">Juegos</div></a>
         </div>
     </div>
     <div class="margen">
@@ -79,24 +80,38 @@
                 <label>Mensaje:</label>
                 <textarea name="mensaje" rows="5" required></textarea>
                 <button type="submit">Enviar</button>
-            </form>
-        </div>
-    </div>
-    <footer>
-        <div style="color:#ffffff; font-size:1.2em; font-weight:bold;">&copy; PDPEAJ-BENI</div>
-    </footer>
-    <script>
-        // Alterna el menú en móvil
-        function toggleMenu() {
-            var menu = document.getElementById('menu-contenido');
-            if (window.innerWidth <= 600) {
-                if (menu.style.display === 'block') {
-                    menu.style.display = 'none';
-                } else {
-                    menu.style.display = 'block';
+            <header>
+                <div class="margen">
+                    <h1>Contacto y Comunicación</h1>
+                    <img src="img/logo.png" alt="PDPEAJ-BENI" class="logo">
+                </div>
+            </header>
+            <nav class="menu-desplegable">
+                <button class="menu-boton" id="menu-boton" onclick="toggleMenu()">☰ Menú</button>
+                <div class="menu-contenido" id="menu-contenido">
+                    <a href="index.html" class="menu-link menu-inicio"><div class="menu-title">Inicio</div></a>
+                    <a href="actividades.html" class="menu-link menu-actividades"><div class="menu-title">Más Actividades</div></a>
+                    <a href="directiva.html" class="menu-link menu-directiva"><div class="menu-title">Directiva</div></a>
+                    <a href="contacto.html" class="menu-link menu-contacto"><div class="menu-title">Contacto y Comunicación</div></a>
+                    <a href="juegos.html" class="menu-link menu-juegos"><div class="menu-title">Juegos</div></a>
+                    <a href="material.html" class="menu-link menu-material"><div class="menu-title">Material</div></a>
+                    <a href="historia_interactiva.html" class="menu-link menu-historia"><div class="menu-title">Historia Interactiva</div></a>
+                </div>
+            </nav>
+            <script>
+                function toggleMenu() {
+                    var menu = document.getElementById('menu-contenido');
+                    menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
                 }
-            }
-        }
+                window.onclick = function(event) {
+                    if (!event.target.matches('.menu-boton')) {
+                        var menu = document.getElementById('menu-contenido');
+                        if (menu && menu.style.display === 'block') {
+                            menu.style.display = 'none';
+                        }
+                    }
+                }
+            </script>
         // Cierra el menú al seleccionar una opción en móvil
         function cerrarMenu() {
             var menu = document.getElementById('menu-contenido');

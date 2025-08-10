@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Viaje de tu Vida</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+
+    <nav class="menu-desplegable">
+        <button class="menu-boton" id="menu-boton" onclick="toggleMenu()">☰ Menú</button>
+        <div class="menu-contenido" id="menu-contenido">
+            <a href="index.html" class="menu-link menu-inicio"><div class="menu-title">Inicio</div></a>
+            <a href="actividades.html" class="menu-link menu-actividades"><div class="menu-title">Más Actividades</div></a>
+            <a href="directiva.html" class="menu-link menu-directiva"><div class="menu-title">Directiva</div></a>
+            <a href="contacto.html" class="menu-link menu-contacto"><div class="menu-title">Contacto y Comunicación</div></a>
+            <a href="juegos.html" class="menu-link menu-juegos"><div class="menu-title">Juegos</div></a>
+            <a href="material.html" class="menu-link menu-material"><div class="menu-title">Material</div></a>
+            <a href="historia_interactiva.html" class="menu-link menu-historia"><div class="menu-title">Historia Interactiva</div></a>
+        </div>
+    </nav>
+
+    <div class="cuadro">
+        <h2>El Viaje de tu Vida</h2>
+        <div id="stats" class="stats"></div>
+        <div id="historia-texto" class="historia-texto"></div>
+        <div id="historia-opciones" class="historia-opciones"></div>
+        <div id="historia-final" class="historia-final"></div>
+    </div>
+
+    <script>
+        // Menú desplegable responsivo (igual en todos los HTML)
+        function toggleMenu() {
+            var menu = document.getElementById('menu-contenido');
+            menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+        }
+        window.onclick = function(event) {
+            if (!event.target.matches('.menu-boton')) {
+                var menu = document.getElementById('menu-contenido');
+                if (menu && menu.style.display === 'block') {
+                    menu.style.display = 'none';
+                }
+            }
+        }
+    </script>
+
+    <script>
+        // HISTORIA EXTENDIDA: 20+ nodos, 4 opciones cada uno, cada opción con reflexión
+        const historiaNodos = {
+            inicio: {
+                texto: '¡Bienvenido a "El Viaje de tu Vida"! Aquí crearás un personaje y lo guiarás desde su nacimiento hasta la adultez. ¿Listo para comenzar?',
+                opciones: [
+                    { texto: 'Crear personaje', siguiente: 'crear_personaje' }
+                ]
+            },
+            crear_personaje: {
+                texto: `
+                    <div class="crear-personaje">
+                        <h3>Crea a tu personaje</h3>
+                        <label>Nombre:</label>
+                        <input type="text" id="nombre" placeholder="Ej: Alex, María, Luis...">
+                        <label>Género:</label>
+                        <select id="genero">
+                            <option value="hombre">Hombre</option>
+                            <option value="mujer">Mujer</option>
+                            <option value="no binario">No binario</option>
+                        </select>
+                        <label>6 cualidades positivas (separadas por comas):</label>
+                        <input type="text" id="cualidades_buenas" placeholder="Ej: Creativo, Persistente, Amable...">
+                        <label>3 defectos (separados por comas):</label>
+                        <input type="text" id="defectos" placeholder="Ej: Impulsivo, Desorganizado...">
+                        <label>Metas para el futuro:</label>
+                        <input type="text" id="metas" placeholder="Ej: Ser médico, viajar por el mundo...">
+                        <label>Inspiraciones:</label>
+                        <input type="text" id="inspiraciones" placeholder="Ej: Mi abuelo, un científico famoso...">
+                    </div>
+                `,
+                opciones: [
+                    {
+                        texto: '¡Crear y comenzar la historia!',
+                        siguiente: 'nacimiento',
+                        accion: function () {
+                            const nombre = document.getElementById('nombre').value || 'Alex';
+                            const genero = document.getElementById('genero').value;
+                            const cualidades = document.getElementById('cualidades_buenas').value || 'Creativo, Persistente, Amable, Empático, Valiente, Honesto';
+                            const defectos = document.getElementById('defectos').value || 'Impulsivo, Desorganizado, Tímido';
+                            const metas = document.getElementById('metas').value || 'Ser médico, viajar por el mundo';
+                            const inspiraciones = document.getElementById('inspiraciones').value || 'Mi abuelo, un científico famoso';
+                            window.personaje = {
+                                nombre,
+                                genero,
+                                cualidades: cualidades.split(',').map(c => c.trim()),
+                                defectos: defectos.split(',').map(d => d.trim()),
+                                metas: metas.split(',').map(m => m.trim()),
+                                inspiraciones: inspiraciones.split(',').map(i => i.trim()),
+                                stats: {
+                                    felicidad: 50,
+                                    determinacion: 50,
+                                    suerte: 50,
+                                    salud: 50,
+                                    autoestima: 50
+                                },
+                                edad: 0,
+                                logros: [],
+                                dificultades: []
+                            };
+                            actualizarStats();
+                        }
+                    }
+                ]
+            },
+            nacimiento: {
+                texto: function () {
+                    const pronombre = personaje.genero === 'hombre' ? 'él' : personaje.genero === 'mujer' ? 'ella' : 'elle';
+                    return `¡${personaje.nombre} ha nacido! Sus padres están emocionados. Desde pequeño/a, ${pronombre} mostró rasgos de ${personaje.cualidades[0].toLowerCase()} y ${personaje.cualidades[1].toLowerCase()}, aunque también ${personaje.defectos[0].toLowerCase()}.`;
+                },
+                opciones: [
+                    { texto: 'Comenzar la infancia', siguiente: 'infancia_1' },
+                    { texto: 'Reflexionar sobre la familia', siguiente: 'reflexion_familia' },
+                    { texto: 'Pensar en el futuro', siguiente: 'reflexion_futuro' },
+                    { texto: 'Observar el entorno', siguiente: 'reflexion_entorno' }
+                ]
+            },
+            reflexion_familia: {
+                texto: 'La familia es el primer espacio de aprendizaje. Cada familia es única y nos enseña valores y formas de amar.',
+                opciones: [
+                    { texto: 'Volver', siguiente: 'nacimiento' },
+                    { texto: 'Comenzar la infancia', siguiente: 'infancia_1' },
+                    { texto: 'Pensar en el futuro', siguiente: 'reflexion_futuro' },
+                    { texto: 'Observar el entorno', siguiente: 'reflexion_entorno' }
+                ]
+            },
+            reflexion_futuro: {
+                texto: 'El futuro es incierto, pero cada paso que damos hoy construye el camino de mañana. Soñar es el primer paso para lograrlo.',
+                opciones: [
+                    { texto: 'Volver', siguiente: 'nacimiento' },
+                    { texto: 'Comenzar la infancia', siguiente: 'infancia_1' },
+                    { texto: 'Reflexionar sobre la familia', siguiente: 'reflexion_familia' },
+                    { texto: 'Observar el entorno', siguiente: 'reflexion_entorno' }
+                ]
+            },
+            reflexion_entorno: {
+                texto: 'El entorno influye en nuestro desarrollo. Aprender a observar y comprender nuestro contexto nos ayuda a crecer.',
+                opciones: [
+                    { texto: 'Volver', siguiente: 'nacimiento' },
+                    { texto: 'Comenzar la infancia', siguiente: 'infancia_1' },
+                    { texto: 'Reflexionar sobre la familia', siguiente: 'reflexion_familia' },
+                    { texto: 'Pensar en el futuro', siguiente: 'reflexion_futuro' }
+                ]
+            },
+            infancia_1: {
+                texto: function () {
+                    return `${personaje.nombre} da sus primeros pasos y aprende a comunicarse. ¿Qué actividad predomina en su infancia?`;
+                },
+                opciones: [
+                    { texto: 'Jugar con otros niños', siguiente: 'infancia_2', accion: function () { personaje.stats.felicidad += 10; actualizarStats(); } },
+                    { texto: 'Leer y explorar solo/a', siguiente: 'infancia_2', accion: function () { personaje.stats.determinacion += 10; actualizarStats(); } },
+                    { texto: 'Ayudar en casa', siguiente: 'infancia_2', accion: function () { personaje.stats.autoestima += 10; actualizarStats(); } },
+                    { texto: 'Observar la naturaleza', siguiente: 'infancia_2', accion: function () { personaje.stats.salud += 5; actualizarStats(); } }
+                ]
+            },
+            infancia_2: {
+                texto: function () {
+                    return `${personaje.nombre} enfrenta su primer reto: una mudanza. ¿Cómo reacciona?`;
+                },
+                opciones: [
+                    { texto: 'Extraña a sus amigos', siguiente: 'infancia_3', accion: function () { personaje.stats.felicidad -= 5; actualizarStats(); } },
+                    { texto: 'Hace nuevos amigos', siguiente: 'infancia_3', accion: function () { personaje.stats.felicidad += 5; actualizarStats(); } },
+                    { texto: 'Se refugia en la lectura', siguiente: 'infancia_3', accion: function () { personaje.stats.determinacion += 5; actualizarStats(); } },
+                    { texto: 'Habla con su familia', siguiente: 'infancia_3', accion: function () { personaje.stats.autoestima += 5; actualizarStats(); } }
+                ]
+            },
+            infancia_3: {
+                texto: function () {
+                    return `${personaje.nombre} sufre una caída y debe ir al médico. ¿Qué aprende de la experiencia?`;
+                },
+                opciones: [
+                    { texto: 'La importancia del autocuidado', siguiente: 'infancia_4', accion: function () { personaje.stats.salud += 10; actualizarStats(); } },
+                    { texto: 'No temer pedir ayuda', siguiente: 'infancia_4', accion: function () { personaje.stats.autoestima += 5; actualizarStats(); } },
+                    { texto: 'Valorar a la familia', siguiente: 'infancia_4', accion: function () { personaje.stats.felicidad += 5; actualizarStats(); } },
+                    { texto: 'Ser más precavido/a', siguiente: 'infancia_4', accion: function () { personaje.stats.determinacion += 5; actualizarStats(); } }
+                ]
+            },
+            infancia_4: {
+                texto: function () {
+                    return `${personaje.nombre} gana un reconocimiento en la escuela. ¿Cómo lo vive?`;
+                },
+                opciones: [
+                    { texto: 'Comparte la alegría con su familia', siguiente: 'infancia_5', accion: function () { personaje.stats.felicidad += 5; actualizarStats(); } },
+                    { texto: 'Se motiva a seguir aprendiendo', siguiente: 'infancia_5', accion: function () { personaje.stats.determinacion += 10; actualizarStats(); } },
+                    { texto: 'Ayuda a un compañero', siguiente: 'infancia_5', accion: function () { personaje.stats.autoestima += 5; actualizarStats(); } },
+                    { texto: 'Reflexiona sobre el esfuerzo', siguiente: 'infancia_5', accion: function () { personaje.stats.salud += 5; actualizarStats(); } }
+                ]
+            },
+            infancia_5: {
+                texto: function () {
+                    return `${personaje.nombre} enfrenta el divorcio de sus padres. ¿Cómo afronta la situación?`;
+                },
+                opciones: [
+                    { texto: 'Busca apoyo en amigos', siguiente: 'adolescencia_1', accion: function () { personaje.stats.felicidad += 5; actualizarStats(); } },
+                    { texto: 'Habla con un adulto de confianza', siguiente: 'adolescencia_1', accion: function () { personaje.stats.autoestima += 5; actualizarStats(); } },
+                    { texto: 'Se refugia en actividades creativas', siguiente: 'adolescencia_1', accion: function () { personaje.stats.determinacion += 5; actualizarStats(); } },
+                    { texto: 'Expresa sus emociones', siguiente: 'adolescencia_1', accion: function () { personaje.stats.salud += 5; actualizarStats(); } }
+                ]
+            },
+            // --- ADOLESCENCIA ---
+            adolescencia_1: {
+                texto: function () {
+                    return `${personaje.nombre} inicia la secundaria y conoce nuevos amigos. ¿Qué actitud toma?`;
+                },
+                opciones: [
+                    { texto: 'Se une a un club escolar', siguiente: 'adolescencia_2', accion: function () { personaje.stats.determinacion += 10; actualizarStats(); } },
+                    { texto: 'Busca destacar en deportes', siguiente: 'adolescencia_2', accion: function () { personaje.stats.salud += 10; actualizarStats(); } },
+                    { texto: 'Prefiere actividades artísticas', siguiente: 'adolescencia_2', accion: function () { personaje.stats.felicidad += 10; actualizarStats(); } },
+                    { texto: 'Se enfoca en los estudios', siguiente: 'adolescencia_2', accion: function () { personaje.stats.autoestima += 10; actualizarStats(); } }
+                ]
+            },
+            adolescencia_2: {
+                texto: function () {
+                    return `${personaje.nombre} experimenta su primer enamoramiento. ¿Cómo lo vive?`;
+                },
+                opciones: [
+                    { texto: 'Comparte sus sentimientos', siguiente: 'adolescencia_3', accion: function () { personaje.stats.autoestima += 5; actualizarStats(); } },
+                    { texto: 'Guarda sus emociones', siguiente: 'adolescencia_3', accion: function () { personaje.stats.determinacion += 5; actualizarStats(); } },
+                    { texto: 'Busca consejo en amigos', siguiente: 'adolescencia_3', accion: function () { personaje.stats.felicidad += 5; actualizarStats(); } },
+                    { texto: 'Escribe un poema o canción', siguiente: 'adolescencia_3', accion: function () { personaje.stats.salud += 5; actualizarStats(); } }
+                ]
+            },
+            adolescencia_3: {
+                texto: function () {
+                    return `${personaje.nombre} enfrenta bullying en la escuela. ¿Qué decide hacer?`;
+                },
+                opciones: [
+                    { texto: 'Hablar con un profesor', siguiente: 'adolescencia_4', accion: function () { personaje.stats.autoestima += 10; actualizarStats(); } },
+                    { texto: 'Ignorar y resistir', siguiente: 'adolescencia_4', accion: function () { personaje.stats.determinacion += 10; actualizarStats(); } },
+                    { texto: 'Buscar ayuda profesional', siguiente: 'adolescencia_4', accion: function () { personaje.stats.salud += 10; actualizarStats(); } },
+                    { texto: 'Apoyarse en la familia', siguiente: 'adolescencia_4', accion: function () { personaje.stats.felicidad += 10; actualizarStats(); } }
+                ]
+            },
+            adolescencia_4: {
+                texto: function () {
+                    return `${personaje.nombre} descubre su pasión por una actividad. ¿Cuál elige?`;
+                },
+                opciones: [
+                    { texto: 'Música', siguiente: 'adolescencia_5', accion: function () { personaje.stats.felicidad += 5; actualizarStats(); } },
+                    { texto: 'Ciencia', siguiente: 'adolescencia_5', accion: function () { personaje.stats.determinacion += 5; actualizarStats(); } },
+                    { texto: 'Deporte', siguiente: 'adolescencia_5', accion: function () { personaje.stats.salud += 5; actualizarStats(); } },
+                    { texto: 'Arte', siguiente: 'adolescencia_5', accion: function () { personaje.stats.autoestima += 5; actualizarStats(); } }
+                ]
+            },
+            adolescencia_5: {
+                texto: function () {
+                    return `${personaje.nombre} debe decidir entre seguir a sus amigos o sus propios valores. ¿Qué hace?`;
+                },
+                opciones: [
+                    { texto: 'Seguir a sus amigos', siguiente: 'juventud_1', accion: function () { personaje.stats.felicidad += 5; actualizarStats(); } },
+                    { texto: 'Seguir sus valores', siguiente: 'juventud_1', accion: function () { personaje.stats.autoestima += 10; actualizarStats(); } },
+                    { texto: 'Dialogar y buscar consenso', siguiente: 'juventud_1', accion: function () { personaje.stats.determinacion += 5; actualizarStats(); } },
+                    { texto: 'Reflexionar antes de actuar', siguiente: 'juventud_1', accion: function () { personaje.stats.salud += 5; actualizarStats(); } }
+                ]
+            },
+            // --- JUVENTUD ---
+            juventud_1: {
+                texto: function () {
+                    return `${personaje.nombre} termina la secundaria y debe elegir una carrera. ¿Qué camino toma?`;
+                },
+                opciones: [
+                    { texto: 'Seguir su pasión', siguiente: 'juventud_2', accion: function () { personaje.stats.determinacion += 10; actualizarStats(); } },
+                    { texto: 'Elegir por presión familiar', siguiente: 'juventud_2', accion: function () { personaje.stats.felicidad -= 5; actualizarStats(); } },
+                    { texto: 'Tomarse un año sabático', siguiente: 'juventud_2', accion: function () { personaje.stats.salud += 5; actualizarStats(); } },
+                    { texto: 'Buscar orientación vocacional', siguiente: 'juventud_2', accion: function () { personaje.stats.autoestima += 5; actualizarStats(); } }
+                ]
+            },
+            juventud_2: {
+                texto: function () {
+                    return `${personaje.nombre} inicia la universidad y conoce personas de diferentes culturas. ¿Cómo reacciona?`;
+                },
+                opciones: [
+                    { texto: 'Se abre a la diversidad', siguiente: 'juventud_3', accion: function () { personaje.stats.felicidad += 5; actualizarStats(); } },
+                    { texto: 'Se siente intimidado/a', siguiente: 'juventud_3', accion: function () { personaje.stats.autoestima -= 5; actualizarStats(); } },
+                    { texto: 'Busca grupos afines', siguiente: 'juventud_3', accion: function () { personaje.stats.determinacion += 5; actualizarStats(); } },
+                    { texto: 'Aprende de las diferencias', siguiente: 'juventud_3', accion: function () { personaje.stats.salud += 5; actualizarStats(); } }
+                ]
+            },
+            juventud_3: {
+                texto: function () {
+                    return `${personaje.nombre} enfrenta una crisis de salud mental. ¿Qué decide hacer?`;
+                },
+                opciones: [
+                    { texto: 'Buscar ayuda profesional', siguiente: 'juventud_4', accion: function () { personaje.stats.salud += 10; actualizarStats(); } },
+                    { texto: 'Hablar con amigos', siguiente: 'juventud_4', accion: function () { personaje.stats.felicidad += 5; actualizarStats(); } },
+                    { texto: 'Practicar autocuidado', siguiente: 'juventud_4', accion: function () { personaje.stats.autoestima += 5; actualizarStats(); } },
+                    { texto: 'Ignorar el problema', siguiente: 'juventud_4', accion: function () { personaje.stats.salud -= 10; actualizarStats(); } }
+                ]
+            },
+            juventud_4: {
+                texto: function () {
+                    return `${personaje.nombre} recibe una oportunidad de intercambio internacional. ¿Qué hace?`;
+                },
+                opciones: [
+                    { texto: 'Acepta el reto', siguiente: 'juventud_5', accion: function () { personaje.stats.determinacion += 10; actualizarStats(); } },
+                    { texto: 'Prefiere quedarse cerca de casa', siguiente: 'juventud_5', accion: function () { personaje.stats.felicidad += 5; actualizarStats(); } },
+                    { texto: 'Consulta con su familia', siguiente: 'juventud_5', accion: function () { personaje.stats.autoestima += 5; actualizarStats(); } },
+                    { texto: 'Investiga sobre el país', siguiente: 'juventud_5', accion: function () { personaje.stats.salud += 5; actualizarStats(); } }
+                ]
+            },
+            juventud_5: {
+                texto: function () {
+                    return `${personaje.nombre} vive su primera relación amorosa seria. ¿Cómo la afronta?`;
+                },
+                opciones: [
+                    { texto: 'Comunicación y respeto', siguiente: 'adultez_1', accion: function () { personaje.stats.felicidad += 10; actualizarStats(); } },
+                    { texto: 'Celos y desconfianza', siguiente: 'adultez_1', accion: function () { personaje.stats.autoestima -= 5; actualizarStats(); } },
+                    { texto: 'Aprende de los errores', siguiente: 'adultez_1', accion: function () { personaje.stats.determinacion += 5; actualizarStats(); } },
+                    { texto: 'Prioriza su bienestar', siguiente: 'adultez_1', accion: function () { personaje.stats.salud += 5; actualizarStats(); } }
+                ]
+            },
+            // --- ADULTEZ TEMPRANA ---
+            adultez_1: {
+                texto: function () {
+                    return `${personaje.nombre} inicia su vida laboral. ¿Qué camino elige?`;
+                },
+                opciones: [
+                    { texto: 'Emprender un negocio', siguiente: 'adultez_2', accion: function () { personaje.stats.determinacion += 10; actualizarStats(); } },
+                    { texto: 'Buscar estabilidad', siguiente: 'adultez_2', accion: function () { personaje.stats.felicidad += 5; actualizarStats(); } },
+                    { texto: 'Seguir estudiando', siguiente: 'adultez_2', accion: function () { personaje.stats.autoestima += 5; actualizarStats(); } },
+                    { texto: 'Viajar y explorar', siguiente: 'adultez_2', accion: function () { personaje.stats.salud += 5; actualizarStats(); } }
+                ]
+            },
+            adultez_2: {
+                texto: function () {
+                    return `${personaje.nombre} enfrenta un fracaso profesional. ¿Cómo reacciona?`;
+                },
+                opciones: [
+                    { texto: 'Aprende de la experiencia', siguiente: 'adultez_3', accion: function () { personaje.stats.determinacion += 10; actualizarStats(); } },
+                    { texto: 'Busca apoyo en colegas', siguiente: 'adultez_3', accion: function () { personaje.stats.felicidad += 5; actualizarStats(); } },
+                    { texto: 'Se desanima', siguiente: 'adultez_3', accion: function () { personaje.stats.autoestima -= 5; actualizarStats(); } },
+                    { texto: 'Reinventa su camino', siguiente: 'adultez_3', accion: function () { personaje.stats.salud += 5; actualizarStats(); } }
+                ]
+            },
+            adultez_3: {
+                texto: function () {
+                    return `${personaje.nombre} debe decidir entre mudarse a otra ciudad o quedarse. ¿Qué elige?`;
+                },
+                opciones: [
+                    { texto: 'Mudarse por nuevas oportunidades', siguiente: 'adultez_4', accion: function () { personaje.stats.determinacion += 10; actualizarStats(); } },
+                    { texto: 'Quedarse cerca de la familia', siguiente: 'adultez_4', accion: function () { personaje.stats.felicidad += 5; actualizarStats(); } },
+                    { texto: 'Buscar equilibrio', siguiente: 'adultez_4', accion: function () { personaje.stats.autoestima += 5; actualizarStats(); } },
+                    { texto: 'Consultar con amigos', siguiente: 'adultez_4', accion: function () { personaje.stats.salud += 5; actualizarStats(); } }
+                ]
+            },
+            adultez_4: {
+                texto: function () {
+                    return `${personaje.nombre} enfrenta una crisis personal. ¿Cómo la afronta?`;
+                },
+                opciones: [
+                    { texto: 'Busca ayuda profesional', siguiente: 'adultez_5', accion: function () { personaje.stats.salud += 10; actualizarStats(); } },
+                    { texto: 'Habla con seres queridos', siguiente: 'adultez_5', accion: function () { personaje.stats.felicidad += 5; actualizarStats(); } },
+                    { texto: 'Practica autocuidado', siguiente: 'adultez_5', accion: function () { personaje.stats.autoestima += 5; actualizarStats(); } },
+                    { texto: 'Reflexiona en soledad', siguiente: 'adultez_5', accion: function () { personaje.stats.determinacion += 5; actualizarStats(); } }
+                ]
+            },
+            adultez_5: {
+                texto: function () {
+                    return `${personaje.nombre} recibe una oferta laboral en el extranjero. ¿Qué hace?`;
+                },
+                opciones: [
+                    { texto: 'Acepta el desafío', siguiente: 'finales', accion: function () { personaje.stats.determinacion += 10; actualizarStats(); } },
+                    { texto: 'Rechaza por motivos personales', siguiente: 'finales', accion: function () { personaje.stats.felicidad += 5; actualizarStats(); } },
+                    { texto: 'Consulta con su familia', siguiente: 'finales', accion: function () { personaje.stats.autoestima += 5; actualizarStats(); } },
+                    { texto: 'Investiga sobre el país', siguiente: 'finales', accion: function () { personaje.stats.salud += 5; actualizarStats(); } }
+                ]
+            },
+            // --- FINALES ---
+            finales: {
+                texto: function () {
+                    let mensaje = `${personaje.nombre} ha recorrido un largo camino. Ha aprendido sobre sí mismo/a, sobre la importancia de la familia, la amistad, la salud mental y la perseverancia.\n\n`;
+                    if (personaje.stats.determinacion > 80) mensaje += 'Su determinación le permitió alcanzar grandes metas.\n';
+                    if (personaje.stats.felicidad > 80) mensaje += 'La felicidad fue su motor y supo disfrutar cada etapa.\n';
+                    if (personaje.stats.salud > 80) mensaje += 'Cuidar su salud le dio energía para avanzar.\n';
+                    if (personaje.stats.autoestima > 80) mensaje += 'La autoestima le permitió superar obstáculos y creer en sí mismo/a.\n';
+                    mensaje += '\nRecuerda: cada vida es única y cada decisión nos enseña algo valioso.';
+                    return mensaje;
+                },
+                opciones: [
+                    { texto: 'Volver al inicio', siguiente: 'inicio' },
+                    { texto: 'Reflexionar sobre el viaje', siguiente: 'reflexion_final' },
+                    { texto: 'Crear un nuevo personaje', siguiente: 'crear_personaje' },
+                    { texto: 'Salir', siguiente: 'inicio' }
+                ]
+            },
+            reflexion_final: {
+                texto: 'La vida está llena de decisiones, retos y aprendizajes. Lo importante es avanzar con empatía, respeto y amor propio. ¡Gracias por jugar!',
+                opciones: [
+                    { texto: 'Volver al inicio', siguiente: 'inicio' },
+                    { texto: 'Crear un nuevo personaje', siguiente: 'crear_personaje' },
+                    { texto: 'Salir', siguiente: 'inicio' },
+                    { texto: 'Jugar de nuevo', siguiente: 'inicio' }
+                ]
+            }
+        };
+
+        function actualizarStats() {
+            const statsDiv = document.getElementById('stats');
+            statsDiv.innerHTML = `
+                <div>Felicidad: ${personaje.stats.felicidad}</div>
+                <div>Determinación: ${personaje.stats.determinacion}</div>
+                <div>Suerte: ${personaje.stats.suerte}</div>
+            `;
+        }
+
+        function mostrarNodoHistoria(nodoId) {
+            let nodo;
+
+            if (typeof nodoId === 'function') {
+                nodo = historiaNodos[nodoId()];
+            } else {
+                nodo = historiaNodos[nodoId];
+            }
+
+            const texto = typeof nodo.texto === 'function' ? nodo.texto() : nodo.texto;
+            const final = nodo.final && typeof nodo.final === 'function' ? nodo.final() : nodo.final || '';
+
+            document.getElementById('historia-texto').innerHTML = texto;
+            document.getElementById('historia-final').textContent = final;
+
+            const opcionesDiv = document.getElementById('historia-opciones');
+            opcionesDiv.innerHTML = '';
+
+            nodo.opciones.forEach((op) => {
+                const btn = document.createElement('button');
+                btn.textContent = op.texto;
+                btn.onclick = function () {
+                    if (op.accion) op.accion();
+                    if (typeof op.siguiente === 'function') {
+                        mostrarNodoHistoria(op.siguiente);
+                    } else {
+                        mostrarNodoHistoria(op.siguiente);
+                    }
+                };
+                opcionesDiv.appendChild(btn);
+            });
+        }
+
+        // Iniciar historia al cargar
+        window.onload = function () {
+            mostrarNodoHistoria('inicio');
+        };
+    </script>
+</body>
+
+</html>

@@ -53,14 +53,15 @@
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WPNLRRK3" height="0" width="0"
             style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
+
     <header>
         <div class="margen">
-            <h1>Actividades de la Plataforma</h1>
-
+            <h1>Actividades PDPEAJ-BENI</h1>
+            <img src="img/logo.png" alt="PDPEAJ-BENI" class="logo">
         </div>
     </header>
-    <div class="menu-desplegable">
-        <button class="menu-boton" id="menu-boton" onclick="toggleMenu()">...</button>
+    <nav class="menu-desplegable">
+        <button class="menu-boton" id="menu-boton" onclick="toggleMenu()">☰ Menú</button>
         <div class="menu-contenido" id="menu-contenido">
             <a href="index.html" class="menu-link menu-inicio">
                 <div class="menu-title">Inicio</div>
@@ -74,13 +75,32 @@
             <a href="contacto.html" class="menu-link menu-contacto">
                 <div class="menu-title">Contacto y Comunicación</div>
             </a>
-            <a href="material.html" class="menu-link menu-material">
-                <div class="menu-title">Material</div>
-            </a>
             <a href="juegos.html" class="menu-link menu-juegos">
                 <div class="menu-title">Juegos</div>
             </a>
+            <a href="material.html" class="menu-link menu-material">
+                <div class="menu-title">Material</div>
+            </a>
+            <a href="historia_interactiva.html" class="menu-link menu-historia">
+                <div class="menu-title">Historia Interactiva</div>
+            </a>
         </div>
+    </nav>
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById('menu-contenido');
+            menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+        }
+        window.onclick = function (event) {
+            if (!event.target.matches('.menu-boton')) {
+                var menu = document.getElementById('menu-contenido');
+                if (menu && menu.style.display === 'block') {
+                    menu.style.display = 'none';
+                }
+            }
+        }
+    </script>
+
     </div>
     <div class="margen">
         <div class="cuadro">
@@ -284,7 +304,7 @@
                     <img src="img/ley3.jpg" alt="Propuesta de Ley" class="actividad-img">
                     <img src="img/ley4.jpg" alt="Propuesta de Ley" class="actividad-img">
                     <img src="img/ley5.jpg" alt="Propuesta de Ley" class="actividad-img">
-                     <div class="actividad-video">
+                    <div class="actividad-video">
                         <video controls poster="img/ley.jpg" class="video-feria">
                             <source src="videos/Ley.mp4" type="video/mp4">
                             Tu navegador no soporta el video.
@@ -378,55 +398,58 @@
                         sexuales y reproductivos, y la difusión de la Ley Departamental de Juventudes N°75.
                     </li>
                 </div>
-                <footer>
-                    <div style="color:#ffffff; font-size:1.2em; font-weight:bold;">&copy; PDPEAJ-BENI</div>
-                </footer>
-                <script>
-                    // Alterna el menú en móvil
-                    function toggleMenu() {
-                        var menu = document.getElementById('menu-contenido');
-                        if (window.innerWidth <= 600) {
-                            if (menu.style.display === 'block') {
-                                menu.style.display = 'none';
-                            } else {
-                                menu.style.display = 'block';
-                            }
-                        }
-                    }
-                    // Cierra el menú al seleccionar una opción en móvil
-                    function cerrarMenu() {
-                        var menu = document.getElementById('menu-contenido');
-                        if (window.innerWidth <= 600) {
-                            menu.style.display = 'none';
-                        }
-                    }
-                    // Cerrar menú al hacer click fuera (solo móvil)
-                    document.addEventListener('click', function (e) {
-                        var menu = document.getElementById('menu-contenido');
-                        var boton = document.getElementById('menu-boton');
-                        if (window.innerWidth <= 600 && menu && boton) {
-                            if (!menu.contains(e.target) && !boton.contains(e.target)) {
-                                menu.style.display = 'none';
-                            }
-                        }
-                    });
-                    // Asegura que el menú se oculte al cambiar el tamaño de la ventana
-                    window.addEventListener('resize', function () {
-                        var menu = document.getElementById('menu-contenido');
-                        if (window.innerWidth > 600) {
-                            menu.style.display = '';
-                        } else {
-                            menu.style.display = 'none';
-                        }
-                    });
-                    // Corrige el cierre del menú al hacer scroll
-                    window.addEventListener('scroll', function () {
-                        var menu = document.getElementById('menu-contenido');
-                        if (window.innerWidth <= 600 && menu) {
-                            menu.style.display = 'none';
-                        }
-                    });
-                </script>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div style="color:#ffffff; font-size:1.2em; font-weight:bold;">&copy; PDPEAJ-BENI</div>
+    </footer>
+    <script>
+        // Alterna el menú en móvil
+        function toggleMenu() {
+            var menu = document.getElementById('menu-contenido');
+            if (window.innerWidth <= 600) {
+                if (menu.style.display === 'block') {
+                    menu.style.display = 'none';
+                } else {
+                    menu.style.display = 'block';
+                }
+            }
+        }
+        // Cierra el menú al seleccionar una opción en móvil
+        function cerrarMenu() {
+            var menu = document.getElementById('menu-contenido');
+            if (window.innerWidth <= 600) {
+                menu.style.display = 'none';
+            }
+        }
+        // Cerrar menú al hacer click fuera (solo móvil)
+        document.addEventListener('click', function (e) {
+            var menu = document.getElementById('menu-contenido');
+            var boton = document.getElementById('menu-boton');
+            if (window.innerWidth <= 600 && menu && boton) {
+                if (!menu.contains(e.target) && !boton.contains(e.target)) {
+                    menu.style.display = 'none';
+                }
+            }
+        });
+        // Asegura que el menú se oculte al cambiar el tamaño de la ventana
+        window.addEventListener('resize', function () {
+            var menu = document.getElementById('menu-contenido');
+            if (window.innerWidth > 600) {
+                menu.style.display = '';
+            } else {
+                menu.style.display = 'none';
+            }
+        });
+        // Corrige el cierre del menú al hacer scroll
+        window.addEventListener('scroll', function () {
+            var menu = document.getElementById('menu-contenido');
+            if (window.innerWidth <= 600 && menu) {
+                menu.style.display = 'none';
+            }
+        });
+    </script>
 </body>
 
 </html>

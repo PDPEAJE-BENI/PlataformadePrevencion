@@ -1,3 +1,182 @@
+.menu-link.menu-historia {
+    background: #ff9800; /* Naranja fuerte */
+    color: #52b3b9 !important;
+    border-radius: 6px;
+    font-weight: bold;
+    box-shadow: 0 2px 8px #ff980033;
+    transition: background 0.2s, color 0.2s;
+}
+.menu-link.menu-historia .menu-title {
+    color: #59750d !important;
+}
+.menu-link.menu-historia:hover, .menu-link.menu-historia:focus {
+    background: #ffb347; /* Naranja suave */
+    color: #ffb347 !important;
+}
+.menu-link.menu-historia:hover .menu-title, .menu-link.menu-historia:focus .menu-title {
+    color: #ffb347 !important;
+}
+
+/* --- HISTORIA INTERACTIVA --- */
+.cuadro {
+    background: #b9f6ca;
+    border-radius: 22px;
+    box-shadow: 0 8px 32px 0 rgba(76, 175, 80, 0.18), 0 1.5px 8px #b9f6ca99;
+    padding: 44px 32px 36px 32px;
+    max-width: 740px;
+    width: 100%;
+    margin: 32px auto 24px auto;
+    border: 2.5px solid #69f0ae;
+    font-size: 1.15em;
+    color: #1b5e20;
+    transition: box-shadow 0.2s, border 0.2s;
+    animation: fadeIn 0.7s;
+}
+
+.cuadro h2 {
+    color: #009688;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    font-weight: 800;
+    letter-spacing: 0.01em;
+    margin-bottom: 22px;
+    text-align: center;
+    text-shadow: none;
+}
+
+.historia-texto {
+    margin-bottom: 26px;
+    font-size: 1.19em;
+    line-height: 1.7;
+    color: #263238;
+    background: #b9f6ca;
+    border-radius: 10px;
+    padding: 18px 18px 14px 18px;
+    box-shadow: 0 2px 8px #b9f6ca33;
+}
+
+.historia-opciones {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: stretch;
+    margin-bottom: 10px;
+}
+
+.historia-opciones button {
+    padding: 14px 0;
+    border-radius: 10px;
+    border: none;
+    background: #43ea8e;
+    color: #fff;
+    font-size: 1.13em;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 2px 12px #43ea8e33, 0 1.5px 8px #ff704344;
+    letter-spacing: 0.01em;
+    transition: background 0.18s, box-shadow 0.18s, transform 0.18s;
+    outline: none;
+    border-bottom: 3px solid #b9f6ca;
+}
+.historia-opciones button:hover,
+.historia-opciones button:focus {
+    background: #009688 ;
+    box-shadow: 0 4px 18px #43ea8e44, 0 2px 12px #ff704344;
+    transform: translateY(-2px) scale(1.045);
+    border-bottom: 3px solid #009688;
+}
+
+.historia-final {
+    color: #009688;
+    font-weight: bold;
+    font-size: 1.22em;
+    margin-top: 24px;
+    padding: 18px 10px 18px 10px;
+    border-radius: 10px;
+    background: #b9f6ca;
+    text-align: center;
+    box-shadow: 0 2px 8px #b9f6ca33;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-around;
+    margin: 18px 0 18px 0;
+    font-weight: bold;
+    color: #009688;
+    background: #b9f6ca;
+    border-radius: 8px;
+    padding: 10px 0;
+    font-size: 1.08em;
+    box-shadow: 0 1.5px 8px #b9f6ca33;
+}
+
+.crear-personaje label {
+    font-weight: 600;
+    color: #009688;
+    margin-top: 8px;
+}
+.crear-personaje input,
+.crear-personaje select {
+    padding: 10px;
+    margin: 8px 0 14px 0;
+    border-radius: 8px;
+    border: 1.5px solid #b9f6ca;
+    width: 100%;
+    font-size: 1em;
+    background: #f8fafc;
+    color: #263238;
+    box-shadow: 0 1.5px 8px #b9f6ca22;
+    transition: border 0.2s;
+}
+.crear-personaje input:focus,
+.crear-personaje select:focus {
+    border: 2px solid #009688;
+    outline: none;
+}
+.crear-personaje h3 {
+    color: #009688;
+    margin-bottom: 10px;
+    font-size: 1.18em;
+    font-weight: 700;
+}
+
+@media (max-width: 800px) {
+    .cuadro {
+        padding: 18px 2vw 18px 2vw;
+        max-width: 99vw;
+    }
+    .historia-opciones button {
+        font-size: 1em;
+        padding: 12px 0;
+        width: 100%;
+    }
+}
+
+/* Hover personalizado para el resto del menú, acorde a su color base */
+.menu-link.menu-inicio:hover, .menu-link.menu-inicio:focus {
+    background: #e3f2fd;
+    color: #1976d2 !important;
+}
+.menu-link.menu-actividades:hover, .menu-link.menu-actividades:focus {
+    background: #fffde7;
+    color: #fbc02d !important;
+}
+.menu-link.menu-directiva:hover, .menu-link.menu-directiva:focus {
+    background: #e8f5e9;
+    color: #388e3c !important;
+}
+.menu-link.menu-contacto:hover, .menu-link.menu-contacto:focus {
+    background: #fce4ec;
+    color: #c2185b !important;
+}
+.menu-link.menu-juegos:hover, .menu-link.menu-juegos:focus {
+    background: #ede7f6;
+    color: #512da8 !important;
+}
+.menu-link.menu-material:hover, .menu-link.menu-material:focus {
+    background: #e0f7fa;
+    color: #00838f !important;
+}
 /* Video de feria en actividades */
 .actividad-video {
     width: 100%;
@@ -1367,7 +1546,7 @@ footer {
 
 .menu-title {
     color: #ffffff;
-    background: #0ee031;
+    background: #e3fc9e;
     /* azul vivo */
     margin: 10px 0;
     font-weight: bold;
