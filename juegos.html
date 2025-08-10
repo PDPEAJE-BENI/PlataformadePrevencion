@@ -42,13 +42,28 @@
     <nav class="menu-desplegable">
         <button class="menu-boton" id="menu-boton" onclick="toggleMenu()">☰ Menú</button>
         <div class="menu-contenido" id="menu-contenido">
-            <a href="index.html" class="menu-link menu-inicio"><div class="menu-title">Inicio</div></a>
-            <a href="actividades.html" class="menu-link menu-actividades"><div class="menu-title">Más Actividades</div></a>
-            <a href="directiva.html" class="menu-link menu-directiva"><div class="menu-title">Directiva</div></a>
-            <a href="contacto.html" class="menu-link menu-contacto"><div class="menu-title">Contacto y Comunicación</div></a>
-            <a href="juegos.html" class="menu-link menu-juegos"><div class="menu-title">Juegos</div></a>
-            <a href="material.html" class="menu-link menu-material"><div class="menu-title">Material</div></a>
-            <a href="historia_interactiva.html" class="menu-link menu-historia"><div class="menu-title">Historia Interactiva</div></a>
+            <a href="index.html" class="menu-link menu-inicio">
+                <div class="menu-title">Inicio</div>
+            </a>
+            <a href="actividades.html" class="menu-link menu-actividades">
+                <div class="menu-title">Más Actividades</div>
+            </a>
+            <a href="directiva.html" class="menu-link menu-directiva">
+                <div class="menu-title">Directiva</div>
+            </a>
+            <a href="contacto.html" class="menu-link menu-contacto">
+                <div class="menu-title">Contacto y Comunicación</div>
+            </a>
+            <a href="juegos.html" class="menu-link menu-juegos">
+                <div class="menu-title">Juegos</div>
+            </a>
+            <a href="material.html" class="menu-link menu-material">
+                <div class="menu-title">Material</div>
+            </a>
+            <a href="historia_interactiva.html" class="menu-link menu-historia">
+                <div class="menu-title">Historia Interactiva</div>
+            </a>
+
         </div>
     </nav>
     <script>
@@ -56,7 +71,7 @@
             var menu = document.getElementById('menu-contenido');
             menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
         }
-        window.onclick = function(event) {
+        window.onclick = function (event) {
             if (!event.target.matches('.menu-boton')) {
                 var menu = document.getElementById('menu-contenido');
                 if (menu && menu.style.display === 'block') {
@@ -65,70 +80,59 @@
             }
         }
     </script>
-                <a href="directiva.html" class="menu-link menu-directiva">
-                    <div class="menu-title">Directiva</div>
-                </a>
-                <a href="contacto.html" class="menu-link menu-contacto">
-                    <div class="menu-title">Contacto y Comunicación</div>
-                </a>
-                <a href="material.html" class="menu-link menu-material">
-                    <div class="menu-title">Material</div>
-                </a>
-                <a href="juegos.html" class="menu-link menu-juegos">
-                    <div class="menu-title">Juegos</div>
-                </a>
 
-                <script>
-                    // Alterna el menú en móvil
-                    function toggleMenu() {
-                        var menu = document.getElementById('menu-contenido');
-                        if (window.innerWidth <= 600) {
-                            if (menu.style.display === 'block') {
-                                menu.style.display = 'none';
-                            } else {
-                                menu.style.display = 'block';
-                            }
-                        }
-                    }
-                    function cerrarMenu() {
-                        var menu = document.getElementById('menu-contenido');
-                        if (window.innerWidth <= 600) {
-                            menu.style.display = 'none';
-                        }
-                    }
-                    document.addEventListener('click', function (e) {
-                        var menu = document.getElementById('menu-contenido');
-                        var boton = document.getElementById('menu-boton');
-                        if (window.innerWidth <= 600 && menu && boton) {
-                            if (!menu.contains(e.target) && !boton.contains(e.target)) {
-                                menu.style.display = 'none';
-                            }
-                        }
-                    });
-                    window.addEventListener('resize', function () {
-                        var menu = document.getElementById('menu-contenido');
-                        if (window.innerWidth > 600) {
-                            menu.style.display = '';
-                        } else {
-                            menu.style.display = 'none';
-                        }
-                    });
-                    window.addEventListener('scroll', function () {
-                        var menu = document.getElementById('menu-contenido');
-                        if (window.innerWidth <= 600 && menu) {
-                            menu.style.display = 'none';
-                        }
-                    });
-                    function scrollToSection(id) {
-                        var el = document.getElementById(id);
-                        if (el) {
-                            el.scrollIntoView({ behavior: 'smooth' });
-                        }
-                    }
-                </script>
 
-            </div>
-        </div>
+    <script>
+        // Alterna el menú en móvil
+        function toggleMenu() {
+            var menu = document.getElementById('menu-contenido');
+            if (window.innerWidth <= 600) {
+                if (menu.style.display === 'block') {
+                    menu.style.display = 'none';
+                } else {
+                    menu.style.display = 'block';
+                }
+            }
+        }
+        function cerrarMenu() {
+            var menu = document.getElementById('menu-contenido');
+            if (window.innerWidth <= 600) {
+                menu.style.display = 'none';
+            }
+        }
+        document.addEventListener('click', function (e) {
+            var menu = document.getElementById('menu-contenido');
+            var boton = document.getElementById('menu-boton');
+            if (window.innerWidth <= 600 && menu && boton) {
+                if (!menu.contains(e.target) && !boton.contains(e.target)) {
+                    menu.style.display = 'none';
+                }
+            }
+        });
+        window.addEventListener('resize', function () {
+            var menu = document.getElementById('menu-contenido');
+            if (window.innerWidth > 600) {
+                menu.style.display = '';
+            } else {
+                menu.style.display = 'none';
+            }
+        });
+        window.addEventListener('scroll', function () {
+            var menu = document.getElementById('menu-contenido');
+            if (window.innerWidth <= 600 && menu) {
+                menu.style.display = 'none';
+            }
+        });
+        function scrollToSection(id) {
+            var el = document.getElementById(id);
+            if (el) {
+                el.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    </script>
+
+    </div>
+    </div>
     </div>
     <div class="margen">
 
@@ -201,25 +205,6 @@
             <div id="dragdrop-diversidad-resultado"></div>
         </div>
         <!-- Quiz: Mitos y realidades sobre sexualidad -->
-        <div class="cuadro">
-            <h4>Quiz: Mitos y realidades sobre sexualidad</h4>
-            <form id="quiz-mitos-form">
-                <!-- ...existing code for quiz-mitos-form... -->
-            </form>
-            <div id="quiz-mitos-resultado"></div>
-        </div>
-
-        <div class="cuadro">
-            <h4>Secuencia correcta: Pasos para usar un condón</h4>
-            <p>Usa los botones para subir o bajar cada paso y ordénalos correctamente. ¡Aprende cómo usar el condón
-                de forma
-                segura!</p>
-            <ul id="secuencia-condon-lista" class="secuencia-condon-lista"
-                style="list-style:none; padding:0; max-width:480px; margin:auto;"></ul>
-            <button type="button" onclick="verificarSecuenciaCondon()" style="margin-top:10px;">Verificar
-                orden</button>
-            <div id="secuencia-condon-resultado" style="margin-top:10px;"></div>
-        </div>
 
 
         <script>
@@ -665,7 +650,7 @@
             }
         </script>
 
-       
+
 
         <!-- Redes sociales en su propio bloque al final -->
         <div class="margen">
