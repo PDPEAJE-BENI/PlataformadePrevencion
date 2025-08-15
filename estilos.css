@@ -1,19 +1,185 @@
+/* Ajuste compacto y responsivo para .presentacion-oficial-text dentro de .cuadro.actividad */
+.cuadro.actividad > .presentacion-oficial-text,
+.cuadro.actividad > li.presentacion-oficial-text {
+    max-width: 96%;
+    width: 96%;
+    margin: 10px auto;
+    padding: 10px 10px;
+    font-size: 1.05em;
+    box-sizing: border-box;
+    border-radius: 8px;
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    text-align: left;
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+
+@media (max-width: 800px) {
+    .cuadro.actividad > .presentacion-oficial-text,
+    .cuadro.actividad > li.presentacion-oficial-text {
+        max-width: 99%;
+        width: 99%;
+        font-size: 0.98em;
+        padding: 8px 6px;
+        margin: 8px auto;
+    }
+}
+
+@media (max-width: 600px) {
+    .cuadro.actividad > .presentacion-oficial-text,
+    .cuadro.actividad > li.presentacion-oficial-text {
+        max-width: 99vw;
+        width: 99vw;
+        font-size: 0.95em;
+        padding: 6px 2vw;
+        margin: 6px auto;
+    }
+}
+/* Ajuste para que .presentacion-oficial-text quede bien dentro de .cuadro.actividad */
+.cuadro .presentacion-oficial-text {
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 10px 0;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+@media (max-width: 800px) {
+    .cuadro .presentacion-oficial-text {
+        max-width: 100%;
+        width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+        margin: 8px 0;
+    }
+}
+
+@media (max-width: 600px) {
+    .cuadro .presentacion-oficial-text {
+        max-width: 99vw;
+        width: 100%;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        margin: 6px 0 !important;
+    }
+}
+/* Ajuste para que .cuadro.actividad nunca se salga de su contenedor padre .cuadro */
+.cuadro .cuadro.actividad {
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 18px 0;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+@media (max-width: 800px) {
+    .cuadro .cuadro.actividad {
+        max-width: 100%;
+        width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+        margin: 10px 0;
+    }
+}
+
+@media (max-width: 600px) {
+    .cuadro .cuadro.actividad {
+        max-width: 100vw;
+        width: 100%;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        margin: 6px 0 !important;
+    }
+}
+/* --- Ajustes responsivos y visuales para juegos y feedback --- */
+@media (max-width: 600px) {
+    .cuadro {
+        padding: 10px 2vw;
+        font-size: 0.98em;
+        overflow-x: auto;
+    }
+
+    .historia-opciones button,
+    .secuencia-condon-btns button {
+        width: 100%;
+        font-size: 1.1em;
+        padding: 12px 0;
+    }
+
+    .secuencia-condon-lista li,
+    .dragdrop-lista,
+    .drop-area,
+    .drop-area-puberta {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 8px;
+        min-width: 0;
+    }
+
+    .drag-item,
+    .drag-item-puberta,
+    .drop-zone,
+    .drop-zone-puberta {
+        min-width: 90vw;
+        font-size: 1em;
+        box-sizing: border-box;
+    }
+
+    .quiz-anticonceptivos-form label {
+        font-size: 1.1em;
+    }
+
+    #quiz-anticonceptivos-resultado,
+    #secuencia-condon-resultado,
+    #dragdrop-diversidad-resultado,
+    #dragdrop-puberta-resultado {
+        font-size: 1.1em;
+        padding: 8px 0;
+    }
+
+    .iframe-centro {
+        width: 100vw;
+        overflow-x: auto;
+    }
+
+    .social-buttons {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+
+    .social-icon img {
+        width: 48px !important;
+        height: 48px !important;
+    }
+}
+
 .menu-link.menu-historia {
-    background: #ff9800; /* Naranja fuerte */
+    background: #ff9800;
+    /* Naranja fuerte */
     color: #52b3b9 !important;
     border-radius: 6px;
     font-weight: bold;
-    box-shadow: 0 2px 8px #ff980033;
+
     transition: background 0.2s, color 0.2s;
 }
+
 .menu-link.menu-historia .menu-title {
     color: #59750d !important;
 }
-.menu-link.menu-historia:hover, .menu-link.menu-historia:focus {
-    background: #ffb347; /* Naranja suave */
+
+.menu-link.menu-historia:hover,
+.menu-link.menu-historia:focus {
+    background: #ffb347;
+    /* Naranja suave */
     color: #ffb347 !important;
 }
-.menu-link.menu-historia:hover .menu-title, .menu-link.menu-historia:focus .menu-title {
+
+.menu-link.menu-historia:hover .menu-title,
+.menu-link.menu-historia:focus .menu-title {
     color: #ffb347 !important;
 }
 
@@ -21,7 +187,7 @@
 .cuadro {
     background: #b9f6ca;
     border-radius: 22px;
-    box-shadow: 0 8px 32px 0 rgba(76, 175, 80, 0.18), 0 1.5px 8px #b9f6ca99;
+
     padding: 44px 32px 36px 32px;
     max-width: 740px;
     width: 100%;
@@ -51,7 +217,7 @@
     background: #b9f6ca;
     border-radius: 10px;
     padding: 18px 18px 14px 18px;
-    box-shadow: 0 2px 8px #b9f6ca33;
+
 }
 
 .historia-opciones {
@@ -71,16 +237,17 @@
     font-size: 1.13em;
     font-weight: 700;
     cursor: pointer;
-    box-shadow: 0 2px 12px #43ea8e33, 0 1.5px 8px #ff704344;
+
     letter-spacing: 0.01em;
     transition: background 0.18s, box-shadow 0.18s, transform 0.18s;
     outline: none;
     border-bottom: 3px solid #b9f6ca;
 }
+
 .historia-opciones button:hover,
 .historia-opciones button:focus {
-    background: #009688 ;
-    box-shadow: 0 4px 18px #43ea8e44, 0 2px 12px #ff704344;
+    background: #009688;
+
     transform: translateY(-2px) scale(1.045);
     border-bottom: 3px solid #009688;
 }
@@ -94,7 +261,7 @@
     border-radius: 10px;
     background: #b9f6ca;
     text-align: center;
-    box-shadow: 0 2px 8px #b9f6ca33;
+
 }
 
 .stats {
@@ -107,7 +274,7 @@
     border-radius: 8px;
     padding: 10px 0;
     font-size: 1.08em;
-    box-shadow: 0 1.5px 8px #b9f6ca33;
+
 }
 
 .crear-personaje label {
@@ -115,6 +282,7 @@
     color: #009688;
     margin-top: 8px;
 }
+
 .crear-personaje input,
 .crear-personaje select {
     padding: 10px;
@@ -125,14 +293,16 @@
     font-size: 1em;
     background: #f8fafc;
     color: #263238;
-    box-shadow: 0 1.5px 8px #b9f6ca22;
+
     transition: border 0.2s;
 }
+
 .crear-personaje input:focus,
 .crear-personaje select:focus {
     border: 2px solid #009688;
     outline: none;
 }
+
 .crear-personaje h3 {
     color: #009688;
     margin-bottom: 10px;
@@ -145,6 +315,7 @@
         padding: 18px 2vw 18px 2vw;
         max-width: 99vw;
     }
+
     .historia-opciones button {
         font-size: 1em;
         padding: 12px 0;
@@ -153,30 +324,42 @@
 }
 
 /* Hover personalizado para el resto del menú, acorde a su color base */
-.menu-link.menu-inicio:hover, .menu-link.menu-inicio:focus {
+.menu-link.menu-inicio:hover,
+.menu-link.menu-inicio:focus {
     background: #e3f2fd;
     color: #1976d2 !important;
 }
-.menu-link.menu-actividades:hover, .menu-link.menu-actividades:focus {
+
+.menu-link.menu-actividades:hover,
+.menu-link.menu-actividades:focus {
     background: #fffde7;
     color: #fbc02d !important;
 }
-.menu-link.menu-directiva:hover, .menu-link.menu-directiva:focus {
+
+.menu-link.menu-directiva:hover,
+.menu-link.menu-directiva:focus {
     background: #e8f5e9;
     color: #388e3c !important;
 }
-.menu-link.menu-contacto:hover, .menu-link.menu-contacto:focus {
+
+.menu-link.menu-contacto:hover,
+.menu-link.menu-contacto:focus {
     background: #fce4ec;
     color: #c2185b !important;
 }
-.menu-link.menu-juegos:hover, .menu-link.menu-juegos:focus {
+
+.menu-link.menu-juegos:hover,
+.menu-link.menu-juegos:focus {
     background: #ede7f6;
     color: #512da8 !important;
 }
-.menu-link.menu-material:hover, .menu-link.menu-material:focus {
+
+.menu-link.menu-material:hover,
+.menu-link.menu-material:focus {
     background: #e0f7fa;
     color: #00838f !important;
 }
+
 /* Video de feria en actividades */
 .actividad-video {
     width: 100%;
@@ -190,7 +373,7 @@
     width: 100%;
     max-width: 540px;
     border-radius: 16px;
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.13);
+
     background: #f5f5f5;
     outline: none;
 }
@@ -219,7 +402,7 @@
 .miembro-directiva {
     background: #f5f5f5;
     border-radius: 18px;
-    box-shadow: 0 4px 24px rgba(106, 27, 154, 0.10);
+
     padding: 38px 32px;
     text-align: center;
     transition: box-shadow 0.2s;
@@ -230,9 +413,7 @@
     align-items: center;
 }
 
-.miembro-directiva:hover {
-    box-shadow: 0 8px 32px rgba(106, 27, 154, 0.18);
-}
+
 
 .foto-directiva {
     width: 120px;
@@ -241,7 +422,7 @@
     border-radius: 50%;
     margin-bottom: 16px;
     background: #fff;
-    box-shadow: 0 2px 12px rgba(106, 27, 154, 0.13);
+
     border: none;
 }
 
@@ -482,7 +663,7 @@
     padding: 16px 18px;
     border-radius: 8px;
     max-width: 700px;
-    box-shadow: 0 2px 8px rgba(36, 107, 46, 0.07);
+
     text-align: left;
 }
 
@@ -498,7 +679,7 @@
     background: #fff;
     border: 1.5px solid #246b2e;
     border-radius: 12px;
-    box-shadow: 0 2px 10px rgba(36, 107, 46, 0.07);
+
     padding: 24px 18px;
     margin: 28px auto 0 auto;
     max-width: 500px;
@@ -532,7 +713,7 @@
     border-radius: 8px;
     padding: 12px 24px;
     text-decoration: none;
-    box-shadow: 0 2px 8px rgba(36, 107, 46, 0.07);
+
     transition: background 0.2s, transform 0.2s;
     margin-top: 10px;
 }
@@ -575,16 +756,14 @@
     background: #fff;
     border: 1px solid #e0e0e0;
     border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+
     padding: 18px 12px;
     display: flex;
     align-items: center;
     transition: box-shadow 0.2s;
 }
 
-.material-lista li:hover {
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.13);
-}
+
 
 .pdf-thumb {
     width: 110px;
