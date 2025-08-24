@@ -42,16 +42,14 @@
     width: 100%;
     box-sizing: border-box;
     margin: 10px 0;
-    padding-left: 0;
-    padding-right: 0;
+  
 }
 
 @media (max-width: 800px) {
     .cuadro .presentacion-oficial-text {
         max-width: 100%;
         width: 100%;
-        padding-left: 0;
-        padding-right: 0;
+      
         margin: 8px 0;
     }
 }
@@ -60,8 +58,7 @@
     .cuadro .presentacion-oficial-text {
         max-width: 99vw;
         width: 100%;
-        padding-left: 0 !important;
-        padding-right: 0 !important;
+        
         margin: 6px 0 !important;
     }
 }
