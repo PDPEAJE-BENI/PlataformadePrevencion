@@ -81,72 +81,7 @@
                 <label>Mensaje:</label>
                 <textarea name="mensaje" rows="5" required></textarea>
                 <button type="submit">Enviar</button>
-            <header>
-                <div class="margen">
-                    <h1>Contacto y Comunicación</h1>
-                    <img src="img/logo.png" alt="PDPEAJ-BENI" class="logo">
-                </div>
-            </header>
-            <nav class="menu-desplegable">
-                <button class="menu-boton" id="menu-boton" onclick="toggleMenu()">☰ Menú</button>
-                <div class="menu-contenido" id="menu-contenido">
-                    <a href="index.html" class="menu-link menu-inicio"><div class="menu-title">Inicio</div></a>
-                    <a href="actividades.html" class="menu-link menu-actividades"><div class="menu-title">Más Actividades</div></a>
-                    <a href="directiva.html" class="menu-link menu-directiva"><div class="menu-title">Directiva</div></a>
-                    <a href="contacto.html" class="menu-link menu-contacto"><div class="menu-title">Contacto y Comunicación</div></a>
-                    <a href="juegos.html" class="menu-link menu-juegos"><div class="menu-title">Juegos</div></a>
-                    <a href="material.html" class="menu-link menu-material"><div class="menu-title">Material</div></a>
-                    <a href="historia_interactiva.html" class="menu-link menu-historia"><div class="menu-title">Historia Interactiva</div></a>
-                </div>
-            </nav>
-            <script>
-                function toggleMenu() {
-                    var menu = document.getElementById('menu-contenido');
-                    menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
-                }
-                window.onclick = function(event) {
-                    if (!event.target.matches('.menu-boton')) {
-                        var menu = document.getElementById('menu-contenido');
-                        if (menu && menu.style.display === 'block') {
-                            menu.style.display = 'none';
-                        }
-                    }
-                }
-            </script>
-        // Cierra el menú al seleccionar una opción en móvil
-        function cerrarMenu() {
-            var menu = document.getElementById('menu-contenido');
-            if (window.innerWidth <= 600) {
-                menu.style.display = 'none';
-            }
-        }
-        // Cerrar menú al hacer click fuera (solo móvil)
-        document.addEventListener('click', function (e) {
-            var menu = document.getElementById('menu-contenido');
-            var boton = document.getElementById('menu-boton');
-            if (window.innerWidth <= 600 && menu && boton) {
-                if (!menu.contains(e.target) && !boton.contains(e.target)) {
-                    menu.style.display = 'none';
-                }
-            }
-        });
-        // Asegura que el menú se oculte al cambiar el tamaño de la ventana
-        window.addEventListener('resize', function () {
-            var menu = document.getElementById('menu-contenido');
-            if (window.innerWidth > 600) {
-                menu.style.display = '';
-            } else {
-                menu.style.display = 'none';
-            }
-        });
-        // Corrige el cierre del menú al hacer scroll
-        window.addEventListener('scroll', function () {
-            var menu = document.getElementById('menu-contenido');
-            if (window.innerWidth <= 600 && menu) {
-                menu.style.display = 'none';
-            }
-        });
-    </script>
+            </form>
     <script>
         // Define dataLayer and the gtag function.
         window.dataLayer = window.dataLayer || [];
