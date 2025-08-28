@@ -97,19 +97,40 @@
             </div>
         </nav>
         <script>
-            // Menú desplegable responsivo (igual en todos los HTML)
+            // Menú desplegable responsivo optimizado para móvil
             function toggleMenu() {
                 var menu = document.getElementById('menu-contenido');
-                menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+                if (window.innerWidth <= 700) {
+                    menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+                }
             }
-            window.onclick = function (event) {
-                if (!event.target.matches('.menu-boton')) {
-                    var menu = document.getElementById('menu-contenido');
-                    if (menu && menu.style.display === 'block') {
+            // Cierra el menú al hacer click fuera (solo móvil)
+            window.addEventListener('click', function (event) {
+                var menu = document.getElementById('menu-contenido');
+                var boton = document.getElementById('menu-boton');
+                if (window.innerWidth <= 700 && menu && boton) {
+                    if (!menu.contains(event.target) && !boton.contains(event.target)) {
                         menu.style.display = 'none';
                     }
                 }
-            }
+            });
+            // Cierra el menú al seleccionar una opción (solo móvil)
+            document.querySelectorAll('.menu-link').forEach(function(link) {
+                link.addEventListener('click', function() {
+                    if (window.innerWidth <= 700) {
+                        document.getElementById('menu-contenido').style.display = 'none';
+                    }
+                });
+            });
+            // Asegura que el menú se oculte al cambiar el tamaño de la ventana
+            window.addEventListener('resize', function () {
+                var menu = document.getElementById('menu-contenido');
+                if (window.innerWidth > 700) {
+                    menu.style.display = '';
+                } else {
+                    menu.style.display = 'none';
+                }
+            });
         </script>
 
         <div class="margen">

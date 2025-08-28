@@ -1,32 +1,37 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Directiva PDPEAJ-BENI</title>
     <link rel="stylesheet" href="estilos.css">
     <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-WPNLRRK3');</script>
-<!-- End Google Tag Manager -->
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-74F9S56FR9"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-74F9S56FR9');
-</script>
-<!-- End Google Analytics -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-WPNLRRK3');</script>
+    <!-- End Google Tag Manager -->
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-74F9S56FR9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-74F9S56FR9');
+    </script>
+    <!-- End Google Analytics -->
 </head>
+
 <body>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WPNLRRK3"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WPNLRRK3" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <header>
         <div class="margen">
             <h1>Miembros de la Directiva</h1>
@@ -36,13 +41,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <nav class="menu-desplegable">
         <button class="menu-boton" id="menu-boton" onclick="toggleMenu()">☰ Menú</button>
         <div class="menu-contenido" id="menu-contenido">
-            <a href="index.html" class="menu-link menu-inicio"><div class="menu-title">Inicio</div></a>
-            <a href="actividades.html" class="menu-link menu-actividades"><div class="menu-title">Más Actividades</div></a>
-            <a href="directiva.html" class="menu-link menu-directiva"><div class="menu-title">Directiva</div></a>
-            <a href="contacto.html" class="menu-link menu-contacto"><div class="menu-title">Contacto y Comunicación</div></a>
-            <a href="juegos.html" class="menu-link menu-juegos"><div class="menu-title">Juegos</div></a>
-            <a href="material.html" class="menu-link menu-material"><div class="menu-title">Material</div></a>
-            <a href="historia_interactiva.html" class="menu-link menu-historia"><div class="menu-title">Historia Interactiva</div></a>
+            <a href="index.html" class="menu-link menu-inicio">
+                <div class="menu-title">Inicio</div>
+            </a>
+            <a href="actividades.html" class="menu-link menu-actividades">
+                <div class="menu-title">Más Actividades</div>
+            </a>
+            <a href="directiva.html" class="menu-link menu-directiva">
+                <div class="menu-title">Directiva</div>
+            </a>
+            <a href="contacto.html" class="menu-link menu-contacto">
+                <div class="menu-title">Contacto y Comunicación</div>
+            </a>
+            <a href="juegos.html" class="menu-link menu-juegos">
+                <div class="menu-title">Juegos</div>
+            </a>
+            <a href="material.html" class="menu-link menu-material">
+                <div class="menu-title">Material</div>
+            </a>
+            <a href="historia_interactiva.html" class="menu-link menu-historia">
+                <div class="menu-title">Historia Interactiva</div>
+            </a>
 
         </div>
     </nav>
@@ -51,7 +70,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             var menu = document.getElementById('menu-contenido');
             menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
         }
-        window.onclick = function(event) {
+        window.onclick = function (event) {
             if (!event.target.matches('.menu-boton')) {
                 var menu = document.getElementById('menu-contenido');
                 if (menu && menu.style.display === 'block') {
@@ -68,9 +87,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <img id="foto-miembro" src="img/presidente.jpg" alt="Presidente" class="foto-directiva">
                     <h3 id="nombre-miembro">Johan Paul Algarañaz Vasquez</h3>
                     <p id="cargo-miembro"><b>Cargo:</b> Presidente</p>
-                    <p id="desc-miembro">Johan lidera la plataforma con compromiso y visión, promoviendo la participación juvenil y la prevención de embarazos adolescentes.</p>
+                    <p id="desc-miembro">Johan lidera la plataforma con compromiso y visión, promoviendo la
+                        participación juvenil y la prevención de embarazos adolescentes.</p>
                     <div style="text-align:center; margin-top:18px;">
-                        <button onclick="cambiarMiembro(-1)" id="btn-prev" style="margin-right:12px;">&#8592; Anterior</button>
+                        <button onclick="cambiarMiembro(-1)" id="btn-prev" style="margin-right:12px;">&#8592;
+                            Anterior</button>
                         <button onclick="cambiarMiembro(1)" id="btn-next">Siguiente &#8594;</button>
                     </div>
                 </div>
@@ -79,156 +100,157 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <footer>
         <div style="color:#ffffff; font-size:1.2em; font-weight:bold;">&copy; PDPEAJ-BENI</div>
-    <script>
-    // Datos de los miembros
-    const miembros = [
-        {
-            foto: "img/presidente.jpg",
-            nombre: "Johan Paul Algarañaz Vasquez",
-            cargo: "Presidente",
-            desc: "Johan lidera la plataforma con compromiso y visión, promoviendo la participación juvenil y la prevención de embarazos adolescentes."
-        },
-        {
-            foto: "img/vicepresidenta.jpg",
-            nombre: "Ariana Quiroz Ortiz",
-            cargo: "Vicepresidenta",
-            desc: "Ariana apoya la gestión y coordinación de actividades, fomentando el trabajo en equipo y la inclusión."
-        },
-        {
-            foto: "img/vicepresidente2do.jpg",
-            nombre: "Johnny Suárez Justiniano",
-            cargo: "Vicepresidente 2do",
-            desc: "Johnny impulsa proyectos innovadores y fortalece la red de jóvenes en el departamento."
-        },
-        {
-            foto: "img/delegado.jpg",
-            nombre: "Mauricio Marañon Vargas",
-            cargo: "Delegado a la Nacional",
-            desc: "Mauricio representa a la plataforma en espacios nacionales, promoviendo la voz de los jóvenes benianos."
-        },
-        {
-            foto: "img/actas.jpeg",
-            nombre: "Carlos Yver Justiniano Mariscal",
-            cargo: "Secretario de Actas",
-            desc: "Carlos se encarga de la documentación y registro de todas las actividades y reuniones."
-        },
-        {
-            foto: "img/relaciones.jpg",
-            nombre: "José Mateo Javivi Javivi",
-            cargo: "Secretario de Alianzas",
-            desc: "José Mateo gestiona alianzas estratégicas con instituciones y organizaciones aliadas."
-        },
-        {
-            foto: "img/comunicaciones.jpg",
-            nombre: "Mariana Justiniano Guayacuma",
-            cargo: "Secretaria de Comunicación",
-            desc: "Mariana lidera la difusión de información y campañas de sensibilización en redes sociales."
-        },
-        {
-            foto: "img/comunicacion.jpg",
-            nombre: "Christian Mobo Maileva",
-            cargo: "Secretario de Comunicación",
-            desc: "Christian apoya la gestión comunicacional y la producción de materiales informativos."
-        },
-        {
-            foto: "img/vocal1.jpg",
-            nombre: "Luis Fernando Sosa Cuellar",
-            cargo: "Vocal",
-            desc: "Luis Fernando participa activamente en la organización y ejecución de actividades."
-        },
-        {
-            foto: "img/vocal2.jpg",
-            nombre: "Cristel Camila Guitiérrez Arias",
-            cargo: "Vocal",
-            desc: "Cristel apoya la integración y motivación de los miembros de la plataforma."
-        }
-    ];
-    let actual = 0;
-    function mostrarMiembro(idx) {
-        const m = miembros[idx];
-        document.getElementById('foto-miembro').src = m.foto;
-        document.getElementById('foto-miembro').alt = m.cargo;
-        document.getElementById('nombre-miembro').textContent = m.nombre;
-        document.getElementById('cargo-miembro').innerHTML = '<b>Cargo:</b> ' + m.cargo;
-        document.getElementById('desc-miembro').textContent = m.desc;
-    }
-    function cambiarMiembro(dir) {
-        actual += dir;
-        if (actual < 0) actual = miembros.length - 1;
-        if (actual >= miembros.length) actual = 0;
-        mostrarMiembro(actual);
-    }
-    document.addEventListener('DOMContentLoaded', function() {
-        mostrarMiembro(actual);
-    });
-    </script>
-    <script>
-        function toggleMenu() {
-            var menu = document.getElementById('menu-contenido');
-            if (window.innerWidth <= 600) {
-                if (menu.style.display === 'block') {
+        <script>
+            // Datos de los miembros
+            const miembros = [
+                {
+                    foto: "img/presidente.jpg",
+                    nombre: "Johan Paul Algarañaz Vasquez",
+                    cargo: "Presidente",
+                    desc: "Johan lidera la plataforma con compromiso y visión, promoviendo la participación juvenil y la prevención de embarazos adolescentes."
+                },
+                {
+                    foto: "img/vicepresidenta.jpg",
+                    nombre: "Ariana Quiroz Ortiz",
+                    cargo: "Vicepresidenta",
+                    desc: "Ariana apoya la gestión y coordinación de actividades, fomentando el trabajo en equipo y la inclusión."
+                },
+                {
+                    foto: "img/vicepresidente2do.jpg",
+                    nombre: "Johnny Suárez Justiniano",
+                    cargo: "Vicepresidente 2do",
+                    desc: "Johnny impulsa proyectos innovadores y fortalece la red de jóvenes en el departamento."
+                },
+                {
+                    foto: "img/delegado.jpg",
+                    nombre: "Mauricio Marañon Vargas",
+                    cargo: "Delegado a la Nacional",
+                    desc: "Mauricio representa a la plataforma en espacios nacionales, promoviendo la voz de los jóvenes benianos."
+                },
+                {
+                    foto: "img/actas.jpeg",
+                    nombre: "Carlos Yver Justiniano Mariscal",
+                    cargo: "Secretario de Actas",
+                    desc: "Carlos se encarga de la documentación y registro de todas las actividades y reuniones."
+                },
+                {
+                    foto: "img/relaciones.jpg",
+                    nombre: "José Mateo Javivi Javivi",
+                    cargo: "Secretario de Alianzas",
+                    desc: "José Mateo gestiona alianzas estratégicas con instituciones y organizaciones aliadas."
+                },
+                {
+                    foto: "img/comunicaciones.jpg",
+                    nombre: "Mariana Justiniano Guayacuma",
+                    cargo: "Secretaria de Comunicación",
+                    desc: "Mariana lidera la difusión de información y campañas de sensibilización en redes sociales."
+                },
+                {
+                    foto: "img/comunicacion.jpg",
+                    nombre: "Christian Mobo Maileva",
+                    cargo: "Secretario de Comunicación",
+                    desc: "Christian apoya la gestión comunicacional y la producción de materiales informativos."
+                },
+                {
+                    foto: "img/vocal1.jpg",
+                    nombre: "Luis Fernando Sosa Cuellar",
+                    cargo: "Vocal",
+                    desc: "Luis Fernando participa activamente en la organización y ejecución de actividades."
+                },
+                {
+                    foto: "img/vocal2.jpg",
+                    nombre: "Cristel Camila Guitiérrez Arias",
+                    cargo: "Vocal",
+                    desc: "Cristel apoya la integración y motivación de los miembros de la plataforma."
+                }
+            ];
+            let actual = 0;
+            function mostrarMiembro(idx) {
+                const m = miembros[idx];
+                document.getElementById('foto-miembro').src = m.foto;
+                document.getElementById('foto-miembro').alt = m.cargo;
+                document.getElementById('nombre-miembro').textContent = m.nombre;
+                document.getElementById('cargo-miembro').innerHTML = '<b>Cargo:</b> ' + m.cargo;
+                document.getElementById('desc-miembro').textContent = m.desc;
+            }
+            function cambiarMiembro(dir) {
+                actual += dir;
+                if (actual < 0) actual = miembros.length - 1;
+                if (actual >= miembros.length) actual = 0;
+                mostrarMiembro(actual);
+            }
+            document.addEventListener('DOMContentLoaded', function () {
+                mostrarMiembro(actual);
+            });
+        </script>
+        <script>
+            function toggleMenu() {
+                var menu = document.getElementById('menu-contenido');
+                if (window.innerWidth <= 600) {
+                    if (menu.style.display === 'block') {
+                        menu.style.display = 'none';
+                    } else {
+                        menu.style.display = 'block';
+                    }
+                }
+            }
+            // Cierra el menú al seleccionar una opción en móvil
+            function cerrarMenu() {
+                var menu = document.getElementById('menu-contenido');
+                if (window.innerWidth <= 600) {
                     menu.style.display = 'none';
+                }
+            }
+            // Cerrar menú al hacer click fuera (solo móvil)
+            document.addEventListener('click', function (e) {
+                var menu = document.getElementById('menu-contenido');
+                var boton = document.getElementById('menu-boton');
+                if (window.innerWidth <= 600 && menu && boton) {
+                    if (!menu.contains(e.target) && !boton.contains(e.target)) {
+                        menu.style.display = 'none';
+                    }
+                }
+            });
+            // Asegura que el menú se oculte al cambiar el tamaño de la ventana
+            window.addEventListener('resize', function () {
+                var menu = document.getElementById('menu-contenido');
+                if (window.innerWidth > 600) {
+                    menu.style.display = '';
                 } else {
-                    menu.style.display = 'block';
-                }
-            }
-        }
-        // Cierra el menú al seleccionar una opción en móvil
-        function cerrarMenu() {
-            var menu = document.getElementById('menu-contenido');
-            if (window.innerWidth <= 600) {
-                menu.style.display = 'none';
-            }
-        }
-        // Cerrar menú al hacer click fuera (solo móvil)
-        document.addEventListener('click', function (e) {
-            var menu = document.getElementById('menu-contenido');
-            var boton = document.getElementById('menu-boton');
-            if (window.innerWidth <= 600 && menu && boton) {
-                if (!menu.contains(e.target) && !boton.contains(e.target)) {
                     menu.style.display = 'none';
                 }
-            }
-        });
-        // Asegura que el menú se oculte al cambiar el tamaño de la ventana
-        window.addEventListener('resize', function () {
-            var menu = document.getElementById('menu-contenido');
-            if (window.innerWidth > 600) {
-                menu.style.display = '';
-            } else {
-                menu.style.display = 'none';
-            }
-        });
-        // Corrige el cierre del menú al hacer scroll
-        window.addEventListener('scroll', function () {
-            var menu = document.getElementById('menu-contenido');
-            if (window.innerWidth <= 600 && menu) {
-                menu.style.display = 'none';
-            }
-        });
-    </script>
-    <script>
-// Define dataLayer and the gtag function.
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-// IMPORTANT - DO NOT COPY/PASTE WITHOUT MODIFYING REGION LIST
-//Set default consent for specific regions according to your requirements
-gtag('consent', 'default', {
-  'ad_storage': 'denied',
-  'ad_user_data': 'denied',
-  'ad_personalization': 'denied',
-  'analytics_storage': 'denied',
-    'regions':['ES','BO','FR','DE','IT','PT','GB','US','CA','MX','BR','AR','CL','CO','PE']
-});
-// Set default consent for all other regions according to your requirements
-gtag('consent', 'default', {
-  'ad_storage': 'granted',
-  'ad_user_data': 'granted',
-  'ad_personalization': 'granted',
-  'analytics_storage': 'granted'
-});
-</script>
-<script id="CookieConsent" src="https://policy.app.cookieinformation.com/uc.js"
-    data-culture="ES" data-gcm-version="2.0" type="text/javascript"></script>
+            });
+            // Corrige el cierre del menú al hacer scroll
+            window.addEventListener('scroll', function () {
+                var menu = document.getElementById('menu-contenido');
+                if (window.innerWidth <= 600 && menu) {
+                    menu.style.display = 'none';
+                }
+            });
+        </script>
+        <script>
+            // Define dataLayer and the gtag function.
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            // IMPORTANT - DO NOT COPY/PASTE WITHOUT MODIFYING REGION LIST
+            //Set default consent for specific regions according to your requirements
+            gtag('consent', 'default', {
+                'ad_storage': 'denied',
+                'ad_user_data': 'denied',
+                'ad_personalization': 'denied',
+                'analytics_storage': 'denied',
+                'regions': ['ES', 'BO', 'FR', 'DE', 'IT', 'PT', 'GB', 'US', 'CA', 'MX', 'BR', 'AR', 'CL', 'CO', 'PE']
+            });
+            // Set default consent for all other regions according to your requirements
+            gtag('consent', 'default', {
+                'ad_storage': 'granted',
+                'ad_user_data': 'granted',
+                'ad_personalization': 'granted',
+                'analytics_storage': 'granted'
+            });
+        </script>
+        <script id="CookieConsent" src="https://policy.app.cookieinformation.com/uc.js" data-culture="ES"
+            data-gcm-version="2.0" type="text/javascript"></script>
 </body>
+
 </html>
