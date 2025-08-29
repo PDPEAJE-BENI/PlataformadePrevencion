@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Material Descargable | PDPEAJ-BENI</title>
+    <title data-i18n="material_titulo">Material Descargable | PDPEAJ-BENI</title>
     <link rel="stylesheet" href="estilos.css">
     <!-- Google Tag Manager -->
     <script>(function (w, d, s, l, i) {
@@ -28,33 +28,52 @@
 <body>
     <header>
         <div class="margen">
-            <h1>PDPEAJ-BENI</h1>
+            <div class="idioma-btn-bar">
+                <button id="btn-es" class="idioma-btn" onclick="setLanguage('es')">ES</button>
+                <button id="btn-en" class="idioma-btn" onclick="setLanguage('en')">EN</button>
+                <script>
+                    function updateIdiomaBtnSelected(lang) {
+                        document.getElementById('btn-es').classList.toggle('selected', lang === 'es');
+                        document.getElementById('btn-en').classList.toggle('selected', lang === 'en');
+                    }
+                    window.setLanguage = function (lang) {
+                        setLanguage(lang);
+                        updateIdiomaBtnSelected(lang);
+                        localStorage.setItem('lang', lang);
+                    };
+                    document.addEventListener('DOMContentLoaded', function () {
+                        const lang = localStorage.getItem('lang') || 'es';
+                        updateIdiomaBtnSelected(lang);
+                    });
+                </script>
+            </div>
+            <h1 data-i18n="material_logo">PDPEAJ-BENI</h1>
             <img src="img/logo.png" alt="Logo PDPEAJ-BENI" class="logo">
         </div>
         <div class="menu-desplegable">
             <button class="menu-boton" id="menu-boton" onclick="toggleMenu()">...</button>
             <div class="menu-contenido" id="menu-contenido">
                 <a href="index.html" class="menu-link menu-inicio">
-                    <div class="menu-title">Inicio</div>
+                    <div class="menu-title" data-i18n="menu_inicio">Inicio</div>
                 </a>
                 <a href="actividades.html" class="menu-link menu-actividades">
-                    <div class="menu-title">Más Actividades</div>
+                    <div class="menu-title" data-i18n="menu_actividades">Más Actividades</div>
                 </a>
                 <a href="directiva.html" class="menu-link menu-directiva">
-                    <div class="menu-title">Directiva</div>
+                    <div class="menu-title" data-i18n="menu_directiva">Directiva</div>
                 </a>
                 <a href="contacto.html" class="menu-link menu-contacto">
-                    <div class="menu-title">Contacto y Comunicación</div>
+                    <div class="menu-title" data-i18n="menu_contacto">Contacto y Comunicación</div>
                 </a>
                 <a href="material.html" class="menu-link menu-material">
-                    <div class="menu-title">Material</div>
+                    <div class="menu-title" data-i18n="menu_material">Material</div>
                 </a>
                 <a href="juegos.html" class="menu-link menu-juegos">
-                    <div class="menu-title">Juegos</div>
+                    <div class="menu-title" data-i18n="menu_juegos">Juegos</div>
                 </a>
-                    <a href="historia_interactiva.html" class="menu-link menu-historia">
-                        <div class="menu-title">Historia Interactiva</div>
-                    </a>
+                <a href="historia_interactiva.html" class="menu-link menu-historia">
+                    <div class="menu-title" data-i18n="menu_historia">Historia Interactiva</div>
+                </a>
 
             </div>
         </div>
@@ -108,14 +127,10 @@
         <div class="margen material-margen">
             <div class="cuadro material-cuadro">
                 <h2 class="material-titulo">Material educativo descargable</h2>
+                <h2 class="material-titulo" data-i18n="material_titulo2">Material educativo descargable</h2>
 
                 <div class="aclaracion-material">
-                    <strong>Nota aclaratoria:</strong> La Plataforma Departamental de Prevención de Embarazos en
-                    Adolescentes y Jóvenes del Beni <b>no es propietaria</b> de los materiales compartidos en esta
-                    sección.
-                    Estos recursos se difunden únicamente con fines informativos y educativos para mantener a los
-                    jóvenes y
-                    adolescentes informados y empoderados.
+                    <strong data-i18n="material_nota_titulo">Nota aclaratoria:</strong> <span data-i18n="material_nota">La Plataforma Departamental de Prevención de Embarazos en Adolescentes y Jóvenes del Beni <b>no es propietaria</b> de los materiales compartidos en esta sección. Estos recursos se difunden únicamente con fines informativos y educativos para mantener a los jóvenes y adolescentes informados y empoderados.</span>
                 </div>
                 <br>
 
@@ -124,15 +139,14 @@
                         <a href="videos/Cartilla-EIS-en-el-CE-coordinadora.pdf" download>
                             <img class="pdf-thumb" src="videos/Cartilla-EIS-en-el-CE-coordinadora_001.png"
                                 alt="Cartilla EIS">
-                            Cartilla EIS
+                            <span data-i18n="material_cartilla_eis">Cartilla EIS</span>
                         </a>
                     </li>
-
                     <li>
                         <a href="videos/dgss_acon_n_46_cartilla_salud_sexual.pdf" download>
                             <img class="pdf-thumb" src="videos/dgss_acon_n_46_cartilla_salud_sexual_001.png"
                                 alt="Cartilla Salud Sexual">
-                            Cartilla Salud Sexual
+                            <span data-i18n="material_cartilla_salud">Cartilla Salud Sexual</span>
                         </a>
                     </li>
                     <li>
@@ -141,41 +155,41 @@
                             <img class="pdf-thumb"
                                 src="videos/Cuadriptico-Derechos-Sexuales-y-Derechos-Reproductivos-en-nuestras-vidas_001.png"
                                 alt="Cuadríptico Derechos Sexuales y Reproductivos">
-                            Cuadríptico Derechos Sexuales y Reproductivos
+                            <span data-i18n="material_cuadriptico">Cuadríptico Derechos Sexuales y Reproductivos</span>
                         </a>
                     </li>
                     <li>
                         <a href="videos/BoletínDSDRVAj-comprimido_513.pdf" download>
                             <img class="pdf-thumb" src="videos/BoletínDSDRVAj-comprimido_513_001.png"
                                 alt="Boletín DSDRVAj">
-                            Boletín DSDRVAj
+                            <span data-i18n="material_boletin">Boletín DSDRVAj</span>
                         </a>
                     </li>
                     <li>
                         <a href="videos/ADOLESCENTES-Y-JOVENES-QUE-INCIDEN.pdf" download>
                             <img class="pdf-thumb" src="videos/ADOLESCENTES-Y-JOVENES-QUE-INCIDEN_001.png"
                                 alt="Adolescentes y Jóvenes que Inciden">
-                            Adolescentes y Jóvenes que Inciden
+                            <span data-i18n="material_adolecentes">Adolescentes y Jóvenes que Inciden</span>
                         </a>
                     </li>
                     <li>
                         <a href="videos/Orientación tecnica.pdf" download>
                             <img class="pdf-thumb" src="videos/Orientación tecnica_001.png" alt="Orientación Técnica">
-                            Orientación Técnica
+                            <span data-i18n="material_orientacion">Orientación Técnica</span>
                         </a>
                     </li>
                     <li>
                         <a href="videos/Orientaciones técnicas.pdf" download>
                             <img class="pdf-thumb" src="videos/Orientaciones técnicas_001.png"
                                 alt="Orientaciones Técnicas">
-                            Orientaciones Técnicas
+                            <span data-i18n="material_orientaciones">Orientaciones Técnicas</span>
                         </a>
                     </li>
                     <li>
                         <a href="videos/informe-defensorial-sueños-interrumpidos.pdf" download>
                             <img class="pdf-thumb" src="videos/informe-defensorial-sueños-interrumpidos_001.png"
                                 alt="Cartilla EIS">
-                            Informe Defensorial: Sueños Interrumpidos
+                            <span data-i18n="material_informe">Informe Defensorial: Sueños Interrumpidos</span>
                         </a>
                     </li>
                 </ul>
@@ -184,8 +198,9 @@
             <div class="cuadro">
                 <div class="drive-box">
                     <h3>¿Problemas para descargar?</h3>
+                    <h3 data-i18n="material_problemas">¿Problemas para descargar?</h3>
                     <p class="drive-desc">Si tienes inconvenientes con la descarga directa, accede a todos los
-                        materiales en nuestra carpeta de <b>Google Drive <span class="drive-svg-icon"
+                        materiales en nuestra carpeta de <b data-i18n="material_drive">Google Drive <span class="drive-svg-icon"
                                 style="vertical-align:middle;">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 48 48">
                                     <polygon fill="#ffd600" points="20.4,8.7 27.6,8.7 44.1,37.1 36.9,37.1" />
@@ -195,14 +210,14 @@
                                 </svg>
                             </span></b>:</p>
                     <a href="https://drive.google.com/drive/folders/1TnFadjDvUMf0TWBvX2QN7dlLjAySSWiQ?usp=sharing"
-                        target="_blank" class="drive-link">📁 Ver carpeta completa en Drive</a>
+                        target="_blank" class="drive-link" data-i18n="material_ver_drive">📁 Ver carpeta completa en Drive</a>
                 </div>
             </div>
 
 
     </main>
     <footer>
-        <div style="color:#ffffff; font-size:1.5em; font-weight:bold;">
+        <div style="color:#ffffff; font-size:1.5em; font-weight:bold;" data-i18n="footer">
             &copy; PDPEAJ-BENI
         </div>
     </footer>
@@ -230,5 +245,7 @@
     <script id="CookieConsent" src="https://policy.app.cookieinformation.com/uc.js" data-culture="ES"
         data-gcm-version="2.0" type="text/javascript"></script>
 </body>
+
+<script src="traducciones.js"></script>
 
 </html>

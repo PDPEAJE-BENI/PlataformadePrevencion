@@ -34,7 +34,26 @@
     <!-- End Google Tag Manager (noscript) -->
     <header>
         <div class="margen">
-            <h1>Miembros de la Directiva</h1>
+            <div class="idioma-btn-bar">
+                <button id="btn-es" class="idioma-btn" onclick="setLanguage('es')">ES</button>
+                <button id="btn-en" class="idioma-btn" onclick="setLanguage('en')">EN</button>
+                <script>
+                    function updateIdiomaBtnSelected(lang) {
+                        document.getElementById('btn-es').classList.toggle('selected', lang === 'es');
+                        document.getElementById('btn-en').classList.toggle('selected', lang === 'en');
+                    }
+                    window.setLanguage = function (lang) {
+                        setLanguage(lang);
+                        updateIdiomaBtnSelected(lang);
+                        localStorage.setItem('lang', lang);
+                    };
+                    document.addEventListener('DOMContentLoaded', function () {
+                        const lang = localStorage.getItem('lang') || 'es';
+                        updateIdiomaBtnSelected(lang);
+                    });
+                </script>
+            </div>
+            <h1 data-i18n="directiva_titulo">Miembros de la Directiva</h1>
             <img src="img/logo.png" alt="PDPEAJ-BENI" class="logo">
         </div>
     </header>
@@ -42,25 +61,25 @@
         <button class="menu-boton" id="menu-boton" onclick="toggleMenu()">☰ Menú</button>
         <div class="menu-contenido" id="menu-contenido">
             <a href="index.html" class="menu-link menu-inicio">
-                <div class="menu-title">Inicio</div>
+                <div class="menu-title" data-i18n="menu_inicio">Inicio</div>
             </a>
             <a href="actividades.html" class="menu-link menu-actividades">
-                <div class="menu-title">Más Actividades</div>
+                <div class="menu-title" data-i18n="menu_actividades">Más Actividades</div>
             </a>
             <a href="directiva.html" class="menu-link menu-directiva">
-                <div class="menu-title">Directiva</div>
+                <div class="menu-title" data-i18n="menu_directiva">Directiva</div>
             </a>
             <a href="contacto.html" class="menu-link menu-contacto">
-                <div class="menu-title">Contacto y Comunicación</div>
+                <div class="menu-title" data-i18n="menu_contacto">Contacto y Comunicación</div>
             </a>
             <a href="juegos.html" class="menu-link menu-juegos">
-                <div class="menu-title">Juegos</div>
+                <div class="menu-title" data-i18n="menu_juegos">Juegos</div>
             </a>
             <a href="material.html" class="menu-link menu-material">
-                <div class="menu-title">Material</div>
+                <div class="menu-title" data-i18n="menu_material">Material</div>
             </a>
             <a href="historia_interactiva.html" class="menu-link menu-historia">
-                <div class="menu-title">Historia Interactiva</div>
+                <div class="menu-title" data-i18n="menu_historia">Historia Interactiva</div>
             </a>
 
         </div>
@@ -81,18 +100,16 @@
     </script>
     <div class="margen">
         <div class="cuadro">
-            <h2>Conoce a la directiva</h2>
+            <h2 data-i18n="directiva_conoce">Conoce a la directiva</h2>
             <div class="directiva-grid">
                 <div id="miembro-directiva-unico" class="miembro-directiva">
                     <img id="foto-miembro" src="img/presidente.jpg" alt="Presidente" class="foto-directiva">
                     <h3 id="nombre-miembro">Johan Paul Algarañaz Vasquez</h3>
-                    <p id="cargo-miembro"><b>Cargo:</b> Presidente</p>
-                    <p id="desc-miembro">Johan lidera la plataforma con compromiso y visión, promoviendo la
-                        participación juvenil y la prevención de embarazos adolescentes.</p>
+                    <p id="cargo-miembro"><b data-i18n="directiva_cargo">Cargo:</b> <span id="cargo-miembro-texto">Presidente</span></p>
+                    <p id="desc-miembro">Johan lidera la plataforma con compromiso y visión, promoviendo la participación juvenil y la prevención de embarazos adolescentes.</p>
                     <div style="text-align:center; margin-top:18px;">
-                        <button onclick="cambiarMiembro(-1)" id="btn-prev" style="margin-right:12px;">&#8592;
-                            Anterior</button>
-                        <button onclick="cambiarMiembro(1)" id="btn-next">Siguiente &#8594;</button>
+                        <button onclick="cambiarMiembro(-1)" id="btn-prev" style="margin-right:12px;">&#8592; <span data-i18n="directiva_anterior">Anterior</span></button>
+                        <button onclick="cambiarMiembro(1)" id="btn-next"><span data-i18n="directiva_siguiente">Siguiente</span> &#8594;</button>
                     </div>
                 </div>
             </div>
@@ -106,62 +123,62 @@
                 {
                     foto: "img/presidente.jpg",
                     nombre: "Johan Paul Algarañaz Vasquez",
-                    cargo: "Presidente",
-                    desc: "Johan lidera la plataforma con compromiso y visión, promoviendo la participación juvenil y la prevención de embarazos adolescentes."
+                    cargo: "directiva_presidente",
+                    desc: "directiva_presidente_desc"
                 },
                 {
                     foto: "img/vicepresidenta.jpg",
                     nombre: "Ariana Quiroz Ortiz",
-                    cargo: "Vicepresidenta",
-                    desc: "Ariana apoya la gestión y coordinación de actividades, fomentando el trabajo en equipo y la inclusión."
+                    cargo: "directiva_vicepresidenta",
+                    desc: "directiva_vicepresidenta_desc"
                 },
                 {
                     foto: "img/vicepresidente2do.jpg",
                     nombre: "Johnny Suárez Justiniano",
-                    cargo: "Vicepresidente 2do",
-                    desc: "Johnny impulsa proyectos innovadores y fortalece la red de jóvenes en el departamento."
+                    cargo: "directiva_vicepresidente2do",
+                    desc: "directiva_vicepresidente2do_desc"
                 },
                 {
                     foto: "img/delegado.jpg",
                     nombre: "Mauricio Marañon Vargas",
-                    cargo: "Delegado a la Nacional",
-                    desc: "Mauricio representa a la plataforma en espacios nacionales, promoviendo la voz de los jóvenes benianos."
+                    cargo: "directiva_delegado",
+                    desc: "directiva_delegado_desc"
                 },
                 {
                     foto: "img/actas.jpeg",
                     nombre: "Carlos Yver Justiniano Mariscal",
-                    cargo: "Secretario de Actas",
-                    desc: "Carlos se encarga de la documentación y registro de todas las actividades y reuniones."
+                    cargo: "directiva_actas",
+                    desc: "directiva_actas_desc"
                 },
                 {
                     foto: "img/relaciones.jpg",
                     nombre: "José Mateo Javivi Javivi",
-                    cargo: "Secretario de Alianzas",
-                    desc: "José Mateo gestiona alianzas estratégicas con instituciones y organizaciones aliadas."
+                    cargo: "directiva_alianzas",
+                    desc: "directiva_alianzas_desc"
                 },
                 {
                     foto: "img/comunicaciones.jpg",
                     nombre: "Mariana Justiniano Guayacuma",
-                    cargo: "Secretaria de Comunicación",
-                    desc: "Mariana lidera la difusión de información y campañas de sensibilización en redes sociales."
+                    cargo: "directiva_comunicacion_f",
+                    desc: "directiva_comunicacion_f_desc"
                 },
                 {
                     foto: "img/comunicacion.jpg",
                     nombre: "Christian Mobo Maileva",
-                    cargo: "Secretario de Comunicación",
-                    desc: "Christian apoya la gestión comunicacional y la producción de materiales informativos."
+                    cargo: "directiva_comunicacion_m",
+                    desc: "directiva_comunicacion_m_desc"
                 },
                 {
                     foto: "img/vocal1.jpg",
                     nombre: "Luis Fernando Sosa Cuellar",
-                    cargo: "Vocal",
-                    desc: "Luis Fernando participa activamente en la organización y ejecución de actividades."
+                    cargo: "directiva_vocal",
+                    desc: "directiva_vocal1_desc"
                 },
                 {
                     foto: "img/vocal2.jpg",
                     nombre: "Cristel Camila Guitiérrez Arias",
-                    cargo: "Vocal",
-                    desc: "Cristel apoya la integración y motivación de los miembros de la plataforma."
+                    cargo: "directiva_vocal",
+                    desc: "directiva_vocal2_desc"
                 }
             ];
             let actual = 0;
@@ -170,8 +187,12 @@
                 document.getElementById('foto-miembro').src = m.foto;
                 document.getElementById('foto-miembro').alt = m.cargo;
                 document.getElementById('nombre-miembro').textContent = m.nombre;
-                document.getElementById('cargo-miembro').innerHTML = '<b>Cargo:</b> ' + m.cargo;
-                document.getElementById('desc-miembro').textContent = m.desc;
+                // Traducción del cargo y descripción
+                const lang = localStorage.getItem('lang') || 'es';
+                const cargoTrad = (window.translations && window.translations[lang] && window.translations[lang][m.cargo]) ? window.translations[lang][m.cargo] : m.cargo;
+                const descTrad = (window.translations && window.translations[lang] && window.translations[lang][m.desc]) ? window.translations[lang][m.desc] : m.desc;
+                document.getElementById('cargo-miembro-texto').textContent = cargoTrad;
+                document.getElementById('desc-miembro').textContent = descTrad;
             }
             function cambiarMiembro(dir) {
                 actual += dir;
@@ -182,7 +203,19 @@
             document.addEventListener('DOMContentLoaded', function () {
                 mostrarMiembro(actual);
             });
-        </script>
+            // Actualizar miembro al cambiar idioma
+            window.addEventListener('storage', function(e) {
+                if (e.key === 'lang') mostrarMiembro(actual);
+            });
+            window.setLanguage = (function(orig){
+                return function(lang){
+                    orig(lang);
+                    mostrarMiembro(actual);
+                }
+            })(window.setLanguage);
+    </script>
+</footer>
+<script src="traducciones.js"></script>
         <script>
             function toggleMenu() {
                 var menu = document.getElementById('menu-contenido');

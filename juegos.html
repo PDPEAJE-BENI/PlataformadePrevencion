@@ -35,35 +35,53 @@
     <!-- End Google Tag Manager (noscript) -->
     <header>
         <div class="margen">
-            <h1>Zona de Juegos | PDPEAJ-BENI</h1>
+            <div class="idioma-btn-bar">
+                <button id="btn-es" class="idioma-btn" onclick="setLanguage('es')">ES</button>
+                <button id="btn-en" class="idioma-btn" onclick="setLanguage('en')">EN</button>
+                <script>
+                    function updateIdiomaBtnSelected(lang) {
+                        document.getElementById('btn-es').classList.toggle('selected', lang === 'es');
+                        document.getElementById('btn-en').classList.toggle('selected', lang === 'en');
+                    }
+                    window.setLanguage = function (lang) {
+                        setLanguage(lang);
+                        updateIdiomaBtnSelected(lang);
+                        localStorage.setItem('lang', lang);
+                    };
+                    document.addEventListener('DOMContentLoaded', function () {
+                        const lang = localStorage.getItem('lang') || 'es';
+                        updateIdiomaBtnSelected(lang);
+                    });
+                </script>
+            </div>
+            <h1 data-i18n="juegos_titulo">Zona de Juegos | PDPEAJ-BENI</h1>
             <img src="img/logo.png" alt="PDPEAJ-BENI" class="logo">
         </div>
     </header>
     <nav class="menu-desplegable">
-        <button class="menu-boton" id="menu-boton" onclick="toggleMenu()">☰ Menú</button>
+        <button class="menu-boton" id="menu-boton" onclick="toggleMenu()">☰ <span data-i18n="menu">Menú</span></button>
         <div class="menu-contenido" id="menu-contenido">
             <a href="index.html" class="menu-link menu-inicio">
-                <div class="menu-title">Inicio</div>
+                <div class="menu-title" data-i18n="menu_inicio">Inicio</div>
             </a>
             <a href="actividades.html" class="menu-link menu-actividades">
-                <div class="menu-title">Más Actividades</div>
+                <div class="menu-title" data-i18n="menu_actividades">Más Actividades</div>
             </a>
             <a href="directiva.html" class="menu-link menu-directiva">
-                <div class="menu-title">Directiva</div>
+                <div class="menu-title" data-i18n="menu_directiva">Directiva</div>
             </a>
             <a href="contacto.html" class="menu-link menu-contacto">
-                <div class="menu-title">Contacto y Comunicación</div>
+                <div class="menu-title" data-i18n="menu_contacto">Contacto y Comunicación</div>
             </a>
             <a href="juegos.html" class="menu-link menu-juegos">
-                <div class="menu-title">Juegos</div>
+                <div class="menu-title" data-i18n="menu_juegos">Juegos</div>
             </a>
             <a href="material.html" class="menu-link menu-material">
-                <div class="menu-title">Material</div>
+                <div class="menu-title" data-i18n="menu_material">Material</div>
             </a>
             <a href="historia_interactiva.html" class="menu-link menu-historia">
-                <div class="menu-title">Historia Interactiva</div>
+                <div class="menu-title" data-i18n="menu_historia">Historia Interactiva</div>
             </a>
-
         </div>
     </nav>
     <script>
@@ -139,21 +157,27 @@
 
         <!-- Juego: Secuencia correcta - Uso del condón -->
         <div class="cuadro">
-            <h4>Secuencia correcta: Pasos para usar un condón</h4>
-            <p>Usa los botones para subir o bajar cada paso y ordénalos correctamente. ¡Aprende cómo usar el condón de
-                forma segura!</p>
+            <h4 data-i18n="juegos_secuencia_titulo">Secuencia correcta: Pasos para usar un condón</h4>
+            <p data-i18n="juegos_secuencia_desc">Usa los botones para subir o bajar cada paso y ordénalos correctamente. ¡Aprende cómo usar el condón de forma segura!</p>
             <ul id="secuencia-condon-lista" class="secuencia-condon-lista"
                 style="list-style:none; padding:0; max-width:480px; margin:auto;"></ul>
             <button type="button" onclick="verificarSecuenciaCondon()" style="margin-top:10px;">Verificar orden</button>
+            <button type="button" onclick="verificarSecuenciaCondon()" style="margin-top:10px;" data-i18n="juegos_secuencia_verificar">Verificar orden</button>
             <div id="secuencia-condon-resultado" style="margin-top:10px;"></div>
         </div>
         <!-- Juego: Arrastra y coloca - Cambios de la pubertad -->
         <div class="cuadro">
-            <h4>Arrastra y coloca: Cambios de la pubertad</h4>
-            <p>Arrastra cada cambio de la pubertad a su descripción correcta.</p>
+            <h4 data-i18n="juegos_puberta_titulo">Arrastra y coloca: Cambios de la pubertad</h4>
+            <p data-i18n="juegos_puberta_desc">Arrastra cada cambio de la pubertad a su descripción correcta.</p>
             <div id="dragdrop-puberta">
                 <div class="dragdrop-lista">
                     <div class="drag-item-puberta" draggable="true" id="puberta1">Crecimiento de vello</div>
+                    <div class="drag-item-puberta" draggable="true" id="puberta1" data-i18n="juegos_puberta_vello">Crecimiento de vello</div>
+                    <div class="drag-item-puberta" draggable="true" id="puberta2" data-i18n="juegos_puberta_voz">Cambios de voz</div>
+                    <div class="drag-item-puberta" draggable="true" id="puberta3" data-i18n="juegos_puberta_acne">Aparición de acné</div>
+                    <div class="drag-item-puberta" draggable="true" id="puberta4" data-i18n="juegos_puberta_menstruacion">Menstruación</div>
+                    <div class="drag-item-puberta" draggable="true" id="puberta5" data-i18n="juegos_puberta_senos">Crecimiento de senos</div>
+                    <div class="drag-item-puberta" draggable="true" id="puberta6" data-i18n="juegos_puberta_emociones">Cambios emocionales</div>
                     <div class="drag-item-puberta" draggable="true" id="puberta2">Cambios de voz</div>
                     <div class="drag-item-puberta" draggable="true" id="puberta3">Aparición de acné</div>
                     <div class="drag-item-puberta" draggable="true" id="puberta4">Menstruación</div>
@@ -181,11 +205,15 @@
         </div>
         <!-- Juego: Arrastra y suelta - Diversidad sexual y de género -->
         <div class="cuadro">
-            <h4>Arrastra y suelta: Diversidad sexual y de género</h4>
-            <p>Arrastra cada término a la definición correcta. ¡Aprende sobre diversidad y respeta las diferencias!</p>
+            <h4 data-i18n="juegos_diversidad_titulo">Arrastra y suelta: Diversidad sexual y de género</h4>
+            <p data-i18n="juegos_diversidad_desc">Arrastra cada término a la definición correcta. ¡Aprende sobre diversidad y respeta las diferencias!</p>
             <div id="dragdrop-diversidad">
                 <div class="dragdrop-lista">
                     <div class="drag-item" draggable="true" id="drag1">Orientación sexual</div>
+                    <div class="drag-item" draggable="true" id="drag1" data-i18n="juegos_diversidad_orientacion">Orientación sexual</div>
+                    <div class="drag-item" draggable="true" id="drag2" data-i18n="juegos_diversidad_identidad">Identidad de género</div>
+                    <div class="drag-item" draggable="true" id="drag3" data-i18n="juegos_diversidad_expresion">Expresión de género</div>
+                    <div class="drag-item" draggable="true" id="drag4" data-i18n="juegos_diversidad_sexo">Sexo biológico</div>
                     <div class="drag-item" draggable="true" id="drag2">Identidad de género</div>
                     <div class="drag-item" draggable="true" id="drag3">Expresión de género</div>
                     <div class="drag-item" draggable="true" id="drag4">Sexo biológico</div>
@@ -316,9 +344,10 @@
 
         <!-- Juego: Métodos anticonceptivos y su uso correcto -->
         <div class="cuadro">
-            <h4>Quiz: Métodos anticonceptivos y su uso correcto</h4>
+            <h4 data-i18n="juegos_quiz_titulo">Quiz: Métodos anticonceptivos y su uso correcto</h4>
             <form id="quiz-anticonceptivos-form">
                 <div><label>1. ¿Cuál es el único método anticonceptivo que también protege contra ITS?</label><br>
+                <div><label data-i18n="juegos_quiz_p1">1. ¿Cuál es el único método anticonceptivo que también protege contra ITS?</label><br>
                     <input type="radio" name="ma1" value="a"> a) Pastillas anticonceptivas<br>
                     <input type="radio" name="ma1" value="b"> b) Preservativo<br>
                     <input type="radio" name="ma1" value="c"> c) DIU<br>
@@ -369,6 +398,7 @@
                     <input type="radio" name="ma10" value="b"> b) No<br>
                 </div>
                 <button type="button" onclick="calificarAnticonceptivos()">Enviar respuestas</button>
+                <button type="button" onclick="calificarAnticonceptivos()" data-i18n="juegos_quiz_enviar">Enviar respuestas</button>
             </form>
             <div id="quiz-anticonceptivos-resultado"></div>
         </div>
@@ -407,19 +437,13 @@
 
 
         <div class="cuadro">
-            <h4>Juegos</h4>
-            <p>Quieres medir tus conocimientos sobre la prevención de embarazos en adolescentes y jóvenes?
-                Participa
-                en
-                nuestro
-                juego interactivo y descubre cuánto sabes sobre este importante tema. ¡Diviértete mientras
-                aprendes!
-            </p>
+            <h4 data-i18n="juegos_extra_titulo">Juegos</h4>
+            <p data-i18n="juegos_extra_desc">¿Quieres medir tus conocimientos sobre la prevención de embarazos en adolescentes y jóvenes? Participa en nuestro juego interactivo y descubre cuánto sabes sobre este importante tema. ¡Diviértete mientras aprendes!</p>
             <div class="iframe-centro">
                 <a href="https://docs.google.com/forms/d/e/1FAIpQLSfhEjoQS_cqorR7b8StoyG_DZUjd0inzZK0HGM05qTl5gA8Pw/viewform?usp=sharing&ouid=115417771645858268690"
                     target="_blank" class="drive-link"
-                    style="font-size:1.2em; display:inline-block; margin:18px auto; text-align:center;">
-                    👉 Haz clic aquí para jugar el Quiz Interactivo
+                    style="font-size:1.2em; display:inline-block; margin:18px auto; text-align:center;"
+                    data-i18n="juegos_extra_link">👉 Haz clic aquí para jugar el Quiz Interactivo
                 </a>
             </div>
         </div>
@@ -655,9 +679,8 @@
         <!-- Redes sociales en su propio bloque al final -->
         <div class="margen">
             <div class="cuadro">
-                <h4>Redes sociales</h4>
-                <p>Síguenos en nuestras diferentes redes sociales para mantenerte informado acerca de las actividades
-                    que realizamos:</p>
+                <h4 data-i18n="redes_titulo">Redes sociales</h4>
+                <p data-i18n="redes_desc">Síguenos en nuestras diferentes redes sociales para mantenerte informado acerca de las actividades que realizamos:</p>
                 <div class="social-buttons">
                     <a href="https://www.facebook.com/profile.php?id=61552371105965&mibextid=ZbWKwL" class="social-icon"
                         target="_blank" title="Facebook">
@@ -676,8 +699,10 @@
         </div>
 
         <footer>
-            <div style="color:#ffffff; font-size:1.5em; font-weight:bold;">&copy; PDPEAJ-BENI</div>
+            <div style="color:#ffffff; font-size:1.5em; font-weight:bold;" data-i18n="footer">&copy; PDPEAJ-BENI</div>
         </footer>
 </body>
+
+<script src="traducciones.js"></script>
 
 </html>

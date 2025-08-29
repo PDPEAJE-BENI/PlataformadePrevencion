@@ -4,31 +4,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>El Viaje de tu Vida</title>
+    <title data-i18n="historia_titulo">El Viaje de tu Vida</title>
     <link rel="stylesheet" href="estilos.css">
 </head>
 
 <body>
 
+    <div class="idioma-btn-bar">
+        <button id="btn-es" class="idioma-btn" onclick="setLanguage('es')">ES</button>
+        <button id="btn-en" class="idioma-btn" onclick="setLanguage('en')">EN</button>
+        <script>
+            function updateIdiomaBtnSelected(lang) {
+                document.getElementById('btn-es').classList.toggle('selected', lang === 'es');
+                document.getElementById('btn-en').classList.toggle('selected', lang === 'en');
+            }
+            window.setLanguage = function (lang) {
+                setLanguage(lang);
+                updateIdiomaBtnSelected(lang);
+                localStorage.setItem('lang', lang);
+            };
+            document.addEventListener('DOMContentLoaded', function () {
+                const lang = localStorage.getItem('lang') || 'es';
+                updateIdiomaBtnSelected(lang);
+            });
+        </script>
+    </div>
+
     <nav class="menu-desplegable">
-        <button class="menu-boton" id="menu-boton" onclick="toggleMenu()">☰ Menú</button>
+        <button class="menu-boton" id="menu-boton" onclick="toggleMenu()">☰ <span data-i18n="menu">Menú</span></button>
         <div class="menu-contenido" id="menu-contenido">
-            <a href="index.html" class="menu-link menu-inicio"><div class="menu-title">Inicio</div></a>
-            <a href="actividades.html" class="menu-link menu-actividades"><div class="menu-title">Más Actividades</div></a>
-            <a href="directiva.html" class="menu-link menu-directiva"><div class="menu-title">Directiva</div></a>
-            <a href="contacto.html" class="menu-link menu-contacto"><div class="menu-title">Contacto y Comunicación</div></a>
-            <a href="juegos.html" class="menu-link menu-juegos"><div class="menu-title">Juegos</div></a>
-            <a href="material.html" class="menu-link menu-material"><div class="menu-title">Material</div></a>
-            <a href="historia_interactiva.html" class="menu-link menu-historia"><div class="menu-title">Historia Interactiva</div></a>
+            <a href="index.html" class="menu-link menu-inicio"><div class="menu-title" data-i18n="menu_inicio">Inicio</div></a>
+            <a href="actividades.html" class="menu-link menu-actividades"><div class="menu-title" data-i18n="menu_actividades">Más Actividades</div></a>
+            <a href="directiva.html" class="menu-link menu-directiva"><div class="menu-title" data-i18n="menu_directiva">Directiva</div></a>
+            <a href="contacto.html" class="menu-link menu-contacto"><div class="menu-title" data-i18n="menu_contacto">Contacto y Comunicación</div></a>
+            <a href="juegos.html" class="menu-link menu-juegos"><div class="menu-title" data-i18n="menu_juegos">Juegos</div></a>
+            <a href="material.html" class="menu-link menu-material"><div class="menu-title" data-i18n="menu_material">Material</div></a>
+            <a href="historia_interactiva.html" class="menu-link menu-historia"><div class="menu-title" data-i18n="menu_historia">Historia Interactiva</div></a>
         </div>
     </nav>
 
     <div class="cuadro">
-        <h2>El Viaje de tu Vida</h2>
+    <h2 data-i18n="historia_titulo">El Viaje de tu Vida</h2>
         <div id="stats" class="stats"></div>
-        <div id="historia-texto" class="historia-texto"></div>
-        <div id="historia-opciones" class="historia-opciones"></div>
-        <div id="historia-final" class="historia-final"></div>
+    <div id="historia-texto" class="historia-texto"></div>
+    <div id="historia-opciones" class="historia-opciones"></div>
+    <div id="historia-final" class="historia-final"></div>
     </div>
 
     <script>
@@ -451,5 +471,7 @@
         };
     </script>
 </body>
+
+<script src="traducciones.js"></script>
 
 </html>
