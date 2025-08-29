@@ -35,23 +35,6 @@
             <div class="idioma-btn-bar">
                 <button id="btn-es" class="idioma-btn" onclick="setLanguage('es')">ES</button>
                 <button id="btn-en" class="idioma-btn" onclick="setLanguage('en')">EN</button>
-                <script>
-                    function updateIdiomaBtnSelected(lang) {
-                        document.getElementById('btn-es').classList.toggle('selected', lang === 'es');
-                        document.getElementById('btn-en').classList.toggle('selected', lang === 'en');
-                    }
-                    window.setLanguage = function (lang) {
-                        setLanguage(lang);
-                        updateIdiomaBtnSelected(lang);
-                        localStorage.setItem('lang', lang);
-                    };
-                    document.addEventListener('DOMContentLoaded', function () {
-                        const lang = localStorage.getItem('lang') || 'es';
-                        updateIdiomaBtnSelected(lang);
-                    });
-                </script>
-            </div>
-            <h1 data-i18n="contacto_titulo">Contacto y Comunicación</h1>
         </div>
     </header>
     <div class="menu-desplegable">
@@ -98,29 +81,6 @@
                 <button type="submit" data-i18n="contacto_form_enviar">Enviar</button>
             </form>
 <script src="traducciones.js"></script>
-    <script>
-        // Define dataLayer and the gtag function.
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        // IMPORTANT - DO NOT COPY/PASTE WITHOUT MODIFYING REGION LIST
-        //Set default consent for specific regions according to your requirements
-        gtag('consent', 'default', {
-            'ad_storage': 'denied',
-            'ad_user_data': 'denied',
-            'ad_personalization': 'denied',
-            'analytics_storage': 'denied',
-            'regions': ['ES', 'BO', 'FR', 'DE', 'IT', 'PT', 'GB', 'US', 'CA', 'MX', 'BR', 'AR', 'CL', 'CO', 'PE']
-        });
-        // Set default consent for all other regions according to your requirements
-        gtag('consent', 'default', {
-            'ad_storage': 'granted',
-            'ad_user_data': 'granted',
-            'ad_personalization': 'granted',
-            'analytics_storage': 'granted'
-        });
-    </script>
-    <script id="CookieConsent" src="https://policy.app.cookieinformation.com/uc.js" data-culture="ES"
-        data-gcm-version="2.0" type="text/javascript"></script>
 </body>
 
 </html>
