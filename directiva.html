@@ -88,11 +88,14 @@
                 <div id="miembro-directiva-unico" class="miembro-directiva">
                     <img id="foto-miembro" src="img/presidente.jpg" alt="Presidente" class="foto-directiva">
                     <h3 id="nombre-miembro">Johan Paul Algarañaz Vasquez</h3>
-                    <p id="cargo-miembro"><b data-i18n="directiva_cargo">Cargo:</b> <span id="cargo-miembro-texto">Presidente</span></p>
-                    <p id="desc-miembro">Johan lidera la plataforma con compromiso y visión, promoviendo la participación juvenil y la prevención de embarazos adolescentes.</p>
+                    <p id="cargo-miembro"><b data-i18n="directiva_cargo">Cargo:</b> <span
+                            id="cargo-miembro-texto">Presidente</span></p>
+                    <p id="desc-miembro" data-desc="Johan lidera la plataforma con compromiso y visión, promoviendo la participación juvenil y la prevención de embarazos adolescentes.">Johan lidera la plataforma con compromiso y visión, promoviendo la participación juvenil y la prevención de embarazos adolescentes.</p>
                     <div style="text-align:center; margin-top:18px;">
-                        <button onclick="cambiarMiembro(-1)" id="btn-prev" style="margin-right:12px;">&#8592; <span data-i18n="directiva_anterior">Anterior</span></button>
-                        <button onclick="cambiarMiembro(1)" id="btn-next"><span data-i18n="directiva_siguiente">Siguiente</span> &#8594;</button>
+                        <button onclick="cambiarMiembro(-1)" id="btn-prev" style="margin-right:12px;">&#8592; <span
+                                data-i18n="directiva_anterior">Anterior</span></button>
+                        <button onclick="cambiarMiembro(1)" id="btn-next"><span
+                                data-i18n="directiva_siguiente">Siguiente</span> &#8594;</button>
                     </div>
                 </div>
             </div>
@@ -106,62 +109,62 @@
                 {
                     foto: "img/presidente.jpg",
                     nombre: "Johan Paul Algarañaz Vasquez",
-                    cargo: "directiva_presidente",
-                    desc: "directiva_presidente_desc"
+                    cargo: "Presidente",
+                    desc: "Johan lidera la plataforma con compromiso y visión, promoviendo la participación juvenil y la prevención de embarazos adolescentes."
                 },
                 {
                     foto: "img/vicepresidenta.jpg",
                     nombre: "Ariana Quiroz Ortiz",
-                    cargo: "directiva_vicepresidenta",
-                    desc: "directiva_vicepresidenta_desc"
+                    cargo: "Vicepresidenta",
+                    desc: "Ariana impulsa la participación activa de las jóvenes, fomentando la igualdad y el liderazgo femenino en la plataforma."
                 },
                 {
                     foto: "img/vicepresidente2do.jpg",
                     nombre: "Johnny Suárez Justiniano",
-                    cargo: "directiva_vicepresidente2do",
-                    desc: "directiva_vicepresidente2do_desc"
+                    cargo: "Vicepresidente 2do",
+                    desc: "Johnny apoya la gestión y coordinación de actividades, asegurando el trabajo en equipo y el cumplimiento de los objetivos."
                 },
                 {
                     foto: "img/delegado.jpg",
                     nombre: "Mauricio Marañon Vargas",
-                    cargo: "directiva_delegado",
-                    desc: "directiva_delegado_desc"
+                    cargo: "Delegado a la Nacional",
+                    desc: "Mauricio representa a la plataforma en eventos nacionales, fortaleciendo lazos y compartiendo experiencias con otras organizaciones."
                 },
                 {
                     foto: "img/actas.jpeg",
                     nombre: "Carlos Yver Justiniano Mariscal",
-                    cargo: "directiva_actas",
-                    desc: "directiva_actas_desc"
+                    cargo: "Secretario de Actas",
+                    desc: "Carlos se encarga de la documentación y registro de todas las actividades, garantizando la transparencia y el orden institucional."
                 },
                 {
                     foto: "img/relaciones.jpg",
                     nombre: "José Mateo Javivi Javivi",
-                    cargo: "directiva_alianzas",
-                    desc: "directiva_alianzas_desc"
+                    cargo: "Secretario de Alianzas",
+                    desc: "José Mateo gestiona alianzas estratégicas con instituciones y organizaciones, ampliando el alcance de la plataforma.",
                 },
                 {
                     foto: "img/comunicaciones.jpg",
                     nombre: "Mariana Justiniano Guayacuma",
-                    cargo: "directiva_comunicacion_f",
-                    desc: "directiva_comunicacion_f_desc"
+                    cargo: "Secretaria de Comunicación",
+                    desc: "Mariana lidera la comunicación externa, promoviendo la visibilidad y el impacto de la plataforma en redes sociales.",
                 },
                 {
                     foto: "img/comunicacion.jpg",
                     nombre: "Christian Mobo Maileva",
-                    cargo: "directiva_comunicacion_m",
-                    desc: "directiva_comunicacion_m_desc"
+                    cargo: "Secretario de Comunicación",
+                    desc: "Christian coordina la difusión de información y campañas educativas, asegurando que el mensaje llegue a todos los jóvenes."
                 },
                 {
                     foto: "img/vocal1.jpg",
                     nombre: "Luis Fernando Sosa Cuellar",
-                    cargo: "directiva_vocal",
-                    desc: "directiva_vocal1_desc"
+                    cargo: "Vocal",
+                    desc: "Luis Fernando participa activamente en la toma de decisiones y apoya en la organización de eventos y actividades."
                 },
                 {
                     foto: "img/vocal2.jpg",
                     nombre: "Cristel Camila Guitiérrez Arias",
-                    cargo: "directiva_vocal",
-                    desc: "directiva_vocal2_desc"
+                    cargo: "Vocal",
+                    desc: "Cristel Camila contribuye con ideas innovadoras y apoya la integración de nuevos miembros en la plataforma."
                 }
             ];
             let actual = 0;
@@ -173,7 +176,18 @@
                 // Traducción del cargo y descripción
                 const lang = localStorage.getItem('lang') || 'es';
                 const cargoTrad = (window.translations && window.translations[lang] && window.translations[lang][m.cargo]) ? window.translations[lang][m.cargo] : m.cargo;
-                const descTrad = (window.translations && window.translations[lang] && window.translations[lang][m.desc]) ? window.translations[lang][m.desc] : m.desc;
+                let descTrad = '';
+                // Si existe traducción, úsala; si no, usa el texto del atributo data-desc del HTML
+                if (window.translations && window.translations[lang] && window.translations[lang][m.desc]) {
+                    descTrad = window.translations[lang][m.desc];
+                } else {
+                    // Usa el texto original del HTML si es el primer miembro
+                    if (idx === 0) {
+                        descTrad = document.getElementById('desc-miembro').getAttribute('data-desc') || document.getElementById('desc-miembro').textContent;
+                    } else {
+                        descTrad = m.desc;
+                    }
+                }
                 document.getElementById('cargo-miembro-texto').textContent = cargoTrad;
                 document.getElementById('desc-miembro').textContent = descTrad;
             }
@@ -187,63 +201,63 @@
                 mostrarMiembro(actual);
             });
             // Actualizar miembro al cambiar idioma
-            window.addEventListener('storage', function(e) {
+            window.addEventListener('storage', function (e) {
                 if (e.key === 'lang') mostrarMiembro(actual);
             });
-            window.setLanguage = (function(orig){
-                return function(lang){
+            window.setLanguage = (function (orig) {
+                return function (lang) {
                     orig(lang);
                     mostrarMiembro(actual);
                 }
             })(window.setLanguage);
-    </script>
-</footer>
-<script src="traducciones.js"></script>
-        <script>
-            function toggleMenu() {
-                var menu = document.getElementById('menu-contenido');
-                if (window.innerWidth <= 600) {
-                    if (menu.style.display === 'block') {
-                        menu.style.display = 'none';
-                    } else {
-                        menu.style.display = 'block';
-                    }
-                }
-            }
-            // Cierra el menú al seleccionar una opción en móvil
-            function cerrarMenu() {
-                var menu = document.getElementById('menu-contenido');
-                if (window.innerWidth <= 600) {
-                    menu.style.display = 'none';
-                }
-            }
-            // Cerrar menú al hacer click fuera (solo móvil)
-            document.addEventListener('click', function (e) {
-                var menu = document.getElementById('menu-contenido');
-                var boton = document.getElementById('menu-boton');
-                if (window.innerWidth <= 600 && menu && boton) {
-                    if (!menu.contains(e.target) && !boton.contains(e.target)) {
-                        menu.style.display = 'none';
-                    }
-                }
-            });
-            // Asegura que el menú se oculte al cambiar el tamaño de la ventana
-            window.addEventListener('resize', function () {
-                var menu = document.getElementById('menu-contenido');
-                if (window.innerWidth > 600) {
-                    menu.style.display = '';
-                } else {
-                    menu.style.display = 'none';
-                }
-            });
-            // Corrige el cierre del menú al hacer scroll
-            window.addEventListener('scroll', function () {
-                var menu = document.getElementById('menu-contenido');
-                if (window.innerWidth <= 600 && menu) {
-                    menu.style.display = 'none';
-                }
-            });
         </script>
+    </footer>
+    <script src="traducciones.js"></script>
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById('menu-contenido');
+            if (window.innerWidth <= 600) {
+                if (menu.style.display === 'block') {
+                    menu.style.display = 'none';
+                } else {
+                    menu.style.display = 'block';
+                }
+            }
+        }
+        // Cierra el menú al seleccionar una opción en móvil
+        function cerrarMenu() {
+            var menu = document.getElementById('menu-contenido');
+            if (window.innerWidth <= 600) {
+                menu.style.display = 'none';
+            }
+        }
+        // Cerrar menú al hacer click fuera (solo móvil)
+        document.addEventListener('click', function (e) {
+            var menu = document.getElementById('menu-contenido');
+            var boton = document.getElementById('menu-boton');
+            if (window.innerWidth <= 600 && menu && boton) {
+                if (!menu.contains(e.target) && !boton.contains(e.target)) {
+                    menu.style.display = 'none';
+                }
+            }
+        });
+        // Asegura que el menú se oculte al cambiar el tamaño de la ventana
+        window.addEventListener('resize', function () {
+            var menu = document.getElementById('menu-contenido');
+            if (window.innerWidth > 600) {
+                menu.style.display = '';
+            } else {
+                menu.style.display = 'none';
+            }
+        });
+        // Corrige el cierre del menú al hacer scroll
+        window.addEventListener('scroll', function () {
+            var menu = document.getElementById('menu-contenido');
+            if (window.innerWidth <= 600 && menu) {
+                menu.style.display = 'none';
+            }
+        });
+    </script>
 </body>
 
 </html>
