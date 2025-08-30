@@ -39,10 +39,32 @@
             <h1 data-i18n="juegos_titulo">Zona de Juegos | PDPEAJ-BENI</h1>
             <img src="img/logo.png" alt="PDPEAJ-BENI" class="logo">
         </div>
-                <div class="menu-title" data-i18n="menu_historia">Historia Interactiva</div>
-            </a>
+    </header>
+      <div class="menu-desplegable">
+            <button class="menu-boton" id="menu-boton" onclick="toggleMenu()">...</button>
+            <div class="menu-contenido" id="menu-contenido">
+                <a href="index.html" class="menu-link menu-inicio">
+                    <div class="menu-title" data-i18n="menu_inicio">Inicio</div>
+                </a>
+                <a href="actividades.html" class="menu-link menu-actividades">
+                    <div class="menu-title" data-i18n="menu_actividades">Más Actividades</div>
+                </a>
+                <a href="directiva.html" class="menu-link menu-directiva">
+                    <div class="menu-title" data-i18n="menu_directiva">Directiva</div>
+                </a>
+                <a href="contacto.html" class="menu-link menu-contacto">
+                    <div class="menu-title" data-i18n="menu_contacto">Contacto y Comunicación</div>
+                </a>
+                <a href="material.html" class="menu-link menu-material">
+                    <div class="menu-title" data-i18n="menu_material">Material</div>
+                </a>
+                <a href="juegos.html" class="menu-link menu-juegos">
+                    <div class="menu-title" data-i18n="menu_juegos">Juegos</div>
+                </a>
+              
+
+            </div>
         </div>
-    </nav>
     <script>
         function toggleMenu() {
             var menu = document.getElementById('menu-contenido');
@@ -107,9 +129,6 @@
             }
         }
     </script>
-
-    </div>
-    </div>
     </div>
     <div class="margen">
 
@@ -117,11 +136,14 @@
         <!-- Juego: Secuencia correcta - Uso del condón -->
         <div class="cuadro">
             <h4 data-i18n="juegos_secuencia_titulo">Secuencia correcta: Pasos para usar un condón</h4>
-            <p data-i18n="juegos_secuencia_desc">Usa los botones para subir o bajar cada paso y ordénalos correctamente. ¡Aprende cómo usar el condón de forma segura!</p>
+            <p data-i18n="juegos_secuencia_desc">Usa los botones para subir o bajar cada paso y ordénalos
+                correctamente. ¡Aprende cómo usar el condón de forma segura!</p>
             <ul id="secuencia-condon-lista" class="secuencia-condon-lista"
                 style="list-style:none; padding:0; max-width:480px; margin:auto;"></ul>
-            <button type="button" onclick="verificarSecuenciaCondon()" style="margin-top:10px;">Verificar orden</button>
-            <button type="button" onclick="verificarSecuenciaCondon()" style="margin-top:10px;" data-i18n="juegos_secuencia_verificar">Verificar orden</button>
+            <button type="button" onclick="verificarSecuenciaCondon()" style="margin-top:10px;">Verificar
+                orden</button>
+            <button type="button" onclick="verificarSecuenciaCondon()" style="margin-top:10px;"
+                data-i18n="juegos_secuencia_verificar">Verificar orden</button>
             <div id="secuencia-condon-resultado" style="margin-top:10px;"></div>
         </div>
         <!-- Juego: Arrastra y coloca - Cambios de la pubertad -->
@@ -131,12 +153,18 @@
             <div id="dragdrop-puberta">
                 <div class="dragdrop-lista">
                     <div class="drag-item-puberta" draggable="true" id="puberta1">Crecimiento de vello</div>
-                    <div class="drag-item-puberta" draggable="true" id="puberta1" data-i18n="juegos_puberta_vello">Crecimiento de vello</div>
-                    <div class="drag-item-puberta" draggable="true" id="puberta2" data-i18n="juegos_puberta_voz">Cambios de voz</div>
-                    <div class="drag-item-puberta" draggable="true" id="puberta3" data-i18n="juegos_puberta_acne">Aparición de acné</div>
-                    <div class="drag-item-puberta" draggable="true" id="puberta4" data-i18n="juegos_puberta_menstruacion">Menstruación</div>
-                    <div class="drag-item-puberta" draggable="true" id="puberta5" data-i18n="juegos_puberta_senos">Crecimiento de senos</div>
-                    <div class="drag-item-puberta" draggable="true" id="puberta6" data-i18n="juegos_puberta_emociones">Cambios emocionales</div>
+                    <div class="drag-item-puberta" draggable="true" id="puberta1" data-i18n="juegos_puberta_vello">
+                        Crecimiento de vello</div>
+                    <div class="drag-item-puberta" draggable="true" id="puberta2" data-i18n="juegos_puberta_voz">
+                        Cambios de voz</div>
+                    <div class="drag-item-puberta" draggable="true" id="puberta3" data-i18n="juegos_puberta_acne">
+                        Aparición de acné</div>
+                    <div class="drag-item-puberta" draggable="true" id="puberta4"
+                        data-i18n="juegos_puberta_menstruacion">Menstruación</div>
+                    <div class="drag-item-puberta" draggable="true" id="puberta5" data-i18n="juegos_puberta_senos">
+                        Crecimiento de senos</div>
+                    <div class="drag-item-puberta" draggable="true" id="puberta6" data-i18n="juegos_puberta_emociones">
+                        Cambios emocionales</div>
                     <div class="drag-item-puberta" draggable="true" id="puberta2">Cambios de voz</div>
                     <div class="drag-item-puberta" draggable="true" id="puberta3">Aparición de acné</div>
                     <div class="drag-item-puberta" draggable="true" id="puberta4">Menstruación</div>
@@ -146,15 +174,20 @@
                 <div class="drop-area-puberta" style="margin-top:12px;">
                     <div class="drop-zone-puberta" data-correct="puberta1">1. Aparición de vello en axilas, pubis y
                         otras zonas.</div>
-                    <div class="drop-zone-puberta" data-correct="puberta2">2. La voz se vuelve más grave en los varones
+                    <div class="drop-zone-puberta" data-correct="puberta2">2. La voz se vuelve más grave en los
+                        varones
                         y cambia en las mujeres.</div>
-                    <div class="drop-zone-puberta" data-correct="puberta3">3. Salen granitos en la cara y otras partes
+                    <div class="drop-zone-puberta" data-correct="puberta3">3. Salen granitos en la cara y otras
+                        partes
                         del cuerpo.</div>
-                    <div class="drop-zone-puberta" data-correct="puberta4">4. Inicio de los ciclos menstruales en las
+                    <div class="drop-zone-puberta" data-correct="puberta4">4. Inicio de los ciclos menstruales en
+                        las
                         mujeres.</div>
-                    <div class="drop-zone-puberta" data-correct="puberta5">5. Desarrollo de los senos en las mujeres.
+                    <div class="drop-zone-puberta" data-correct="puberta5">5. Desarrollo de los senos en las
+                        mujeres.
                     </div>
-                    <div class="drop-zone-puberta" data-correct="puberta6">6. Cambios en el estado de ánimo y emociones.
+                    <div class="drop-zone-puberta" data-correct="puberta6">6. Cambios en el estado de ánimo y
+                        emociones.
                     </div>
                 </div>
                 <button type="button" onclick="verificarDragDropPuberta()" style="margin-top:10px;">Verificar
@@ -165,26 +198,33 @@
         <!-- Juego: Arrastra y suelta - Diversidad sexual y de género -->
         <div class="cuadro">
             <h4 data-i18n="juegos_diversidad_titulo">Arrastra y suelta: Diversidad sexual y de género</h4>
-            <p data-i18n="juegos_diversidad_desc">Arrastra cada término a la definición correcta. ¡Aprende sobre diversidad y respeta las diferencias!</p>
+            <p data-i18n="juegos_diversidad_desc">Arrastra cada término a la definición correcta. ¡Aprende sobre
+                diversidad y respeta las diferencias!</p>
             <div id="dragdrop-diversidad">
                 <div class="dragdrop-lista">
                     <div class="drag-item" draggable="true" id="drag1">Orientación sexual</div>
-                    <div class="drag-item" draggable="true" id="drag1" data-i18n="juegos_diversidad_orientacion">Orientación sexual</div>
-                    <div class="drag-item" draggable="true" id="drag2" data-i18n="juegos_diversidad_identidad">Identidad de género</div>
-                    <div class="drag-item" draggable="true" id="drag3" data-i18n="juegos_diversidad_expresion">Expresión de género</div>
-                    <div class="drag-item" draggable="true" id="drag4" data-i18n="juegos_diversidad_sexo">Sexo biológico</div>
+                    <div class="drag-item" draggable="true" id="drag1" data-i18n="juegos_diversidad_orientacion">
+                        Orientación sexual</div>
+                    <div class="drag-item" draggable="true" id="drag2" data-i18n="juegos_diversidad_identidad">
+                        Identidad de género</div>
+                    <div class="drag-item" draggable="true" id="drag3" data-i18n="juegos_diversidad_expresion">
+                        Expresión de género</div>
+                    <div class="drag-item" draggable="true" id="drag4" data-i18n="juegos_diversidad_sexo">Sexo
+                        biológico</div>
                     <div class="drag-item" draggable="true" id="drag2">Identidad de género</div>
                     <div class="drag-item" draggable="true" id="drag3">Expresión de género</div>
                     <div class="drag-item" draggable="true" id="drag4">Sexo biológico</div>
                 </div>
                 <div class="drop-area">
-                    <div class="drop-zone" data-correct="drag1">1. Atracción emocional, afectiva y/o sexual hacia otras
+                    <div class="drop-zone" data-correct="drag1">1. Atracción emocional, afectiva y/o sexual hacia
+                        otras
                         personas.</div>
                     <div class="drop-zone" data-correct="drag2">2. Vivencia interna y personal del género, que puede
                         coincidir o no con el sexo asignado al nacer.</div>
                     <div class="drop-zone" data-correct="drag3">3. Forma en que una persona manifiesta su género a
                         través de la apariencia, comportamiento o vestimenta.</div>
-                    <div class="drop-zone" data-correct="drag4">4. Características físicas, hormonales y genéticas con
+                    <div class="drop-zone" data-correct="drag4">4. Características físicas, hormonales y genéticas
+                        con
                         las que se nace.</div>
                 </div>
             </div>
@@ -306,58 +346,60 @@
             <h4 data-i18n="juegos_quiz_titulo">Quiz: Métodos anticonceptivos y su uso correcto</h4>
             <form id="quiz-anticonceptivos-form">
                 <div><label>1. ¿Cuál es el único método anticonceptivo que también protege contra ITS?</label><br>
-                <div><label data-i18n="juegos_quiz_p1">1. ¿Cuál es el único método anticonceptivo que también protege contra ITS?</label><br>
-                    <input type="radio" name="ma1" value="a"> a) Pastillas anticonceptivas<br>
-                    <input type="radio" name="ma1" value="b"> b) Preservativo<br>
-                    <input type="radio" name="ma1" value="c"> c) DIU<br>
-                </div>
-                <div><label>2. ¿Qué método anticonceptivo es de uso exclusivo masculino?</label><br>
-                    <input type="radio" name="ma2" value="a"> a) DIU<br>
-                    <input type="radio" name="ma2" value="b"> b) Preservativo masculino<br>
-                    <input type="radio" name="ma2" value="c"> c) Parche anticonceptivo<br>
-                </div>
-                <div><label>3. ¿Cuál de estos métodos NO es hormonal?</label><br>
-                    <input type="radio" name="ma3" value="a"> a) Implante subdérmico<br>
-                    <input type="radio" name="ma3" value="b"> b) DIU de cobre<br>
-                    <input type="radio" name="ma3" value="c"> c) Pastillas anticonceptivas<br>
-                </div>
-                <div><label>4. ¿Qué método requiere receta médica para su uso seguro?</label><br>
-                    <input type="radio" name="ma4" value="a"> a) Pastillas anticonceptivas<br>
-                    <input type="radio" name="ma4" value="b"> b) Preservativo<br>
-                    <input type="radio" name="ma4" value="c"> c) Coitus interruptus<br>
-                </div>
-                <div><label>5. ¿Cuál es la efectividad del preservativo si se usa correctamente?</label><br>
-                    <input type="radio" name="ma5" value="a"> a) Más del 95%<br>
-                    <input type="radio" name="ma5" value="b"> b) 50%<br>
-                    <input type="radio" name="ma5" value="c"> c) 70%<br>
-                </div>
-                <div><label>6. ¿Qué método es permanente y solo se recomienda a personas que no desean más
-                        hijos?</label><br>
-                    <input type="radio" name="ma6" value="a"> a) Vasectomía o ligadura de trompas<br>
-                    <input type="radio" name="ma6" value="b"> b) Parche anticonceptivo<br>
-                    <input type="radio" name="ma6" value="c"> c) Inyección mensual<br>
-                </div>
-                <div><label>7. ¿El uso de dos preservativos a la vez (doble condón) es recomendable?</label><br>
-                    <input type="radio" name="ma7" value="a"> a) Sí, es más seguro<br>
-                    <input type="radio" name="ma7" value="b"> b) No, puede romperse más fácil<br>
-                    <input type="radio" name="ma7" value="c"> c) No hace diferencia<br>
-                </div>
-                <div><label>8. ¿Cuál es la principal causa de falla de los métodos anticonceptivos?</label><br>
-                    <input type="radio" name="ma8" value="a"> a) Defecto de fábrica<br>
-                    <input type="radio" name="ma8" value="b"> b) Uso incorrecto o inconsistente<br>
-                    <input type="radio" name="ma8" value="c"> c) Mala suerte<br>
-                </div>
-                <div><label>9. ¿Qué método puede usarse como anticoncepción de emergencia?</label><br>
-                    <input type="radio" name="ma9" value="a"> a) Pastilla del día después<br>
-                    <input type="radio" name="ma9" value="b"> b) DIU de cobre<br>
-                    <input type="radio" name="ma9" value="c"> c) Ambas son correctas<br>
-                </div>
-                <div><label>10. ¿El preservativo femenino existe?</label><br>
-                    <input type="radio" name="ma10" value="a"> a) Sí<br>
-                    <input type="radio" name="ma10" value="b"> b) No<br>
-                </div>
-                <button type="button" onclick="calificarAnticonceptivos()">Enviar respuestas</button>
-                <button type="button" onclick="calificarAnticonceptivos()" data-i18n="juegos_quiz_enviar">Enviar respuestas</button>
+                    <div><label data-i18n="juegos_quiz_p1">1. ¿Cuál es el único método anticonceptivo que también
+                            protege contra ITS?</label><br>
+                        <input type="radio" name="ma1" value="a"> a) Pastillas anticonceptivas<br>
+                        <input type="radio" name="ma1" value="b"> b) Preservativo<br>
+                        <input type="radio" name="ma1" value="c"> c) DIU<br>
+                    </div>
+                    <div><label>2. ¿Qué método anticonceptivo es de uso exclusivo masculino?</label><br>
+                        <input type="radio" name="ma2" value="a"> a) DIU<br>
+                        <input type="radio" name="ma2" value="b"> b) Preservativo masculino<br>
+                        <input type="radio" name="ma2" value="c"> c) Parche anticonceptivo<br>
+                    </div>
+                    <div><label>3. ¿Cuál de estos métodos NO es hormonal?</label><br>
+                        <input type="radio" name="ma3" value="a"> a) Implante subdérmico<br>
+                        <input type="radio" name="ma3" value="b"> b) DIU de cobre<br>
+                        <input type="radio" name="ma3" value="c"> c) Pastillas anticonceptivas<br>
+                    </div>
+                    <div><label>4. ¿Qué método requiere receta médica para su uso seguro?</label><br>
+                        <input type="radio" name="ma4" value="a"> a) Pastillas anticonceptivas<br>
+                        <input type="radio" name="ma4" value="b"> b) Preservativo<br>
+                        <input type="radio" name="ma4" value="c"> c) Coitus interruptus<br>
+                    </div>
+                    <div><label>5. ¿Cuál es la efectividad del preservativo si se usa correctamente?</label><br>
+                        <input type="radio" name="ma5" value="a"> a) Más del 95%<br>
+                        <input type="radio" name="ma5" value="b"> b) 50%<br>
+                        <input type="radio" name="ma5" value="c"> c) 70%<br>
+                    </div>
+                    <div><label>6. ¿Qué método es permanente y solo se recomienda a personas que no desean más
+                            hijos?</label><br>
+                        <input type="radio" name="ma6" value="a"> a) Vasectomía o ligadura de trompas<br>
+                        <input type="radio" name="ma6" value="b"> b) Parche anticonceptivo<br>
+                        <input type="radio" name="ma6" value="c"> c) Inyección mensual<br>
+                    </div>
+                    <div><label>7. ¿El uso de dos preservativos a la vez (doble condón) es recomendable?</label><br>
+                        <input type="radio" name="ma7" value="a"> a) Sí, es más seguro<br>
+                        <input type="radio" name="ma7" value="b"> b) No, puede romperse más fácil<br>
+                        <input type="radio" name="ma7" value="c"> c) No hace diferencia<br>
+                    </div>
+                    <div><label>8. ¿Cuál es la principal causa de falla de los métodos anticonceptivos?</label><br>
+                        <input type="radio" name="ma8" value="a"> a) Defecto de fábrica<br>
+                        <input type="radio" name="ma8" value="b"> b) Uso incorrecto o inconsistente<br>
+                        <input type="radio" name="ma8" value="c"> c) Mala suerte<br>
+                    </div>
+                    <div><label>9. ¿Qué método puede usarse como anticoncepción de emergencia?</label><br>
+                        <input type="radio" name="ma9" value="a"> a) Pastilla del día después<br>
+                        <input type="radio" name="ma9" value="b"> b) DIU de cobre<br>
+                        <input type="radio" name="ma9" value="c"> c) Ambas son correctas<br>
+                    </div>
+                    <div><label>10. ¿El preservativo femenino existe?</label><br>
+                        <input type="radio" name="ma10" value="a"> a) Sí<br>
+                        <input type="radio" name="ma10" value="b"> b) No<br>
+                    </div>
+                    <button type="button" onclick="calificarAnticonceptivos()">Enviar respuestas</button>
+                    <button type="button" onclick="calificarAnticonceptivos()" data-i18n="juegos_quiz_enviar">Enviar
+                        respuestas</button>
             </form>
             <div id="quiz-anticonceptivos-resultado"></div>
         </div>
@@ -397,7 +439,9 @@
 
         <div class="cuadro">
             <h4 data-i18n="juegos_extra_titulo">Juegos</h4>
-            <p data-i18n="juegos_extra_desc">¿Quieres medir tus conocimientos sobre la prevención de embarazos en adolescentes y jóvenes? Participa en nuestro juego interactivo y descubre cuánto sabes sobre este importante tema. ¡Diviértete mientras aprendes!</p>
+            <p data-i18n="juegos_extra_desc">¿Quieres medir tus conocimientos sobre la prevención de embarazos en
+                adolescentes y jóvenes? Participa en nuestro juego interactivo y descubre cuánto sabes sobre este
+                importante tema. ¡Diviértete mientras aprendes!</p>
             <div class="iframe-centro">
                 <a href="https://docs.google.com/forms/d/e/1FAIpQLSfhEjoQS_cqorR7b8StoyG_DZUjd0inzZK0HGM05qTl5gA8Pw/viewform?usp=sharing&ouid=115417771645858268690"
                     target="_blank" class="drive-link"
@@ -639,7 +683,8 @@
         <div class="margen">
             <div class="cuadro">
                 <h4 data-i18n="redes_titulo">Redes sociales</h4>
-                <p data-i18n="redes_desc">Síguenos en nuestras diferentes redes sociales para mantenerte informado acerca de las actividades que realizamos:</p>
+                <p data-i18n="redes_desc">Síguenos en nuestras diferentes redes sociales para mantenerte informado
+                    acerca de las actividades que realizamos:</p>
                 <div class="social-buttons">
                     <a href="https://www.facebook.com/profile.php?id=61552371105965&mibextid=ZbWKwL" class="social-icon"
                         target="_blank" title="Facebook">
@@ -658,9 +703,10 @@
         </div>
 
         <footer>
-            <div style="color:#ffffff; font-size:1.5em; font-weight:bold;" data-i18n="footer">&copy; PDPEAJ-BENI</div>
+            <div style="color:#ffffff; font-size:1.5em; font-weight:bold;" data-i18n="footer">&copy; PDPEAJ-BENI
+            </div>
         </footer>
-</body>
+    </body>
 
 <script src="traducciones.js"></script>
 
