@@ -40,31 +40,31 @@
             <img src="img/logo.png" alt="PDPEAJ-BENI" class="logo">
         </div>
     </header>
-      <div class="menu-desplegable">
-            <button class="menu-boton" id="menu-boton" onclick="toggleMenu()">...</button>
-            <div class="menu-contenido" id="menu-contenido">
-                <a href="index.html" class="menu-link menu-inicio">
-                    <div class="menu-title" data-i18n="menu_inicio">Inicio</div>
-                </a>
-                <a href="actividades.html" class="menu-link menu-actividades">
-                    <div class="menu-title" data-i18n="menu_actividades">Más Actividades</div>
-                </a>
-                <a href="directiva.html" class="menu-link menu-directiva">
-                    <div class="menu-title" data-i18n="menu_directiva">Directiva</div>
-                </a>
-                <a href="contacto.html" class="menu-link menu-contacto">
-                    <div class="menu-title" data-i18n="menu_contacto">Contacto y Comunicación</div>
-                </a>
-                <a href="material.html" class="menu-link menu-material">
-                    <div class="menu-title" data-i18n="menu_material">Material</div>
-                </a>
-                <a href="juegos.html" class="menu-link menu-juegos">
-                    <div class="menu-title" data-i18n="menu_juegos">Juegos</div>
-                </a>
-              
+    <div class="menu-desplegable">
+        <button class="menu-boton" id="menu-boton" onclick="toggleMenu()">...</button>
+        <div class="menu-contenido" id="menu-contenido">
+            <a href="index.html" class="menu-link menu-inicio">
+                <div class="menu-title" data-i18n="menu_inicio">Inicio</div>
+            </a>
+            <a href="actividades.html" class="menu-link menu-actividades">
+                <div class="menu-title" data-i18n="menu_actividades">Más Actividades</div>
+            </a>
+            <a href="directiva.html" class="menu-link menu-directiva">
+                <div class="menu-title" data-i18n="menu_directiva">Directiva</div>
+            </a>
+            <a href="contacto.html" class="menu-link menu-contacto">
+                <div class="menu-title" data-i18n="menu_contacto">Contacto y Comunicación</div>
+            </a>
+            <a href="material.html" class="menu-link menu-material">
+                <div class="menu-title" data-i18n="menu_material">Material</div>
+            </a>
+            <a href="juegos.html" class="menu-link menu-juegos">
+                <div class="menu-title" data-i18n="menu_juegos">Juegos</div>
+            </a>
 
-            </div>
+
         </div>
+    </div>
     <script>
         function toggleMenu() {
             var menu = document.getElementById('menu-contenido');
@@ -133,19 +133,7 @@
     <div class="margen">
 
 
-        <!-- Juego: Secuencia correcta - Uso del condón -->
-        <div class="cuadro">
-            <h4 data-i18n="juegos_secuencia_titulo">Secuencia correcta: Pasos para usar un condón</h4>
-            <p data-i18n="juegos_secuencia_desc">Usa los botones para subir o bajar cada paso y ordénalos
-                correctamente. ¡Aprende cómo usar el condón de forma segura!</p>
-            <ul id="secuencia-condon-lista" class="secuencia-condon-lista"
-                style="list-style:none; padding:0; max-width:480px; margin:auto;"></ul>
-            <button type="button" onclick="verificarSecuenciaCondon()" style="margin-top:10px;">Verificar
-                orden</button>
-            <button type="button" onclick="verificarSecuenciaCondon()" style="margin-top:10px;"
-                data-i18n="juegos_secuencia_verificar">Verificar orden</button>
-            <div id="secuencia-condon-resultado" style="margin-top:10px;"></div>
-        </div>
+     
         <!-- Juego: Arrastra y coloca - Cambios de la pubertad -->
         <div class="cuadro">
             <h4 data-i18n="juegos_puberta_titulo">Arrastra y coloca: Cambios de la pubertad</h4>
@@ -234,108 +222,82 @@
         <!-- Quiz: Mitos y realidades sobre sexualidad -->
 
 
+
         <script>
-            // Pasos correctos y explicaciones (DRAG VERSION)
-            const pasosCondonDrag = [
-                { id: 1, texto: 'Abrir cuidadosamente el empaque del condón', exp: 'Nunca uses dientes o tijeras para evitar dañar el condón.' },
-                { id: 2, texto: 'Verificar la fecha de caducidad y el estado del empaque', exp: 'Un condón vencido o con empaque dañado puede fallar.' },
-                { id: 3, texto: 'Colocar el condón en la punta del pene erecto antes de cualquier contacto', exp: 'El condón debe ponerse antes de cualquier contacto genital.' },
-                { id: 4, texto: 'Desenrollar el condón hasta la base del pene', exp: 'Asegúrate de desenrollarlo completamente para máxima protección.' },
-                { id: 5, texto: 'Sostener la base del condón al retirarlo después de la eyaculación', exp: 'Esto evita que el condón se deslice y se derrame el semen.' },
-                { id: 6, texto: 'Desechar el condón en la basura, nunca en el inodoro', exp: 'El condón debe desecharse de forma segura para evitar obstrucciones.' }
+            const pasosPuberta = [
+                { id: 1, texto: "Crecimiento de vello" },
+                { id: 2, texto: "Cambios de voz" },
+                { id: 3, texto: "Aparición de acné" },
+                { id: 4, texto: "Menstruación" },
+                { id: 5, texto: "Crecimiento de senos" },
+                { id: 6, texto: "Cambios emocionales" }
             ];
-            // Orden correcto por id
-            const ordenCorrectoDrag = [2, 1, 3, 4, 5, 6];
-            // Mezclar pasos al cargar
-            function mezclarPasosDrag(arr) {
+            const ordenCorrectoPuberta = [1, 2, 3, 4, 5, 6];
+
+            // Mezclar lista inicial
+            function mezclar(arr) {
                 return arr.slice().sort(() => Math.random() - 0.5);
             }
-            let pasosActualesDrag = [];
-            function renderSecuenciaCondon() {
-                const lista = document.getElementById('secuencia-condon-lista');
-                lista.innerHTML = '';
-                if (pasosActualesDrag.length === 0) {
-                    pasosActualesDrag = mezclarPasosDrag(pasosCondonDrag);
-                }
-                pasosActualesDrag.forEach((paso, idx) => {
-                    const li = document.createElement('li');
-                    li.setAttribute('data-id', paso.id);
-                    li.style.userSelect = 'none';
-                    // Texto del paso
-                    const span = document.createElement('span');
-                    span.textContent = paso.texto;
-                    li.appendChild(span);
-                    // Botones subir/bajar
-                    const btns = document.createElement('div');
-                    btns.className = 'secuencia-condon-btns';
-                    const btnUp = document.createElement('button');
-                    btnUp.type = 'button';
-                    btnUp.innerHTML = '▲';
-                    btnUp.title = 'Subir';
-                    btnUp.onclick = function () {
-                        if (idx > 0) {
-                            [pasosActualesDrag[idx - 1], pasosActualesDrag[idx]] = [pasosActualesDrag[idx], pasosActualesDrag[idx - 1]];
-                            renderSecuenciaCondon();
-                        }
-                    };
-                    const btnDown = document.createElement('button');
-                    btnDown.type = 'button';
-                    btnDown.innerHTML = '▼';
-                    btnDown.title = 'Bajar';
-                    btnDown.onclick = function () {
-                        if (idx < pasosActualesDrag.length - 1) {
-                            [pasosActualesDrag[idx + 1], pasosActualesDrag[idx]] = [pasosActualesDrag[idx], pasosActualesDrag[idx + 1]];
-                            renderSecuenciaCondon();
-                        }
-                    };
-                    btns.appendChild(btnUp);
-                    btns.appendChild(btnDown);
-                    li.appendChild(btns);
-                    lista.appendChild(li);
+            let listaActual = [];
+
+            // Renderizar lista
+            function renderPuberta() {
+                const ul = document.getElementById("lista-puberta");
+                ul.innerHTML = "";
+                if (listaActual.length === 0) listaActual = mezclar(pasosPuberta);
+
+                listaActual.forEach(paso => {
+                    const li = document.createElement("li");
+                    li.className = "drag-item-puberta";
+                    li.draggable = true;
+                    li.dataset.id = paso.id;
+                    li.textContent = paso.texto;
+
+                    li.addEventListener("dragstart", e => {
+                        e.dataTransfer.setData("text/plain", paso.id);
+                    });
+
+                    li.addEventListener("dragover", e => e.preventDefault());
+
+                    li.addEventListener("drop", e => {
+                        e.preventDefault();
+                        const draggedId = e.dataTransfer.getData("text/plain");
+                        const droppedId = li.dataset.id;
+                        swapItems(draggedId, droppedId);
+                    });
+
+                    ul.appendChild(li);
                 });
             }
-            function verificarSecuenciaCondon() {
-                const lista = document.getElementById('secuencia-condon-lista');
-                const items = Array.from(lista.children);
+
+            // Intercambiar elementos
+            function swapItems(id1, id2) {
+                const idx1 = listaActual.findIndex(p => p.id == id1);
+                const idx2 = listaActual.findIndex(p => p.id == id2);
+                if (idx1 > -1 && idx2 > -1) {
+                    [listaActual[idx1], listaActual[idx2]] = [listaActual[idx2], listaActual[idx1]];
+                    renderPuberta();
+                }
+            }
+
+            // Verificar orden
+            function verificarOrdenPuberta() {
                 let correctas = 0;
-                items.forEach((li, idx) => {
-                    const id = parseInt(li.dataset.id);
-                    li.classList.remove('correcto', 'incorrecto');
-                    // Eliminar explicación previa
-                    if (li.lastElementChild && li.lastElementChild.classList && li.lastElementChild.classList.contains('explicacion-condon')) {
-                        li.removeChild(li.lastElementChild);
-                    }
-                    if (id === ordenCorrectoDrag[idx]) {
-                        li.classList.add('correcto');
-                        const exp = document.createElement('div');
-                        exp.className = 'explicacion-condon';
-                        exp.style.fontSize = '0.93em';
-                        exp.style.marginTop = '2px';
-                        exp.style.color = '#388e3c';
-                        exp.innerHTML = '<b>✔ Correcto:</b> ' + pasosCondonDrag.find(p => p.id === id).exp;
-                        li.appendChild(exp);
-                        correctas++;
-                    } else {
-                        li.classList.add('incorrecto');
-                        const exp = document.createElement('div');
-                        exp.className = 'explicacion-condon';
-                        exp.style.fontSize = '0.93em';
-                        exp.style.marginTop = '2px';
-                        exp.style.color = '#d32f2f';
-                        exp.innerHTML = '<b>✖ Incorrecto:</b> ' + pasosCondonDrag.find(p => p.id === ordenCorrectoDrag[idx]).exp;
-                        li.appendChild(exp);
-                    }
+                listaActual.forEach((p, i) => {
+                    if (p.id === ordenCorrectoPuberta[i]) correctas++;
                 });
-                let resultado = `<b>Pasos en orden correcto: ${correctas} de 6.</b><br>`;
-                if (correctas === 6) {
-                    resultado += '¡Excelente! Has ordenado correctamente todos los pasos para usar el condón.';
+                const res = document.getElementById("resultado-puberta");
+                if (correctas === listaActual.length) {
+                    res.innerHTML = "🎉 ¡Excelente! Ordenaste correctamente los cambios de la pubertad.";
+                    res.style.color = "#388e3c";
                 } else {
-                    resultado += 'Revisa las explicaciones y vuelve a intentarlo.';
+                    res.innerHTML = `Tienes ${correctas} de ${listaActual.length} en el orden correcto. Vuelve a intentarlo.`;
+                    res.style.color = "#d32f2f";
                 }
-                document.getElementById('secuencia-condon-resultado').innerHTML = resultado;
             }
-            // Inicializar juego al cargar
-            setTimeout(renderSecuenciaCondon, 600);
+
+            // Inicializar
+            setTimeout(renderPuberta, 400);
         </script>
 
 
@@ -403,6 +365,7 @@
             </form>
             <div id="quiz-anticonceptivos-resultado"></div>
         </div>
+    </div>
         <script>
             function calificarAnticonceptivos() {
                 var respuestas = { ma1: 'b', ma2: 'b', ma3: 'b', ma4: 'a', ma5: 'a', ma6: 'a', ma7: 'b', ma8: 'b', ma9: 'c', ma10: 'a' };
@@ -677,7 +640,7 @@
             }
         </script>
 
-
+    </div>
 
         <!-- Redes sociales en su propio bloque al final -->
         <div class="margen">
@@ -706,7 +669,7 @@
             <div style="color:#ffffff; font-size:1.5em; font-weight:bold;" data-i18n="footer">&copy; PDPEAJ-BENI
             </div>
         </footer>
-    </body>
+</body>
 
 <script src="traducciones.js"></script>
 
