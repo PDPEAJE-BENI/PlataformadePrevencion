@@ -1,3 +1,37 @@
+/* Teléfono Secretario de Actas */
+.telefono-sec-actas {
+    display: inline-flex;
+    align-items: center;
+    font-size: 1.1em;
+    color: #246b2e;
+    text-decoration: none;
+    font-weight: bold;
+    margin-bottom: 8px;
+    transition: color 0.2s;
+}
+.telefono-sec-actas:hover {
+    color: #1a4d1a;
+    text-decoration: underline;
+}
+/* Estilo para enlaces de teléfono, igual al resto de los enlaces principales */
+.telefono-link {
+    display: inline-flex;
+    align-items: center;
+    font-size: 1.1em;
+    color: #246b2e;
+    text-decoration: none;
+    font-weight: bold;
+    margin-bottom: 8px;
+    transition: color 0.2s;
+}
+.telefono-link:hover {
+    color: #1a4d1a;
+    text-decoration: underline;
+}
+.icono-telefono {
+    margin-right: 8px;
+    font-size: 1.2em;
+}
 /* --- Botones de idioma (ES/EN) con paleta moderna y profesional --- */
 .idioma-btn-bar {
     position: absolute;

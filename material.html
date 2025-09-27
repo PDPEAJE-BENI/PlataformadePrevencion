@@ -12,27 +12,27 @@
 <body>
     <header>
         <div class="margen">
-            <div class="idioma-btn-bar">
-                <button id="btn-es" class="idioma-btn" onclick="setLanguage('es')">ES</button>
-                <button id="btn-en" class="idioma-btn" onclick="setLanguage('en')">EN</button>
-                <script>
-                    function updateIdiomaBtnSelected(lang) {
-                        document.getElementById('btn-es').classList.toggle('selected', lang === 'es');
-                        document.getElementById('btn-en').classList.toggle('selected', lang === 'en');
-                    }
-                    window.setLanguage = function (lang) {
-                        setLanguage(lang);
-                        updateIdiomaBtnSelected(lang);
-                        localStorage.setItem('lang', lang);
-                    };
-                    document.addEventListener('DOMContentLoaded', function () {
-                        const lang = localStorage.getItem('lang') || 'es';
-                        updateIdiomaBtnSelected(lang);
-                    });
-                </script>
-            </div>
             <h1 data-i18n="material_logo">PDPEAJ-BENI</h1>
             <img src="img/logo.png" alt="Logo PDPEAJ-BENI" class="logo">
+                <div class="idioma-btn-bar" style="display:none;">
+                    <button id="btn-es" class="idioma-btn" onclick="setLanguage('es')">ES</button>
+                    <button id="btn-en" class="idioma-btn" onclick="setLanguage('en')">EN</button>
+                    <script>
+                        function updateIdiomaBtnSelected(lang) {
+                            document.getElementById('btn-es').classList.toggle('selected', lang === 'es');
+                            document.getElementById('btn-en').classList.toggle('selected', lang === 'en');
+                        }
+                        const originalSetLanguage = window.setLanguage;
+                        window.setLanguage = function (lang) {
+                            originalSetLanguage(lang);
+                            updateIdiomaBtnSelected(lang);
+                        };
+                        document.addEventListener('DOMContentLoaded', function () {
+                            const lang = localStorage.getItem('lang') || 'es';
+                            updateIdiomaBtnSelected(lang);
+                        });
+                    </script>
+                </div>
         </div>
         <div class="menu-desplegable">
             <button class="menu-boton" id="menu-boton" onclick="toggleMenu()">...</button>
