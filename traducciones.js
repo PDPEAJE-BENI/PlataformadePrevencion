@@ -1,5 +1,4 @@
 // Traducciones ES/EN para la plataforma
-// Traducciones ES/EN para la plataforma
 const translations = {
   es: {
     saludo: "Plataforma Departamental de Prevención de Embarazos en Adolescentes y Jóvenes del Beni",
@@ -324,6 +323,7 @@ const translations = {
     directiva_vocal2_desc: "Cristel Camila contributes with innovative ideas and supports the integration of new members into the platform."
   }
 };
+
 function setLanguage(lang) {
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
