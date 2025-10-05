@@ -5,675 +5,285 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zona de Juegos | PDPEAJ-BENI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="estilos.css">
-
-
 </head>
 
 <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WPNLRRK3" height="0" width="0"
-            style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
     <header>
-        <div class="margen">
-            <div class="idioma-btn-bar" style="display:none;">
-                <button id="btn-es" class="idioma-btn" onclick="setLanguage('es')">ES</button>
-                <button id="btn-en" class="idioma-btn" onclick="setLanguage('en')">EN</button>
-                <script>
-                    // Resalta el botón del idioma seleccionado
-                    function updateIdiomaBtnSelected(lang) {
-                        document.getElementById('btn-es').classList.toggle('selected', lang === 'es');
-                        document.getElementById('btn-en').classList.toggle('selected', lang === 'en');
-                    }
-                    // Llama a esta función cada vez que cambie el idioma
-                    const originalSetLanguage = window.setLanguage;
-                    window.setLanguage = function (lang) {
-                        originalSetLanguage(lang);
-                        updateIdiomaBtnSelected(lang);
-                    };
-                    // Al cargar la página, resalta el idioma guardado o español por defecto
-                    document.addEventListener('DOMContentLoaded', function () {
-                        const lang = localStorage.getItem('lang') || 'es';
-                        updateIdiomaBtnSelected(lang);
-                    });
-                </script>
-            </div>
-            <h1 data-i18n="juegos_titulo">Zona de Juegos | PDPEAJ-BENI</h1>
-            <img src="img/logo.png" alt="PDPEAJ-BENI" class="logo">
+        <div class="margen" style="text-align:center;">
+            <h1 data-i18n="juegos_titulo" style="font-size:2.1rem; font-weight:800; margin-bottom:0.7rem;">Zona de
+                Juegos | PDPEAJ-BENI</h1>
+            <img src="img/logo.png" alt="PDPEAJ-BENI" class="logo"
+                style="max-width:90px; margin:0 auto 0.7rem auto; display:block;">
         </div>
     </header>
-    <div class="menu-desplegable">
-        <button class="menu-boton" id="menu-boton" onclick="toggleMenu()">...</button>
-        <div class="menu-contenido" id="menu-contenido">
-            <a href="index.html" class="menu-link menu-inicio">
-                <div class="menu-title" data-i18n="menu_inicio">Inicio</div>
-            </a>
-            <a href="actividades.html" class="menu-link menu-actividades">
-                <div class="menu-title" data-i18n="menu_actividades">Más Actividades</div>
-            </a>
-            <a href="directiva.html" class="menu-link menu-directiva">
-                <div class="menu-title" data-i18n="menu_directiva">Directiva</div>
-            </a>
-            <a href="contacto.html" class="menu-link menu-contacto">
-                <div class="menu-title" data-i18n="menu_contacto">Contacto y Comunicación</div>
-            </a>
-            <a href="material.html" class="menu-link menu-material">
-                <div class="menu-title" data-i18n="menu_material">Material</div>
-            </a>
-            <a href="juegos.html" class="menu-link menu-juegos">
-                <div class="menu-title" data-i18n="menu_juegos">Juegos</div>
-            </a>
-
-
-        </div>
-    </div>
-    <script>
-        function toggleMenu() {
-            var menu = document.getElementById('menu-contenido');
-            menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
-        }
-        window.onclick = function (event) {
-            if (!event.target.matches('.menu-boton')) {
-                var menu = document.getElementById('menu-contenido');
-                if (menu && menu.style.display === 'block') {
-                    menu.style.display = 'none';
-                }
-            }
-        }
-    </script>
-
-
-    <script>
-        // Alterna el menú en móvil
-        function toggleMenu() {
-            var menu = document.getElementById('menu-contenido');
-            if (window.innerWidth <= 600) {
-                if (menu.style.display === 'block') {
-                    menu.style.display = 'none';
-                } else {
-                    menu.style.display = 'block';
-                }
-            }
-        }
-        function cerrarMenu() {
-            var menu = document.getElementById('menu-contenido');
-            if (window.innerWidth <= 600) {
-                menu.style.display = 'none';
-            }
-        }
-        document.addEventListener('click', function (e) {
-            var menu = document.getElementById('menu-contenido');
-            var boton = document.getElementById('menu-boton');
-            if (window.innerWidth <= 600 && menu && boton) {
-                if (!menu.contains(e.target) && !boton.contains(e.target)) {
-                    menu.style.display = 'none';
-                }
-            }
-        });
-        window.addEventListener('resize', function () {
-            var menu = document.getElementById('menu-contenido');
-            if (window.innerWidth > 600) {
-                menu.style.display = '';
-            } else {
-                menu.style.display = 'none';
-            }
-        });
-        window.addEventListener('scroll', function () {
-            var menu = document.getElementById('menu-contenido');
-            if (window.innerWidth <= 600 && menu) {
-                menu.style.display = 'none';
-            }
-        });
-        function scrollToSection(id) {
-            var el = document.getElementById(id);
-            if (el) {
-                el.scrollIntoView({ behavior: 'smooth' });
-            }
-        }
-    </script>
-    </div>
-    <div class="margen">
-
-
-     
-        <!-- Juego: Arrastra y coloca - Cambios de la pubertad -->
-        <div class="cuadro">
-            <h4 data-i18n="juegos_puberta_titulo">Arrastra y coloca: Cambios de la pubertad</h4>
-            <p data-i18n="juegos_puberta_desc">Arrastra cada cambio de la pubertad a su descripción correcta.</p>
-            <div id="dragdrop-puberta">
-                <div class="dragdrop-lista">
-                    <div class="drag-item-puberta" draggable="true" id="puberta1">Crecimiento de vello</div>
-                    <div class="drag-item-puberta" draggable="true" id="puberta1" data-i18n="juegos_puberta_vello">
-                        Crecimiento de vello</div>
-                    <div class="drag-item-puberta" draggable="true" id="puberta2" data-i18n="juegos_puberta_voz">
-                        Cambios de voz</div>
-                    <div class="drag-item-puberta" draggable="true" id="puberta3" data-i18n="juegos_puberta_acne">
-                        Aparición de acné</div>
-                    <div class="drag-item-puberta" draggable="true" id="puberta4"
-                        data-i18n="juegos_puberta_menstruacion">Menstruación</div>
-                    <div class="drag-item-puberta" draggable="true" id="puberta5" data-i18n="juegos_puberta_senos">
-                        Crecimiento de senos</div>
-                    <div class="drag-item-puberta" draggable="true" id="puberta6" data-i18n="juegos_puberta_emociones">
-                        Cambios emocionales</div>
-                    <div class="drag-item-puberta" draggable="true" id="puberta2">Cambios de voz</div>
-                    <div class="drag-item-puberta" draggable="true" id="puberta3">Aparición de acné</div>
-                    <div class="drag-item-puberta" draggable="true" id="puberta4">Menstruación</div>
-                    <div class="drag-item-puberta" draggable="true" id="puberta5">Crecimiento de senos</div>
-                    <div class="drag-item-puberta" draggable="true" id="puberta6">Cambios emocionales</div>
-                </div>
-                <div class="drop-area-puberta" style="margin-top:12px;">
-                    <div class="drop-zone-puberta" data-correct="puberta1">1. Aparición de vello en axilas, pubis y
-                        otras zonas.</div>
-                    <div class="drop-zone-puberta" data-correct="puberta2">2. La voz se vuelve más grave en los
-                        varones
-                        y cambia en las mujeres.</div>
-                    <div class="drop-zone-puberta" data-correct="puberta3">3. Salen granitos en la cara y otras
-                        partes
-                        del cuerpo.</div>
-                    <div class="drop-zone-puberta" data-correct="puberta4">4. Inicio de los ciclos menstruales en
-                        las
-                        mujeres.</div>
-                    <div class="drop-zone-puberta" data-correct="puberta5">5. Desarrollo de los senos en las
-                        mujeres.
-                    </div>
-                    <div class="drop-zone-puberta" data-correct="puberta6">6. Cambios en el estado de ánimo y
-                        emociones.
-                    </div>
-                </div>
-                <button type="button" onclick="verificarDragDropPuberta()" style="margin-top:10px;">Verificar
-                    respuestas</button>
-                <div id="dragdrop-puberta-resultado" style="margin-top:10px;"></div>
-            </div>
-        </div>
-        <!-- Juego: Arrastra y suelta - Diversidad sexual y de género -->
-        <div class="cuadro">
-            <h4 data-i18n="juegos_diversidad_titulo">Arrastra y suelta: Diversidad sexual y de género</h4>
-            <p data-i18n="juegos_diversidad_desc">Arrastra cada término a la definición correcta. ¡Aprende sobre
-                diversidad y respeta las diferencias!</p>
-            <div id="dragdrop-diversidad">
-                <div class="dragdrop-lista">
-                    <div class="drag-item" draggable="true" id="drag1">Orientación sexual</div>
-                    <div class="drag-item" draggable="true" id="drag1" data-i18n="juegos_diversidad_orientacion">
-                        Orientación sexual</div>
-                    <div class="drag-item" draggable="true" id="drag2" data-i18n="juegos_diversidad_identidad">
-                        Identidad de género</div>
-                    <div class="drag-item" draggable="true" id="drag3" data-i18n="juegos_diversidad_expresion">
-                        Expresión de género</div>
-                    <div class="drag-item" draggable="true" id="drag4" data-i18n="juegos_diversidad_sexo">Sexo
-                        biológico</div>
-                    <div class="drag-item" draggable="true" id="drag2">Identidad de género</div>
-                    <div class="drag-item" draggable="true" id="drag3">Expresión de género</div>
-                    <div class="drag-item" draggable="true" id="drag4">Sexo biológico</div>
-                </div>
-                <div class="drop-area">
-                    <div class="drop-zone" data-correct="drag1">1. Atracción emocional, afectiva y/o sexual hacia
-                        otras
-                        personas.</div>
-                    <div class="drop-zone" data-correct="drag2">2. Vivencia interna y personal del género, que puede
-                        coincidir o no con el sexo asignado al nacer.</div>
-                    <div class="drop-zone" data-correct="drag3">3. Forma en que una persona manifiesta su género a
-                        través de la apariencia, comportamiento o vestimenta.</div>
-                    <div class="drop-zone" data-correct="drag4">4. Características físicas, hormonales y genéticas
-                        con
-                        las que se nace.</div>
-                </div>
-            </div>
-            <button type="button" onclick="verificarDragDropDiversidad()">Verificar respuestas</button>
-            <div id="dragdrop-diversidad-resultado"></div>
-        </div>
-        <!-- Quiz: Mitos y realidades sobre sexualidad -->
-
-
-
-        <script>
-            const pasosPuberta = [
-                { id: 1, texto: "Crecimiento de vello" },
-                { id: 2, texto: "Cambios de voz" },
-                { id: 3, texto: "Aparición de acné" },
-                { id: 4, texto: "Menstruación" },
-                { id: 5, texto: "Crecimiento de senos" },
-                { id: 6, texto: "Cambios emocionales" }
-            ];
-            const ordenCorrectoPuberta = [1, 2, 3, 4, 5, 6];
-
-            // Mezclar lista inicial
-            function mezclar(arr) {
-                return arr.slice().sort(() => Math.random() - 0.5);
-            }
-            let listaActual = [];
-
-            // Renderizar lista
-            function renderPuberta() {
-                const ul = document.getElementById("lista-puberta");
-                ul.innerHTML = "";
-                if (listaActual.length === 0) listaActual = mezclar(pasosPuberta);
-
-                listaActual.forEach(paso => {
-                    const li = document.createElement("li");
-                    li.className = "drag-item-puberta";
-                    li.draggable = true;
-                    li.dataset.id = paso.id;
-                    li.textContent = paso.texto;
-
-                    li.addEventListener("dragstart", e => {
-                        e.dataTransfer.setData("text/plain", paso.id);
-                    });
-
-                    li.addEventListener("dragover", e => e.preventDefault());
-
-                    li.addEventListener("drop", e => {
-                        e.preventDefault();
-                        const draggedId = e.dataTransfer.getData("text/plain");
-                        const droppedId = li.dataset.id;
-                        swapItems(draggedId, droppedId);
-                    });
-
-                    ul.appendChild(li);
-                });
-            }
-
-            // Intercambiar elementos
-            function swapItems(id1, id2) {
-                const idx1 = listaActual.findIndex(p => p.id == id1);
-                const idx2 = listaActual.findIndex(p => p.id == id2);
-                if (idx1 > -1 && idx2 > -1) {
-                    [listaActual[idx1], listaActual[idx2]] = [listaActual[idx2], listaActual[idx1]];
-                    renderPuberta();
-                }
-            }
-
-            // Verificar orden
-            function verificarOrdenPuberta() {
-                let correctas = 0;
-                listaActual.forEach((p, i) => {
-                    if (p.id === ordenCorrectoPuberta[i]) correctas++;
-                });
-                const res = document.getElementById("resultado-puberta");
-                if (correctas === listaActual.length) {
-                    res.innerHTML = "🎉 ¡Excelente! Ordenaste correctamente los cambios de la pubertad.";
-                    res.style.color = "#388e3c";
-                } else {
-                    res.innerHTML = `Tienes ${correctas} de ${listaActual.length} en el orden correcto. Vuelve a intentarlo.`;
-                    res.style.color = "#d32f2f";
-                }
-            }
-
-            // Inicializar
-            setTimeout(renderPuberta, 400);
-        </script>
-
-
-
-
-        <!-- Juego: Métodos anticonceptivos y su uso correcto -->
-        <div class="cuadro">
-            <h4 data-i18n="juegos_quiz_titulo">Quiz: Métodos anticonceptivos y su uso correcto</h4>
-            <form id="quiz-anticonceptivos-form">
-                <div><label>1. ¿Cuál es el único método anticonceptivo que también protege contra ITS?</label><br>
-                    <div><label data-i18n="juegos_quiz_p1">1. ¿Cuál es el único método anticonceptivo que también
-                            protege contra ITS?</label><br>
-                        <input type="radio" name="ma1" value="a"> a) Pastillas anticonceptivas<br>
-                        <input type="radio" name="ma1" value="b"> b) Preservativo<br>
-                        <input type="radio" name="ma1" value="c"> c) DIU<br>
-                    </div>
-                    <div><label>2. ¿Qué método anticonceptivo es de uso exclusivo masculino?</label><br>
-                        <input type="radio" name="ma2" value="a"> a) DIU<br>
-                        <input type="radio" name="ma2" value="b"> b) Preservativo masculino<br>
-                        <input type="radio" name="ma2" value="c"> c) Parche anticonceptivo<br>
-                    </div>
-                    <div><label>3. ¿Cuál de estos métodos NO es hormonal?</label><br>
-                        <input type="radio" name="ma3" value="a"> a) Implante subdérmico<br>
-                        <input type="radio" name="ma3" value="b"> b) DIU de cobre<br>
-                        <input type="radio" name="ma3" value="c"> c) Pastillas anticonceptivas<br>
-                    </div>
-                    <div><label>4. ¿Qué método requiere receta médica para su uso seguro?</label><br>
-                        <input type="radio" name="ma4" value="a"> a) Pastillas anticonceptivas<br>
-                        <input type="radio" name="ma4" value="b"> b) Preservativo<br>
-                        <input type="radio" name="ma4" value="c"> c) Coitus interruptus<br>
-                    </div>
-                    <div><label>5. ¿Cuál es la efectividad del preservativo si se usa correctamente?</label><br>
-                        <input type="radio" name="ma5" value="a"> a) Más del 95%<br>
-                        <input type="radio" name="ma5" value="b"> b) 50%<br>
-                        <input type="radio" name="ma5" value="c"> c) 70%<br>
-                    </div>
-                    <div><label>6. ¿Qué método es permanente y solo se recomienda a personas que no desean más
-                            hijos?</label><br>
-                        <input type="radio" name="ma6" value="a"> a) Vasectomía o ligadura de trompas<br>
-                        <input type="radio" name="ma6" value="b"> b) Parche anticonceptivo<br>
-                        <input type="radio" name="ma6" value="c"> c) Inyección mensual<br>
-                    </div>
-                    <div><label>7. ¿El uso de dos preservativos a la vez (doble condón) es recomendable?</label><br>
-                        <input type="radio" name="ma7" value="a"> a) Sí, es más seguro<br>
-                        <input type="radio" name="ma7" value="b"> b) No, puede romperse más fácil<br>
-                        <input type="radio" name="ma7" value="c"> c) No hace diferencia<br>
-                    </div>
-                    <div><label>8. ¿Cuál es la principal causa de falla de los métodos anticonceptivos?</label><br>
-                        <input type="radio" name="ma8" value="a"> a) Defecto de fábrica<br>
-                        <input type="radio" name="ma8" value="b"> b) Uso incorrecto o inconsistente<br>
-                        <input type="radio" name="ma8" value="c"> c) Mala suerte<br>
-                    </div>
-                    <div><label>9. ¿Qué método puede usarse como anticoncepción de emergencia?</label><br>
-                        <input type="radio" name="ma9" value="a"> a) Pastilla del día después<br>
-                        <input type="radio" name="ma9" value="b"> b) DIU de cobre<br>
-                        <input type="radio" name="ma9" value="c"> c) Ambas son correctas<br>
-                    </div>
-                    <div><label>10. ¿El preservativo femenino existe?</label><br>
-                        <input type="radio" name="ma10" value="a"> a) Sí<br>
-                        <input type="radio" name="ma10" value="b"> b) No<br>
-                    </div>
-                    <button type="button" onclick="calificarAnticonceptivos()">Enviar respuestas</button>
-                    <button type="button" onclick="calificarAnticonceptivos()" data-i18n="juegos_quiz_enviar">Enviar
-                        respuestas</button>
-            </form>
-            <div id="quiz-anticonceptivos-resultado"></div>
-        </div>
-    </div>
-        <script>
-            function calificarAnticonceptivos() {
-                var respuestas = { ma1: 'b', ma2: 'b', ma3: 'b', ma4: 'a', ma5: 'a', ma6: 'a', ma7: 'b', ma8: 'b', ma9: 'c', ma10: 'a' };
-                var explicaciones = {
-                    ma1: 'El preservativo es el único método que protege contra ITS y embarazos.',
-                    ma2: 'El preservativo masculino es de uso exclusivo para hombres.',
-                    ma3: 'El DIU de cobre no es hormonal, los otros sí.',
-                    ma4: 'Las pastillas anticonceptivas requieren receta y supervisión médica.',
-                    ma5: 'El preservativo bien usado es más del 95% efectivo.',
-                    ma6: 'La vasectomía y la ligadura de trompas son métodos permanentes.',
-                    ma7: 'Usar dos condones a la vez puede hacer que se rompan más fácil.',
-                    ma8: 'La principal causa de falla es el uso incorrecto o inconsistente.',
-                    ma9: 'La pastilla del día después y el DIU de cobre pueden usarse como emergencia.',
-                    ma10: 'Sí, existe el preservativo femenino y también protege.'
-                };
-                var score = 0;
-                var form = document.getElementById('quiz-anticonceptivos-form');
-                var resultado = '<b>Resultados:</b><ul>';
-                for (var i = 1; i <= 10; i++) {
-                    var q = 'ma' + i;
-                    var seleccion = form.querySelector('input[name="' + q + '"]:checked');
-                    var correcta = seleccion && seleccion.value === respuestas[q];
-                    if (correcta) score++;
-                    resultado += '<li>' + (correcta ? '✔️' : '❌') + ' <b>Pregunta ' + i + ':</b> ' + explicaciones[q] + '</li>';
-                }
-                resultado += '</ul><b>Tu puntaje: ' + score + ' de 10.</b>';
-                document.getElementById('quiz-anticonceptivos-resultado').innerHTML = resultado;
-            }
-        </script>
-
-
-        <!-- Juego: Violencia en el noviazgo -->
-
-
-        <div class="cuadro">
-            <h4 data-i18n="juegos_extra_titulo">Juegos</h4>
-            <p data-i18n="juegos_extra_desc">¿Quieres medir tus conocimientos sobre la prevención de embarazos en
-                adolescentes y jóvenes? Participa en nuestro juego interactivo y descubre cuánto sabes sobre este
-                importante tema. ¡Diviértete mientras aprendes!</p>
-            <div class="iframe-centro">
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfhEjoQS_cqorR7b8StoyG_DZUjd0inzZK0HGM05qTl5gA8Pw/viewform?usp=sharing&ouid=115417771645858268690"
-                    target="_blank" class="drive-link"
-                    style="font-size:1.2em; display:inline-block; margin:18px auto; text-align:center;"
-                    data-i18n="juegos_extra_link">👉 Haz clic aquí para jugar el Quiz Interactivo
+    <main class="margen">
+        <nav class="menu-desplegable" style="margin-bottom:1.5rem;">
+            <button class="menu-boton" id="menu-boton" onclick="toggleMenu()">☰ Menú</button>
+            <div class="menu-contenido" id="menu-contenido">
+                <a href="index.html" class="menu-link menu-inicio">
+                    <div class="menu-title" data-i18n="menu_inicio">Inicio</div>
+                </a>
+                <a href="actividades.html" class="menu-link menu-actividades">
+                    <div class="menu-title" data-i18n="menu_actividades">Más Actividades</div>
+                </a>
+                <a href="directiva.html" class="menu-link menu-directiva">
+                    <div class="menu-title" data-i18n="menu_directiva">Directiva</div>
+                </a>
+                <a href="contacto.html" class="menu-link menu-contacto">
+                    <div class="menu-title" data-i18n="menu_contacto">Contacto y Comunicación</div>
+                </a>
+                <a href="juegos.html" class="menu-link menu-juegos">
+                    <div class="menu-title" data-i18n="menu_juegos">Juegos</div>
+                </a>
+                <a href="material.html" class="menu-link menu-material">
+                    <div class="menu-title" data-i18n="menu_material">Material</div>
                 </a>
             </div>
+        </nav>
+        <!-- Juego 1: Memoria de Derechos -->
+        <div class="cuadro juego-card">
+            <!-- Juego: Quiz Pubertad - Mitos y Realidades -->
+            <div class="cuadro juego-card">
+                <h2>Quiz: Pubertad, Mitos y Realidades</h2>
+                <p>Responde verdadero o falso sobre la pubertad y aclara tus dudas.</p>
+                <form id="quiz-pubertad-form">
+                    <div class="quiz-pregunta">
+                        <span>1. "Durante la pubertad, todos los cambios ocurren al mismo tiempo para todas las
+                            personas."</span><br>
+                        <label><input type="radio" name="pub1" value="falso"> Falso</label>
+                        <label><input type="radio" name="pub1" value="verdadero"> Verdadero</label>
+                    </div>
+                    <div class="quiz-pregunta">
+                        <span>2. "El acné es un cambio común durante la pubertad."</span><br>
+                        <label><input type="radio" name="pub2" value="verdadero"> Verdadero</label>
+                        <label><input type="radio" name="pub2" value="falso"> Falso</label>
+                    </div>
+                    <div class="quiz-pregunta">
+                        <span>3. "Solo las chicas experimentan cambios emocionales en la pubertad."</span><br>
+                        <label><input type="radio" name="pub3" value="falso"> Falso</label>
+                        <label><input type="radio" name="pub3" value="verdadero"> Verdadero</label>
+                    </div>
+                    <div class="quiz-pregunta">
+                        <span>4. "Hablar de los cambios de la pubertad con adultos de confianza es
+                            importante."</span><br>
+                        <label><input type="radio" name="pub4" value="verdadero"> Verdadero</label>
+                        <label><input type="radio" name="pub4" value="falso"> Falso</label>
+                    </div>
+                    <button type="button" onclick="calificarQuizPubertad()">Enviar respuestas</button>
+                </form>
+                <div id="quiz-pubertad-resultado" class="juego-resultado"></div>
+            </div>
         </div>
-        <!-- Juego: Arrastra y suelta - Diversidad sexual y de género -->
-        <div class="cuadro">
-            <h4>Arrastra y suelta: Diversidad sexual y de género</h4>
-            <p>Arrastra cada término a la definición correcta. ¡Aprende sobre diversidad y respeta las diferencias!
-            </p>
-            <div id="dragdrop-diversidad">
-                <div class="dragdrop-lista">
-                    <div class="drag-item" draggable="true" id="drag1">Orientación sexual</div>
-                    <div class="drag-item" draggable="true" id="drag2">Identidad de género</div>
-                    <div class="drag-item" draggable="true" id="drag3">Expresión de género</div>
-                    <div class="drag-item" draggable="true" id="drag4">Sexo biológico</div>
+        <!-- Juego 2: Quiz Mitos y Realidades -->
+        <div class="cuadro juego-card">
+            <h2>Quiz: Mitos y Realidades</h2>
+            <p>¿Mito o realidad? Responde verdadero o falso sobre sexualidad y salud.</p>
+            <form id="quiz-mitos-form">
+                <div class="quiz-pregunta">
+                    <span>1. "El preservativo reduce el placer y no es necesario si hay confianza."</span><br>
+                    <label><input type="radio" name="q1" value="falso"> Mito</label>
+                    <label><input type="radio" name="q1" value="verdadero"> Realidad</label>
                 </div>
-                <div class="drop-area">
-                    <div class="drop-zone" data-correct="drag1">1. Atracción emocional, afectiva y/o sexual hacia
-                        otras personas.</div>
-                    <div class="drop-zone" data-correct="drag2">2. Vivencia interna y personal del género, que puede
-                        coincidir o no con el sexo asignado al nacer.</div>
-                    <div class="drop-zone" data-correct="drag3">3. Forma en que una persona manifiesta su género a
-                        través de la apariencia, comportamiento o vestimenta.</div>
-                    <div class="drop-zone" data-correct="drag4">4. Características físicas, hormonales y genéticas
-                        con las que se nace.</div>
+                <div class="quiz-pregunta">
+                    <span>2. "La pastilla del día después es solo para emergencias, no para uso regular."</span><br>
+                    <label><input type="radio" name="q2" value="verdadero"> Realidad</label>
+                    <label><input type="radio" name="q2" value="falso"> Mito</label>
+                </div>
+                <div class="quiz-pregunta">
+                    <span>3. "Solo las mujeres deben preocuparse por la anticoncepción."</span><br>
+                    <label><input type="radio" name="q3" value="falso"> Mito</label>
+                    <label><input type="radio" name="q3" value="verdadero"> Realidad</label>
+                </div>
+                <div class="quiz-pregunta">
+                    <span>4. "Hablar de sexualidad con adultos de confianza es importante para la salud."</span><br>
+                    <label><input type="radio" name="q4" value="verdadero">Realidad</label>
+                    <label><input type="radio" name="q4" value="falso"> Mito</label>
+                </div>
+                <button type="button" onclick="calificarQuizMitos()">Enviar respuestas</button>
+            </form>
+            <div id="quiz-mitos-resultado" class="juego-resultado"></div>
+        </div>
+        <!-- Juego 3: Arrastra y Clasifica -->
+        <div class="cuadro juego-card">
+            <h2>Arrastra y Clasifica</h2>
+            <p>Arrastra cada método anticonceptivo a su categoría correcta.</p>
+            <div class="clasifica-area">
+                <div class="clasifica-lista" id="clasifica-lista">
+                    <div class="clasifica-item" draggable="true" data-tipo="barrera">Preservativo</div>
+                    <div class="clasifica-item" draggable="true" data-tipo="hormonal">Pastilla anticonceptiva</div>
+                    <div class="clasifica-item" draggable="true" data-tipo="barrera">Diafragma</div>
+                    <div class="clasifica-item" draggable="true" data-tipo="hormonal">Implante subdérmico</div>
+                </div>
+                <div class="clasifica-categorias">
+                    <div class="clasifica-categoria" data-categoria="barrera">Métodos de barrera</div>
+                    <div class="clasifica-categoria" data-categoria="hormonal">Métodos hormonales</div>
                 </div>
             </div>
-            <button type="button" onclick="verificarDragDropDiversidad()">Verificar respuestas</button>
-            <div id="dragdrop-diversidad-resultado"></div>
+            <br>
+            <button type="button" onclick="verificarClasifica()">Verificar respuestas</button>
+            <div id="clasifica-resultado" class="juego-resultado"></div>
         </div>
 
+
+        <!-- Juego 5: Secuencia Correcta - Pasos para pedir ayuda -->
+        <div class="cuadro juego-card">
+            <h2>Verdadero o Falso: Sexualidad Responsable</h2>
+            <p>Lee cada afirmación y responde si es verdadera o falsa. ¡Pon a prueba tus conocimientos!</p>
+            <form id="vf-sexualidad-form">
+                <div class="quiz-pregunta">
+                    <span>1. "La sexualidad solo se refiere a las relaciones sexuales."</span><br>
+                    <label><input type="radio" name="vf1" value="falso"> Falso</label>
+                    <label><input type="radio" name="vf1" value="verdadero"> Verdadero</label>
+                </div>
+                <div class="quiz-pregunta">
+                    <span>2. "El consentimiento es fundamental en cualquier relación sexual."</span><br>
+                    <label><input type="radio" name="vf2" value="verdadero"> Verdadero</label>
+                    <label><input type="radio" name="vf2" value="falso"> Falso</label>
+                </div>
+                <div class="quiz-pregunta">
+                    <span>3. "Solo las mujeres pueden usar métodos anticonceptivos."</span><br>
+                    <label><input type="radio" name="vf3" value="falso"> Falso</label>
+                    <label><input type="radio" name="vf3" value="verdadero"> Verdadero</label>
+                </div>
+                <div class="quiz-pregunta">
+                    <span>4. "Hablar de sexualidad con personas adultas de confianza es importante para tomar buenas
+                        decisiones."</span><br>
+                    <label><input type="radio" name="vf4" value="verdadero"> Verdadero</label>
+                    <label><input type="radio" name="vf4" value="falso"> Falso</label>
+                </div>
+                <button type="button" onclick="calificarVFSexualidad()">Enviar respuestas</button>
+            </form>
+            <div id="vf-sexualidad-resultado" class="juego-resultado"></div>
+        </div>
         <script>
-            // Drag & Drop Diversidad sexual y de género
-            const dragItems = document.querySelectorAll('#dragdrop-diversidad .drag-item');
-            const dropZones = document.querySelectorAll('#dragdrop-diversidad .drop-zone');
-            let draggedItem = null;
-            dragItems.forEach(item => {
-                item.addEventListener('dragstart', e => {
-                    draggedItem = item;
-                    setTimeout(() => item.style.display = 'none', 0);
-                });
-                item.addEventListener('dragend', e => {
-                    setTimeout(() => item.style.display = '', 0);
-                });
-            });
-            dropZones.forEach(zone => {
-                zone.addEventListener('dragover', e => {
-                    e.preventDefault();
-                    zone.style.background = '#e0ffe0';
-                });
-                zone.addEventListener('dragleave', e => {
-                    zone.style.background = '';
-                });
-                zone.addEventListener('drop', e => {
-                    e.preventDefault();
-                    if (draggedItem) {
-                        // Si ya hay un item, lo regresa a la lista
-                        if (zone.children.length > 0) {
-                            document.querySelector('#dragdrop-diversidad .dragdrop-lista').appendChild(zone.children[0]);
-                        }
-                        zone.appendChild(draggedItem);
-                        zone.classList.add('filled');
-                        zone.style.background = '';
-                    }
-                });
-            });
-            // Permite devolver items a la lista
-            document.querySelector('#dragdrop-diversidad .dragdrop-lista').addEventListener('dragover', e => {
-                e.preventDefault();
-            });
-            document.querySelector('#dragdrop-diversidad .dragdrop-lista').addEventListener('drop', e => {
-                e.preventDefault();
-                if (draggedItem) {
-                    document.querySelector('#dragdrop-diversidad .dragdrop-lista').appendChild(draggedItem);
+            // Juego: Quiz Pubertad - Mitos y Realidades
+            function calificarQuizPubertad() {
+                const respuestas = ['falso', 'verdadero', 'falso', 'verdadero'];
+                let score = 0;
+                for (let i = 1; i <= 4; i++) {
+                    const val = document.querySelector(`input[name="pub${i}"]:checked`);
+                    if (val && val.value === respuestas[i - 1]) score++;
                 }
-            });
-            function verificarDragDropDiversidad() {
-                let correctas = 0;
-                dropZones.forEach(zone => {
-                    if (zone.children.length > 0 && zone.children[0].id === zone.dataset.correct) {
-                        correctas++;
-                        zone.style.background = '#d0ffd0';
-                    } else {
-                        zone.style.background = '#ffd0d0';
-                    }
+                const res = document.getElementById('quiz-pubertad-resultado');
+                if (score === 4) {
+                    res.textContent = '¡Perfecto! Todas tus respuestas son correctas.';
+                    res.style.color = '#388e3c';
+                } else {
+                    res.textContent = `Obtuviste ${score} de 4 correctas. ¡Sigue aprendiendo!`;
+                    res.style.color = '#d32f2f';
+                }
+            }
+            // Juego: Verdadero o Falso Sexualidad Responsable
+            function calificarVFSexualidad() {
+                const respuestas = ['falso', 'verdadero', 'falso', 'verdadero'];
+                let score = 0;
+                for (let i = 1; i <= 4; i++) {
+                    const val = document.querySelector(`input[name="vf${i}"]:checked`);
+                    if (val && val.value === respuestas[i - 1]) score++;
+                }
+                const res = document.getElementById('vf-sexualidad-resultado');
+                if (score === 4) {
+                    res.textContent = '¡Perfecto! Todas tus respuestas son correctas.';
+                    res.style.color = '#388e3c';
+                } else {
+                    res.textContent = `Obtuviste ${score} de 4 correctas. ¡Sigue aprendiendo!`;
+                    res.style.color = '#d32f2f';
+                }
+            }
+
+            // Juego 5: Secuencia Correcta
+            const pasosSecuencia = [
+                'Reconocer que necesitas ayuda',
+                'Buscar a un adulto de confianza',
+                'Explicar la situación claramente',
+                'Seguir las recomendaciones y no quedarte solo/a',
+            ];
+            let pasosDesorden = pasosSecuencia.slice().sort(() => Math.random() - 0.5);
+            const secuenciaLista = document.getElementById('secuencia-lista');
+            const secuenciaResultado = document.getElementById('secuencia-resultado');
+            function renderSecuencia() {
+                secuenciaLista.innerHTML = '';
+                pasosDesorden.forEach((paso, idx) => {
+                    const li = document.createElement('li');
+                    li.className = 'secuencia-paso';
+                    li.textContent = paso;
+                    li.draggable = true;
+                    li.setAttribute('data-idx', idx);
+                    li.ondragstart = e => {
+                        e.dataTransfer.setData('text/plain', idx);
+                        li.classList.add('dragging');
+                    };
+                    li.ondragend = () => li.classList.remove('dragging');
+                    li.ondragover = e => e.preventDefault();
+                    li.ondrop = e => {
+                        e.preventDefault();
+                        const from = +e.dataTransfer.getData('text/plain');
+                        const to = idx;
+                        const temp = pasosDesorden[from];
+                        pasosDesorden[from] = pasosDesorden[to];
+                        pasosDesorden[to] = temp;
+                        renderSecuencia();
+                    };
+                    secuenciaLista.appendChild(li);
                 });
-                let resultado = `<b>Respuestas correctas: ${correctas} de 4.</b><br>`;
+                secuenciaResultado.textContent = '';
+            }
+            function verificarSecuencia() {
+                let correctas = 0;
+                for (let i = 0; i < pasosSecuencia.length; i++) {
+                    if (pasosDesorden[i] === pasosSecuencia[i]) correctas++;
+                }
+                if (correctas === pasosSecuencia.length) {
+                    secuenciaResultado.textContent = '¡Perfecto! Ordenaste todos los pasos correctamente.';
+                    secuenciaResultado.style.color = '#388e3c';
+                } else {
+                    secuenciaResultado.textContent = `Tienes ${correctas} de ${pasosSecuencia.length} en el orden correcto.`;
+                    secuenciaResultado.style.color = '#d32f2f';
+                }
+            }
+            renderSecuencia();
+            // Juego 1: Memoria de Derechos
+            const derechos = [
+                'Derecho a la educación',
+                'Derecho a la salud',
+                'Derecho a la información',
+                'Derecho a la participación',
+                'Derecho a la privacidad',
+                'Derecho a la protección',
+            ];
+            let memoriaCartas = [...derechos, ...derechos].sort(() => Math.random() - 0.5);
+            let memoriaSeleccion = [], memoriaBloqueo = false, memoriaPares = 0;
+            function verificarClasifica() {
+                let correctas = 0;
+                document.querySelectorAll('.clasifica-categoria').forEach(cat => {
+                    const tipo = cat.getAttribute('data-categoria');
+                    cat.querySelectorAll('.clasifica-item').forEach(item => {
+                        if (item.getAttribute('data-tipo') === tipo) correctas++;
+                    });
+                });
+                const res = document.getElementById('clasifica-resultado');
                 if (correctas === 4) {
-                    resultado += '¡Excelente! Has comprendido los conceptos de diversidad sexual y de género.';
+                    res.textContent = '¡Correcto! Clasificaste todos los métodos.';
+                    res.style.color = '#388e3c';
                 } else {
-                    resultado += 'Revisa las definiciones y vuelve a intentarlo.';
+                    res.textContent = `Clasificaste ${correctas} de 4 correctamente. Intenta de nuevo.`;
+                    res.style.color = '#d32f2f';
                 }
-                document.getElementById('dragdrop-diversidad-resultado').innerHTML = resultado;
             }
         </script>
 
-        <div class="cuadro">
-            <h4>Arrastra y coloca: Cambios de la pubertad</h4>
-            <p>Arrastra cada cambio de la pubertad a su descripción correcta.</p>
-            <div id="dragdrop-puberta">
-                <div class="dragdrop-lista">
-                    <div class="drag-item-puberta" draggable="true" id="puberta1">Crecimiento de vello</div>
-                    <div class="drag-item-puberta" draggable="true" id="puberta2">Cambios de voz</div>
-                    <div class="drag-item-puberta" draggable="true" id="puberta3">Aparición de acné</div>
-                    <div class="drag-item-puberta" draggable="true" id="puberta4">Menstruación</div>
-                    <div class="drag-item-puberta" draggable="true" id="puberta5">Crecimiento de senos</div>
-                    <div class="drag-item-puberta" draggable="true" id="puberta6">Cambios emocionales</div>
-                </div>
-                <div class="drop-area-puberta" style="margin-top:12px;">
-                    <div class="drop-zone-puberta" data-correct="puberta1">1. Aparición de vello en axilas, pubis y
-                        otras zonas.</div>
-                    <div class="drop-zone-puberta" data-correct="puberta2">2. La voz se vuelve más grave en los
-                        varones
-                        y cambia en las mujeres.</div>
-                    <div class="drop-zone-puberta" data-correct="puberta3">3. Salen granitos en la cara y otras
-                        partes
-                        del cuerpo.</div>
-                    <div class="drop-zone-puberta" data-correct="puberta4">4. Inicio de los ciclos menstruales en
-                        las
-                        mujeres.</div>
-                    <div class="drop-zone-puberta" data-correct="puberta5">5. Desarrollo de los senos en las
-                        mujeres.
-                    </div>
-                    <div class="drop-zone-puberta" data-correct="puberta6">6. Cambios en el estado de ánimo y
-                        emociones.
-                    </div>
-                </div>
-                <button type="button" onclick="verificarDragDropPuberta()" style="margin-top:10px;">Verificar
-                    respuestas</button>
-                <div id="dragdrop-puberta-resultado" style="margin-top:10px;"></div>
-            </div>
-        </div>
-        <script>
-            // Drag & Drop Pubertad
-            (function () {
-                let draggedItem = null;
-                const dragItems = document.querySelectorAll('.drag-item-puberta');
-                const dropZones = document.querySelectorAll('.drop-zone-puberta');
-                dragItems.forEach(item => {
-                    item.addEventListener('dragstart', e => {
-                        draggedItem = item;
-                        setTimeout(() => item.style.display = 'none', 0);
-                    });
-                    item.addEventListener('dragend', e => {
-                        setTimeout(() => item.style.display = '', 0);
-                    });
-                });
-                dropZones.forEach(zone => {
-                    zone.addEventListener('dragover', e => {
-                        e.preventDefault();
-                        zone.style.background = '#e0ffe0';
-                    });
-                    zone.addEventListener('dragleave', e => {
-                        zone.style.background = '';
-                    });
-                    zone.addEventListener('drop', e => {
-                        e.preventDefault();
-                        if (draggedItem) {
-                            // Si ya hay un item, lo regresa a la lista
-                            if (zone.children.length > 1) {
-                                document.querySelector('#dragdrop-puberta .dragdrop-lista').appendChild(zone.children[1]);
-                            }
-                            zone.appendChild(draggedItem);
-                            zone.classList.add('filled');
-                            zone.style.background = '';
-                        }
-                    });
-                });
-                // Permite devolver items a la lista
-                document.querySelector('#dragdrop-puberta .dragdrop-lista').addEventListener('dragover', e => {
-                    e.preventDefault();
-                });
-                document.querySelector('#dragdrop-puberta .dragdrop-lista').addEventListener('drop', e => {
-                    e.preventDefault();
-                    if (draggedItem) {
-                        document.querySelector('#dragdrop-puberta .dragdrop-lista').appendChild(draggedItem);
-                    }
-                });
-            })();
-            function verificarDragDropPuberta() {
-                const explicaciones = {
-                    puberta1: 'Durante la pubertad, aparece vello en axilas, pubis y otras zonas como señal de maduración sexual.',
-                    puberta2: 'La voz se vuelve más grave en los varones y cambia en las mujeres debido a cambios hormonales.',
-                    puberta3: 'El acné es común en la pubertad por el aumento de hormonas que afectan la piel.',
-                    puberta4: 'La menstruación marca el inicio de la capacidad reproductiva en las mujeres.',
-                    puberta5: 'El crecimiento de los senos es un cambio físico importante en las mujeres durante la pubertad.',
-                    puberta6: 'Los cambios emocionales y de ánimo son normales por la transformación hormonal y social.'
-                };
-                const dropZones = document.querySelectorAll('.drop-zone-puberta');
-                let correctas = 0;
-                dropZones.forEach(zone => {
-                    // Eliminar explicación previa si existe
-                    if (zone.lastElementChild && zone.lastElementChild.classList && zone.lastElementChild.classList.contains('explicacion-puberta')) {
-                        zone.removeChild(zone.lastElementChild);
-                    }
-                    let explicacion = '';
-                    if (zone.children.length > 0 && zone.children[0].id === zone.dataset.correct) {
-                        correctas++;
-                        zone.classList.add('filled');
-                        zone.classList.remove('incorrect');
-                        explicacion = `<span style='color:#388e3c;'><b>✔ Correcto:</b> ${explicaciones[zone.dataset.correct]}</span>`;
-                    } else {
-                        zone.classList.remove('filled');
-                        if (zone.children.length > 0) {
-                            zone.classList.add('incorrect');
-                            const id = zone.children[0].id;
-                            explicacion = `<span style='color:#d32f2f;'><b>✖ Incorrecto:</b> ${explicaciones[zone.dataset.correct]}</span>`;
-                        } else {
-                            zone.classList.remove('incorrect');
-                            explicacion = '';
-                        }
-                    }
-                    if (explicacion) {
-                        const expDiv = document.createElement('div');
-                        expDiv.className = 'explicacion-puberta';
-                        expDiv.style.fontSize = '0.95em';
-                        expDiv.style.marginTop = '4px';
-                        expDiv.innerHTML = explicacion;
-                        zone.appendChild(expDiv);
-                    }
-                });
-                let resultado = `<b>Respuestas correctas: ${correctas} de 6.</b><br>`;
-                if (correctas === 6) {
-                    resultado += '¡Excelente! Has identificado los principales cambios de la pubertad.';
-                } else {
-                    resultado += 'Revisa las descripciones y vuelve a intentarlo.';
-                }
-                document.getElementById('dragdrop-puberta-resultado').innerHTML = resultado;
-            }
-        </script>
-
-    </div>
-
-        <!-- Redes sociales en su propio bloque al final -->
-        <div class="margen">
-            <div class="cuadro">
-                <h4 data-i18n="redes_titulo">Redes sociales</h4>
-                <p data-i18n="redes_desc">Síguenos en nuestras diferentes redes sociales para mantenerte informado
-                    acerca de las actividades que realizamos:</p>
-                <div class="social-buttons">
-                    <a href="https://www.facebook.com/profile.php?id=61552371105965&mibextid=ZbWKwL" class="social-icon"
-                        target="_blank" title="Facebook">
-                        <img src="img/facebook.jpeg" alt="Facebook" />
-                    </a>
-                    <a href="https://www.instagram.com/pdpeaj_beni?igsh=bTJxcTA2YWljcXFj" class="social-icon"
-                        target="_blank" title="Instagram">
-                        <img src="img/instagram.jpg" alt="Instagram" />
-                    </a>
-                    <a href="https://www.tiktok.com/@pl.dptal.beni?_r=1&_d=dgiagblm5bm3hd&sec_uid=MS4wLjABAAAAZdTgxw7TZwEqWx3KqQ1Sodz-Nl71YGcbHWpO52mb2X5Hdh6-SAh9C8Zs-qRU1REP&share_author_id=7444698045256565815&sharer_language=es&source=h5_m&u_code=db831d8a2jk4a7&timestamp=1747515529&user_id=6801283179456119813&sec_user_id=MS4wLjABAAAAxcaST7xaQBgL-wuI9lI_yhuepvKbOU_K3oEBgkByVudlDsYkgIvMpXXbbTltqxyD&utm_source=copy&utm_campaign=client_share&utm_medium=android&share_iid=7505198472946206469&share_link_id=2f1249f4-f25a-4e74-bca8-99a491ed450f&share_app_id=1233&ugbiz_name=ACCOUNT&ug_btm=b7360%2Cb5836&social_share_type=5&enable_checksum=1"
-                        class="social-icon" target="_blank" title="TikTok">
-                        <img src="img/tik tok.jpeg" alt="TikTok" />
-                    </a>
-                </div>
-            </div>
-        </div>
 
         <footer>
-            <div style="color:#ffffff; font-size:1.5em; font-weight:bold;" data-i18n="footer">&copy; PDPEAJ-BENI
+            <div class="margen">
+                <div style="font-size:1.5em; font-weight:bold;">
+                    &copy; PDPEAJ-BENI
+                </div>
             </div>
         </footer>
 </body>
-
-<script src="traducciones.js"></script>
 
 </html>

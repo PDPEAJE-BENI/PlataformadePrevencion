@@ -4,38 +4,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-i18n="material_titulo">Material Descargable | PDPEAJ-BENI</title>
+    <title>PDPEAJ-BENI</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="estilos.css">
 
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) { w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' }); var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f); })(window, document, 'script', 'dataLayer', 'GTM-WPNLRRK3');</script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-74F9S56FR9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-74F9S56FR9');
+    </script>
 </head>
 
 <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WPNLRRK3" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
     <header>
-        <div class="margen">
-            <h1 data-i18n="material_logo">PDPEAJ-BENI</h1>
-            <img src="img/logo.png" alt="Logo PDPEAJ-BENI" class="logo">
-                <div class="idioma-btn-bar" style="display:none;">
-                    <button id="btn-es" class="idioma-btn" onclick="setLanguage('es')">ES</button>
-                    <button id="btn-en" class="idioma-btn" onclick="setLanguage('en')">EN</button>
-                    <script>
-                        function updateIdiomaBtnSelected(lang) {
-                            document.getElementById('btn-es').classList.toggle('selected', lang === 'es');
-                            document.getElementById('btn-en').classList.toggle('selected', lang === 'en');
-                        }
-                        const originalSetLanguage = window.setLanguage;
-                        window.setLanguage = function (lang) {
-                            originalSetLanguage(lang);
-                            updateIdiomaBtnSelected(lang);
-                        };
-                        document.addEventListener('DOMContentLoaded', function () {
-                            const lang = localStorage.getItem('lang') || 'es';
-                            updateIdiomaBtnSelected(lang);
-                        });
-                    </script>
-                </div>
+        <div class="margen" style="text-align:center;">
+            <h1 data-i18n="saludo" style="font-size:2.1rem; font-weight:800; margin-bottom:0.7rem;">Plataforma Departamental de Prevención de Embarazos en Adolescentes y Jóvenes del Beni</h1>
+            <img src="img/logo.png" alt="PDPEAJ-BENI" class="logo" style="max-width:90px; margin:0 auto 0.7rem auto; display:block;">
         </div>
-        <div class="menu-desplegable">
-            <button class="menu-boton" id="menu-boton" onclick="toggleMenu()">...</button>
+    </header>
+
+    <main class="margen">
+    <nav class="menu-desplegable" style="margin-bottom:1.5rem;">
+            <button class="menu-boton" id="menu-boton" onclick="toggleMenu()">☰ Menú</button>
             <div class="menu-contenido" id="menu-contenido">
                 <a href="index.html" class="menu-link menu-inicio">
                     <div class="menu-title" data-i18n="menu_inicio">Inicio</div>
@@ -49,107 +54,50 @@
                 <a href="contacto.html" class="menu-link menu-contacto">
                     <div class="menu-title" data-i18n="menu_contacto">Contacto y Comunicación</div>
                 </a>
-                <a href="material.html" class="menu-link menu-material">
-                    <div class="menu-title" data-i18n="menu_material">Material</div>
-                </a>
                 <a href="juegos.html" class="menu-link menu-juegos">
                     <div class="menu-title" data-i18n="menu_juegos">Juegos</div>
                 </a>
-            
-
+                <a href="material.html" class="menu-link menu-material">
+                    <div class="menu-title" data-i18n="menu_material">Material</div>
+                </a>
             </div>
-        </div>
-    </header>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WPNLRRK3" height="0" width="0"
-            style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-    <script>
-        function toggleMenu() {
-            var menu = document.getElementById('menu-contenido');
-            if (window.innerWidth <= 600) {
-                if (menu.style.display === 'block') {
-                    menu.style.display = 'none';
-                } else {
-                    menu.style.display = 'block';
-                }
-            }
-        }
-        function cerrarMenu() {
-            var menu = document.getElementById('menu-contenido');
-            if (window.innerWidth <= 600) {
-                menu.style.display = 'none';
-            }
-        }
-        document.addEventListener('click', function (e) {
-            var menu = document.getElementById('menu-contenido');
-            var boton = document.getElementById('menu-boton');
-            if (window.innerWidth <= 600 && menu && boton) {
-                if (!menu.contains(e.target) && !boton.contains(e.target)) {
-                    menu.style.display = 'none';
-                }
-            }
-        });
-        window.addEventListener('resize', function () {
-            var menu = document.getElementById('menu-contenido');
-            if (window.innerWidth > 600) {
-                menu.style.display = '';
-            } else {
-                menu.style.display = 'none';
-            }
-        });
-        window.addEventListener('scroll', function () {
-            var menu = document.getElementById('menu-contenido');
-            if (window.innerWidth <= 600 && menu) {
-                menu.style.display = 'none';
-            }
-        });
-    </script>
+        </nav>
     <main>
-        <div class="margen material-margen">
-            <div class="cuadro material-cuadro">
-                <h2 class="material-titulo" data-i18n="material_titulo2">Material educativo descargable</h2>
-
-                <div class="aclaracion-material">
+        <div class="margen material-margen" style="display:flex; flex-direction:column; align-items:center;">
+                    <div class="cuadro material-cuadro" style="margin:0 auto; max-width:700px;">
+                <h2 class="material-titulo" data-i18n="material_titulo2" style="text-align:center; font-size:1.5rem; font-weight:700; margin-bottom:1.1rem;">Material educativo descargable</h2>
+                <div class="aclaracion-material" style="text-align:center; margin-bottom:1.2rem; font-size:1.08em;">
                     <strong data-i18n="material_nota_titulo">Nota aclaratoria:</strong> <span data-i18n="material_nota">La Plataforma Departamental de Prevención de Embarazos en Adolescentes y Jóvenes del Beni <b>no es propietaria</b> de los materiales compartidos en esta sección. Estos recursos se difunden únicamente con fines informativos y educativos para mantener a los jóvenes y adolescentes informados y empoderados.</span>
                 </div>
-                <br>
 
                 <ul class="material-lista">
                     <li>
                         <a href="videos/Cartilla-EIS-en-el-CE-coordinadora.pdf" download>
-                            <img class="pdf-thumb" src="videos/Cartilla-EIS-en-el-CE-coordinadora_001.png"
-                                alt="Cartilla EIS">
+                            <img class="pdf-thumb" src="videos/Cartilla-EIS-en-el-CE-coordinadora_001.png" alt="Cartilla EIS">
                             <span data-i18n="material_cartilla_eis">Cartilla EIS</span>
                         </a>
                     </li>
                     <li>
                         <a href="videos/dgss_acon_n_46_cartilla_salud_sexual.pdf" download>
-                            <img class="pdf-thumb" src="videos/dgss_acon_n_46_cartilla_salud_sexual_001.png"
-                                alt="Cartilla Salud Sexual">
+                            <img class="pdf-thumb" src="videos/dgss_acon_n_46_cartilla_salud_sexual_001.png" alt="Cartilla Salud Sexual">
                             <span data-i18n="material_cartilla_salud">Cartilla Salud Sexual</span>
                         </a>
                     </li>
                     <li>
-                        <a href="videos/Cuadriptico-Derechos-Sexuales-y-Derechos-Reproductivos-en-nuestras-vidas.pdf"
-                            download>
-                            <img class="pdf-thumb"
-                                src="videos/Cuadriptico-Derechos-Sexuales-y-Derechos-Reproductivos-en-nuestras-vidas_001.png"
-                                alt="Cuadríptico Derechos Sexuales y Reproductivos">
+                        <a href="videos/Cuadriptico-Derechos-Sexuales-y-Derechos-Reproductivos-en-nuestras-vidas.pdf" download>
+                            <img class="pdf-thumb" src="videos/Cuadriptico-Derechos-Sexuales-y-Derechos-Reproductivos-en-nuestras-vidas_001.png" alt="Cuadríptico Derechos Sexuales y Reproductivos">
                             <span data-i18n="material_cuadriptico">Cuadríptico Derechos Sexuales y Reproductivos</span>
                         </a>
                     </li>
                     <li>
                         <a href="videos/BoletínDSDRVAj-comprimido_513.pdf" download>
-                            <img class="pdf-thumb" src="videos/BoletínDSDRVAj-comprimido_513_001.png"
-                                alt="Boletín DSDRVAj">
+                            <img class="pdf-thumb" src="videos/BoletínDSDRVAj-comprimido_513_001.png" alt="Boletín DSDRVAj">
                             <span data-i18n="material_boletin">Boletín DSDRVAj</span>
                         </a>
                     </li>
                     <li>
                         <a href="videos/ADOLESCENTES-Y-JOVENES-QUE-INCIDEN.pdf" download>
-                            <img class="pdf-thumb" src="videos/ADOLESCENTES-Y-JOVENES-QUE-INCIDEN_001.png"
-                                alt="Adolescentes y Jóvenes que Inciden">
+                            <img class="pdf-thumb" src="videos/ADOLESCENTES-Y-JOVENES-QUE-INCIDEN_001.png" alt="Adolescentes y Jóvenes que Inciden">
                             <span data-i18n="material_adolecentes">Adolescentes y Jóvenes que Inciden</span>
                         </a>
                     </li>
@@ -161,15 +109,13 @@
                     </li>
                     <li>
                         <a href="videos/Orientaciones técnicas.pdf" download>
-                            <img class="pdf-thumb" src="videos/Orientaciones técnicas_001.png"
-                                alt="Orientaciones Técnicas">
+                            <img class="pdf-thumb" src="videos/Orientaciones técnicas_001.png" alt="Orientaciones Técnicas">
                             <span data-i18n="material_orientaciones">Orientaciones Técnicas</span>
                         </a>
                     </li>
                     <li>
                         <a href="videos/informe-defensorial-sueños-interrumpidos.pdf" download>
-                            <img class="pdf-thumb" src="videos/informe-defensorial-sueños-interrumpidos_001.png"
-                                alt="Cartilla EIS">
+                            <img class="pdf-thumb" src="videos/informe-defensorial-sueños-interrumpidos_001.png" alt="Cartilla EIS">
                             <span data-i18n="material_informe">Informe Defensorial: Sueños Interrumpidos</span>
                         </a>
                     </li>

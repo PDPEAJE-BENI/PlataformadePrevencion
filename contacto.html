@@ -5,17 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacto PDPEAJ-BENI</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="estilos.css">
+
     <!-- Google Tag Manager -->
-    <script>(function (w, d, s, l, i) {
-            w[l] = w[l] || []; w[l].push({
-                'gtm.start':
-                    new Date().getTime(), event: 'gtm.js'
-            }); var f = d.getElementsByTagName(s)[0],
-                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-        })(window, document, 'script', 'dataLayer', 'GTM-WPNLRRK3');</script>
+    <script>(function (w, d, s, l, i) { w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' }); var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f); })(window, document, 'script', 'dataLayer', 'GTM-WPNLRRK3');</script>
     <!-- End Google Tag Manager -->
+
+    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-74F9S56FR9"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -30,101 +30,166 @@
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WPNLRRK3" height="0" width="0"
             style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
+
     <header>
-        <div class="idioma-btn-bar" style="display:none;">
-            <button id="btn-es" class="idioma-btn" onclick="setLanguage('es')">ES</button>
-            <button id="btn-en" class="idioma-btn" onclick="setLanguage('en')">EN</button>
-            <script>
-                // Resalta el botón del idioma seleccionado
-                function updateIdiomaBtnSelected(lang) {
-                    document.getElementById('btn-es').classList.toggle('selected', lang === 'es');
-                    document.getElementById('btn-en').classList.toggle('selected', lang === 'en');
-                }
-                // Llama a esta función cada vez que cambie el idioma
-                const originalSetLanguage = window.setLanguage;
-                window.setLanguage = function (lang) {
-                    originalSetLanguage(lang);
-                    updateIdiomaBtnSelected(lang);
-                };
-                // Al cargar la página, resalta el idioma guardado o español por defecto
-                document.addEventListener('DOMContentLoaded', function () {
-                    const lang = localStorage.getItem('lang') || 'es';
-                    updateIdiomaBtnSelected(lang);
-                });
-            </script>
+        <div class="margen">
+            <h1 data-i18n="contacto_titulo">Contacto PDPEAJ-BENI</h1>
+            <img src="img/logo.png" alt="PDPEAJ-BENI" class="logo">
         </div>
     </header>
-    <div class="menu-desplegable">
-        <button class="menu-boton" id="menu-boton" onclick="toggleMenu()">...</button>
-        <div class="menu-contenido" id="menu-contenido">
-            <a href="index.html" class="menu-link menu-inicio">
-                <div class="menu-title" data-i18n="menu_inicio">Inicio</div>
-            </a>
-            <a href="actividades.html" class="menu-link menu-actividades">
-                <div class="menu-title" data-i18n="menu_actividades">Más Actividades</div>
-            </a>
-            <a href="directiva.html" class="menu-link menu-directiva">
-                <div class="menu-title" data-i18n="menu_directiva">Directiva</div>
-            </a>
-            <a href="contacto.html" class="menu-link menu-contacto">
-                <div class="menu-title" data-i18n="menu_contacto">Contacto y Comunicación</div>
-            </a>
 
-            <a href="material.html" class="menu-link menu-material">
-                <div class="menu-title" data-i18n="menu_material">Material</div>
-            </a>
-            <a href="juegos.html" class="menu-link menu-juegos">
-                <div class="menu-title" data-i18n="menu_juegos">Juegos</div>
-            </a>
-        </div>
-    </div>
-    <div class="margen">
-        <div class="cuadro">
-            <h2 data-i18n="contacto_como">¿Cómo puedes contactarnos?</h2>
-            <p data-i18n="contacto_intro">Puedes comunicarte con la plataforma a través de los siguientes medios:</p>
-            <h4 data-i18n="contacto_telefonos">Teléfonos de contacto</h4>
-            <div class="lista-telefonos">
-                <a href="https://wa.me/59172817484" class="telefono-link">
-                    <span class="icono-telefono">📞</span> <span data-i18n="contacto_tel_pres">+591 72817484 -
-                        Presidente de la PDPEAJ-Beni</span>
+    <main class="margen">
+        <nav class="menu-desplegable">
+            <button class="menu-boton" id="menu-boton" onclick="toggleMenu()">☰ Menú</button>
+            <div class="menu-contenido" id="menu-contenido">
+                <a href="index.html" class="menu-link menu-inicio">
+                    <div class="menu-title" data-i18n="menu_inicio">Inicio</div>
                 </a>
-                <a href="https://wa.me/59171148768" class="telefono-link">
-                    <span class="icono-telefono">📞</span> <span data-i18n="contacto_tel_vice">+591 71148768 -
-                        Vicepresidenta de la PDPEAJ-Beni</span>
+                <a href="actividades.html" class="menu-link menu-actividades">
+                    <div class="menu-title" data-i18n="menu_actividades">Más Actividades</div>
                 </a>
-                <a href="https://wa.me/67359351" class="telefono-link">
-                    <span class="icono-telefono">📞</span> <span data-i18n="telefono_sec_actas">+591 67359351 -
-                        Sec. Actas de la PDPEAJ-Beni</span>
+                <a href="directiva.html" class="menu-link menu-directiva">
+                    <div class="menu-title" data-i18n="menu_directiva">Directiva</div>
+                </a>
+                <a href="contacto.html" class="menu-link menu-contacto">
+                    <div class="menu-title" data-i18n="menu_contacto">Contacto y Comunicación</div>
+                </a>
+                <a href="juegos.html" class="menu-link menu-juegos">
+                    <div class="menu-title" data-i18n="menu_juegos">Juegos</div>
+                </a>
+                <a href="material.html" class="menu-link menu-material">
+                    <div class="menu-title" data-i18n="menu_material">Material</div>
                 </a>
             </div>
-        </div>
-        <div class="cuadro">
-            <h4 data-i18n="contacto_email_titulo">Correo Electrónico</h4>
-            <div class="email-contacto">
-                <a href="mailto:plataformadeprevencionbeni@gmail.com"
-                    data-i18n="contacto_email">plataformadeprevencionbeni@gmail.com</a>
+        </nav>
+
+        <section class="contacto">
+
+            <div class="cuadro">
+                <h2 data-i18n="contacto_como">¿Cómo puedes contactarnos?</h2>
+                <p class="presentacion-oficial-text" data-i18n="contacto_intro">
+                    Puedes comunicarte con la plataforma a través de los siguientes medios:
+                </p>
+
+                <h2 data-i18n="contacto_telefonos">Teléfonos de contacto</h4>
+                    <div class="lista-telefonos">
+                        <a href="https://wa.me/59172817484" class="telefono-link">
+                            <span class="icono-telefono">📞</span>
+                            <span data-i18n="contacto_tel_pres">+591 72817484 - Presidente de la PDPEAJ-Beni</span>
+                        </a>
+                        <a href="https://wa.me/59171148768" class="telefono-link">
+                            <span class="icono-telefono">📞</span>
+                            <span data-i18n="contacto_tel_vice">+591 71148768 - Vicepresidenta de la PDPEAJ-Beni</span>
+                        </a>
+                        <a href="https://wa.me/67359351" class="telefono-link">
+                            <span class="icono-telefono">📞</span>
+                            <span data-i18n="telefono_sec_actas">+591 67359351 - Sec. Actas de la PDPEAJ-Beni</span>
+                        </a>
+                    </div>
             </div>
-        </div>
-        <div class="cuadro">
-            <h4 data-i18n="contacto_form_titulo">Formulario de contacto</h4>
-            <form action="https://formspree.io/f/mpwlojzb" method="POST" class="form-contacto">
-                <label data-i18n="contacto_form_nombre">Nombre:</label>
-                <input type="text" name="nombre" required>
-                <label data-i18n="contacto_form_email">Correo electrónico:</label>
-                <input type="email" name="email" required>
-                <label data-i18n="contacto_form_mensaje">Mensaje:</label>
-                <textarea name="mensaje" rows="5" required></textarea>
-                <button type="submit" data-i18n="contacto_form_enviar">Enviar</button>
-            </form>
-        </div>
-    </div>
-            <script src="traducciones.js"></script>
+
+            <div class="cuadro">
+                <h2 data-i18n="contacto_email_titulo">Correo Electrónico</h4>
+                    <div class="email-contacto">
+                        <a href="mailto:plataformadeprevencionbeni@gmail.com" data-i18n="contacto_email">
+                            plataformadeprevencionbeni@gmail.com
+                        </a>
+                    </div>
+            </div>
+
+            <div class="cuadro">
+                <div style="text-align:center; margin-bottom:2rem;">
+                    <h2 data-i18n="contacto_form_titulo"
+                        style="margin-bottom:0.5rem; font-size:2.2rem; font-weight:800; color:#4a90e2;">Contáctanos</h2>
+                    <div style="font-size:1.1rem; color:#555; margin-bottom:1.5rem;">¿Tienes dudas, sugerencias o
+                        quieres sumarte? ¡Escríbenos!</div>
+                </div>
+                <form action="https://formspree.io/f/mpwlojzb" method="POST" class="form-contacto"
+                    style="background: linear-gradient(135deg, #f5f7fa 0%, #e3e9f7 100%); border-radius: 18px; box-shadow: 0 8px 32px rgba(74,144,226,0.13); padding: 2rem 1.2rem; max-width: 480px; margin: 0 auto; display: flex; flex-direction: column; gap: 1.1rem;">
+                    <div class="form-group" style="position:relative;">
+                        <label for="nombre" data-i18n="contacto_form_nombre" style="font-weight:600; display:flex; align-items:center; gap:0.5em;">
+                            <span style="font-size:1.2em; color:#4a90e2;">&#128100;</span>
+                            Nombre:
+                        </label>
+                        <input type="text" id="nombre" name="nombre" required autocomplete="name"
+                            placeholder="Tu nombre" style="background:#fff; padding-left:2.2em;">
+                    </div>
+                    <div class="form-group" style="position:relative;">
+                        <label for="telefono" style="font-weight:600; display:flex; align-items:center; gap:0.5em;">
+                            <span style="font-size:1.2em; color:#4a90e2;">&#128222;</span>
+                            Teléfono (opcional):
+                        </label>
+                        <input type="tel" id="telefono" name="telefono" autocomplete="tel" placeholder="Ej: 71234567"
+                            style="background:#fff; padding-left:2.2em;">
+                    </div>
+                    <div class="form-group" style="position:relative;">
+                        <label for="email" data-i18n="contacto_form_email" style="font-weight:600; display:flex; align-items:center; gap:0.5em;">
+                            <span style="font-size:1.2em; color:#4a90e2;">&#9993;</span>
+                            Correo electrónico:
+                        </label>
+                        <input type="email" id="email" name="email" required autocomplete="email"
+                            placeholder="tucorreo@ejemplo.com" style="background:#fff; padding-left:2.2em;">
+                    </div>
+                    <div class="form-group" style="position:relative;">
+                        <label for="mensaje" data-i18n="contacto_form_mensaje" style="font-weight:600; display:flex; align-items:center; gap:0.5em;">
+                            <span style="font-size:1.2em; color:#4a90e2;">&#9998;</span>
+                            Mensaje:
+                        </label>
+                        <textarea id="mensaje" name="mensaje" rows="5" required placeholder="Escribe tu mensaje..."
+                            style="background:#fff; padding-left:2.2em;"></textarea>
+                    </div>
+                    <button type="submit" data-i18n="contacto_form_enviar"
+                        style="max-width:240px; font-size:1.15em; letter-spacing:1px; box-shadow:0 4px 16px rgba(74,144,226,0.10); display:flex; align-items:center; gap:0.7em; align-self:center; margin-top:0.5rem;">
+                        <span style="font-size:1.2em;">&#128233;</span> Enviar
+                    </button>
+                    <div style="text-align:center; margin-top:1.2rem; font-size:0.98em; color:#888;">
+                        <span style="font-size:1.1em;">&#128274;</span> Tus datos serán tratados con confidencialidad.
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
     <footer>
-        <div style="color:#ffffff; font-size:1.5em; font-weight:bold;">
-             &copy; PDPEAJ-BENI
-         </div>
-       </footer>
-</body>
+        <div class="margen">
+            <div style="font-size:1.5em; font-weight:bold;">
+                &copy; PDPEAJ-BENI
+            </div>
+        </div>
+    </footer>
 
+    <script>
+        // Menú desplegable responsivo
+        function toggleMenu() {
+            var menu = document.getElementById('menu-contenido');
+            if (window.innerWidth <= 768) {
+                menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+            }
+        }
+
+        // Cerrar menú al hacer click fuera
+        window.addEventListener('click', function (event) {
+            var menu = document.getElementById('menu-contenido');
+            var boton = document.getElementById('menu-boton');
+            if (window.innerWidth <= 768 && menu && boton) {
+                if (!menu.contains(event.target) && !boton.contains(event.target)) {
+                    menu.style.display = 'none';
+                }
+            }
+        });
+
+        // Animación scroll reveal
+        ScrollReveal().reveal('.cuadro', {
+            delay: 200,
+            distance: '40px',
+            origin: 'bottom',
+            opacity: 0,
+            duration: 1000,
+            easing: 'cubic-bezier(0.5, 0, 0, 1)'
+        });
+    </script>
+    <script src="traducciones.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+</body>
 
 </html>
