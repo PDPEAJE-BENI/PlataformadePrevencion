@@ -226,40 +226,25 @@
 
     <footer>
         <div class="margen">
-            <div style="font-size:1.5em; font-weight:bold;">
+            <div class="footer-title">
                 &copy; PDPEAJ-BENI
             </div>
         </div>
        
+        <script src="js/menu.js"></script>
         <script>
-            var menu = document.getElementById('menu-contenido');
-            if (window.innerWidth <= 768) {
-                menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
-        }
-
-        // Cerrar menú al hacer click fuera
-        window.addEventListener('click', function (event) {
-            var menu = document.getElementById('menu-contenido');
-            var boton = document.getElementById('menu-boton');
-            if (window.innerWidth <= 768 && menu && boton) {
-                if (!menu.contains(event.target) && !boton.contains(event.target)) {
-                    menu.style.display = 'none';
-                }
-            }
-        });
-
-        // Animación scroll reveal
-        ScrollReveal().reveal('.cuadro', {
-            delay: 200,
-            distance: '40px',
-            origin: 'bottom',
-            opacity: 0,
-            duration: 1000,
-            easing: 'cubic-bezier(0.5, 0, 0, 1)'
-        });
-    </script>
-    <script src="traducciones.js"></script>
-    <script src="https://unpkg.com/scrollreveal"></script>
+            // Animación scroll reveal
+            ScrollReveal().reveal('.cuadro', {
+                delay: 200,
+                distance: '40px',
+                origin: 'bottom',
+                opacity: 0,
+                duration: 1000,
+                easing: 'cubic-bezier(0.5, 0, 0, 1)'
+            });
+        </script>
+        <script src="traducciones.js"></script>
+        <script src="https://unpkg.com/scrollreveal"></script>
 </body>
 
 </html>

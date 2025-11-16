@@ -84,14 +84,14 @@
             </div>
 
             <div class="cuadro">
-                <div style="text-align:center; margin-bottom:2rem;">
+                <div class="contacto-center">
                     <h2 data-i18n="contacto_form_titulo"
-                        style="margin-bottom:0.5rem; font-size:2.2rem; font-weight:800; color:#4a90e2;">Contáctanos</h2>
-                    <div style="font-size:1.1rem; color:#555; margin-bottom:1.5rem;">¿Tienes dudas, sugerencias o
+                        class="contacto-titulo">Contáctanos</h2>
+                    <div class="contacto-subtitulo">¿Tienes dudas, sugerencias o
                         quieres sumarte? ¡Escríbenos!</div>
                 </div>
                 <form action="https://formspree.io/f/mpwlojzb" method="POST" class="form-contacto"
-                    style="background: linear-gradient(135deg, #f5f7fa 0%, #e3e9f7 100%); border-radius: 18px; box-shadow: 0 8px 32px rgba(74,144,226,0.13); padding: 2rem 1.2rem; max-width: 480px; margin: 0 auto; display: flex; flex-direction: column; gap: 1.1rem;">
+                    class="form-contacto">
                     <div class="form-group" style="position:relative;">
                         <label for="nombre" data-i18n="contacto_form_nombre" style="font-weight:600; display:flex; align-items:center; gap:0.5em;">
                             <span style="font-size:1.2em; color:#4a90e2;">&#128100;</span>
@@ -125,7 +125,7 @@
                             style="background:#fff; padding-left:2.2em;"></textarea>
                     </div>
                     <button type="submit" data-i18n="contacto_form_enviar"
-                        style="max-width:240px; font-size:1.15em; letter-spacing:1px; box-shadow:0 4px 16px rgba(74,144,226,0.10); display:flex; align-items:center; gap:0.7em; align-self:center; margin-top:0.5rem;">
+                        class="form-contacto-btn">
                         <span style="font-size:1.2em;">&#128233;</span> Enviar
                     </button>
                     <div style="text-align:center; margin-top:1.2rem; font-size:0.98em; color:#888;">
@@ -142,28 +142,10 @@
                 &copy; PDPEAJ-BENI
             </div>
         </div>
-        <footer>
-            <div class="site-footer">
-                &copy; PDPEAJ-BENI
-            </div>
-        </footer>
-            var menu = document.getElementById('menu-contenido');
-            if (window.innerWidth <= 768) {
-                menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
-            }
-        }
+    </footer>
 
-        // Cerrar menú al hacer click fuera
-        window.addEventListener('click', function (event) {
-            var menu = document.getElementById('menu-contenido');
-            var boton = document.getElementById('menu-boton');
-            if (window.innerWidth <= 768 && menu && boton) {
-                if (!menu.contains(event.target) && !boton.contains(event.target)) {
-                    menu.style.display = 'none';
-                }
-            }
-        });
-
+    <script src="js/menu.js"></script>
+    <script>
         // Animación scroll reveal
         ScrollReveal().reveal('.cuadro', {
             delay: 200,

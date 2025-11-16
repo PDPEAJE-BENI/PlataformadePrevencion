@@ -255,7 +255,7 @@
                     <img src="img/ley5.jpg" alt="Propuesta de Ley" class="actividad-img">
                 </div>
                 <div class="actividad-video">
-                    <video controls poster="img/ley.jpg" class="video-feria" style="width: 100%; max-width: 800px; margin: 20px auto; display: block;">
+                    <video controls poster="img/ley.jpg" class="video-feria video-block">
                         <source src="videos/Ley.mp4" type="video/mp4">
                         Tu navegador no soporta el video.
                     </video>
@@ -309,7 +309,7 @@
                     <img src="img/trata3.jpg" alt="trata" class="actividad-img">
                 </div>
                 <div class="actividad-video">
-                    <video controls poster="img/trata.jpg" class="video-feria" style="width: 100%; max-width: 800px; margin: 20px auto; display: block;">
+                    <video controls poster="img/trata.jpg" class="video-feria video-block">
                         <source src="videos/feria.mp4" type="video/mp4">
                         Tu navegador no soporta el video.
                     </video>
@@ -359,32 +359,14 @@
 
     <footer>
         <div class="margen">
-            <div style="font-size:1.5em; font-weight:bold;">
+            <div class="footer-title">
                 &copy; PDPEAJ-BENI
             </div>
         </div>
-        <footer>
-            <div class="site-footer" style="color:#ffffff;">
-                &copy; PDPEAJ-BENI
-            </div>
-        </footer>
-            var menu = document.getElementById('menu-contenido');
-            if (window.innerWidth <= 768) {
-                menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
-            }
-        }
+    </footer>
 
-        // Cerrar menú al hacer click fuera
-        window.addEventListener('click', function (event) {
-            var menu = document.getElementById('menu-contenido');
-            var boton = document.getElementById('menu-boton');
-            if (window.innerWidth <= 768 && menu && boton) {
-                if (!menu.contains(event.target) && !boton.contains(event.target)) {
-                    menu.style.display = 'none';
-                }
-            }
-        });
-
+    <script src="js/menu.js"></script>
+    <script>
         // Animación scroll reveal
         ScrollReveal().reveal('.cuadro', {
             delay: 200,

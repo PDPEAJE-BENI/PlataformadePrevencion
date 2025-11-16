@@ -35,7 +35,7 @@
             <div class="cuadro" style="max-width: 480px; margin: 0 auto; padding: 2.5rem 1.5rem;">
                 <div class="directiva-grid-nueva" style="justify-content:center;">
                     <div id="miembro-directiva-unico" class="directiva-card" style="max-width:400px;">
-                        <img id="foto-miembro" src="img/presidente.jpg" alt="Presidente" class="directiva-foto" style="max-width: auto; max-height: auto; width: 100%; height: auto; object-fit: cover; margin: 0 auto; display: block;">
+                        <img id="foto-miembro" src="img/presidente.jpg" alt="Presidente" class="directiva-foto">
                         <h3 id="nombre-miembro" class="directiva-nombre">Johan Paul Algarañaz Vasquez</h3>
                         <div class="directiva-cargo"><b data-i18n="directiva_cargo">Cargo:</b> <span id="cargo-miembro-texto">Presidente</span></div>
                         <p id="desc-miembro" class="directiva-desc" data-desc="Johan lidera la plataforma con compromiso y visión, promoviendo la participación juvenil y la prevención de embarazos adolescentes.">Johan lidera la plataforma con compromiso y visión, promoviendo la participación juvenil y la prevención de embarazos adolescentes.</p>
@@ -54,22 +54,17 @@
         </div>
     </footer>
     <script>
-        // Menú desplegable responsivo
-        function toggleMenu() {
-            var menu = document.getElementById('menu-contenido');
-            if (window.innerWidth <= 768) {
-                menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
-            }
-        }
-        window.addEventListener('click', function(event) {
-            var menu = document.getElementById('menu-contenido');
-            var boton = document.getElementById('menu-boton');
-            if (window.innerWidth <= 768 && menu && boton) {
-                if (!menu.contains(event.target) && !boton.contains(event.target)) {
-                    menu.style.display = 'none';
-                }
-            }
+        // Animación scroll reveal
+        ScrollReveal().reveal('.cuadro', {
+            delay: 200,
+            distance: '40px',
+            origin: 'bottom',
+            opacity: 0,
+            duration: 1000,
+            easing: 'cubic-bezier(0.5, 0, 0, 1)'
         });
+    </script>
+    <script>
 
         // Datos de los miembros (idéntico a directiva.html)
         const miembros = [
