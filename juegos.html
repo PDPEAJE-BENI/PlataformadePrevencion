@@ -19,34 +19,60 @@
         </div>
     </header>
     <main class="margen">
-        <nav class="menu-desplegable" style="margin-bottom:1.5rem;">
-            <button class="menu-boton" id="menu-boton" onclick="toggleMenu()">☰ Menú</button>
-            <div class="menu-contenido" id="menu-contenido">
-                <a href="index.html" class="menu-link menu-inicio">
-                    <div class="menu-title" data-i18n="menu_inicio">Inicio</div>
-                </a>
-                <a href="actividades.html" class="menu-link menu-actividades">
-                    <div class="menu-title" data-i18n="menu_actividades">Más Actividades</div>
-                </a>
-                <a href="directiva.html" class="menu-link menu-directiva">
-                    <div class="menu-title" data-i18n="menu_directiva">Directiva</div>
-                </a>
-                <a href="contacto.html" class="menu-link menu-contacto">
-                    <div class="menu-title" data-i18n="menu_contacto">Contacto y Comunicación</div>
-                </a>
-                <a href="juegos.html" class="menu-link menu-juegos">
-                    <div class="menu-title" data-i18n="menu_juegos">Juegos</div>
-                </a>
-                <a href="material.html" class="menu-link menu-material">
-                    <div class="menu-title" data-i18n="menu_material">Material</div>
-                </a>
+        <!-- MENÚ FLOATING MODERNO -->
+        <nav class="floating-menu" id="floatingMenu">
+            <div class="menu-container">
+                <!-- Botón principal del menú -->
+                <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+                    <span class="menu-icon">☰</span>
+                    <span class="menu-text" data-i18n="menu_inicio">Menú</span>
+                </button>
+
+                <!-- Items del menú -->
+                <div class="menu-items" id="menuItems">
+                    <a href="index.html" class="menu-item" data-tooltip="Inicio">
+                        <span class="menu-icon">🏠</span>
+                        <span class="menu-label" data-i18n="menu_inicio">Inicio</span>
+                    </a>
+
+                    <a href="actividades.html" class="menu-item" data-tooltip="Actividades">
+                        <span class="menu-icon">📅</span>
+                        <span class="menu-label" data-i18n="menu_actividades">Actividades</span>
+                    </a>
+
+                    <a href="directiva.html" class="menu-item" data-tooltip="Directiva">
+                        <span class="menu-icon">👥</span>
+                        <span class="menu-label" data-i18n="menu_directiva">Directiva</span>
+                    </a>
+
+                    <a href="contacto.html" class="menu-item" data-tooltip="Contacto">
+                        <span class="menu-icon">📞</span>
+                        <span class="menu-label" data-i18n="menu_contacto">Contacto</span>
+                    </a>
+
+                    <a href="juegos.html" class="menu-item" data-tooltip="Juegos">
+                        <span class="menu-icon">🎮</span>
+                        <span class="menu-label" data-i18n="menu_juegos">Juegos</span>
+                    </a>
+
+                    <a href="material.html" class="menu-item" data-tooltip="Material">
+                        <span class="menu-icon">📚</span>
+                        <span class="menu-label" data-i18n="menu_material">Material</span>
+                    </a>
+                </div>
+
+                <!-- Indicador de posición -->
+                <div class="menu-indicator"></div>
             </div>
         </nav>
-        <!-- Juego 1: Memoria de Derechos -->
+
+        <!-- Botón para subir al inicio -->
+        <button class="scroll-top" id="scrollTop" aria-label="Subir al inicio">
+            <span>↑</span>
+        </button>
+        <!-- Juego 1: Quiz Pubertad - Mitos y Realidades -->
         <div class="cuadro juego-card">
-            <!-- Juego: Quiz Pubertad - Mitos y Realidades -->
-            <div class="cuadro juego-card">
-                <h2>Quiz: Pubertad, Mitos y Realidades</h2>
+            <h2>Quiz: Pubertad, Mitos y Realidades</h2>
                 <p>Responde verdadero o falso sobre la pubertad y aclara tus dudas.</p>
                 <form id="quiz-pubertad-form">
                     <div class="quiz-pregunta">
@@ -157,144 +183,104 @@
             </form>
             <div id="vf-sexualidad-resultado" class="juego-resultado"></div>
         </div>
-        <script>
-            // Juego: Quiz Pubertad - Mitos y Realidades
-            function calificarQuizPubertad() {
-                const respuestas = ['falso', 'verdadero', 'falso', 'verdadero'];
-                let score = 0;
-                for (let i = 1; i <= 4; i++) {
-                    const val = document.querySelector(`input[name="pub${i}"]:checked`);
-                    if (val && val.value === respuestas[i - 1]) score++;
-                }
-                const res = document.getElementById('quiz-pubertad-resultado');
-                if (score === 4) {
-                    res.textContent = '¡Perfecto! Todas tus respuestas son correctas.';
-                    res.style.color = '#388e3c';
-                } else {
-                    res.textContent = `Obtuviste ${score} de 4 correctas. ¡Sigue aprendiendo!`;
-                    res.style.color = '#d32f2f';
-                }
-            }
+    </main>
 
-            // Animación scroll reveal
-            ScrollReveal().reveal('.cuadro', {
-                delay: 200,
-                distance: '40px',
-                origin: 'bottom',
-                opacity: 0,
-                duration: 1000,
-                easing: 'cubic-bezier(0.5, 0, 0, 1)'
-            });
-        </script>
-        <script src="js/menu.js"></script>
-            // Juego: Verdadero o Falso Sexualidad Responsable
-            function calificarVFSexualidad() {
-                const respuestas = ['falso', 'verdadero', 'falso', 'verdadero'];
-                let score = 0;
-                for (let i = 1; i <= 4; i++) {
-                    const val = document.querySelector(`input[name="vf${i}"]:checked`);
-                    if (val && val.value === respuestas[i - 1]) score++;
-                }
-                const res = document.getElementById('vf-sexualidad-resultado');
-                if (score === 4) {
-                    res.textContent = '¡Perfecto! Todas tus respuestas son correctas.';
-                    res.style.color = '#388e3c';
-                } else {
-                    res.textContent = `Obtuviste ${score} de 4 correctas. ¡Sigue aprendiendo!`;
-                    res.style.color = '#d32f2f';
-                }
-            }
-
-            // Juego 5: Secuencia Correcta
-            const pasosSecuencia = [
-                'Reconocer que necesitas ayuda',
-                'Buscar a un adulto de confianza',
-                'Explicar la situación claramente',
-                'Seguir las recomendaciones y no quedarte solo/a',
-            ];
-            let pasosDesorden = pasosSecuencia.slice().sort(() => Math.random() - 0.5);
-            const secuenciaLista = document.getElementById('secuencia-lista');
-            const secuenciaResultado = document.getElementById('secuencia-resultado');
-            function renderSecuencia() {
-                secuenciaLista.innerHTML = '';
-                pasosDesorden.forEach((paso, idx) => {
-                    const li = document.createElement('li');
-                    li.className = 'secuencia-paso';
-                    li.textContent = paso;
-                    li.draggable = true;
-                    li.setAttribute('data-idx', idx);
-                    li.ondragstart = e => {
-                        e.dataTransfer.setData('text/plain', idx);
-                        li.classList.add('dragging');
-                    };
-                    li.ondragend = () => li.classList.remove('dragging');
-                    li.ondragover = e => e.preventDefault();
-                    li.ondrop = e => {
-                        e.preventDefault();
-                        const from = +e.dataTransfer.getData('text/plain');
-                        const to = idx;
-                        const temp = pasosDesorden[from];
-                        pasosDesorden[from] = pasosDesorden[to];
-                        pasosDesorden[to] = temp;
-                        renderSecuencia();
-                    };
-                    secuenciaLista.appendChild(li);
-                });
-                secuenciaResultado.textContent = '';
-            }
-            function verificarSecuencia() {
-                let correctas = 0;
-                for (let i = 0; i < pasosSecuencia.length; i++) {
-                    if (pasosDesorden[i] === pasosSecuencia[i]) correctas++;
-                }
-                if (correctas === pasosSecuencia.length) {
-                    secuenciaResultado.textContent = '¡Perfecto! Ordenaste todos los pasos correctamente.';
-                    secuenciaResultado.style.color = '#388e3c';
-                } else {
-                    secuenciaResultado.textContent = `Tienes ${correctas} de ${pasosSecuencia.length} en el orden correcto.`;
-                    secuenciaResultado.style.color = '#d32f2f';
-                }
-            }
-            renderSecuencia();
-            // Juego 1: Memoria de Derechos
-            const derechos = [
-                'Derecho a la educación',
-                'Derecho a la salud',
-                'Derecho a la información',
-                'Derecho a la participación',
-                'Derecho a la privacidad',
-                'Derecho a la protección',
-            ];
-            let memoriaCartas = [...derechos, ...derechos].sort(() => Math.random() - 0.5);
-            let memoriaSeleccion = [], memoriaBloqueo = false, memoriaPares = 0;
-            function verificarClasifica() {
-                let correctas = 0;
-                document.querySelectorAll('.clasifica-categoria').forEach(cat => {
-                    const tipo = cat.getAttribute('data-categoria');
-                    cat.querySelectorAll('.clasifica-item').forEach(item => {
-                        if (item.getAttribute('data-tipo') === tipo) correctas++;
-                    });
-                });
-                const res = document.getElementById('clasifica-resultado');
-                if (correctas === 4) {
-                    res.textContent = '¡Correcto! Clasificaste todos los métodos.';
-                    res.style.color = '#388e3c';
-                } else {
-                    res.textContent = `Clasificaste ${correctas} de 4 correctamente. Intenta de nuevo.`;
-                    res.style.color = '#d32f2f';
-                }
-            }
-        </script>
-
-
-        <footer>
-            <div class="margen">
-                <div style="font-size:1.5em; font-weight:bold;">
-                    &copy; PDPEAJ-BENI
-                </div>
-            </div>
-        <footer>
-            <div class="site-footer" style="color:#ffffff;">
+    <footer>
+        <div class="margen">
+            <div style="font-size:1.5em; font-weight:bold;">
                 &copy; PDPEAJ-BENI
             </div>
-        </footer>
+        </div>
+    </footer>
+
+    <script>
+        // Juego: Quiz Pubertad - Mitos y Realidades
+        function calificarQuizPubertad() {
+            const respuestas = ['falso', 'verdadero', 'falso', 'verdadero'];
+            let score = 0;
+            for (let i = 1; i <= 4; i++) {
+                const val = document.querySelector(`input[name="pub${i}"]:checked`);
+                if (val && val.value === respuestas[i - 1]) score++;
+            }
+            const res = document.getElementById('quiz-pubertad-resultado');
+            if (score === 4) {
+                res.textContent = '¡Perfecto! Todas tus respuestas son correctas.';
+                res.style.color = '#388e3c';
+            } else {
+                res.textContent = `Obtuviste ${score} de 4 correctas. ¡Sigue aprendiendo!`;
+                res.style.color = '#d32f2f';
+            }
+        }
+
+        // Juego: Verdadero o Falso Sexualidad Responsable
+        function calificarVFSexualidad() {
+            const respuestas = ['falso', 'verdadero', 'falso', 'verdadero'];
+            let score = 0;
+            for (let i = 1; i <= 4; i++) {
+                const val = document.querySelector(`input[name="vf${i}"]:checked`);
+                if (val && val.value === respuestas[i - 1]) score++;
+            }
+            const res = document.getElementById('vf-sexualidad-resultado');
+            if (score === 4) {
+                res.textContent = '¡Perfecto! Todas tus respuestas son correctas.';
+                res.style.color = '#388e3c';
+            } else {
+                res.textContent = `Obtuviste ${score} de 4 correctas. ¡Sigue aprendiendo!`;
+                res.style.color = '#d32f2f';
+            }
+        }
+
+        // Juego: Clasificar métodos anticonceptivos
+        function verificarClasifica() {
+            let correctas = 0;
+            document.querySelectorAll('.clasifica-categoria').forEach(cat => {
+                const tipo = cat.getAttribute('data-categoria');
+                cat.querySelectorAll('.clasifica-item').forEach(item => {
+                    if (item.getAttribute('data-tipo') === tipo) correctas++;
+                });
+            });
+            const res = document.getElementById('clasifica-resultado');
+            if (correctas === 4) {
+                res.textContent = '¡Correcto! Clasificaste todos los métodos.';
+                res.style.color = '#388e3c';
+            } else {
+                res.textContent = `Clasificaste ${correctas} de 4 correctamente. Intenta de nuevo.`;
+                res.style.color = '#d32f2f';
+            }
+        }
+
+        // Juego: Quiz Mitos y Realidades
+        function calificarQuizMitos() {
+            const respuestas = ['falso', 'verdadero', 'falso', 'verdadero'];
+            let score = 0;
+            for (let i = 1; i <= 4; i++) {
+                const val = document.querySelector(`input[name="q${i}"]:checked`);
+                if (val && val.value === respuestas[i - 1]) score++;
+            }
+            const res = document.getElementById('quiz-mitos-resultado');
+            if (score === 4) {
+                res.textContent = '¡Perfecto! Todas tus respuestas son correctas.';
+                res.style.color = '#388e3c';
+            } else {
+                res.textContent = `Obtuviste ${score} de 4 correctas. ¡Sigue aprendiendo!`;
+                res.style.color = '#d32f2f';
+            }
+        }
+    </script>
+
+    <script src="js/floating-menu.js"></script>
+    <script src="traducciones.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script>
+        // Animación scroll reveal
+        ScrollReveal().reveal('.cuadro', {
+            delay: 200,
+            distance: '40px',
+            origin: 'bottom',
+            opacity: 0,
+            duration: 1000,
+            easing: 'cubic-bezier(0.5, 0, 0, 1)'
+        });
+    </script>
+
+</body>

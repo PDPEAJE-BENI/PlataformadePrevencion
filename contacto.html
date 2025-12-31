@@ -25,29 +25,57 @@
     </header>
 
     <main class="margen">
-        <nav class="menu-desplegable">
-            <button class="menu-boton" id="menu-boton" onclick="toggleMenu()">☰ Menú</button>
-            <div class="menu-contenido" id="menu-contenido">
-                <a href="index.html" class="menu-link menu-inicio">
-                    <div class="menu-title" data-i18n="menu_inicio">Inicio</div>
-                </a>
-                <a href="actividades.html" class="menu-link menu-actividades">
-                    <div class="menu-title" data-i18n="menu_actividades">Más Actividades</div>
-                </a>
-                <a href="directiva.html" class="menu-link menu-directiva">
-                    <div class="menu-title" data-i18n="menu_directiva">Directiva</div>
-                </a>
-                <a href="contacto.html" class="menu-link menu-contacto">
-                    <div class="menu-title" data-i18n="menu_contacto">Contacto y Comunicación</div>
-                </a>
-                <a href="juegos.html" class="menu-link menu-juegos">
-                    <div class="menu-title" data-i18n="menu_juegos">Juegos</div>
-                </a>
-                <a href="material.html" class="menu-link menu-material">
-                    <div class="menu-title" data-i18n="menu_material">Material</div>
-                </a>
+        <!-- MENÚ FLOATING MODERNO -->
+        <nav class="floating-menu" id="floatingMenu">
+            <div class="menu-container">
+                <!-- Botón principal del menú -->
+                <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+                    <span class="menu-icon">☰</span>
+                    <span class="menu-text" data-i18n="menu_inicio">Menú</span>
+                </button>
+
+                <!-- Items del menú -->
+                <div class="menu-items" id="menuItems">
+                    <a href="index.html" class="menu-item" data-tooltip="Inicio">
+                        <span class="menu-icon">🏠</span>
+                        <span class="menu-label" data-i18n="menu_inicio">Inicio</span>
+                    </a>
+
+                    <a href="actividades.html" class="menu-item" data-tooltip="Actividades">
+                        <span class="menu-icon">📅</span>
+                        <span class="menu-label" data-i18n="menu_actividades">Actividades</span>
+                    </a>
+
+                    <a href="directiva.html" class="menu-item" data-tooltip="Directiva">
+                        <span class="menu-icon">👥</span>
+                        <span class="menu-label" data-i18n="menu_directiva">Directiva</span>
+                    </a>
+
+                    <a href="contacto.html" class="menu-item" data-tooltip="Contacto">
+                        <span class="menu-icon">📞</span>
+                        <span class="menu-label" data-i18n="menu_contacto">Contacto</span>
+                    </a>
+
+                    <a href="juegos.html" class="menu-item" data-tooltip="Juegos">
+                        <span class="menu-icon">🎮</span>
+                        <span class="menu-label" data-i18n="menu_juegos">Juegos</span>
+                    </a>
+
+                    <a href="material.html" class="menu-item" data-tooltip="Material">
+                        <span class="menu-icon">📚</span>
+                        <span class="menu-label" data-i18n="menu_material">Material</span>
+                    </a>
+                </div>
+
+                <!-- Indicador de posición -->
+                <div class="menu-indicator"></div>
             </div>
         </nav>
+
+        <!-- Botón para subir al inicio -->
+        <button class="scroll-top" id="scrollTop" aria-label="Subir al inicio">
+            <span>↑</span>
+        </button>
 
         <section class="contacto">
 
@@ -85,15 +113,15 @@
 
             <div class="cuadro">
                 <div class="contacto-center">
-                    <h2 data-i18n="contacto_form_titulo"
-                        class="contacto-titulo">Contáctanos</h2>
+                    <h2 data-i18n="contacto_form_titulo" class="contacto-titulo">Contáctanos</h2>
                     <div class="contacto-subtitulo">¿Tienes dudas, sugerencias o
                         quieres sumarte? ¡Escríbenos!</div>
                 </div>
                 <form action="https://formspree.io/f/mpwlojzb" method="POST" class="form-contacto"
                     class="form-contacto">
                     <div class="form-group" style="position:relative;">
-                        <label for="nombre" data-i18n="contacto_form_nombre" style="font-weight:600; display:flex; align-items:center; gap:0.5em;">
+                        <label for="nombre" data-i18n="contacto_form_nombre"
+                            style="font-weight:600; display:flex; align-items:center; gap:0.5em;">
                             <span style="font-size:1.2em; color:#4a90e2;">&#128100;</span>
                             Nombre:
                         </label>
@@ -109,7 +137,8 @@
                             style="background:#fff; padding-left:2.2em;">
                     </div>
                     <div class="form-group" style="position:relative;">
-                        <label for="email" data-i18n="contacto_form_email" style="font-weight:600; display:flex; align-items:center; gap:0.5em;">
+                        <label for="email" data-i18n="contacto_form_email"
+                            style="font-weight:600; display:flex; align-items:center; gap:0.5em;">
                             <span style="font-size:1.2em; color:#4a90e2;">&#9993;</span>
                             Correo electrónico:
                         </label>
@@ -117,15 +146,15 @@
                             placeholder="tucorreo@ejemplo.com" style="background:#fff; padding-left:2.2em;">
                     </div>
                     <div class="form-group" style="position:relative;">
-                        <label for="mensaje" data-i18n="contacto_form_mensaje" style="font-weight:600; display:flex; align-items:center; gap:0.5em;">
+                        <label for="mensaje" data-i18n="contacto_form_mensaje"
+                            style="font-weight:600; display:flex; align-items:center; gap:0.5em;">
                             <span style="font-size:1.2em; color:#4a90e2;">&#9998;</span>
                             Mensaje:
                         </label>
                         <textarea id="mensaje" name="mensaje" rows="5" required placeholder="Escribe tu mensaje..."
                             style="background:#fff; padding-left:2.2em;"></textarea>
                     </div>
-                    <button type="submit" data-i18n="contacto_form_enviar"
-                        class="form-contacto-btn">
+                    <button type="submit" data-i18n="contacto_form_enviar" class="form-contacto-btn">
                         <span style="font-size:1.2em;">&#128233;</span> Enviar
                     </button>
                     <div style="text-align:center; margin-top:1.2rem; font-size:0.98em; color:#888;">
@@ -144,7 +173,9 @@
         </div>
     </footer>
 
-    <script src="js/menu.js"></script>
+    <script src="js/floating-menu.js"></script>
+    <script src="traducciones.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
     <script>
         // Animación scroll reveal
         ScrollReveal().reveal('.cuadro', {
@@ -156,8 +187,6 @@
             easing: 'cubic-bezier(0.5, 0, 0, 1)'
         });
     </script>
-    <script src="traducciones.js"></script>
-    <script src="https://unpkg.com/scrollreveal"></script>
 </body>
 
 </html>

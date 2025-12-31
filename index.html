@@ -25,30 +25,62 @@
         </div>
     </header>
 
-    <main class="margen">
-        <nav class="menu-desplegable">
-            <button class="menu-boton" id="menu-boton" onclick="toggleMenu()">☰ Menú</button>
-            <div class="menu-contenido" id="menu-contenido">
-                <a href="index.html" class="menu-link menu-inicio">
-                    <div class="menu-title" data-i18n="menu_inicio">Inicio</div>
+    <!-- MENÚ FLOATING MODERNO -->
+    <nav class="floating-menu" id="floatingMenu">
+        <div class="menu-container">
+            <!-- Botón principal del menú -->
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+                <span class="menu-icon">☰</span>
+                <span class="menu-text" data-i18n="menu_inicio">Menú</span>
+            </button>
+
+            <!-- Items del menú -->
+            <div class="menu-items" id="menuItems">
+                <a href="index.html" class="menu-item" data-tooltip="Inicio">
+                    <span class="menu-icon">🏠</span>
+                    <span class="menu-label" data-i18n="menu_inicio">Inicio</span>
                 </a>
-                <a href="actividades.html" class="menu-link menu-actividades">
-                    <div class="menu-title" data-i18n="menu_actividades">Más Actividades</div>
+
+                <a href="actividades.html" class="menu-item" data-tooltip="Actividades">
+                    <span class="menu-icon">📅</span>
+                    <span class="menu-label" data-i18n="menu_actividades">Actividades</span>
                 </a>
-                <a href="directiva.html" class="menu-link menu-directiva">
-                    <div class="menu-title" data-i18n="menu_directiva">Directiva</div>
+
+                <a href="directiva.html" class="menu-item" data-tooltip="Directiva">
+                    <span class="menu-icon">👥</span>
+                    <span class="menu-label" data-i18n="menu_directiva">Directiva</span>
                 </a>
-                <a href="contacto.html" class="menu-link menu-contacto">
-                    <div class="menu-title" data-i18n="menu_contacto">Contacto y Comunicación</div>
+
+                <a href="contacto.html" class="menu-item" data-tooltip="Contacto">
+                    <span class="menu-icon">📞</span>
+                    <span class="menu-label" data-i18n="menu_contacto">Contacto</span>
                 </a>
-                <a href="juegos.html" class="menu-link menu-juegos">
-                    <div class="menu-title" data-i18n="menu_juegos">Juegos</div>
+
+                <a href="juegos.html" class="menu-item" data-tooltip="Juegos">
+                    <span class="menu-icon">🎮</span>
+                    <span class="menu-label" data-i18n="menu_juegos">Juegos</span>
                 </a>
-                <a href="material.html" class="menu-link menu-material">
-                    <div class="menu-title" data-i18n="menu_material">Material</div>
+
+                <a href="material.html" class="menu-item" data-tooltip="Material">
+                    <span class="menu-icon">📚</span>
+                    <span class="menu-label" data-i18n="menu_material">Material</span>
                 </a>
             </div>
-        </nav>
+
+            <!-- Indicador de posición -->
+            <div class="menu-indicator"></div>
+        </div>
+    </nav>
+
+    <!-- Botón para subir al inicio -->
+    <button class="scroll-top" id="scrollTop" aria-label="Subir al inicio">
+        <span>↑</span>
+    </button>
+
+
+    <main class="margen">
+        <!-- MENÚ FLOATING MODERNO -->
+
 
         <section class="introduccion">
             <div class="cuadro">
@@ -133,9 +165,11 @@
                     <img src="img/ciclo webinar.jpeg" alt="Ciclo Webinar" class="actividad-img">
                 </div>
                 <p class="presentacion-oficial-text" data-i18n="ciclo_webinar_texto">
-                    Durante este ciclo de webinars a nivel nacional, en alianza con las plataformas de 
-                    <a href="https://www.facebook.com/profile.php?id=100064239232991&mibextid=ZbWKwL" target="_blank" class="enlace-plataforma">La Paz</a> y 
-                    <a href="https://www.facebook.com/profile.php?id=61567411175019" target="_blank" class="enlace-plataforma">Potosí</a>, 
+                    Durante este ciclo de webinars a nivel nacional, en alianza con las plataformas de
+                    <a href="https://www.facebook.com/profile.php?id=100064239232991&mibextid=ZbWKwL" target="_blank"
+                        class="enlace-plataforma">La Paz</a> y
+                    <a href="https://www.facebook.com/profile.php?id=61567411175019" target="_blank"
+                        class="enlace-plataforma">Potosí</a>,
                     hablamos de un tema que nos toca a todos: las relaciones de pareja. Conversamos sobre cómo son, cómo
                     funcionan y qué hace que una relación sea sana y duradera. Fue un espacio pensado para que
                     los jóvenes puedan entender mejor sus emociones, aprender a comunicarse y fortalecer sus
@@ -151,7 +185,8 @@
                     <img src="img/presentacion 2.jpeg" alt="Presentacion Oficial" class="actividad-img">
                 </div>
                 <p class="presentacion-oficial-text" data-i18n="presentacion_oficial_texto">
-                    Se presentó oficialmente a los nuevos delegados que, junto con la mesa directiva, serán los encargados de
+                    Se presentó oficialmente a los nuevos delegados que, junto con la mesa directiva, serán los
+                    encargados de
                     llevar adelante el plan de trabajo para la gestión 2025. Además, estarán al frente de todas las
                     actividades que surjan a lo largo del año, comprometidos con hacer de esta gestión una
                     experiencia dinámica, participativa y llena de aprendizajes.
@@ -165,8 +200,9 @@
                     <img src="img/grupo.jpeg" alt="Comite Departamental de la Juventud" class="actividad-img">
                 </div>
                 <p class="presentacion-oficial-text" data-i18n="consejo_texto">
-                    La PDPEAJ-BENI participó activamente en <b>"CONSTRUYENDO PROPUESTAS POR NUESTROS DERECHOS"</b>, 
-                    un espacio donde se presentaron diversas propuestas y proyectos de ley con el objetivo de impulsar el desarrollo
+                    La PDPEAJ-BENI participó activamente en <b>"CONSTRUYENDO PROPUESTAS POR NUESTROS DERECHOS"</b>,
+                    un espacio donde se presentaron diversas propuestas y proyectos de ley con el objetivo de impulsar
+                    el desarrollo
                     y fortalecer la participación de los jóvenes en la política. Gracias a este proceso, se
                     conformó oficialmente el Consejo Departamental de la Juventud del Beni, un paso clave para
                     que la voz de las nuevas generaciones tenga más peso y presencia en las decisiones que nos
@@ -230,8 +266,10 @@
                 &copy; PDPEAJ-BENI
             </div>
         </div>
-       
-        <script src="js/menu.js"></script>
+
+        <script src="js/floating-menu.js"></script>
+        <script src="traducciones.js"></script>
+        <script src="https://unpkg.com/scrollreveal"></script>
         <script>
             // Animación scroll reveal
             ScrollReveal().reveal('.cuadro', {
@@ -243,8 +281,6 @@
                 easing: 'cubic-bezier(0.5, 0, 0, 1)'
             });
         </script>
-        <script src="traducciones.js"></script>
-        <script src="https://unpkg.com/scrollreveal"></script>
 </body>
 
 </html>
