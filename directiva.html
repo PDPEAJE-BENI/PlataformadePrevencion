@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Directiva PDPEAJ-Beni | Plataforma Departamental de Prevención</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="estilos.css">
+    <style>
+        /* Estilos específicos para la página de directiva */
+        .directiva-hero {
+            background: linear-gradient(135deg, rgba(156, 39, 176, 0.9) 0%, rgba(123, 31, 162, 0.9) 100%), url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .directiva-hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+        }
+
+        .directiva-hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            opacity: 0.95;
+        }
+
+        .directiva-content {
+            padding: 80px 0;
+        }
+
+        .directiva-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+
+        .directiva-intro h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .directiva-intro p {
+            color: var(--gray);
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .directiva-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .directiva-card {
+            background-color: var(--white);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .directiva-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .member-photo {
+            height: 250px;
+            background-color: var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .member-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .member-photo:has(img:not([src])),
+        .member-photo:has(img[src=""]) {
+            background: linear-gradient(135deg, var(--primary-light) 0%, var(--accent) 100%);
+        }
+
+        .member-photo:has(img:not([src]))::after,
+        .member-photo:has(img[src=""])::after {
+            content: '\f007';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+        }
+
+        .member-info {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .member-info h3 {
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+            color: var(--dark);
+        }
+
+        .member-role {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            padding: 5px 15px;
+            background-color: rgba(156, 39, 176, 0.1);
+            border-radius: 20px;
+            display: inline-block;
+        }
+
+        .member-desc {
+            color: var(--gray);
+            line-height: 1.6;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .member-contact {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 15px;
+            text-align: left;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        .contact-item i {
+            color: var(--secondary);
+            width: 20px;
+        }
+
+        .organigrama {
+            background-color: var(--light-gray);
+            padding: 60px 0;
+            margin-top: 40px;
+        }
+
+        .organigrama h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 40px;
+            color: var(--primary);
+        }
+
+        .org-chart {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            position: relative;
+            padding: 30px;
+        }
+
+        .org-level {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 60px;
+            width: 100%;
+        }
+
+        .org-node {
+            background: var(--white);
+            padding: 20px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            min-width: 200px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .org-node.presidente {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+        }
+
+        .org-node.presidente h3,
+        .org-node.presidente .member-role {
+            color: white;
+        }
+
+        .org-lines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .org-line {
+            position: absolute;
+            background-color: var(--gray);
+            height: 2px;
+            transform-origin: left center;
+        }
+
+        .breadcrumb {
+            padding: 20px 0;
+            background-color: var(--light-gray);
+        }
+
+        .breadcrumb-content {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95rem;
+        }
+
+        .breadcrumb a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .breadcrumb a:hover {
+            color: var(--primary-dark);
+            text-decoration: underline;
+        }
+
+        .breadcrumb i {
+            color: var(--gray);
+            font-size: 12px;
+        }
+
+        .breadcrumb span {
+            color: var(--gray);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .directiva-hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .directiva-hero {
+                padding: 60px 0;
+            }
+
+            .directiva-content {
+                padding: 60px 0;
+            }
+
+            .org-level {
+                flex-direction: column;
+                align-items: center;
+                gap: 30px;
+            }
+
+            .org-node {
+                margin-bottom: 20px;
+            }
+
+            .directiva-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .directiva-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .contact-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 15px;
+            background-color: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .contact-btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .contact-btn.whatsapp {
+            background-color: #25D366;
+        }
+
+        .contact-btn.whatsapp:hover {
+            background-color: #128C7E;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <div class="logo-img">
+                    <img src="img/logo.png" alt="PDPEAJ-Beni Logo">
+                </div>
+                <div class="logo-text">
+                    <h1>PDPEAJ-Beni</h1>
+                    <p>Plataforma Departamental de Prevención de Embarazos en Adolescentes y Jóvenes</p>
+                </div>
+            </div>
+
+            <nav>
+                <ul id="main-menu">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="directiva.html" class="active">Directiva</a></li>
+                    <li><a href="actividades.html">Actividades</a></li>
+                    <li><a href="juegos.html">Juegos</a></li>
+                    <li><a href="materiales.html">Materiales</a></li>
+                    <li><a href="index.html#contacto">Contacto</a></li>
+                </ul>
+                <button class="mobile-menu-btn" id="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="container breadcrumb-content">
+            <a href="index.html"><i class="fas fa-home"></i> Inicio</a>
+            <i class="fas fa-chevron-right"></i>
+            <span>Directiva</span>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="directiva-hero">
+        <div class="container">
+            <h1>Nuestra Directiva</h1>
+            <p>Conoce al equipo de jóvenes voluntarios que lideran la Plataforma Departamental de Prevención de
+                Embarazos en Adolescentes y Jóvenes del Beni.</p>
+        </div>
+    </section>
+
+    <!-- Directiva Content -->
+    <section class="directiva-content">
+        <div class="container">
+            <div class="directiva-intro">
+                <h2>Liderazgo Juvenil Comprometido</h2>
+                <p>La directiva de la PDPEAJ-Beni está conformada por jóvenes benianos que dedican su tiempo y esfuerzo
+                    voluntariamente para trabajar en la prevención de embarazos adolescentes y la promoción de la salud
+                    sexual y reproductiva en nuestro departamento.</p>
+            </div>
+
+            <div class="directiva-grid">
+                <!-- Presidente -->
+                <div class="directiva-card">
+                    <div class="member-photo">
+                        <img src="img/presidente.jpg" alt="Johan Paul Algarañaz Vasquez - Presidente"
+                            onerror="this.style.display='none';">
+                    </div>
+                    <div class="member-info">
+                        <h3>Johan Paul Algarañaz Vasquez</h3>
+                        <div class="member-role">Presidente</div>
+                        <p class="member-desc">Johan lidera la plataforma con compromiso y visión, promoviendo la
+                            participación juvenil y la prevención de embarazos adolescentes.</p>
+
+                    </div>
+                </div>
+
+                <!-- Vicepresidenta -->
+                <div class="directiva-card">
+                    <div class="member-photo">
+                        <img src="img/vicepresidenta.jpg" alt="Ariana Quiroz Ortiz - Vicepresidenta"
+                            onerror="this.style.display='none';">
+                    </div>
+                    <div class="member-info">
+                        <h3>Ariana Quiroz Ortiz</h3>
+                        <div class="member-role">Vicepresidenta</div>
+                        <p class="member-desc">Ariana impulsa la participación activa de las jóvenes, fomentando la
+                            igualdad y el liderazgo femenino en la plataforma.</p>
+
+                    </div>
+                </div>
+
+                <!-- Vicepresidente 2do -->
+                <div class="directiva-card">
+                    <div class="member-photo">
+                        <img src="img/vicepresidente2do.jpg" alt="Johnny Suárez Justiniano - Vicepresidente 2do"
+                            onerror="this.style.display='none';">
+                    </div>
+                    <div class="member-info">
+                        <h3>Johnny Suárez Justiniano</h3>
+                        <div class="member-role">Vicepresidente 2do</div>
+                        <p class="member-desc">Johnny apoya la gestión y coordinación de actividades, asegurando el
+                            trabajo en equipo y el cumplimiento de los objetivos.</p>
+                    </div>
+                </div>
+
+                <!-- Delegado a la Nacional -->
+                <div class="directiva-card">
+                    <div class="member-photo">
+                        <img src="img/delegado.jpg" alt="Mauricio Marañon Vargas - Delegado a la Nacional"
+                            onerror="this.style.display='none';">
+                    </div>
+                    <div class="member-info">
+                        <h3>Mauricio Marañon Vargas</h3>
+                        <div class="member-role">Delegado a la Nacional</div>
+                        <p class="member-desc">Mauricio representa a la plataforma en eventos nacionales, fortaleciendo
+                            lazos y compartiendo experiencias con otras organizaciones.</p>
+                    </div>
+                </div>
+
+                <!-- Secretario de Actas -->
+                <div class="directiva-card">
+                    <div class="member-photo">
+                        <img src="img/actas.jpeg" alt="Carlos Yver Justiniano Mariscal - Secretario de Actas"
+                            onerror="this.style.display='none';">
+                    </div>
+                    <div class="member-info">
+                        <h3>Carlos Yver Justiniano Mariscal</h3>
+                        <div class="member-role">Secretario de Actas</div>
+                        <p class="member-desc">Carlos se encarga de la documentación y registro de todas las
+                            actividades, garantizando la transparencia y el orden institucional.</p>
+
+                    </div>
+                </div>
+
+                <!-- Secretario de Alianzas -->
+                <div class="directiva-card">
+                    <div class="member-photo">
+                        <img src="img/relaciones.jpg" alt="José Mateo Javivi Javivi - Secretario de Alianzas"
+                            onerror="this.style.display='none';">
+                    </div>
+                    <div class="member-info">
+                        <h3>José Mateo Javivi Javivi</h3>
+                        <div class="member-role">Secretario de Alianzas</div>
+                        <p class="member-desc">José Mateo gestiona alianzas estratégicas con instituciones y
+                            organizaciones, ampliando el alcance de la plataforma.</p>
+                    </div>
+                </div>
+
+                <!-- Secretaria de Comunicación -->
+                <div class="directiva-card">
+                    <div class="member-photo">
+                        <img src="img/comunicaciones.jpg"
+                            alt="Mariana Justiniano Guayacuma - Secretaria de Comunicación"
+                            onerror="this.style.display='none';">
+                    </div>
+                    <div class="member-info">
+                        <h3>Mariana Justiniano Guayacuma</h3>
+                        <div class="member-role">Secretaria de Comunicación</div>
+                        <p class="member-desc">Mariana lidera la comunicación externa, promoviendo la visibilidad y el
+                            impacto de la plataforma en redes sociales.</p>
+                    </div>
+                </div>
+
+                <!-- Secretario de Comunicación -->
+                <div class="directiva-card">
+                    <div class="member-photo">
+                        <img src="img/comunicacion.jpg" alt="Christian Mobo Maileva - Secretario de Comunicación"
+                            onerror="this.style.display='none';">
+                    </div>
+                    <div class="member-info">
+                        <h3>Christian Mobo Maileva</h3>
+                        <div class="member-role">Secretario de Comunicación</div>
+                        <p class="member-desc">Christian coordina la difusión de información y campañas educativas,
+                            asegurando que el mensaje llegue a todos los jóvenes.</p>
+                    </div>
+                </div>
+
+                <!-- Vocal 1 -->
+                <div class="directiva-card">
+                    <div class="member-photo">
+                        <img src="img/vocal1.jpg" alt="Luis Fernando Sosa Cuellar - Vocal"
+                            onerror="this.style.display='none';">
+                    </div>
+                    <div class="member-info">
+                        <h3>Luis Fernando Sosa Cuellar</h3>
+                        <div class="member-role">Vocal</div>
+                        <p class="member-desc">Luis Fernando participa activamente en la toma de decisiones y apoya en
+                            la organización de eventos y actividades.</p>
+                    </div>
+                </div>
+
+                <!-- Vocal 2 -->
+                <div class="directiva-card">
+                    <div class="member-photo">
+                        <img src="img/vocal2.jpg" alt="Cristel Camila Gutiérrez Arias - Vocal"
+                            onerror="this.style.display='none';">
+                    </div>
+                    <div class="member-info">
+                        <h3>Cristel Camila Gutiérrez Arias</h3>
+                        <div class="member-role">Vocal</div>
+                        <p class="member-desc">Cristel Camila contribuye con ideas innovadoras y apoya la integración de
+                            nuevos miembros en la plataforma.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="directiva-intro">
+                <h2>Nuestro Compromiso</h2>
+                <p>Todos los miembros de nuestra directiva trabajan de manera voluntaria, movidos por el deseo de
+                    contribuir al bienestar de los adolescentes y jóvenes del Beni. Creemos en el poder transformador de
+                    la juventud organizada y comprometida con su comunidad.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Organigrama -->
+    <section class="organigrama">
+        <div class="container">
+            <h2>Estructura Organizacional</h2>
+            <div class="org-chart">
+                <div class="org-level">
+                    <div class="org-node presidente">
+                        <h3>Johan Paul Algarañaz V.</h3>
+                        <div class="member-role">Presidente</div>
+                    </div>
+                </div>
+
+                <div class="org-level">
+                    <div class="org-node">
+                        <h3>Ariana Quiroz O.</h3>
+                        <div class="member-role">Vicepresidenta</div>
+                    </div>
+                    <div class="org-node">
+                        <h3>Johnny Suárez J.</h3>
+                        <div class="member-role">Vicepresidente 2do</div>
+                    </div>
+                </div>
+
+                <div class="org-level">
+                    <div class="org-node">
+                        <h3>Mauricio Marañon V.</h3>
+                        <div class="member-role">Delegado Nacional</div>
+                    </div>
+                </div>
+
+                <div class="org-level">
+                    <div class="org-node">
+                        <h3>Carlos Yver Justiniano M.</h3>
+                        <div class="member-role">Secretario Actas</div>
+                    </div>
+                    <div class="org-node">
+                        <h3>José Mateo Javivi J.</h3>
+                        <div class="member-role">Secretario Alianzas</div>
+                    </div>
+                </div>
+
+                <div class="org-level">
+                    <div class="org-node">
+                        <h3>Mariana Justiniano G.</h3>
+                        <div class="member-role">Secretaria Comunicación</div>
+                    </div>
+                    <div class="org-node">
+                        <h3>Christian Mobo M.</h3>
+                        <div class="member-role">Secretario Comunicación</div>
+                    </div>
+                </div>
+
+                <div class="org-level">
+                    <div class="org-node">
+                        <h3>Luis Fernando Sosa C.</h3>
+                        <div class="member-role">Vocal</div>
+                    </div>
+                    <div class="org-node">
+                        <h3>Cristel Camila Gutiérrez A.</h3>
+                        <div class="member-role">Vocal</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>PDPEAJ-Beni</h3>
+                    <p>Plataforma Departamental de Prevención de Embarazos en Adolescentes y Jóvenes del Beni. Una
+                        organización juvenil comprometida con la salud sexual y reproductiva de los jóvenes benianos.
+                    </p>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="directiva.html">Directiva</a></li>
+                        <li><a href="actividades.html">Actividades</a></li>
+                        <li><a href="juegos.html">Juegos</a></li>
+                        <li><a href="materiales.html">Materiales</a></li>
+                        <li><a href="index.html#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-social">
+                    <h4>Síguenos en redes</h4>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/profile.php?id=61552371105965&mibextid=ZbWKwL"
+                            target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/pdpeaj_beni?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                            target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.tiktok.com/@pl.dptal.beni?is_from_webapp=1&sender_device=pc"
+                            target="_blank"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                    <p style="margin-top: 20px; opacity: 0.8;">¡Sé parte del cambio! Únete a nuestra plataforma juvenil.
+                    </p>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; 2024 PDPEAJ-Beni. Plataforma Departamental de Prevención de Embarazos en Adolescentes y
+                    Jóvenes del Beni.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        const mainMenu = document.getElementById('main-menu');
+
+        mobileMenuToggle.addEventListener('click', function () {
+            mainMenu.style.display = mainMenu.style.display === 'flex' ? 'none' : 'flex';
+            mainMenu.style.flexDirection = 'column';
+            mainMenu.style.position = 'absolute';
+            mainMenu.style.top = '100%';
+            mainMenu.style.left = '0';
+            mainMenu.style.width = '100%';
+            mainMenu.style.backgroundColor = 'var(--white)';
+            mainMenu.style.padding = '20px';
+            mainMenu.style.boxShadow = '0 10px 15px rgba(0,0,0,0.1)';
+            mainMenu.style.gap = '15px';
+            mainMenu.style.zIndex = '1000';
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a, .hero-buttons a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                // Solo prevenir comportamiento si es un enlace interno (#)
+                if (this.getAttribute('href').startsWith('#')) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+
+                // Close mobile menu if open
+                if (window.innerWidth <= 768) {
+                    mainMenu.style.display = 'none';
+                }
+            });
+        });
+
+        // Adjust menu on window resize
+        window.addEventListener('resize', function () {
+            if (window.innerWidth > 768) {
+                mainMenu.style.display = 'flex';
+                mainMenu.style.flexDirection = 'row';
+                mainMenu.style.position = 'static';
+                mainMenu.style.backgroundColor = 'transparent';
+                mainMenu.style.padding = '0';
+                mainMenu.style.boxShadow = 'none';
+                mainMenu.style.gap = '30px';
+            } else {
+                mainMenu.style.display = 'none';
+            }
+        });
+
+        // Highlight active menu item based on current page
+        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        document.querySelectorAll('nav a').forEach(link => {
+            const linkPage = link.getAttribute('href');
+
+            // Si estamos en index.html y el enlace es index.html o #
+            if (currentPage === 'index.html' && (linkPage === 'index.html' || linkPage === '#')) {
+                link.classList.add('active');
+            }
+            // Si el enlace coincide con la página actual
+            else if (linkPage === currentPage) {
+                link.classList.add('active');
+            }
+            // Si estamos en una página específica y el enlace es a esa página
+            else if (linkPage === currentPage) {
+                link.classList.add('active');
+            }
+
+            // Remover active de otros enlaces
+            if (!link.classList.contains('active')) {
+                link.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+
+</html>
