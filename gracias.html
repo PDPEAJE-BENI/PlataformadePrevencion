@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Gracias por contactarnos! | PDPEAJ-Beni</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #9c27b0;
+            --primary-light: #ba68c8;
+            --primary-dark: #7b1fa2;
+            --secondary: #ff4081;
+            --secondary-light: #ff79b0;
+            --accent: #00bcd4;
+            --dark: #2d3748;
+            --light: #f8f9fa;
+            --gray: #718096;
+            --light-gray: #e9ecef;
+            --white: #ffffff;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            --radius: 12px;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Nunito', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            text-align: center;
+        }
+        
+        .btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+        
+        .btn-secondary {
+            background-color: var(--secondary);
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--secondary-light);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo-img {
+            height: 60px;
+            width: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            flex-shrink: 0;
+            background: linear-gradient(135deg, var(--primary-light) 0%, var(--accent) 100%);
+        }
+        
+        .logo-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 5px;
+        }
+        
+        .logo-text h1 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+        
+        .logo-text p {
+            font-size: 0.85rem;
+            color: var(--gray);
+            max-width: 250px;
+        }
+        
+        /* Thank You Section */
+        .thank-you {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            padding: 80px 0;
+        }
+        
+        .thank-you-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 60px 40px;
+            background-color: var(--white);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+        
+        .success-icon {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            color: white;
+            font-size: 50px;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(156, 39, 176, 0.4);
+            }
+            70% {
+                transform: scale(1.05);
+                box-shadow: 0 0 0 15px rgba(156, 39, 176, 0);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(156, 39, 176, 0);
+            }
+        }
+        
+        .thank-you h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .thank-you p {
+            font-size: 1.2rem;
+            color: var(--gray);
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+        
+        .thank-you-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+        
+        .next-steps {
+            background-color: var(--light-gray);
+            border-radius: var(--radius);
+            padding: 30px;
+            margin-top: 40px;
+            text-align: left;
+        }
+        
+        .next-steps h3 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            text-align: center;
+        }
+        
+        .steps-list {
+            list-style: none;
+        }
+        
+        .steps-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .steps-list li:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .step-icon {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(156, 39, 176, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+        
+        .step-content h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            color: var(--dark);
+        }
+        
+        .step-content p {
+            font-size: 1rem;
+            color: var(--gray);
+            margin-bottom: 0;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 40px 0 20px;
+            margin-top: auto;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-logo h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: white;
+        }
+        
+        .footer-logo p {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icons a {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .social-icons a:hover {
+            background-color: var(--secondary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .thank-you {
+                padding: 40px 0;
+            }
+            
+            .thank-you-content {
+                padding: 40px 20px;
+            }
+            
+            .thank-you h1 {
+                font-size: 2rem;
+            }
+            
+            .thank-you p {
+                font-size: 1.1rem;
+            }
+            
+            .success-icon {
+                width: 100px;
+                height: 100px;
+                font-size: 40px;
+            }
+            
+            .thank-you-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .thank-you-buttons .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .next-steps {
+                padding: 20px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .thank-you h1 {
+                font-size: 1.8rem;
+            }
+            
+            .logo-text h1 {
+                font-size: 1.3rem;
+            }
+            
+            .logo-text p {
+                font-size: 0.8rem;
+            }
+            
+            .btn {
+                padding: 10px 22px;
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <div class="logo-img">
+                    <!-- Cambia la ruta de la imagen según tu estructura -->
+                    <img src="img/logo.png" alt="PDPEAJ-Beni Logo">
+                </div>
+                <div class="logo-text">
+                    <h1>PDPEAJ-Beni</h1>
+                    <p>Plataforma Departamental de Prevención de Embarazos en Adolescentes y Jóvenes</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Thank You Section -->
+    <section class="thank-you">
+        <div class="container">
+            <div class="thank-you-content">
+                <div class="success-icon">
+                    <i class="fas fa-check"></i>
+                </div>
+                
+                <h1>¡Gracias por contactarnos!</h1>
+                
+                <p>Tu mensaje ha sido enviado con éxito. Hemos recibido tu consulta y nuestro equipo de la <strong>Plataforma Departamental de Prevención de Embarazos en Adolescentes y Jóvenes del Beni</strong> se pondrá en contacto contigo lo antes posible.</p>
+                
+                <p>Normalmente respondemos en un plazo de <strong>24 a 48 horas</strong>. Si tu consulta es urgente, también puedes contactarnos directamente por teléfono.</p>
+                
+                <div class="next-steps">
+                    <h3>¿Qué puedes hacer mientras tanto?</h3>
+                    <ul class="steps-list">
+                        <li>
+                            <div class="step-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="step-content">
+                                <h4>Contacto directo</h4>
+                                <p>Si es urgente, llama a nuestros representantes: +591 72817484 (Presidente) o +591 71148768 (Vicepresidenta).</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="step-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="step-content">
+                                <h4>Conoce más sobre nosotros</h4>
+                                <p>Explora nuestro sitio web para conocer nuestra misión, visión y los proyectos que realizamos.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="step-icon">
+                                <i class="fab fa-facebook"></i>
+                            </div>
+                            <div class="step-content">
+                                <h4>Síguenos en redes sociales</h4>
+                                <p>Mantente actualizado sobre nuestras actividades y eventos a través de Facebook, Instagram y TikTok.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="thank-you-buttons">
+                    <a href="index.html" class="btn">Volver al Inicio</a>
+                    <a href="#contacto" class="btn btn-outline">Enviar otro mensaje</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>PDPEAJ-Beni</h3>
+                    <p>Una organización juvenil comprometida con la salud sexual y reproductiva de los jóvenes benianos.</p>
+                    
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/profile.php?id=61552371105965&mibextid=ZbWKwL" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/pdpeaj_beni?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.tiktok.com/@pl.dptal.beni?is_from_webapp=1&sender_device=pc" target="_blank"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-logo">
+                    <h3>Contacto</h3>
+                    <p><i class="fas fa-envelope"></i> plataformadeprevencionbeni@gmail.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Departamento del Beni, Bolivia</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2024 PDPEAJ-Beni. Plataforma Departamental de Prevención de Embarazos en Adolescentes y Jóvenes del Beni.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Animación suave para los botones
+        document.querySelectorAll('.btn').forEach(button => {
+            button.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-3px)';
+            });
+            
+            button.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+        
+        // Redirección suave para el botón "Enviar otro mensaje"
+        document.querySelector('a[href="#contacto"]').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.location.href = 'index.html#contacto';
+        });
+    </script>
+</body>
+</html>

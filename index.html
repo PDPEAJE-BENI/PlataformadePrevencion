@@ -4,283 +4,326 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PDPEAJ-BENI</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>PDPEAJ-Beni | Plataforma Departamental de Prevención de Embarazos en Adolescentes y Jóvenes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="estilos.css">
-
-    <!-- Analytics removed -->
 </head>
 
 <body>
-    <!-- Analytics noscript removed -->
-
+    <!-- Header -->
     <header>
-        <div class="margen">
-            <h1 data-i18n="saludo">Plataforma Departamental de Prevención de Embarazos en Adolescentes y Jóvenes del
-                Beni</h1>
-            <img src="img/logo.png" alt="PDPEAJ-BENI" class="logo">
+        <div class="container header-container">
+            <div class="logo">
+                <div class="logo-img">
+                    <img src="img/logo.png" alt="PDPEAJ-Beni Logo">
+                </div>
+                <div class="logo-text">
+                    <h1>PDPEAJ-Beni</h1>
+                    <p>Plataforma Departamental de Prevención de Embarazos en Adolescentes y Jóvenes</p>
+                </div>
+            </div>
+
+            <nav>
+                <ul id="main-menu">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#plataforma">¿Qué es?</a></li>
+                    <li><a href="#mision">Misión y Visión</a></li>
+                    <li><a href="#quienes">¿Quiénes somos?</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+                <button class="mobile-menu-btn" id="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
         </div>
     </header>
 
-    <!-- MENÚ FLOATING MODERNO -->
-    <nav class="floating-menu" id="floatingMenu">
-        <div class="menu-container">
-            <!-- Botón principal del menú -->
-            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
-                <span class="menu-icon">☰</span>
-                <span class="menu-text" data-i18n="menu_inicio">Menú</span>
-            </button>
-
-            <!-- Items del menú -->
-            <div class="menu-items" id="menuItems">
-                <a href="index.html" class="menu-item" data-tooltip="Inicio">
-                    <span class="menu-icon">🏠</span>
-                    <span class="menu-label" data-i18n="menu_inicio">Inicio</span>
-                </a>
-
-                <a href="actividades.html" class="menu-item" data-tooltip="Actividades">
-                    <span class="menu-icon">📅</span>
-                    <span class="menu-label" data-i18n="menu_actividades">Actividades</span>
-                </a>
-
-                <a href="directiva.html" class="menu-item" data-tooltip="Directiva">
-                    <span class="menu-icon">👥</span>
-                    <span class="menu-label" data-i18n="menu_directiva">Directiva</span>
-                </a>
-
-                <a href="contacto.html" class="menu-item" data-tooltip="Contacto">
-                    <span class="menu-icon">📞</span>
-                    <span class="menu-label" data-i18n="menu_contacto">Contacto</span>
-                </a>
-
-                <a href="juegos.html" class="menu-item" data-tooltip="Juegos">
-                    <span class="menu-icon">🎮</span>
-                    <span class="menu-label" data-i18n="menu_juegos">Juegos</span>
-                </a>
-
-                <a href="material.html" class="menu-item" data-tooltip="Material">
-                    <span class="menu-icon">📚</span>
-                    <span class="menu-label" data-i18n="menu_material">Material</span>
-                </a>
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="container hero-content">
+            <h2>Empoderando a la Juventud del Beni</h2>
+            <p>Somos una organización juvenil comprometida con la prevención de embarazos en adolescentes y la promoción
+                de la salud sexual y reproductiva en el departamento del Beni, Bolivia.</p>
+            <div class="hero-buttons">
+                <a href="#plataforma" class="btn">Conoce nuestra labor</a>
+                <a href="#contacto" class="btn btn-outline">Únete a nosotros</a>
             </div>
-
-            <!-- Indicador de posición -->
-            <div class="menu-indicator"></div>
         </div>
-    </nav>
+    </section>
 
-    <!-- Botón para subir al inicio -->
-    <button class="scroll-top" id="scrollTop" aria-label="Subir al inicio">
-        <span>↑</span>
-    </button>
-
-
-    <main class="margen">
-        <!-- MENÚ FLOATING MODERNO -->
-
-
-        <section class="introduccion">
-            <div class="cuadro">
-                <h2 data-i18n="que_es">¿Qué es la Plataforma Departamental de Prevención de Embarazos en Adolescentes y
-                    Jóvenes del Beni?</h2>
-                <p data-i18n="que_es_p1">La Plataforma Departamental de Prevención de Embarazos en Adolescentes y
-                    Jóvenes del Beni es una organización juvenil que tiene el propósito de reducir la tasa de embarazos
-                    adolescentes en el departamento del Beni, Bolivia.</p>
-                <p data-i18n="que_es_p2">A través de la educación, la sensibilización y el conocimiento acerca de los
-                    servicios de salud, la plataforma trabaja para empoderar a los jóvenes y brindarles las herramientas
-                    necesarias para tomar decisiones informadas sobre su salud sexual y reproductiva.</p>
+    <!-- About Platform Section -->
+    <section class="about-platform" id="plataforma">
+        <div class="container">
+            <div class="section-title">
+                <h2>¿Qué es la PDPEAJ-Beni?</h2>
+                <p>Conoce nuestra organización y nuestro propósito</p>
             </div>
 
-            <div class="cuadro">
-                <h2 data-i18n="quienes_somos">¿Quiénes somos?</h2>
-                <p data-i18n="quienes_somos_p1">La Plataforma Departamental de Prevención de Embarazos en Adolescentes y
-                    Jóvenes del Beni es una organización juvenil cuyo propósito es reducir el índice de embarazos en
-                    adolescentes y disminuir la tasa de VIH/SIDA, así como otras enfermedades de transmisión sexual.</p>
-            </div>
-
-            <div class="cuadro">
-                <h2 data-i18n="mision">Nuestra misión</h2>
-                <p data-i18n="mision_p1">La PDPEAJ-Beni tiene como misión colaborar en la reducción del embarazo
-                    adolescente en el departamento del Beni, promoviendo el ejercicio de los derechos sexuales y
-                    reproductivos de adolescentes y jóvenes a través de acciones de prevención, educación y
-                    sensibilización.</p>
-            </div>
-
-            <div class="cuadro">
-                <h2 data-i18n="vision">Nuestra visión</h2>
-                <p data-i18n="vision_p1">La PDPEAJ-Beni tiene como visión ser una plataforma reconocida en todo el
-                    departamento por su impacto en la promoción de la salud sexual y reproductiva y la prevención del
-                    embarazo en adolescentes y jóvenes.</p>
-            </div>
-        </section>
-
-        <section class="actividades">
-            <div class="separador-actividades">
-                <span data-i18n="actividades_titulo">ACTIVIDADES</span>
-            </div>
-
-            <div class="cuadro">
-                <h3 data-i18n="h3_feria">Feria De Concientización Para La Prevención De Embarazos Adolescentes</h3>
-                <div class="actividad-imagenes">
-                    <img src="img/feria.jpeg" alt="Feria de Concientización" class="actividad-img">
-                    <img src="img/feria 2.jpeg" alt="Feria de Concientización" class="actividad-img">
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Plataforma Departamental de Prevención de Embarazos en Adolescentes y Jóvenes del Beni</h3>
+                    <p>La Plataforma Departamental de Prevención de Embarazos en Adolescentes y Jóvenes del Beni es una
+                        organización juvenil que tiene el propósito de reducir la tasa de embarazos adolescentes en el
+                        departamento del Beni, Bolivia.</p>
+                    <p>A través de la educación, la sensibilización y el conocimiento acerca de los servicios de salud,
+                        la plataforma trabaja para empoderar a los jóvenes y brindarles las herramientas necesarias para
+                        tomar decisiones informadas sobre su salud sexual y reproductiva.</p>
+                    <p>Nuestro enfoque se centra en la participación activa de adolescentes y jóvenes, reconociéndolos
+                        como agentes de cambio en sus propias comunidades.</p>
                 </div>
-                <p class="presentacion-oficial-text" data-i18n="actividad_feria_texto">
-                    Se llevó a cabo la <b>1ra Feria de Concientización para la Prevención de Embarazos en
-                        Adolescentes</b>,
-                    un evento clave que reunió a varias instituciones comprometidas con esta causa.
-                </p>
-            </div>
 
-            <div class="cuadro">
-                <h3 data-i18n="h3_plataforma">Plataforma Nacional</h3>
-                <div class="actividad-imagenes">
-                    <img src="img/nacional.jpeg" alt="Plataforma Nacional" class="actividad-img">
-                    <img src="img/nacional 2.jpeg" alt="Plataforma Nacional" class="actividad-img">
-                </div>
-                <p class="presentacion-oficial-text" data-i18n="plataforma_nacional_texto">
-                    La PDPEAJ-BENI se unió a las plataformas de los demás departamentos para crear la Plataforma
-                    Nacional
-                    de Prevención de Embarazos en la Adolescencia y Juventud.
-                </p>
-            </div>
-
-            <div class="cuadro">
-                <h3 data-i18n="h3_corso">Corso Preventivo</h3>
-                <div class="actividad-imagenes">
-                    <img src="img/carnaval.jpeg" alt="Corso Preventivo" class="actividad-img">
-                    <img src="img/carnaval 2.jpeg" alt="Corso Preventivo" class="actividad-img">
-                </div>
-                <p class="presentacion-oficial-text" data-i18n="corso_texto">
-                    Durante el Corso Trinitario 2025, la PDPEAJ-BENI realizó una actividad preventiva enfocada en la
-                    juventud.
-                </p>
-            </div>
-            <div class="cuadro">
-                <h3 data-i18n="h3_webinar">Ciclo webinar</h3>
-                <div class="actividad-imagenes">
-                    <img src="img/ciclo webinar.jpeg" alt="Ciclo Webinar" class="actividad-img">
-                </div>
-                <p class="presentacion-oficial-text" data-i18n="ciclo_webinar_texto">
-                    Durante este ciclo de webinars a nivel nacional, en alianza con las plataformas de
-                    <a href="https://www.facebook.com/profile.php?id=100064239232991&mibextid=ZbWKwL" target="_blank"
-                        class="enlace-plataforma">La Paz</a> y
-                    <a href="https://www.facebook.com/profile.php?id=61567411175019" target="_blank"
-                        class="enlace-plataforma">Potosí</a>,
-                    hablamos de un tema que nos toca a todos: las relaciones de pareja. Conversamos sobre cómo son, cómo
-                    funcionan y qué hace que una relación sea sana y duradera. Fue un espacio pensado para que
-                    los jóvenes puedan entender mejor sus emociones, aprender a comunicarse y fortalecer sus
-                    vínculos, siempre con respeto y confianza. Porque estar bien en pareja también es parte de
-                    cuidarnos y crecer juntos.
-                </p>
-            </div>
-
-            <div class="cuadro">
-                <h3 data-i18n="h3_presentacion">Presentación Oficial</h3>
-                <div class="actividad-imagenes">
-                    <img src="img/presentacion.jpeg" alt="Presentacion Oficial" class="actividad-img">
-                    <img src="img/presentacion 2.jpeg" alt="Presentacion Oficial" class="actividad-img">
-                </div>
-                <p class="presentacion-oficial-text" data-i18n="presentacion_oficial_texto">
-                    Se presentó oficialmente a los nuevos delegados que, junto con la mesa directiva, serán los
-                    encargados de
-                    llevar adelante el plan de trabajo para la gestión 2025. Además, estarán al frente de todas las
-                    actividades que surjan a lo largo del año, comprometidos con hacer de esta gestión una
-                    experiencia dinámica, participativa y llena de aprendizajes.
-                </p>
-            </div>
-
-            <div class="cuadro">
-                <h3 data-i18n="h3_consejo">Consejo Departamental de la Juventud</h3>
-                <div class="actividad-imagenes">
-                    <img src="img/comite.jpeg" alt="Comite Departamental de la Juventud" class="actividad-img">
-                    <img src="img/grupo.jpeg" alt="Comite Departamental de la Juventud" class="actividad-img">
-                </div>
-                <p class="presentacion-oficial-text" data-i18n="consejo_texto">
-                    La PDPEAJ-BENI participó activamente en <b>"CONSTRUYENDO PROPUESTAS POR NUESTROS DERECHOS"</b>,
-                    un espacio donde se presentaron diversas propuestas y proyectos de ley con el objetivo de impulsar
-                    el desarrollo
-                    y fortalecer la participación de los jóvenes en la política. Gracias a este proceso, se
-                    conformó oficialmente el Consejo Departamental de la Juventud del Beni, un paso clave para
-                    que la voz de las nuevas generaciones tenga más peso y presencia en las decisiones que nos
-                    afectan a todos.
-                </p>
-            </div>
-        </section>
-
-        <section class="contacto">
-            <div class="cuadro">
-                <h2 data-i18n="como_contactar_titulo">¿Cómo puedes contactarnos?</h2>
-                <div class="lista-telefonos">
-                    <a href="https://wa.me/59172817484" class="telefono-link">
-                        <span class="icono-telefono">📞</span>
-                        <span data-i18n="telefono_presidente">+591 72817484 - Presidente de la PDPEAJ-Beni</span>
-                    </a>
-                    <a href="https://wa.me/59171148768" class="telefono-link">
-                        <span class="icono-telefono">📞</span>
-                        <span data-i18n="telefono_vicepresidenta">+591 71148768 - Vicepresidenta de la
-                            PDPEAJ-Beni</span>
-                    </a>
-                    <a href="https://wa.me/67359351" class="telefono-link">
-                        <span class="icono-telefono">📞</span>
-                        <span data-i18n="telefono_sec_actas">+591 67359351 - Sec. Actas de la PDPEAJ-Beni</span>
-                    </a>
+                <div class="about-image">
+                    <img src="img/logo.png" alt="Sobre la PDPEAJ-Beni">
                 </div>
             </div>
+        </div>
+    </section>
 
-            <div class="cuadro">
-                <h2 data-i18n="correo_titulo">Correo Electrónico</h2>
-                <div class="email-contacto">
-                    <a href="mailto:plataformadeprevencionbeni@gmail.com" data-i18n="correo_email">
-                        plataformadeprevencionbeni@gmail.com
-                    </a>
-                </div>
+    <!-- Mission and Vision Section -->
+    <section class="mission-vision" id="mision">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nuestra Misión y Visión</h2>
+                <p>Los pilares que guían nuestro trabajo</p>
             </div>
 
-            <div class="cuadro">
-                <h2 data-i18n="redes_titulo">Redes sociales</h2>
-                <p data-i18n="redes_p1">Síguenos en nuestras redes sociales para mantenerte informado:</p>
-                <div class="social-buttons">
-                    <a href="https://www.facebook.com/profile.php?id=61552371105965&mibextid=ZbWKwL" class="social-icon"
-                        target="_blank" title="Facebook">
-                        <img src="img/facebook.jpeg" alt="Facebook" />
-                    </a>
-                    <a href="https://www.instagram.com/pdpeaj_beni?igsh=bTJxcTA2YWljcXFj" class="social-icon"
-                        target="_blank" title="Instagram">
-                        <img src="img/instagram.jpg" alt="Instagram" />
-                    </a>
-                    <a href="https://www.tiktok.com/@pl.dptal.beni" class="social-icon" target="_blank" title="TikTok">
-                        <img src="img/tik tok.jpeg" alt="TikTok" />
-                    </a>
+            <div class="mv-container">
+                <div class="mv-card">
+                    <div class="mv-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3>Nuestra Misión</h3>
+                    <p>La PDPEAJ-Beni tiene como misión colaborar en la reducción del embarazo adolescente en el
+                        departamento del Beni, promoviendo el ejercicio de los derechos sexuales y reproductivos de
+                        adolescentes y jóvenes a través de acciones de prevención, educación y sensibilización.</p>
+                </div>
+
+                <div class="mv-card">
+                    <div class="mv-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>Nuestra Visión</h3>
+                    <p>La PDPEAJ-Beni tiene como visión ser una plataforma reconocida en todo el departamento por su
+                        impacto en la promoción de la salud sexual y reproductiva y la prevención del embarazo en
+                        adolescentes y jóvenes, promoviendo el acceso a servicios de salud de calidad, empoderando a la
+                        juventud para que tome decisiones informadas sobre su salud, y consolidando una estructura
+                        juvenil que fortalezca la atención integral para este grupo poblacional.</p>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
+    <!-- Who We Are Section -->
+    <section class="who-we-are" id="quienes">
+        <div class="container">
+            <div class="section-title">
+                <h2>¿Quiénes somos?</h2>
+                <p>Conoce a nuestro equipo y nuestra estructura</p>
+            </div>
+
+            <div class="wwa-content">
+                <div class="wwa-image">
+                    <img src="img/presentacion 2.jpeg" alt="¿Quiénes somos?" onerror="this.style.display='none';">
+                </div>
+
+                <div class="wwa-text">
+                    <h2>Una Organización de Jóvenes para Jóvenes</h2>
+                    <p>La Plataforma Departamental de Prevención de Embarazos en Adolescentes y Jóvenes del Beni es una
+                        organización juvenil cuyo propósito es reducir el índice de embarazos en adolescentes y
+                        disminuir la tasa de VIH/SIDA, así como otras enfermedades de transmisión sexual.</p>
+                    <p>La plataforma está conformada por adolescentes y jóvenes del departamento del Beni, quienes
+                        trabajan de manera voluntaria y con el firme compromiso de generar un cambio positivo en la
+                        sociedad, colaborando con distintas instituciones y organizaciones para alcanzar sus objetivos.
+                    </p>
+                    <p>Creemos en el poder de la juventud para transformar realidades y construir un futuro más
+                        saludable e informado para todos los adolescentes y jóvenes del Beni.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>100%</h3>
+                    <p>Organización juvenil voluntaria</p>
+                </div>
+
+                <div class="stat-item">
+                    <h3>3+</h3>
+                    <p>Años trabajando por la juventud del Beni</p>
+                </div>
+
+                <div class="stat-item">
+                    <h3>6+</h3>
+                    <p>Instituciones aliadas</p>
+                </div>
+
+                <div class="stat-item">
+                    <h3>200+</h3>
+                    <p>Jóvenes y adolescentes impactados directamente</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contacto">
+        <div class="container">
+            <div class="section-title">
+                <h2>¿Cómo puedes contactarnos?</h2>
+                <p>Estamos aquí para responder tus preguntas y escuchar tus ideas</p>
+            </div>
+
+            <div class="contact-content">
+                <div class="contact-form">
+                    <!-- Cambia ACTION por tu URL de Formspree -->
+                    <form id="contactForm" action="https://formspree.io/f/mpwlojzb" method="POST">
+                        <div class="form-group">
+                            <label for="name">Nombre Completo</label>
+                            <input type="text" id="name" name="name" class="form-control" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Correo Electrónico</label>
+                            <input type="email" id="email" name="email" class="form-control" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">Asunto</label>
+                            <input type="text" id="subject" name="subject" class="form-control" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Mensaje</label>
+                            <textarea id="message" name="message" class="form-control" rows="5" required></textarea>
+                        </div>
+
+                        <!-- Campo oculto para redirección después del envío -->
+                        <input type="hidden" name="_next"
+                            value="https://pdpeaje-beni.github.io/PlataformadePrevencion/gracias.html">
+                        <input type="hidden" name="_subject" value="📧 Contacto Web PDPEAJ-Beni">
+
+                        <button type="submit" class="btn">Enviar Mensaje</button>
+                    </form>
+                </div>
+            </div>
+    </section>
+    <!-- El resto del código se mantiene igual -->
+
+
+    <!-- Footer -->
     <footer>
-        <div class="margen">
-            <div class="footer-title">
-                &copy; PDPEAJ-BENI
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>PDPEAJ-Beni</h3>
+                    <p>Plataforma Departamental de Prevención de Embarazos en Adolescentes y Jóvenes del Beni.</p>
+                    <p>Una organización juvenil comprometida con la salud sexual y reproductiva de los jóvenes benianos.
+                    </p>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#plataforma">¿Qué es la PDPEAJ?</a></li>
+                        <li><a href="#mision">Misión y Visión</a></li>
+                        <li><a href="#quienes">¿Quiénes somos?</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-social">
+                    <h4>Síguenos en redes</h4>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/profile.php?id=61552371105965&mibextid=ZbWKwL"
+                            target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/pdpeaj_beni?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                            target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.tiktok.com/@pl.dptal.beni?is_from_webapp=1&sender_device=pc"
+                            target="_blank"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                    <p style="margin-top: 20px; opacity: 0.8;">¡Sé parte del cambio! Únete a nuestra plataforma juvenil.
+                    </p>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; PDPEAJ-Beni</p>
             </div>
         </div>
+    </footer>
 
-        <script src="js/floating-menu.js"></script>
-        <script src="traducciones.js"></script>
-        <script src="https://unpkg.com/scrollreveal"></script>
-        <script>
-            // Animación scroll reveal
-            ScrollReveal().reveal('.cuadro', {
-                delay: 200,
-                distance: '40px',
-                origin: 'bottom',
-                opacity: 0,
-                duration: 1000,
-                easing: 'cubic-bezier(0.5, 0, 0, 1)'
+    <script>
+        // Mobile menu toggle
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        const mainMenu = document.getElementById('main-menu');
+
+        mobileMenuToggle.addEventListener('click', function () {
+            mainMenu.style.display = mainMenu.style.display === 'flex' ? 'none' : 'flex';
+            mainMenu.style.flexDirection = 'column';
+            mainMenu.style.position = 'absolute';
+            mainMenu.style.top = '100%';
+            mainMenu.style.left = '0';
+            mainMenu.style.width = '100%';
+            mainMenu.style.backgroundColor = 'var(--white)';
+            mainMenu.style.padding = '20px';
+            mainMenu.style.boxShadow = '0 10px 15px rgba(0,0,0,0.1)';
+            mainMenu.style.gap = '15px';
+            mainMenu.style.zIndex = '1000';
+        });
+
+        // Form submission
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            alert('¡Gracias por tu mensaje! Te contactaremos pronto para responder tus consultas sobre la PDPEAJ-Beni.');
+            contactForm.reset();
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a, .hero-buttons a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+
+                // Close mobile menu if open
+                if (window.innerWidth <= 768) {
+                    mainMenu.style.display = 'none';
+                }
             });
-        </script>
+        });
+
+        // Adjust menu on window resize
+        window.addEventListener('resize', function () {
+            if (window.innerWidth > 768) {
+                mainMenu.style.display = 'flex';
+                mainMenu.style.flexDirection = 'row';
+                mainMenu.style.position = 'static';
+                mainMenu.style.backgroundColor = 'transparent';
+                mainMenu.style.padding = '0';
+                mainMenu.style.boxShadow = 'none';
+                mainMenu.style.gap = '30px';
+            } else {
+                mainMenu.style.display = 'none';
+            }
+        });
+    </script>
 </body>
 
 </html>
