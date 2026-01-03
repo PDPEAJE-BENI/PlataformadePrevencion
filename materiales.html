@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materiales Educativos | PDPEAJ-Beni</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="estilos.css">
+    <style>
+        /* Estilos específicos para la página de materiales */
+        .materiales-hero {
+            background: linear-gradient(135deg, rgba(0, 188, 212, 0.9) 0%, rgba(255, 64, 129, 0.9) 100%), url('https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .materiales-hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+        }
+
+        .materiales-hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            opacity: 0.95;
+        }
+
+        .materiales-content {
+            padding: 80px 0;
+        }
+
+        .materiales-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+
+        .materiales-intro h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .materiales-intro p {
+            color: var(--gray);
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .aclaracion-material {
+            background-color: rgba(156, 39, 176, 0.1);
+            border-left: 4px solid var(--primary);
+            padding: 20px;
+            margin-bottom: 40px;
+            border-radius: 8px;
+        }
+
+        .aclaracion-material strong {
+            color: var(--primary-dark);
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .aclaracion-material span {
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        .material-lista {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            list-style: none;
+            padding: 0;
+            margin-bottom: 60px;
+        }
+
+        .material-lista li {
+            background-color: var(--white);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .material-lista li:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .material-lista a {
+            display: block;
+            padding: 25px;
+            text-decoration: none;
+            color: var(--dark);
+            transition: var(--transition);
+            height: 100%;
+        }
+
+        .material-lista a:hover {
+            background-color: rgba(156, 39, 176, 0.05);
+        }
+
+        .pdf-thumb {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border: 1px solid var(--light-gray);
+            transition: var(--transition);
+        }
+
+        .material-lista li:hover .pdf-thumb {
+            transform: scale(1.03);
+        }
+
+        .material-lista span {
+            display: block;
+            font-weight: 600;
+            font-size: 1.1rem;
+            line-height: 1.4;
+            text-align: center;
+            color: var(--dark);
+        }
+
+        .material-lista li:hover span {
+            color: var(--primary);
+        }
+
+        .download-icon {
+            display: inline-block;
+            margin-left: 10px;
+            color: var(--primary);
+            font-size: 0.9rem;
+        }
+
+        .drive-box {
+            background: linear-gradient(135deg, #4285f4 0%, #34a853 100%);
+            color: white;
+            padding: 40px;
+            border-radius: var(--radius);
+            text-align: center;
+        }
+
+        .drive-box h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .drive-desc {
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .drive-link {
+            display: inline-block;
+            background-color: white;
+            color: #4285f4;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            border: 2px solid transparent;
+        }
+
+        .drive-link:hover {
+            background-color: transparent;
+            color: white;
+            border-color: white;
+            transform: translateY(-3px);
+        }
+
+        .drive-svg-icon {
+            display: inline-block;
+            margin-left: 5px;
+        }
+
+        .breadcrumb {
+            padding: 20px 0;
+            background-color: var(--light-gray);
+        }
+
+        .breadcrumb-content {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95rem;
+        }
+
+        .breadcrumb a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .breadcrumb a:hover {
+            color: var(--primary-dark);
+            text-decoration: underline;
+        }
+
+        .breadcrumb i {
+            color: var(--gray);
+            font-size: 12px;
+        }
+
+        .breadcrumb span {
+            color: var(--gray);
+        }
+
+        .material-categories {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .category-btn {
+            padding: 10px 25px;
+            background-color: var(--light-gray);
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .category-btn.active {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .category-btn:hover:not(.active) {
+            background-color: #d1d9e0;
+        }
+
+        /* Modal para previsualización de PDFs */
+        .pdf-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .pdf-modal-content {
+            background-color: var(--white);
+            border-radius: var(--radius);
+            max-width: 900px;
+            width: 100%;
+            max-height: 90vh;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .pdf-modal-header {
+            padding: 20px 30px;
+            background-color: var(--primary);
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .pdf-modal-header h3 {
+            margin: 0;
+            font-size: 1.3rem;
+        }
+
+        .pdf-modal-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .pdf-modal-close:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .pdf-modal-body {
+            padding: 30px;
+            height: 600px;
+        }
+
+        .pdf-viewer {
+            width: 100%;
+            height: 100%;
+            border: 1px solid var(--light-gray);
+            border-radius: 8px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .materiales-hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .materiales-hero {
+                padding: 60px 0;
+            }
+
+            .materiales-content {
+                padding: 60px 0;
+            }
+
+            .material-lista {
+                grid-template-columns: 1fr;
+            }
+
+            .drive-box {
+                padding: 30px 20px;
+            }
+
+            .pdf-modal-body {
+                height: 400px;
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .materiales-hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .material-categories {
+                gap: 10px;
+            }
+
+            .category-btn {
+                padding: 8px 20px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <div class="logo-img">
+                    <img src="img/logo.png" alt="PDPEAJ-Beni Logo">
+                </div>
+                <div class="logo-text">
+                    <h1>PDPEAJ-Beni</h1>
+                    <p>Plataforma Departamental de Prevención de Embarazos en Adolescentes y Jóvenes</p>
+                </div>
+            </div>
+
+            <nav>
+                <ul id="main-menu">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="directiva.html">Directiva</a></li>
+                    <li><a href="actividades.html">Actividades</a></li>
+                    <li><a href="juegos.html">Juegos</a></li>
+                    <li><a href="materiales.html" class="active">Materiales</a></li>
+                    <li><a href="index.html#contacto">Contacto</a></li>
+                </ul>
+                <button class="mobile-menu-btn" id="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="container breadcrumb-content">
+            <a href="index.html"><i class="fas fa-home"></i> Inicio</a>
+            <i class="fas fa-chevron-right"></i>
+            <span>Materiales Educativos</span>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="materiales-hero">
+        <div class="container">
+            <h1>Materiales Educativos</h1>
+            <p>Recursos descargables sobre salud sexual, derechos reproductivos y prevención de embarazos adolescentes. Todo el material que necesitas para informarte y educar a otros.</p>
+        </div>
+    </section>
+
+    <!-- Materiales Content -->
+    <section class="materiales-content">
+        <div class="container">
+            <div class="materiales-intro">
+                <h2>Recursos para el Empoderamiento Juvenil</h2>
+                <p>En esta sección encontrarás materiales educativos descargables desarrollados por instituciones especializadas en salud sexual y reproductiva. Estos recursos están diseñados para adolescentes, jóvenes y educadores.</p>
+            </div>
+
+            <div class="aclaracion-material">
+                <strong>Nota aclaratoria:</strong>
+                <span>La Plataforma Departamental de Prevención de Embarazos en Adolescentes y Jóvenes del Beni <b>no es propietaria</b> de los materiales compartidos en esta sección. Estos recursos se difunden únicamente con fines informativos y educativos para mantener a los jóvenes y adolescentes informados y empoderados.</span>
+            </div>
+
+            <!-- Categorías -->
+            <div class="material-categories">
+                <button class="category-btn active" data-category="all">Todos los materiales</button>
+                <button class="category-btn" data-category="cartillas">Cartillas</button>
+                <button class="category-btn" data-category="guias">Guías y orientaciones</button>
+                <button class="category-btn" data-category="derechos">Derechos sexuales</button>
+            </div>
+
+            <!-- Lista de materiales -->
+            <ul class="material-lista">
+                <!-- Cartilla EIS -->
+                <li data-category="cartillas">
+                    <a href="videos/Cartilla-EIS-en-el-CE-coordinadora.pdf" download>
+                        <img class="pdf-thumb" src="videos/Cartilla-EIS-en-el-CE-coordinadora_001.png" alt="Cartilla EIS">
+                        <span>Cartilla EIS - Educación Integral en Sexualidad
+                            <span class="download-icon"><i class="fas fa-download"></i></span>
+                        </span>
+                    </a>
+                </li>
+
+                <!-- Cartilla Salud Sexual -->
+                <li data-category="cartillas">
+                    <a href="videos/dgss_acon_n_46_cartilla_salud_sexual.pdf" download>
+                        <img class="pdf-thumb" src="videos/dgss_acon_n_46_cartilla_salud_sexual_001.png" alt="Cartilla Salud Sexual">
+                        <span>Cartilla de Salud Sexual y Reproductiva
+                            <span class="download-icon"><i class="fas fa-download"></i></span>
+                        </span>
+                    </a>
+                </li>
+
+                <!-- Cuadríptico Derechos Sexuales y Reproductivos -->
+                <li data-category="derechos">
+                    <a href="videos/Cuadriptico-Derechos-Sexuales-y-Derechos-Reproductivos-en-nuestras-vidas.pdf" download>
+                        <img class="pdf-thumb" src="videos/Cuadriptico-Derechos-Sexuales-y-Derechos-Reproductivos-en-nuestras-vidas_001.png" alt="Cuadríptico Derechos Sexuales y Reproductivos">
+                        <span>Cuadríptico: Derechos Sexuales y Reproductivos
+                            <span class="download-icon"><i class="fas fa-download"></i></span>
+                        </span>
+                    </a>
+                </li>
+
+                <!-- Boletín DSDRVAj -->
+                <li data-category="derechos">
+                    <a href="videos/BoletínDSDRVAj-comprimido_513.pdf" download>
+                        <img class="pdf-thumb" src="videos/BoletínDSDRVAj-comprimido_513_001.png" alt="Boletín DSDRVAj">
+                        <span>Boletín DSDRVAj - Derechos Sexuales y Reproductivos
+                            <span class="download-icon"><i class="fas fa-download"></i></span>
+                        </span>
+                    </a>
+                </li>
+
+                <!-- Adolescentes y Jóvenes que Inciden -->
+                <li data-category="guias">
+                    <a href="videos/ADOLESCENTES-Y-JOVENES-QUE-INCIDEN.pdf" download>
+                        <img class="pdf-thumb" src="videos/ADOLESCENTES-Y-JOVENES-QUE-INCIDEN_001.png" alt="Adolescentes y Jóvenes que Inciden">
+                        <span>Adolescentes y Jóvenes que Inciden
+                            <span class="download-icon"><i class="fas fa-download"></i></span>
+                        </span>
+                    </a>
+                </li>
+
+                <!-- Orientación técnica -->
+                <li data-category="guias">
+                    <a href="videos/Orientación tecnica.pdf" download>
+                        <img class="pdf-thumb" src="videos/Orientación tecnica_001.png" alt="Orientación Técnica">
+                        <span>Orientación Técnica para la Prevención
+                            <span class="download-icon"><i class="fas fa-download"></i></span>
+                        </span>
+                    </a>
+                </li>
+
+                <!-- Orientaciones técnicas -->
+                <li data-category="guias">
+                    <a href="videos/Orientaciones técnicas.pdf" download>
+                        <img class="pdf-thumb" src="videos/Orientaciones técnicas_001.png" alt="Orientaciones Técnicas">
+                        <span>Orientaciones Técnicas Complementarias
+                            <span class="download-icon"><i class="fas fa-download"></i></span>
+                        </span>
+                    </a>
+                </li>
+
+                <!-- Informe Defensorial: Sueños Interrumpidos -->
+                <li data-category="guias">
+                    <a href="videos/informe-defensorial-sueños-interrumpidos.pdf" download>
+                        <img class="pdf-thumb" src="videos/informe-defensorial-sueños-interrumpidos_001.png" alt="Informe Defensorial: Sueños Interrumpidos">
+                        <span>Informe Defensorial: Sueños Interrumpidos
+                            <span class="download-icon"><i class="fas fa-download"></i></span>
+                        </span>
+                    </a>
+                </li>
+
+                <!-- Añadir más materiales según sea necesario -->
+                <li data-category="cartillas">
+                    <a href="https://drive.google.com/file/d/1TnFadjDvUMf0TWBvX2QN7dlLjAySSWiQ/view" target="_blank">
+                        <img class="pdf-thumb" src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Más Materiales">
+                        <span>Más materiales disponibles en Drive
+                            <span class="download-icon"><i class="fas fa-external-link-alt"></i></span>
+                        </span>
+                    </a>
+                </li>
+            </ul>
+
+            <!-- Sección de Google Drive -->
+            <div class="drive-box">
+                <h3>¿Problemas para descargar?</h3>
+                <p class="drive-desc">Si tienes inconvenientes con la descarga directa, accede a todos los materiales en nuestra carpeta de <b>Google Drive <span class="drive-svg-icon" style="vertical-align:middle;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 48 48">
+                        <polygon fill="#ffd600" points="20.4,8.7 27.6,8.7 44.1,37.1 36.9,37.1"/>
+                        <polygon fill="#00c3f2" points="7.2,37.1 14.4,37.1 24,20.1 16.8,20.1"/>
+                        <polygon fill="#3dd54a" points="33.6,41.3 14.4,41.3 7.2,37.1 36.9,37.1"/>
+                        <polygon fill="#304ffe" points="27.6,8.7 44.1,37.1 36.9,37.1 20.4,8.7"/>
+                    </svg>
+                </span></b>:</p>
+                <a href="https://drive.google.com/drive/folders/1TnFadjDvUMf0TWBvX2QN7dlLjAySSWiQ?usp=sharing" target="_blank" class="drive-link">
+                    <i class="fas fa-folder-open"></i> Ver carpeta completa en Drive
+                </a>
+            </div>
+
+            <div class="materiales-intro" style="margin-top: 60px;">
+                <h2>¿Cómo usar estos materiales?</h2>
+                <p>Estos recursos están diseñados para ser utilizados en talleres, sesiones educativas, o para el aprendizaje individual. Puedes descargarlos, imprimirlos y compartirlos con otros jóvenes, educadores o instituciones que trabajen en prevención de embarazos adolescentes y promoción de la salud sexual.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal para previsualización de PDFs -->
+    <div class="pdf-modal" id="pdfModal">
+        <div class="pdf-modal-content">
+            <div class="pdf-modal-header">
+                <h3 id="pdfModalTitle">Vista Previa del Documento</h3>
+                <button class="pdf-modal-close" id="pdfModalClose">&times;</button>
+            </div>
+            <div class="pdf-modal-body">
+                <iframe id="pdfViewer" class="pdf-viewer" src="" frameborder="0"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>PDPEAJ-Beni</h3>
+                    <p>Plataforma Departamental de Prevención de Embarazos en Adolescentes y Jóvenes del Beni.</p>
+                    <p>Una organización juvenil comprometida con la salud sexual y reproductiva de los jóvenes benianos.
+                    </p>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="directiva.html">Directiva</a></li>
+                        <li><a href="actividades.html">Actividades</a></li>
+                        <li><a href="juegos.html">Juegos</a></li>
+                        <li><a href="materiales.html">Materiales</a></li>
+                        <li><a href="index.html#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-social">
+                    <h4>Síguenos en redes</h4>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/profile.php?id=61552371105965&mibextid=ZbWKwL"
+                            target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/pdpeaj_beni?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                            target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.tiktok.com/@pl.dptal.beni?is_from_webapp=1&sender_device=pc"
+                            target="_blank"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                    <p style="margin-top: 20px; opacity: 0.8;">¡Sé parte del cambio! Únete a nuestra plataforma juvenil.
+                    </p>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; PDPEAJ-Beni</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Inicialización cuando el DOM esté listo
+        document.addEventListener('DOMContentLoaded', function() {
+            // Menú móvil (compartido con otras páginas)
+            const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+            const mainMenu = document.getElementById('main-menu');
+            
+            if (mobileMenuToggle && mainMenu) {
+                mobileMenuToggle.addEventListener('click', function() {
+                    mainMenu.style.display = mainMenu.style.display === 'flex' ? 'none' : 'flex';
+                    mainMenu.style.flexDirection = 'column';
+                    mainMenu.style.position = 'absolute';
+                    mainMenu.style.top = '100%';
+                    mainMenu.style.left = '0';
+                    mainMenu.style.width = '100%';
+                    mainMenu.style.backgroundColor = 'var(--white)';
+                    mainMenu.style.padding = '20px';
+                    mainMenu.style.boxShadow = '0 10px 15px rgba(0,0,0,0.1)';
+                    mainMenu.style.gap = '15px';
+                    mainMenu.style.zIndex = '1000';
+                });
+            }
+
+            // Filtrar materiales por categoría
+            const categoryButtons = document.querySelectorAll('.category-btn');
+            const materialItems = document.querySelectorAll('.material-lista li');
+            
+            categoryButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remover clase active de todos los botones
+                    categoryButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Agregar clase active al botón clickeado
+                    this.classList.add('active');
+                    
+                    const category = this.dataset.category;
+                    
+                    // Filtrar materiales
+                    materialItems.forEach(item => {
+                        if (category === 'all' || item.dataset.category === category) {
+                            item.style.display = 'block';
+                            setTimeout(() => {
+                                item.style.opacity = '1';
+                                item.style.transform = 'translateY(0)';
+                            }, 10);
+                        } else {
+                            item.style.opacity = '0';
+                            item.style.transform = 'translateY(20px)';
+                            setTimeout(() => {
+                                item.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+                });
+            });
+
+            // Modal para PDFs (para futura implementación)
+            const pdfModal = document.getElementById('pdfModal');
+            const pdfModalClose = document.getElementById('pdfModalClose');
+            const pdfViewer = document.getElementById('pdfViewer');
+            const pdfModalTitle = document.getElementById('pdfModalTitle');
+            
+            if (pdfModalClose) {
+                pdfModalClose.addEventListener('click', function() {
+                    pdfModal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                    pdfViewer.src = '';
+                });
+            }
+            
+            if (pdfModal) {
+                pdfModal.addEventListener('click', function(e) {
+                    if (e.target === pdfModal) {
+                        pdfModal.style.display = 'none';
+                        document.body.style.overflow = 'auto';
+                        pdfViewer.src = '';
+                    }
+                });
+            }
+
+            // Función para abrir vista previa de PDF (se puede implementar más adelante)
+            function openPdfPreview(pdfUrl, title) {
+                pdfModalTitle.textContent = title;
+                pdfViewer.src = pdfUrl;
+                pdfModal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            }
+
+            // Configurar enlaces de descarga para abrir en nueva pestaña si son externos
+            document.querySelectorAll('.material-lista a').forEach(link => {
+                if (link.href.includes('drive.google.com') || link.href.includes('http')) {
+                    link.setAttribute('target', '_blank');
+                    link.setAttribute('rel', 'noopener noreferrer');
+                }
+                
+                // Para futuro: agregar vista previa
+                // link.addEventListener('click', function(e) {
+                //     if (!e.ctrlKey && !e.metaKey) {
+                //         e.preventDefault();
+                //         const pdfUrl = this.href;
+                //         const title = this.querySelector('span').textContent;
+                //         openPdfPreview(pdfUrl, title);
+                //     }
+                // });
+            });
+
+            // Smooth scrolling para navegación interna
+            document.querySelectorAll('nav a, .hero-buttons a').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    if (this.getAttribute('href').startsWith('#')) {
+                        e.preventDefault();
+                        const targetId = this.getAttribute('href');
+                        const targetElement = document.querySelector(targetId);
+                        
+                        if (targetElement) {
+                            window.scrollTo({
+                                top: targetElement.offsetTop - 80,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                    
+                    // Cerrar menú móvil si está abierto
+                    if (window.innerWidth <= 768) {
+                        mainMenu.style.display = 'none';
+                    }
+                });
+            });
+
+            // Ajustar menú en cambio de tamaño de ventana
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 768) {
+                    mainMenu.style.display = 'flex';
+                    mainMenu.style.flexDirection = 'row';
+                    mainMenu.style.position = 'static';
+                    mainMenu.style.backgroundColor = 'transparent';
+                    mainMenu.style.padding = '0';
+                    mainMenu.style.boxShadow = 'none';
+                    mainMenu.style.gap = '30px';
+                } else {
+                    mainMenu.style.display = 'none';
+                }
+            });
+
+            // Resaltar elemento activo del menú
+            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+            document.querySelectorAll('nav a').forEach(link => {
+                const linkPage = link.getAttribute('href');
+                
+                if (currentPage === 'materiales.html' && linkPage === 'materiales.html') {
+                    link.classList.add('active');
+                } else if (linkPage === currentPage) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+
+            // Efecto hover mejorado para los materiales
+            const materialCards = document.querySelectorAll('.material-lista li');
+            materialCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.zIndex = '10';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.zIndex = '1';
+                });
+            });
+        });
+
+        // Contador de descargas (ejemplo básico)
+        let downloadCount = 0;
+        
+        function trackDownload(materialName) {
+            downloadCount++;
+            console.log(`Descarga de ${materialName} registrada. Total: ${downloadCount}`);
+            
+            // Aquí podrías implementar Google Analytics o enviar a tu backend
+            // Ejemplo: fetch('/api/track-download', { method: 'POST', body: JSON.stringify({material: materialName}) });
+        }
+    </script>
+</body>
+</html>

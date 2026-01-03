@@ -1,0 +1,1946 @@
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juegos Educativos PDPEAJ-Beni | Plataforma Departamental de Prevención</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="estilos.css">
+    <style>
+        /* Estilos específicos para la página de juegos */
+        .juegos-hero {
+            background: linear-gradient(135deg, rgba(0, 188, 212, 0.9) 0%, rgba(156, 39, 176, 0.9) 100%), url('https://images.unsplash.com/photo-1593305841991-05c297ba4575?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .juegos-hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+        }
+
+        .juegos-hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            opacity: 0.95;
+        }
+
+        .juegos-content {
+            padding: 80px 0;
+        }
+
+        .juegos-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+
+        .juegos-intro h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .juegos-intro p {
+            color: var(--gray);
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .juegos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .juego-card {
+            background-color: var(--white);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            cursor: pointer;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .juego-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .juego-icon {
+            height: 200px;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--primary) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 70px;
+        }
+
+        .juego-info {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .juego-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+            line-height: 1.4;
+        }
+
+        .juego-desc {
+            color: var(--gray);
+            line-height: 1.6;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .juego-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+        }
+
+        .juego-difficulty {
+            display: flex;
+            gap: 5px;
+        }
+
+        .difficulty-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: var(--light-gray);
+        }
+
+        .difficulty-dot.active {
+            background-color: var(--secondary);
+        }
+
+        .juego-time {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .breadcrumb {
+            padding: 20px 0;
+            background-color: var(--light-gray);
+        }
+        
+        .breadcrumb-content {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95rem;
+        }
+
+        .breadcrumb a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .breadcrumb a:hover {
+            color: var(--primary-dark);
+            text-decoration: underline;
+        }
+
+        .breadcrumb i {
+            color: var(--gray);
+            font-size: 12px;
+        }
+
+        .breadcrumb span {
+            color: var(--gray);
+        }
+
+        /* Modal para juegos */
+        .juego-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background-color: var(--white);
+            border-radius: var(--radius);
+            max-width: 800px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .modal-header {
+            padding: 25px 30px;
+            border-bottom: 1px solid var(--light-gray);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-header h2 {
+            font-size: 1.8rem;
+            color: var(--dark);
+            margin: 0;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            color: var(--gray);
+            font-size: 24px;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .modal-close:hover {
+            background-color: var(--light-gray);
+            color: var(--dark);
+        }
+
+        .modal-body {
+            padding: 30px;
+        }
+
+        /* Estilos específicos para cada juego */
+        .juego-instructions {
+            background-color: var(--light-gray);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .juego-instructions h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .juego-instructions p {
+            color: var(--gray);
+            margin-bottom: 0;
+        }
+
+        /* Juego 1: Verdadero o Falso */
+        .vf-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .vf-pregunta {
+            background-color: var(--white);
+            border: 2px solid var(--light-gray);
+            border-radius: 8px;
+            padding: 20px;
+            transition: var(--transition);
+        }
+
+        .vf-pregunta.active {
+            border-color: var(--primary);
+            background-color: rgba(156, 39, 176, 0.05);
+        }
+
+        .vf-pregunta h4 {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .vf-opciones {
+            display: flex;
+            gap: 15px;
+        }
+
+        .vf-btn {
+            padding: 10px 25px;
+            border: 2px solid var(--light-gray);
+            border-radius: 50px;
+            background: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            flex: 1;
+        }
+
+        .vf-btn:hover {
+            transform: translateY(-3px);
+        }
+
+        .vf-btn.verdadero {
+            color: #2e7d32;
+        }
+
+        .vf-btn.falso {
+            color: #c62828;
+        }
+
+        .vf-btn.selected {
+            border-color: currentColor;
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+
+        .vf-btn.correct {
+            background-color: #e8f5e8;
+            border-color: #2e7d32;
+            color: #2e7d32;
+        }
+
+        .vf-btn.incorrect {
+            background-color: #ffebee;
+            border-color: #c62828;
+            color: #c62828;
+        }
+
+        .vf-feedback {
+            margin-top: 15px;
+            padding: 12px;
+            border-radius: 6px;
+            display: none;
+        }
+
+        .vf-feedback.correct {
+            background-color: #e8f5e8;
+            color: #2e7d32;
+            border-left: 4px solid #2e7d32;
+        }
+
+        .vf-feedback.incorrect {
+            background-color: #ffebee;
+            color: #c62828;
+            border-left: 4px solid #c62828;
+        }
+
+        /* Juego 2: Acertijos */
+        .acertijo-container {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .acertijo-pregunta {
+            background-color: var(--white);
+            border: 2px solid var(--light-gray);
+            border-radius: 8px;
+            padding: 20px;
+            transition: var(--transition);
+        }
+
+        .acertijo-pregunta.active {
+            border-color: var(--primary);
+            background-color: rgba(156, 39, 176, 0.05);
+        }
+
+        .acertijo-pregunta h4 {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .acertijo-opciones {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        @media (max-width: 576px) {
+            .acertijo-opciones {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .acertijo-btn {
+            padding: 12px 15px;
+            border: 2px solid var(--light-gray);
+            border-radius: 6px;
+            background: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: left;
+        }
+
+        .acertijo-btn:hover {
+            transform: translateY(-3px);
+            background-color: rgba(156, 39, 176, 0.05);
+        }
+
+        .acertijo-btn.selected {
+            border-color: var(--primary);
+            background-color: rgba(156, 39, 176, 0.1);
+        }
+
+        .acertijo-btn.correct {
+            background-color: #e8f5e8;
+            border-color: #2e7d32;
+            color: #2e7d32;
+        }
+
+        .acertijo-btn.incorrect {
+            background-color: #ffebee;
+            border-color: #c62828;
+            color: #c62828;
+        }
+
+        .acertijo-explicacion {
+            margin-top: 15px;
+            padding: 12px;
+            border-radius: 6px;
+            background-color: var(--light-gray);
+            color: var(--dark);
+            display: none;
+            border-left: 4px solid var(--primary);
+        }
+
+        .acertijo-explicacion.show {
+            display: block;
+        }
+
+        /* Botones de acción */
+        .juego-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+            justify-content: center;
+        }
+
+        .action-btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .action-btn.primary {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .action-btn.primary:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        .action-btn.secondary {
+            background-color: var(--light-gray);
+            color: var(--dark);
+        }
+        
+        .action-btn.secondary:hover {
+            background-color: #e0e0e0;
+        }
+        
+        .action-btn.success {
+            background-color: #2e7d32;
+            color: white;
+        }
+        
+        .action-btn.success:hover {
+            background-color: #1b5e20;
+        }
+
+        .resultado-container {
+            text-align: center;
+            padding: 30px;
+            margin-top: 30px;
+            background-color: var(--light-gray);
+            border-radius: 8px;
+            display: none;
+        }
+
+        .resultado-container.show {
+            display: block;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .resultado-icon {
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+
+        .resultado-icon.correct {
+            color: #2e7d32;
+        }
+
+        /* Botones de acción */
+        .puntaje {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin: 20px 0;
+        }
+
+        /* Animaciones */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .juegos-hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .juegos-hero {
+                padding: 60px 0;
+            }
+
+            .juegos-content {
+                padding: 60px 0;
+            }
+
+            .juegos-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-content {
+                max-height: 95vh;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <div class="logo-img">
+                    <img src="img/logo.png" alt="PDPEAJ-Beni Logo">
+                </div>
+                <div class="logo-text">
+                    <h1>PDPEAJ-Beni</h1>
+                    <p>Plataforma Departamental de Prevención de Embarazos en Adolescentes y Jóvenes</p>
+                </div>
+            </div>
+
+            <nav>
+                <ul id="main-menu">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="directiva.html">Directiva</a></li>
+                    <li><a href="actividades.html">Actividades</a></li>
+                    <li><a href="juegos.html" class="active">Juegos</a></li>
+                    <li><a href="materiales.html">Materiales</a></li>
+                    <li><a href="index.html#contacto">Contacto</a></li>
+                </ul>
+                <button class="mobile-menu-btn" id="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="container breadcrumb-content">
+            <a href="index.html"><i class="fas fa-home"></i> Inicio</a>
+            <i class="fas fa-chevron-right"></i>
+            <span>Juegos Educativos</span>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="juegos-hero">
+        <div class="container">
+            <h1>Juegos Educativos</h1>
+            <p>¡Aprende sobre salud sexual y prevención de embarazos adolescentes de manera divertida! Pon a prueba tus
+                conocimientos con estos juegos interactivos.</p>
+        </div>
+    </section>
+
+    <!-- Juegos Content -->
+    <section class="juegos-content">
+        <div class="container">
+            <div class="juegos-intro">
+                <h2>Aprender Jugando</h2>
+                <p>Los juegos educativos son una excelente manera de aprender sobre temas importantes de salud sexual y
+                    reproductiva. Aquí encontrarás diferentes actividades para poner a prueba y ampliar tus
+                    conocimientos.</p>
+            </div>
+
+            <div class="juegos-grid">
+                <!-- Juego 1: Verdadero o Falso -->
+                <div class="juego-card" data-juego="verdadero-falso">
+                    <div class="juego-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <div class="juego-info">
+                        <h3>Verdadero o Falso</h3>
+                        <p class="juego-desc">¿Sabes distinguir los mitos de la realidad sobre salud sexual? Pon a
+                            prueba tus conocimientos con este juego de afirmaciones sobre prevención y salud
+                            reproductiva.</p>
+                        <div class="juego-meta">
+                            <div class="juego-difficulty">
+                                <span class="difficulty-dot active"></span>
+                                <span class="difficulty-dot"></span>
+                                <span class="difficulty-dot"></span>
+                            </div>
+                            <div class="juego-time">
+                                <i class="far fa-clock"></i>
+                                <span>5 min</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Juego 2: Acertijos -->
+                <div class="juego-card" data-juego="acertijos">
+                    <div class="juego-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <div class="juego-info">
+                        <h3>Acertijos de Salud</h3>
+                        <p class="juego-desc">Resuelve estos acertijos sobre métodos anticonceptivos, derechos sexuales
+                            y prevención de enfermedades de transmisión sexual.</p>
+                        <div class="juego-meta">
+                            <div class="juego-difficulty">
+                                <span class="difficulty-dot active"></span>
+                                <span class="difficulty-dot active"></span>
+                                <span class="difficulty-dot active"></span>
+                            </div>
+                            <div class="juego-time">
+                                <i class="far fa-clock"></i>
+                                <span>10 min</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Juego 3: Quiz Rápido -->
+                <div class="juego-card" data-juego="quiz">
+                    <div class="juego-icon">
+                        <i class="fas fa-question-circle"></i>
+                    </div>
+                    <div class="juego-info">
+                        <h3>Quiz Rápido</h3>
+                        <p class="juego-desc">Responde preguntas rápidas sobre prevención de embarazos adolescentes y
+                            pon a prueba tus conocimientos en tiempo récord.</p>
+                        <div class="juego-meta">
+                            <div class="juego-difficulty">
+                                <span class="difficulty-dot active"></span>
+                                <span class="difficulty-dot"></span>
+                                <span class="difficulty-dot"></span>
+                            </div>
+                            <div class="juego-time">
+                                <i class="far fa-clock"></i>
+                                <span>3 min</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Juego 4: Memoria -->
+                <div class="juego-card" data-juego="memoria">
+                    <div class="juego-icon">
+                        <i class="fas fa-memory"></i>
+                    </div>
+                    <div class="juego-info">
+                        <h3>Juego de Memoria</h3>
+                        <p class="juego-desc">Encuentra las parejas de cartas relacionadas con métodos anticonceptivos y
+                            sus características principales.</p>
+                        <div class="juego-meta">
+                            <div class="juego-difficulty">
+                                <span class="difficulty-dot active"></span>
+                                <span class="difficulty-dot active"></span>
+                                <span class="difficulty-dot"></span>
+                            </div>
+                            <div class="juego-time">
+                                <i class="far fa-clock"></i>
+                                <span>8 min</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="juegos-intro">
+                <h2>Importancia del Aprendizaje Lúdico</h2>
+                <p>Los juegos educativos facilitan la comprensión de temas complejos sobre salud sexual y reproductiva,
+                    permitiendo que los jóvenes aprendan de manera entretenida y memorable. ¡Diviértete mientras
+                    adquieres conocimientos importantes para tu bienestar!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modales para cada juego -->
+
+    <!-- Modal Verdadero o Falso -->
+    <div class="juego-modal" id="modal-verdadero-falso">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-balance-scale"></i> Verdadero o Falso</h2>
+                <button class="modal-close" data-modal="verdadero-falso">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="juego-instructions">
+                    <h3>Instrucciones</h3>
+                    <p>Lee cada afirmación sobre salud sexual y prevención de embarazos adolescentes. Selecciona si
+                        crees que es <strong>Verdadera</strong> o <strong>Falsa</strong>. Al final, revisa tus
+                        respuestas y aprende con las explicaciones.</p>
+                </div>
+
+                <div class="vf-container">
+                    <!-- Pregunta 1 -->
+                    <div class="vf-pregunta" data-correct="verdadero">
+                        <h4>1. Los métodos anticonceptivos también protegen contra las infecciones de transmisión sexual
+                            (ITS).</h4>
+                        <div class="vf-opciones">
+                            <button class="vf-btn verdadero">Verdadero</button>
+                            <button class="vf-btn falso">Falso</button>
+                        </div>
+                        <div class="vf-feedback correct">
+                            <strong>¡Correcto!</strong> Los preservativos (condones) son el único método que protege
+                            tanto del embarazo como de las ITS.
+                        </div>
+                        <div class="vf-feedback incorrect">
+                            <strong>Incorrecto.</strong> Solo los preservativos (condones) protegen contra embarazos e
+                            ITS. Otros métodos como pastillas o DIU solo previenen embarazos.
+                        </div>
+                    </div>
+
+                    <!-- Pregunta 2 -->
+                    <div class="vf-pregunta" data-correct="falso">
+                        <h4>2. La pastilla del día después puede usarse como método anticonceptivo regular.</h4>
+                        <div class="vf-opciones">
+                            <button class="vf-btn verdadero">Verdadero</button>
+                            <button class="vf-btn falso">Falso</button>
+                        </div>
+                        <div class="vf-feedback correct">
+                            <strong>¡Correcto!</strong> La pastilla del día después es para emergencias, no para uso
+                            regular. Su uso frecuente puede causar efectos secundarios.
+                        </div>
+                        <div class="vf-feedback incorrect">
+                            <strong>Incorrecto.</strong> La pastilla del día después es de emergencia, no para uso
+                            regular. Para anticoncepción continua hay otros métodos más adecuados.
+                        </div>
+                    </div>
+
+                    <!-- Pregunta 3 -->
+                    <div class="vf-pregunta" data-correct="verdadero">
+                        <h4>3. La comunicación en pareja es fundamental para una vida sexual saludable y responsable.
+                        </h4>
+                        <div class="vf-opciones">
+                            <button class="vf-btn verdadero">Verdadero</button>
+                            <button class="vf-btn falso">Falso</button>
+                        </div>
+                        <div class="vf-feedback correct">
+                            <strong>¡Correcto!</strong> Hablar abiertamente sobre sexualidad, límites y métodos
+                            anticonceptivos es esencial para relaciones saludables.
+                        </div>
+                        <div class="vf-feedback incorrect">
+                            <strong>Incorrecto.</strong> La comunicación es clave para establecer acuerdos, respetar
+                            decisiones y prevenir situaciones no deseadas.
+                        </div>
+                    </div>
+
+                    <!-- Pregunta 4 -->
+                    <div class="vf-pregunta" data-correct="falso">
+                        <h4>4. Los adolescentes necesitan consentimiento para acceder a servicios de salud sexual y
+                            reproductiva.</h4>
+                        <div class="vf-opciones">
+                            <button class="vf-btn verdadero">Verdadero</button>
+                            <button class="vf-btn falso">Falso</button>
+                        </div>
+                        <div class="vf-feedback correct">
+                            <strong>¡Correcto!</strong> En Bolivia, los adolescentes desde los 14 años pueden acceder a
+                            servicios de salud sexual y reproductiva sin necesidad de consentimiento de sus padres.
+                        </div>
+                        <div class="vf-feedback incorrect">
+                            <strong>Incorrecto.</strong> En Bolivia, la ley permite que adolescentes desde los 14 años
+                            accedan a estos servicios de forma autónoma para proteger su derecho a la salud.
+                        </div>
+                    </div>
+
+                    <!-- Pregunta 5 -->
+                    <div class="vf-pregunta" data-correct="verdadero">
+                        <h4>5. La educación sexual integral ayuda a reducir los embarazos no planificados en
+                            adolescentes.</h4>
+                        <div class="vf-opciones">
+                            <button class="vf-btn verdadero">Verdadero</button>
+                            <button class="vf-btn falso">Falso</button>
+                        </div>
+                        <div class="vf-feedback correct">
+                            <strong>¡Correcto!</strong> Los estudios demuestran que la educación sexual basada en
+                            evidencia científica reduce conductas de riesgo y embarazos no planificados.
+                        </div>
+                        <div class="vf-feedback incorrect">
+                            <strong>Incorrecto.</strong> La evidencia científica confirma que la educación sexual
+                            integral es una herramienta efectiva para la prevención.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="juego-actions">
+                    <button class="action-btn primary" id="vf-revisar">
+                        <i class="fas fa-check-circle"></i> Revisar Respuestas
+                    </button>
+                    <button class="action-btn secondary" id="vf-reiniciar">
+                        <i class="fas fa-redo"></i> Reiniciar Juego
+                    </button>
+                </div>
+
+                <div class="resultado-container" id="vf-resultado">
+                    <div class="resultado-icon correct">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3>¡Resultados del Juego!</h3>
+                    <div class="puntaje" id="vf-puntaje">0/5</div>
+                    <p id="vf-mensaje"></p>
+                    <div class="juego-actions">
+                        <button class="action-btn primary" id="vf-jugar-otra">
+                            <i class="fas fa-play"></i> Jugar Otra Vez
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Acertijos -->
+    <div class="juego-modal" id="modal-acertijos">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-brain"></i> Acertijos de Salud</h2>
+                <button class="modal-close" data-modal="acertijos">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="juego-instructions">
+                    <h3>Instrucciones</h3>
+                    <p>Resuelve estos acertijos sobre métodos anticonceptivos y salud sexual. Selecciona la respuesta
+                        correcta y verás una explicación detallada.</p>
+                </div>
+
+                <div class="acertijo-container">
+                    <!-- Acertijo 1 -->
+                    <div class="acertijo-pregunta" data-correct="2">
+                        <h4>1. Soy pequeño y flexible, me colocan en el útero, no sientes que estoy pero evito la
+                            concepción. ¿Quién soy?</h4>
+                        <div class="acertijo-opciones">
+                            <button class="acertijo-btn" data-opcion="1">Pastilla anticonceptiva</button>
+                            <button class="acertijo-btn" data-opcion="2">Dispositivo Intrauterino (DIU)</button>
+                            <button class="acertijo-btn" data-opcion="3">Implante subdérmico</button>
+                            <button class="acertijo-btn" data-opcion="4">Anillo vaginal</button>
+                        </div>
+                        <div class="acertijo-explicacion">
+                            <strong>Explicación:</strong> El DIU es un dispositivo pequeño que se coloca en el útero y
+                            puede permanecer allí por varios años previniendo embarazos. Es uno de los métodos
+                            reversibles más efectivos.
+                        </div>
+                    </div>
+
+                    <!-- Acertijo 2 -->
+                    <div class="acertijo-pregunta" data-correct="3">
+                        <h4>2. Somos dos, uno para cada quien, nos ponemos antes del acto, prevenimos embarazos y
+                            enfermedades, pero a veces nos olvidan. ¿Qué somos?</h4>
+                        <div class="acertijo-opciones">
+                            <button class="acertijo-btn" data-opcion="1">Pastillas anticonceptivas</button>
+                            <button class="acertijo-btn" data-opcion="2">Inyecciones anticonceptivas</button>
+                            <button class="acertijo-btn" data-opcion="3">Preservativos o condones</button>
+                            <button class="acertijo-btn" data-opcion="4">Método del ritmo</button>
+                        </div>
+                        <div class="acertijo-explicacion">
+                            <strong>Explicación:</strong> Los preservativos (masculino y femenino) son los únicos
+                            métodos que previenen tanto embarazos como infecciones de transmisión sexual (ITS). Deben
+                            usarse en cada relación sexual.
+                        </div>
+                    </div>
+
+                    <!-- Acertijo 3 -->
+                    <div class="acertijo-pregunta" data-correct="1">
+                        <h4>3. Tengo 14 años y quiero información sobre métodos anticonceptivos. Según la ley boliviana,
+                            ¿necesito el permiso de mis padres?</h4>
+                        <div class="acertijo-opciones">
+                            <button class="acertijo-btn" data-opcion="1">No, puedo acceder sin permiso</button>
+                            <button class="acertijo-btn" data-opcion="2">Solo con permiso de mi madre</button>
+                            <button class="acertijo-btn" data-opcion="3">Sí, necesito permiso de ambos</button>
+                            <button class="acertijo-btn" data-opcion="4">Depende del centro de salud</button>
+                        </div>
+                        <div class="acertijo-explicacion">
+                            <strong>Explicación:</strong> En Bolivia, la Ley 548 (Código Niño, Niña y Adolescente)
+                            establece que adolescentes a partir de los 14 años pueden acceder a servicios de salud
+                            sexual y reproductiva de manera autónoma y confidencial.
+                        </div>
+                    </div>
+
+                    <!-- Acertijo 4 -->
+                    <div class="acertijo-pregunta" data-correct="4">
+                        <h4>4. Soy un método de emergencia, no de uso regular, me toman después de una relación sin
+                            protección. ¿Quién soy?</h4>
+                        <div class="acertijo-opciones">
+                            <button class="acertijo-btn" data-opcion="1">Anticonceptivo oral combinado</button>
+                            <button class="acertijo-btn" data-opcion="2">Implante anticonceptivo</button>
+                            <button class="acertijo-btn" data-opcion="3">DIU hormonal</button>
+                            <button class="acertijo-btn" data-opcion="4">Pastilla del día después</button>
+                        </div>
+                        <div class="acertijo-explicacion">
+                            <strong>Explicación:</strong> La pastilla del día después (anticoncepción de emergencia)
+                            debe usarse solo en situaciones especiales, como rotura de condón o relación sexual sin
+                            protección. No es un método anticonceptivo regular.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="juego-actions">
+                    <button class="action-btn primary" id="acertijo-verificar">
+                        <i class="fas fa-check-circle"></i> Verificar Respuestas
+                    </button>
+                    <button class="action-btn secondary" id="acertijo-reiniciar">
+                        <i class="fas fa-redo"></i> Reiniciar
+                    </button>
+                </div>
+
+                <div class="resultado-container" id="acertijo-resultado">
+                    <div class="resultado-icon correct">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>¡Acertijos Resueltos!</h3>
+                    <div class="puntaje" id="acertijo-puntaje">0/4</div>
+                    <p id="acertijo-mensaje"></p>
+                    <div class="juego-actions">
+                        <button class="action-btn primary" id="acertijo-nuevo">
+                            <i class="fas fa-play"></i> Intentar Nuevamente
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Quiz Rápido -->
+    <div class="juego-modal" id="modal-quiz">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-question-circle"></i> Quiz Rápido</h2>
+                <button class="modal-close" data-modal="quiz">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="juego-instructions">
+                    <h3>Instrucciones</h3>
+                    <p>Responde 5 preguntas rápidas sobre prevención de embarazos adolescentes. Tienes 60 segundos para
+                        completar el quiz. ¡Demuestra tus conocimientos!</p>
+                    <div id="quiz-temporizador">
+                        <i class="fas fa-clock"></i> Tiempo: <span id="quiz-tiempo">60</span> segundos
+                    </div>
+                </div>
+
+                <div id="quiz-preguntas">
+                    <!-- Las preguntas se cargarán dinámicamente -->
+                </div>
+
+                <div class="juego-actions">
+                    <button class="action-btn primary" id="quiz-iniciar">
+                        <i class="fas fa-play"></i> Iniciar Quiz
+                    </button>
+                    <button class="action-btn success" id="quiz-finalizar" style="display: none;">
+                        <i class="fas fa-flag-checkered"></i> Finalizar
+                    </button>
+                </div>
+
+                <div class="resultado-container" id="quiz-resultado">
+                    <div class="resultado-icon correct">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3>¡Quiz Completado!</h3>
+                    <div class="puntaje" id="quiz-puntaje">0/5</div>
+                    <p id="quiz-mensaje"></p>
+                    <div class="juego-actions">
+                        <button class="action-btn primary" id="quiz-reintentar">
+                            <i class="fas fa-redo"></i> Reintentar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Memoria -->
+    <div class="juego-modal" id="modal-memoria">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-memory"></i> Juego de Memoria</h2>
+                <button class="modal-close" data-modal="memoria">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="juego-instructions">
+                    <h3>Instrucciones</h3>
+                    <p>Encuentra las parejas de cartas que combinan métodos anticonceptivos con sus características. Haz
+                        clic en dos cartas para voltearlas. ¡Encuentra todas las parejas en el menor tiempo posible!</p>
+                    <div id="memoria-estadisticas">
+                        <i class="fas fa-history"></i> Movimientos: <span id="memoria-movimientos">0</span>
+                        <i class="fas fa-clock"></i> Tiempo: <span id="memoria-tiempo">0</span>s
+                    </div>
+                </div>
+
+                <div id="memoria-tablero">
+                    <!-- El tablero de memoria se generará con JavaScript -->
+                </div>
+
+                <div class="juego-actions">
+                    <button class="action-btn primary" id="memoria-iniciar">
+                        <i class="fas fa-play"></i> Iniciar Juego
+                    </button>
+                    <button class="action-btn secondary" id="memoria-reiniciar">
+                        <i class="fas fa-redo"></i> Reiniciar
+                    </button>
+                </div>
+
+                <div class="resultado-container" id="memoria-resultado">
+                    <div class="resultado-icon correct">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>¡Juego Completado!</h3>
+                    <p>Has encontrado todas las parejas correctamente.</p>
+                    <div class="puntaje" id="memoria-puntaje">0 movimientos</div>
+                    <p id="memoria-mensaje"></p>
+                    <div class="juego-actions">
+                        <button class="action-btn primary" id="memoria-nuevo">
+                            <i class="fas fa-play"></i> Nuevo Juego
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+   <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>PDPEAJ-Beni</h3>
+                    <p>Plataforma Departamental de Prevención de Embarazos en Adolescentes y Jóvenes del Beni.</p>
+                    <p>Una organización juvenil comprometida con la salud sexual y reproductiva de los jóvenes benianos.
+                    </p>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="directiva.html">Directiva</a></li>
+                        <li><a href="actividades.html">Actividades</a></li>
+                        <li><a href="juegos.html">Juegos</a></li>
+                        <li><a href="materiales.html">Materiales</a></li>
+                        <li><a href="index.html#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-social">
+                    <h4>Síguenos en redes</h4>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/profile.php?id=61552371105965&mibextid=ZbWKwL"
+                            target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/pdpeaj_beni?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                            target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.tiktok.com/@pl.dptal.beni?is_from_webapp=1&sender_device=pc"
+                            target="_blank"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                    <p style="margin-top: 20px; opacity: 0.8;">¡Sé parte del cambio! Únete a nuestra plataforma juvenil.
+                    </p>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; PDPEAJ-Beni</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Variables globales
+        let juegoActual = null;
+        let quizActivo = false;
+        let quizTiempoRestante = 60;
+        let quizIntervalo = null;
+        let memoriaCartas = [];
+        let memoriaCartasVolteadas = [];
+        let memoriaParejasEncontradas = 0;
+        let memoriaMovimientos = 0;
+        let memoriaTiempoInicio = 0;
+        let memoriaIntervalo = null;
+
+        // Datos para los juegos
+        const datosQuiz = [
+            {
+                pregunta: "¿A partir de qué edad pueden los adolescentes acceder a servicios de salud sexual sin permiso parental en Bolivia?",
+                opciones: ["12 años", "14 años", "16 años", "18 años"],
+                correcta: 1,
+                explicacion: "La Ley 548 establece que a partir de los 14 años, los adolescentes pueden acceder autónomamente a servicios de salud sexual y reproductiva."
+            },
+            {
+                pregunta: "¿Cuál es el único método anticonceptivo que protege tanto de embarazos como de ITS?",
+                opciones: ["Pastilla anticonceptiva", "DIU", "Preservativo", "Implante subdérmico"],
+                correcta: 2,
+                explicacion: "El preservativo (condón) es el único método que ofrece doble protección: previene embarazos y reduce el riesgo de infecciones de transmisión sexual."
+            },
+            {
+                pregunta: "¿Cuál de estas opciones NO es un método anticonceptivo reversible?",
+                opciones: ["DIU", "Implante", "Vasectomía", "Anillo vaginal"],
+                correcta: 2,
+                explicacion: "La vasectomía es considerada un método permanente, aunque en algunos casos puede revertirse con cirugía compleja."
+            },
+            {
+                pregunta: "¿Cuánto tiempo después de una relación sin protección es efectiva la pastilla del día después?",
+                opciones: ["24 horas", "72 horas", "5 días", "7 días"],
+                correcta: 1,
+                explicacion: "La pastilla del día después es más efectiva dentro de las primeras 72 horas (3 días) después de la relación sin protección."
+            },
+            {
+                pregunta: "¿Qué significa ITS?",
+                opciones: [
+                    "Infecciones de Transmisión Social",
+                    "Infecciones de Transmisión Sexual",
+                    "Infecciones de Tipo Sexual",
+                    "Infecciones de Transmisión Secundaria"
+                ],
+                correcta: 1,
+                explicacion: "ITS significa Infecciones de Transmisión Sexual, que se transmiten principalmente a través del contacto sexual."
+            }
+        ];
+
+        const datosMemoria = [
+            { metodo: "Preservativo", caracteristica: "Protege de ITS y embarazos" },
+            { metodo: "Pastilla anticonceptiva", caracteristica: "Uso diario, alta efectividad" },
+            { metodo: "DIU", caracteristica: "Duración 3-10 años" },
+            { metodo: "Implante subdérmico", caracteristica: "Barrilla en el brazo, 3 años" },
+            { metodo: "Anillo vaginal", caracteristica: "Uso mensual, liberación hormonal" },
+            { metodo: "Parche anticonceptivo", caracteristica: "Uso semanal, adhesivo en la piel" }
+        ];
+
+        // Inicialización cuando el DOM esté listo
+        document.addEventListener('DOMContentLoaded', function () {
+            // Configurar clics en las tarjetas de juegos
+            document.querySelectorAll('.juego-card').forEach(card => {
+                card.addEventListener('click', function () {
+                    const juego = this.dataset.juego;
+                    abrirModalJuego(juego);
+                });
+            });
+
+            // Configurar botones de cerrar modal
+            document.querySelectorAll('.modal-close').forEach(btn => {
+                btn.addEventListener('click', function () {
+                    const modal = this.dataset.modal;
+                    cerrarModalJuego(modal);
+                });
+            });
+
+            // Cerrar modal al hacer clic fuera
+            document.querySelectorAll('.juego-modal').forEach(modal => {
+                modal.addEventListener('click', function (e) {
+                    if (e.target === this) {
+                        this.style.display = 'none';
+                    }
+                });
+            });
+
+            // Inicializar juego Verdadero o Falso
+            inicializarVerdaderoFalso();
+
+            // Inicializar juego Acertijos
+            inicializarAcertijos();
+
+            // Inicializar juego Quiz
+            inicializarQuiz();
+
+            // Inicializar juego Memoria
+            inicializarMemoria();
+        });
+
+        // Funciones para abrir/cerrar modales
+        function abrirModalJuego(juego) {
+            juegoActual = juego;
+            document.getElementById(`modal-${juego}`).style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function cerrarModalJuego(juego) {
+            document.getElementById(`modal-${juego}`).style.display = 'none';
+            document.body.style.overflow = 'auto';
+
+            // Detener temporizadores si están activos
+            if (juego === 'quiz') {
+                clearInterval(quizIntervalo);
+                quizActivo = false;
+            }
+            if (juego === 'memoria') {
+                clearInterval(memoriaIntervalo);
+            }
+        }
+
+        // Juego 1: Verdadero o Falso
+        function inicializarVerdaderoFalso() {
+            // Configurar botones de opciones
+            document.querySelectorAll('.vf-btn').forEach(btn => {
+                btn.addEventListener('click', function () {
+                    const pregunta = this.closest('.vf-pregunta');
+                    const todasOpciones = pregunta.querySelectorAll('.vf-btn');
+
+                    // Remover selección previa
+                    todasOpciones.forEach(opcion => {
+                        opcion.classList.remove('selected');
+                    });
+
+                    // Seleccionar la opción actual
+                    this.classList.add('selected');
+                });
+            });
+
+            // Configurar botón Revisar Respuestas
+            document.getElementById('vf-revisar').addEventListener('click', function () {
+                revisarVerdaderoFalso();
+            });
+
+            // Configurar botón Reiniciar
+            document.getElementById('vf-reiniciar').addEventListener('click', function () {
+                reiniciarVerdaderoFalso();
+            });
+
+            // Configurar botón Jugar Otra Vez
+            document.getElementById('vf-jugar-otra').addEventListener('click', function () {
+                reiniciarVerdaderoFalso();
+                document.getElementById('vf-resultado').classList.remove('show');
+            });
+        }
+
+        function revisarVerdaderoFalso() {
+            const preguntas = document.querySelectorAll('.vf-pregunta');
+            let correctas = 0;
+            let total = preguntas.length;
+
+            preguntas.forEach(pregunta => {
+                const opcionCorrecta = pregunta.dataset.correct; // "verdadero" o "falso"
+                const opcionSeleccionada = pregunta.querySelector('.vf-btn.selected');
+                const feedbackCorrecto = pregunta.querySelector('.vf-feedback.correct');
+                const feedbackIncorrecto = pregunta.querySelector('.vf-feedback.incorrect');
+
+                // Ocultar todos los feedbacks
+                feedbackCorrecto.style.display = 'none';
+                feedbackIncorrecto.style.display = 'none';
+
+                if (opcionSeleccionada) {
+                    const esCorrecta = opcionSeleccionada.classList.contains(opcionCorrecta);
+
+                    // Marcar visualmente la respuesta
+                    opcionSeleccionada.classList.add(esCorrecta ? 'correct' : 'incorrect');
+
+                    // Mostrar feedback
+                    if (esCorrecta) {
+                        feedbackCorrecto.style.display = 'block';
+                        correctas++;
+                    } else {
+                        feedbackIncorrecto.style.display = 'block';
+                    }
+                } else {
+                    // Si no se seleccionó nada, mostrar feedback incorrecto
+                    feedbackIncorrecto.style.display = 'block';
+                }
+            });
+
+            // Mostrar resultados
+            const puntajeElement = document.getElementById('vf-puntaje');
+            const mensajeElement = document.getElementById('vf-mensaje');
+
+            puntajeElement.textContent = `${correctas}/${total}`;
+
+            // Personalizar mensaje según puntaje
+            if (correctas === total) {
+                mensajeElement.textContent = '¡Excelente! Dominas completamente el tema.';
+            } else if (correctas >= total * 0.7) {
+                mensajeElement.textContent = '¡Muy bien! Tienes buenos conocimientos sobre el tema.';
+            } else if (correctas >= total * 0.5) {
+                mensajeElement.textContent = 'Buen intento. Sigue aprendiendo sobre salud sexual.';
+            } else {
+                mensajeElement.textContent = 'Es importante seguir informándose sobre estos temas. ¡No te rindas!';
+            }
+
+            document.getElementById('vf-resultado').classList.add('show');
+        }
+
+        function reiniciarVerdaderoFalso() {
+            document.querySelectorAll('.vf-pregunta').forEach(pregunta => {
+                const opciones = pregunta.querySelectorAll('.vf-btn');
+                opciones.forEach(opcion => {
+                    opcion.classList.remove('selected', 'correct', 'incorrect');
+                });
+
+                const feedbacks = pregunta.querySelectorAll('.vf-feedback');
+                feedbacks.forEach(feedback => {
+                    feedback.style.display = 'none';
+                });
+            });
+        }
+
+        // Juego 2: Acertijos
+        function inicializarAcertijos() {
+            // Configurar eventos para los botones de opciones
+            document.querySelectorAll('.acertijo-btn').forEach(btn => {
+                btn.addEventListener('click', function () {
+                    const pregunta = this.closest('.acertijo-pregunta');
+                    const todasOpciones = pregunta.querySelectorAll('.acertijo-btn');
+
+                    // Remover selección previa
+                    todasOpciones.forEach(opcion => {
+                        opcion.classList.remove('selected');
+                    });
+
+                    // Seleccionar la opción actual
+                    this.classList.add('selected');
+
+                    // Mostrar explicación inmediatamente
+                    const explicacion = pregunta.querySelector('.acertijo-explicacion');
+                    explicacion.classList.add('show');
+                });
+            });
+
+            // Configurar botón Verificar Respuestas
+            document.getElementById('acertijo-verificar').addEventListener('click', function () {
+                revisarAcertijos();
+            });
+
+            // Configurar botón Reiniciar
+            document.getElementById('acertijo-reiniciar').addEventListener('click', function () {
+                reiniciarAcertijos();
+            });
+
+            // Configurar botón Intentar Nuevamente
+            document.getElementById('acertijo-nuevo').addEventListener('click', function () {
+                reiniciarAcertijos();
+                document.getElementById('acertijo-resultado').classList.remove('show');
+            });
+        }
+
+        function revisarAcertijos() {
+            const preguntas = document.querySelectorAll('.acertijo-pregunta');
+            let correctas = 0;
+            let total = preguntas.length;
+
+            preguntas.forEach(pregunta => {
+                const respuestaCorrecta = parseInt(pregunta.dataset.correct);
+                const opcionSeleccionada = pregunta.querySelector('.acertijo-btn.selected');
+
+                if (opcionSeleccionada) {
+                    const opcionSeleccionadaNum = parseInt(opcionSeleccionada.dataset.opcion);
+                    const esCorrecta = opcionSeleccionadaNum === respuestaCorrecta;
+
+                    // Marcar visualmente la respuesta
+                    opcionSeleccionada.classList.add(esCorrecta ? 'correct' : 'incorrect');
+
+                    if (esCorrecta) {
+                        correctas++;
+                    }
+                }
+            });
+
+            // Mostrar resultados
+            const puntajeElement = document.getElementById('acertijo-puntaje');
+            const mensajeElement = document.getElementById('acertijo-mensaje');
+
+            puntajeElement.textContent = `${correctas}/${total}`;
+
+            // Personalizar mensaje según puntaje
+            if (correctas === total) {
+                mensajeElement.textContent = '¡Perfecto! Eres un experto en salud sexual.';
+            } else if (correctas >= total - 1) {
+                mensajeElement.textContent = '¡Excelente! Tus conocimientos son muy buenos.';
+            } else if (correctas >= total / 2) {
+                mensajeElement.textContent = 'Buen trabajo, pero aún hay temas por aprender.';
+            } else {
+                mensajeElement.textContent = 'Sigue informándote sobre estos temas importantes para tu salud.';
+            }
+
+            document.getElementById('acertijo-resultado').classList.add('show');
+        }
+
+        function reiniciarAcertijos() {
+            document.querySelectorAll('.acertijo-pregunta').forEach(pregunta => {
+                const opciones = pregunta.querySelectorAll('.acertijo-btn');
+                opciones.forEach(opcion => {
+                    opcion.classList.remove('selected', 'correct', 'incorrect');
+                });
+
+                const explicacion = pregunta.querySelector('.acertijo-explicacion');
+                explicacion.classList.remove('show');
+            });
+        }
+
+        // Juego 3: Quiz Rápido
+        function inicializarQuiz() {
+            cargarPreguntasQuiz();
+
+            // Configurar botones
+            document.getElementById('quiz-iniciar').addEventListener('click', function () {
+                iniciarQuiz();
+            });
+
+            document.getElementById('quiz-finalizar').addEventListener('click', function () {
+                finalizarQuiz();
+            });
+
+            document.getElementById('quiz-reintentar').addEventListener('click', function () {
+                reiniciarQuiz();
+                document.getElementById('quiz-resultado').classList.remove('show');
+            });
+        }
+
+        function cargarPreguntasQuiz() {
+            const container = document.getElementById('quiz-preguntas');
+            container.innerHTML = '';
+
+            datosQuiz.forEach((pregunta, index) => {
+                const preguntaHTML = `
+                    <div class="acertijo-pregunta" data-correct="${pregunta.correcta}">
+                        <h4>${index + 1}. ${pregunta.pregunta}</h4>
+                        <div class="acertijo-opciones">
+                            ${pregunta.opciones.map((opcion, i) => `
+                                <button class="acertijo-btn" data-opcion="${i}">${opcion}</button>
+                            `).join('')}
+                        </div>
+                        <div class="acertijo-explicacion">
+                            <strong>Explicación:</strong> ${pregunta.explicacion}
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += preguntaHTML;
+            });
+
+            // Configurar eventos para las opciones
+            document.querySelectorAll('#quiz-preguntas .acertijo-btn').forEach(btn => {
+                btn.addEventListener('click', function () {
+                    if (!quizActivo) return;
+
+                    const pregunta = this.closest('.acertijo-pregunta');
+                    const todasOpciones = pregunta.querySelectorAll('.acertijo-btn');
+
+                    // Remover selección previa
+                    todasOpciones.forEach(opcion => {
+                        opcion.classList.remove('selected');
+                    });
+
+                    // Seleccionar la opción actual
+                    this.classList.add('selected');
+                });
+            });
+        }
+
+        function iniciarQuiz() {
+            quizActivo = true;
+            quizTiempoRestante = 60;
+
+            // Ocultar botón iniciar, mostrar finalizar
+            document.getElementById('quiz-iniciar').style.display = 'none';
+            document.getElementById('quiz-finalizar').style.display = 'flex';
+
+            // Reiniciar selecciones
+            document.querySelectorAll('#quiz-preguntas .acertijo-btn').forEach(btn => {
+                btn.classList.remove('selected', 'correct', 'incorrect');
+            });
+
+            // Ocultar explicaciones
+            document.querySelectorAll('#quiz-preguntas .acertijo-explicacion').forEach(exp => {
+                exp.classList.remove('show');
+            });
+
+            // Ocultar resultado anterior
+            document.getElementById('quiz-resultado').classList.remove('show');
+
+            // Iniciar temporizador
+            actualizarTemporizadorQuiz();
+            quizIntervalo = setInterval(() => {
+                quizTiempoRestante--;
+                actualizarTemporizadorQuiz();
+
+                if (quizTiempoRestante <= 0) {
+                    finalizarQuiz();
+                }
+            }, 1000);
+        }
+
+        function actualizarTemporizadorQuiz() {
+            document.getElementById('quiz-tiempo').textContent = quizTiempoRestante;
+
+            // Cambiar color si el tiempo es crítico
+            const tiempoElement = document.getElementById('quiz-temporizador');
+            if (quizTiempoRestante <= 10) {
+                tiempoElement.style.color = '#c62828';
+                tiempoElement.style.fontWeight = 'bold';
+            } else {
+                tiempoElement.style.color = '';
+                tiempoElement.style.fontWeight = '';
+            }
+        }
+
+        function finalizarQuiz() {
+            quizActivo = false;
+            clearInterval(quizIntervalo);
+
+            // Mostrar botón iniciar, ocultar finalizar
+            document.getElementById('quiz-iniciar').style.display = 'flex';
+            document.getElementById('quiz-finalizar').style.display = 'none';
+
+            // Calcular resultados
+            const preguntas = document.querySelectorAll('#quiz-preguntas .acertijo-pregunta');
+            let correctas = 0;
+            let total = preguntas.length;
+
+            preguntas.forEach(pregunta => {
+                const respuestaCorrecta = parseInt(pregunta.dataset.correct);
+                const opcionSeleccionada = pregunta.querySelector('.acertijo-btn.selected');
+
+                if (opcionSeleccionada) {
+                    const opcionSeleccionadaNum = parseInt(opcionSeleccionada.dataset.opcion);
+                    const esCorrecta = opcionSeleccionadaNum === respuestaCorrecta;
+
+                    // Marcar visualmente la respuesta
+                    opcionSeleccionada.classList.add(esCorrecta ? 'correct' : 'incorrect');
+
+                    // Mostrar explicación
+                    const explicacion = pregunta.querySelector('.acertijo-explicacion');
+                    explicacion.classList.add('show');
+
+                    if (esCorrecta) {
+                        correctas++;
+                    }
+                }
+            });
+
+            // Mostrar resultados
+            const puntajeElement = document.getElementById('quiz-puntaje');
+            const mensajeElement = document.getElementById('quiz-mensaje');
+
+            puntajeElement.textContent = `${correctas}/${total}`;
+
+            // Personalizar mensaje según puntaje
+            let mensaje = '';
+            if (correctas === total) {
+                mensaje = '¡Perfecto! Eres un experto en prevención.';
+            } else if (correctas >= total - 1) {
+                mensaje = '¡Excelente! Tus conocimientos son muy buenos.';
+            } else if (correctas >= total / 2) {
+                mensaje = 'Buen trabajo, pero aún hay temas por aprender.';
+            } else {
+                mensaje = 'Sigue informándote sobre estos temas importantes para tu salud.';
+            }
+
+            // Añadir información sobre el tiempo
+            if (quizTiempoRestante > 30) {
+                mensaje += ' ¡Y fuiste muy rápido!';
+            } else if (quizTiempoRestante <= 10) {
+                mensaje += ' Casi se te acaba el tiempo.';
+            }
+
+            mensajeElement.textContent = mensaje;
+            document.getElementById('quiz-resultado').classList.add('show');
+        }
+
+        function reiniciarQuiz() {
+            cargarPreguntasQuiz();
+            quizTiempoRestante = 60;
+            document.getElementById('quiz-tiempo').textContent = '60';
+            document.getElementById('quiz-temporizador').style.color = '';
+            document.getElementById('quiz-temporizador').style.fontWeight = '';
+        }
+
+        // Juego 4: Memoria
+        function inicializarMemoria() {
+            // Configurar botones
+            document.getElementById('memoria-iniciar').addEventListener('click', function () {
+                iniciarJuegoMemoria();
+            });
+
+            document.getElementById('memoria-reiniciar').addEventListener('click', function () {
+                reiniciarMemoria();
+            });
+
+            document.getElementById('memoria-nuevo').addEventListener('click', function () {
+                iniciarJuegoMemoria();
+                document.getElementById('memoria-resultado').classList.remove('show');
+            });
+        }
+
+        function iniciarJuegoMemoria() {
+            // Crear tablero
+            crearTableroMemoria();
+
+            // Iniciar estadísticas
+            memoriaMovimientos = 0;
+            memoriaParejasEncontradas = 0;
+            memoriaCartasVolteadas = [];
+
+            // Actualizar estadísticas
+            actualizarEstadisticasMemoria();
+
+            // Iniciar temporizador
+            memoriaTiempoInicio = Date.now();
+            clearInterval(memoriaIntervalo);
+            memoriaIntervalo = setInterval(actualizarTiempoMemoria, 1000);
+
+            // Mostrar tablero
+            document.getElementById('memoria-tablero').style.display = 'grid';
+            document.getElementById('memoria-iniciar').style.display = 'none';
+        }
+
+        function crearTableroMemoria() {
+            const tablero = document.getElementById('memoria-tablero');
+            tablero.innerHTML = '';
+            tablero.style.display = 'grid';
+            tablero.style.gridTemplateColumns = 'repeat(4, 1fr)';
+            tablero.style.gap = '10px';
+
+            // Duplicar y mezclar las cartas
+            memoriaCartas = [...datosMemoria, ...datosMemoria];
+            memoriaCartas = memoriaCartas.sort(() => Math.random() - 0.5);
+
+            // Crear cartas
+            memoriaCartas.forEach((carta, index) => {
+                const cardElement = document.createElement('div');
+                cardElement.className = 'memoria-carta';
+                cardElement.dataset.index = index;
+                cardElement.dataset.metodo = carta.metodo;
+                cardElement.dataset.caracteristica = carta.caracteristica;
+
+                // Parte frontal (oculta)
+                const front = document.createElement('div');
+                front.className = 'memoria-carta-front';
+                front.innerHTML = '<i class="fas fa-question"></i>';
+
+                // Parte posterior (contenido)
+                const back = document.createElement('div');
+                back.className = 'memoria-carta-back';
+
+                if (index % 2 === 0) {
+                    back.innerHTML = `<h5>${carta.metodo}</h5><p>Método anticonceptivo</p>`;
+                } else {
+                    back.innerHTML = `<h5>${carta.caracteristica}</h5><p>Característica</p>`;
+                }
+
+                cardElement.appendChild(front);
+                cardElement.appendChild(back);
+
+                // Evento al hacer clic
+                cardElement.addEventListener('click', function () {
+                    if (this.classList.contains('volteada') ||
+                        this.classList.contains('encontrada') ||
+                        memoriaCartasVolteadas.length >= 2) {
+                        return;
+                    }
+
+                    voltearCartaMemoria(this);
+                });
+
+                tablero.appendChild(cardElement);
+            });
+
+            // Agregar estilos dinámicamente
+            const style = document.createElement('style');
+            style.textContent = `
+                .memoria-carta {
+                    width: 100%;
+                    height: 120px;
+                    position: relative;
+                    cursor: pointer;
+                    transform-style: preserve-3d;
+                    transition: transform 0.6s;
+                    border-radius: 8px;
+                    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+                }
+                
+                .memoria-carta.volteada {
+                    transform: rotateY(180deg);
+                }
+                
+                .memoria-carta.encontrada {
+                    opacity: 0.7;
+                    cursor: default;
+                }
+                
+                .memoria-carta-front, .memoria-carta-back {
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    backface-visibility: hidden;
+                    border-radius: 8px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 15px;
+                    text-align: center;
+                }
+                
+                .memoria-carta-front {
+                    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+                    color: white;
+                    font-size: 40px;
+                }
+                
+                .memoria-carta-back {
+                    background-color: white;
+                    color: var(--dark);
+                    transform: rotateY(180deg);
+                    border: 2px solid var(--light-gray);
+                }
+                
+                .memoria-carta-back h5 {
+                    margin: 0 0 10px 0;
+                    font-size: 1rem;
+                    color: var(--primary);
+                }
+                
+                .memoria-carta-back p {
+                    margin: 0;
+                    font-size: 0.8rem;
+                    color: var(--gray);
+                }
+                
+                #memoria-estadisticas {
+                    display: flex;
+                    justify-content: center;
+                    gap: 30px;
+                    margin-bottom: 20px;
+                    font-size: 1.1rem;
+                    color: var(--dark);
+                }
+                
+                #memoria-estadisticas i {
+                    margin-right: 8px;
+                    color: var(--primary);
+                }
+            `;
+            document.head.appendChild(style);
+        }
+
+        function voltearCartaMemoria(carta) {
+            carta.classList.add('volteada');
+            memoriaCartasVolteadas.push(carta);
+
+            if (memoriaCartasVolteadas.length === 2) {
+                memoriaMovimientos++;
+                actualizarEstadisticasMemoria();
+                verificarParejaMemoria();
+            }
+        }
+
+        function verificarParejaMemoria() {
+            const [carta1, carta2] = memoriaCartasVolteadas;
+
+            // Determinar qué carta es método y cuál es característica
+            let cartaMetodo, cartaCaracteristica;
+            if (parseInt(carta1.dataset.index) % 2 === 0) {
+                cartaMetodo = carta1;
+                cartaCaracteristica = carta2;
+            } else {
+                cartaMetodo = carta2;
+                cartaCaracteristica = carta1;
+            }
+
+            // Verificar si hacen pareja
+            const hacePareja =
+                cartaMetodo.dataset.metodo === cartaCaracteristica.dataset.metodo &&
+                cartaMetodo.dataset.caracteristica === cartaCaracteristica.dataset.caracteristica;
+
+            if (hacePareja) {
+                // Pareja encontrada
+                cartaMetodo.classList.add('encontrada');
+                cartaCaracteristica.classList.add('encontrada');
+                memoriaParejasEncontradas++;
+
+                memoriaCartasVolteadas = [];
+
+                // Verificar si se completó el juego
+                if (memoriaParejasEncontradas === datosMemoria.length) {
+                    finalizarJuegoMemoria();
+                }
+            } else {
+                // No hacen pareja, voltear de nuevo después de un tiempo
+                setTimeout(() => {
+                    carta1.classList.remove('volteada');
+                    carta2.classList.remove('volteada');
+                    memoriaCartasVolteadas = [];
+                }, 1000);
+            }
+        }
+
+        function actualizarEstadisticasMemoria() {
+            document.getElementById('memoria-movimientos').textContent = memoriaMovimientos;
+        }
+
+        function actualizarTiempoMemoria() {
+            const tiempoTranscurrido = Math.floor((Date.now() - memoriaTiempoInicio) / 1000);
+            document.getElementById('memoria-tiempo').textContent = tiempoTranscurrido;
+        }
+
+        function finalizarJuegoMemoria() {
+            clearInterval(memoriaIntervalo);
+            const tiempoFinal = Math.floor((Date.now() - memoriaTiempoInicio) / 1000);
+
+            // Mostrar resultados
+            const puntajeElement = document.getElementById('memoria-puntaje');
+            const mensajeElement = document.getElementById('memoria-mensaje');
+
+            puntajeElement.textContent = `${memoriaMovimientos} movimientos`;
+
+            let mensaje = `Completaste el juego en ${tiempoFinal} segundos. `;
+            if (memoriaMovimientos <= datosMemoria.length + 2) {
+                mensaje += '¡Excelente memoria!';
+            } else if (memoriaMovimientos <= datosMemoria.length * 2) {
+                mensaje += '¡Buen trabajo!';
+            } else {
+                mensaje += '¡Sigue practicando!';
+            }
+
+            mensajeElement.textContent = mensaje;
+            document.getElementById('memoria-resultado').classList.add('show');
+        }
+
+        function reiniciarMemoria() {
+            clearInterval(memoriaIntervalo);
+            iniciarJuegoMemoria();
+        }
+    </script>
+    <script>
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        const mainMenu = document.getElementById('main-menu');
+
+        mobileMenuToggle.addEventListener('click', function () {
+            mainMenu.style.display = mainMenu.style.display === 'flex' ? 'none' : 'flex';
+            mainMenu.style.flexDirection = 'column';
+            mainMenu.style.position = 'absolute';
+            mainMenu.style.top = '100%';
+            mainMenu.style.left = '0';
+            mainMenu.style.width = '100%';
+            mainMenu.style.backgroundColor = 'var(--white)';
+            mainMenu.style.padding = '20px';
+            mainMenu.style.boxShadow = '0 10px 15px rgba(0,0,0,0.1)';
+            mainMenu.style.gap = '15px';
+            mainMenu.style.zIndex = '1000';
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a, .hero-buttons a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                // Solo prevenir comportamiento si es un enlace interno (#)
+                if (this.getAttribute('href').startsWith('#')) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+
+                // Close mobile menu if open
+                if (window.innerWidth <= 768) {
+                    mainMenu.style.display = 'none';
+                }
+            });
+        });
+
+        // Adjust menu on window resize
+        window.addEventListener('resize', function () {
+            if (window.innerWidth > 768) {
+                mainMenu.style.display = 'flex';
+                mainMenu.style.flexDirection = 'row';
+                mainMenu.style.position = 'static';
+                mainMenu.style.backgroundColor = 'transparent';
+                mainMenu.style.padding = '0';
+                mainMenu.style.boxShadow = 'none';
+                mainMenu.style.gap = '30px';
+            } else {
+                mainMenu.style.display = 'none';
+            }
+        });
+
+        // Highlight active menu item based on current page
+        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        document.querySelectorAll('nav a').forEach(link => {
+            const linkPage = link.getAttribute('href');
+
+            // Si estamos en index.html y el enlace es index.html o #
+            if (currentPage === 'index.html' && (linkPage === 'index.html' || linkPage === '#')) {
+                link.classList.add('active');
+            }
+            // Si el enlace coincide con la página actual
+            else if (linkPage === currentPage) {
+                link.classList.add('active');
+            }
+            // Si estamos en una página específica y el enlace es a esa página
+            else if (linkPage === currentPage) {
+                link.classList.add('active');
+            }
+
+            // Remover active de otros enlaces
+            if (!link.classList.contains('active')) {
+                link.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+
+</html>
